@@ -1,0 +1,6 @@
+bohr_model
+dataset_*.jsonl
+log.log
+venv
+conventional_commits_changes.jsonl
+.idea
