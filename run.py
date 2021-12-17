@@ -22,13 +22,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, Optional, Tuple, List
 
-from pymongo import MongoClient, UpdateOne
 from scipy.special import softmax
-from tqdm import tqdm
+
+from artifactexplorer import upload_transformer_labels, load_test_dataset, load_conventional_commit_changes
 
 os.environ["WANDB_DISABLED"] = "true"
 
-import jsonlines
 import numpy as np
 import torch
 from sklearn.metrics import accuracy_score, classification_report, f1_score
@@ -49,53 +48,10 @@ logger = logging.getLogger(__name__)
 
 reload_from_commit_explorer = False
 
-username = 'write-user'
-password = '' #add password here if you want to load changes to commit explorer
-db = MongoClient(f'mongodb://{username}:{password}@10.10.20.160:27017')['commit_explorer']
 
 MAX_LENGTH = 512
 
 NEXT_FILE_TOKEN = '<nextfile>'
-
-
-def load_from_commit_explorer(db, query, dataset_file, reload_from_commit_explorer, label_func = None):
-    file_exists = Path(dataset_file).exists()
-    if not reload_from_commit_explorer and not file_exists:
-        print(f"File {Path(dataset_file)} does not exists")
-    if reload_from_commit_explorer or not file_exists:
-        print(f"Loading artifacts for {query} from commit explorer to {dataset_file}")
-        commits = db.commits.find(query)
-        dataset = []
-        for commit in tqdm(commits):
-            lst = []
-            if 'files' in commit:
-                for file in commit['files']:
-                    if isinstance(file, str):
-                        continue
-                    file_change = file['change'] if 'change' in file else (file['changes'] if 'changes' in file else '')
-                    lst.append(file['filename'] + f' {NEXT_FILE_TOKEN} ' + file_change)
-            else:
-                print('Warn: "files" is not in commit!')
-            change = '\n'.join(lst)
-            dct = {'sha': commit['_id'], 'change': change}
-            if label_func is not None:
-                dct['label'] = label_func(commit)
-            dataset.append(dct)
-        with jsonlines.open(dataset_file, 'w') as writer:
-            writer.write_all(dataset)
-    else:
-        print(f"Loading dataset from file: {dataset_file}")
-        with jsonlines.open(dataset_file) as reader:
-            dataset = [i for i in reader]
-    return dataset
-
-
-def load_change_label_pairs(dataset_file, reload_from_commit_explorer) -> List[Dict]:
-    return load_from_commit_explorer(db, {'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, dataset_file, reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())
-
-
-def load_test_dataset(id: str, dataset_file, reload_from_commit_explorer):
-    return load_from_commit_explorer(db, {id: {"$exists":  True}}, dataset_file, reload_from_commit_explorer)
 
 
 @dataclass
@@ -130,15 +86,19 @@ class ModelArguments:
     eval_test: bool = field(default=False)
 
 
+def condense_changes(changes: List[Dict]) -> str:
+    # very naive way
+    return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in changes])[:MAX_LENGTH * 10]
+
 def tokenize_dataset(ds, tokenizer, label_map, no_ground_truth):
     changes = []
     labels = []
     total_chars_in_batch = 0
-    for elm in ds:
-        cut_change = elm['change'][:MAX_LENGTH*10]
+    for datapoint in ds:
+        cut_change = condense_changes(datapoint['changes'])
         changes.append(cut_change)
         if not no_ground_truth:
-            labels.append(label_map[elm['label']])
+            labels.append(label_map[datapoint['label']])
         total_chars_in_batch += len(cut_change)
 
     print(f'Tokenizing another chunk of data with length {len(changes)}, '
@@ -327,17 +287,6 @@ def predict(trainer, dataset, ids_to_labels, save_to):
                 writer.write("%s,%s,%f\n" % (datapoint['sha'], ids_to_labels[label], probability))
 
 
-def load_to_artifact_explorer(file):
-    operations = []
-    with open(file) as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        _ = next(reader)
-        for sha, label, probability in reader:
-            update = {'$set': {"bohr.change_transformer_label/0_1": {'label': label, 'probability': probability}}}
-            operations.append(UpdateOne({"_id": sha}, update, upsert=True))
-
-        db.commits.bulk_write(operations)
-
 
 def main(dataset_id):
     # See all possible arguments in src/transformers/training_args.py
@@ -349,12 +298,12 @@ def main(dataset_id):
     print(model_args)
     print(training_args)
 
-    dataset = load_change_label_pairs('conventional_commits_changes.jsonl', reload_from_commit_explorer)
+    dataset = load_conventional_commit_changes('datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer)
     train_set, valid_set = split_dataset(dataset)
     print(f'Train dataset - {len(train_set)} datapoints')
     print(f'Valid dataset - {len(valid_set)} datapoints')
 
-    test_dataset = load_test_dataset(dataset_id, f'dataset_{dataset_id}.jsonl', reload_from_commit_explorer)
+    test_dataset = load_test_dataset(dataset_id, f'datasets/dataset_{dataset_id}.jsonl', reload_from_commit_explorer, None)
 
     print(f'Test dataset - {len(test_dataset)} datapoints')
 
@@ -430,7 +379,7 @@ def main(dataset_id):
         save_to = os.path.join(training_args.output_dir, f"assigned_labels_{dataset_id}.csv")
         test_dataset = to_chain_of_simple_datasets(test_dataset, tokenizer, label_map, True)
         predict(trainer, test_dataset, ids_to_labels, save_to)
-        load_to_artifact_explorer(save_to)
+        upload_transformer_labels(save_to)
     return eval_results
 
 
@@ -440,4 +389,4 @@ if __name__ == "__main__":
     sys.argv.extend(['--output_dir', 'bohr_model'])
     sys.argv.extend(['--per_device_eval_batch_size', '32'])
     sys.argv.extend(['--do_predict'])
-    main('bohr.200k_commits')
+    main('manual_labels.berger')
