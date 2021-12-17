@@ -18,13 +18,14 @@ import csv
 import json
 import logging
 import os
+from abc import abstractmethod
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Optional, Tuple, List
+from typing import Dict, Optional, Tuple, List, Type
 
 from scipy.special import softmax
 
-from artifactexplorer import upload_transformer_labels, load_test_dataset, load_conventional_commit_changes
+from artifactexplorer import load_test_dataset, load_conventional_commit_changes, load_200k_changes
 
 os.environ["WANDB_DISABLED"] = "true"
 
@@ -52,6 +53,29 @@ reload_from_commit_explorer = False
 MAX_LENGTH = 512
 
 NEXT_FILE_TOKEN = '<nextfile>'
+
+
+class LabelSource:
+    def __init__(self, label_map):
+        self.label_map = label_map
+        self.ids_to_labels = {i: l for l, i in self.label_map.items()}
+        self.label_names = sorted(self.label_map.keys())
+        self.num_labels = len(label_map)
+
+    def get_label_id_from_datapoint(self, datapoint) -> int:
+        return self.label_map[datapoint['label']]
+
+    def get_label_from_id(self, id: int) -> str:
+        return self.ids_to_labels[id]
+
+
+class LabelModelSource(LabelSource):
+    def __init__(self, label_map, label_model_name):
+        super(LabelModelSource, self).__init__(label_map)
+        self.label_model_name = label_model_name
+
+    def get_label_id_from_datapoint(self, datapoint) -> int:
+        return round(datapoint['label'][self.label_model_name]['label'])
 
 
 @dataclass
@@ -86,73 +110,95 @@ class ModelArguments:
     eval_test: bool = field(default=False)
 
 
-def condense_changes(changes: List[Dict]) -> str:
-    # very naive way
-    return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in changes])[:MAX_LENGTH * 10]
-
-def tokenize_dataset(ds, tokenizer, label_map, no_ground_truth):
-    changes = []
-    labels = []
-    total_chars_in_batch = 0
-    for datapoint in ds:
-        cut_change = condense_changes(datapoint['changes'])
-        changes.append(cut_change)
-        if not no_ground_truth:
-            labels.append(label_map[datapoint['label']])
-        total_chars_in_batch += len(cut_change)
-
-    print(f'Tokenizing another chunk of data with length {len(changes)}, '
-          f'total chars in batch: {total_chars_in_batch} (average: {float(total_chars_in_batch) / len(changes)}),')
-
-    encoding = tokenizer(
-        changes,
-        add_special_tokens=True,
-        return_attention_mask=True,
-        truncation=True,
-        padding=True,
-        max_length=MAX_LENGTH,
-        return_tensors="pt",
-    )
-
-    label_ids_dtype = torch.float32 if len(label_map) == 1 else torch.int64
-    label_ids_t = torch.tensor(labels, dtype=label_ids_dtype)
-
-    if no_ground_truth:
-        return [{
-            "input_ids": input_ids,
-            "attention_mask": attention_mask,
-            'sha': dp['sha']
-        } for attention_mask, input_ids, dp in zip(encoding["attention_mask"], encoding["input_ids"], ds)]
-    else:
-        return [{
-            "label": label,
-            "input_ids": input_ids,
-            "attention_mask": attention_mask,
-            'sha': dp['sha']
-        } for label, attention_mask, input_ids, dp in zip(label_ids_t, encoding["attention_mask"], encoding["input_ids"], ds)]
-
-
 class LazyDataset(IterableDataset):
-    def __init__(self, ds, tokenizer, label_map, no_ground_truth):
+    def __init__(self, ds, tokenizer, label_source, no_ground_truth):
         worker_info = torch.utils.data.get_worker_info()
         if worker_info is not None:
             raise AssertionError()
 
         self.ds = ds
         self.tokenizer = tokenizer
-        self.label_map = label_map
+        self.label_source = label_source
         self.no_ground_truth = no_ground_truth
 
     def __len__(self):
         return len(self.ds)
 
     def __iter__(self):
-        return iter(tokenize_dataset(self.ds, self.tokenizer, self.label_map, self.no_ground_truth))
+        return iter(self.numericalize(self.ds))
 
     @classmethod
     def from_change(cls, change, tokenizer, label_map) -> 'LazyDataset':
         return cls([{'change': change}], tokenizer, label_map, True)
 
+    @abstractmethod
+    def preprocess_input(self, datapoint: Dict) -> str:
+        pass
+
+    def numericalize(self, ds):
+        changes = []
+        labels = []
+        total_chars_in_batch = 0
+        for datapoint in ds:
+            cut_change = self.preprocess_input(datapoint)
+            changes.append(cut_change)
+            if not self.no_ground_truth:
+                labels.append(self.label_source.get_label_id_from_datapoint(datapoint))
+            total_chars_in_batch += len(cut_change)
+
+        print(f'Tokenizing another chunk of data with length {len(changes)}, '
+              f'total chars in batch: {total_chars_in_batch} (average: {float(total_chars_in_batch) / len(changes)}),')
+
+        encoding = self.tokenizer(
+            changes,
+            add_special_tokens=True,
+            return_attention_mask=True,
+            truncation=True,
+            padding=True,
+            max_length=MAX_LENGTH,
+            return_tensors="pt",
+        )
+
+        label_ids_t = torch.tensor(labels)
+
+        if self.no_ground_truth:
+            return [{
+                "input_ids": input_ids,
+                "attention_mask": attention_mask,
+                'sha': dp['sha']
+            } for attention_mask, input_ids, dp in zip(encoding["attention_mask"], encoding["input_ids"], ds)]
+        else:
+            return [{
+                "label": label,
+                "input_ids": input_ids,
+                "attention_mask": attention_mask,
+                'sha': dp['sha']
+            } for label, attention_mask, input_ids, dp in zip(label_ids_t, encoding["attention_mask"], encoding["input_ids"], ds)]
+
+
+class ChangeDataset(LazyDataset):
+    def preprocess_input(self, datapoint: Dict) -> str:
+        # very naive way
+        return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in datapoint['changes']])[:MAX_LENGTH * 10]
+
+
+@dataclass
+class Task:
+    name: str
+    dataset: str
+    dataset_class: Type
+    label_source: LabelSource
+
+    def get_pretrained_checkpoint(self) -> str:
+        if self.dataset_class.__name__ == 'ChangeDataset':
+            return "huggingface/CodeBERTa-small-v1"
+        else:
+            raise AssertionError()
+
+
+task5 = Task("task5", "200k_commits", ChangeDataset, LabelModelSource({"BigFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"))
+
+#label_source = LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}, 'conventional')
 
 def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     train, val = [], []
@@ -164,9 +210,9 @@ def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     return train, val
 
 
-def to_chain_of_simple_datasets(dataset, tokenizer, label_map, no_groud_truth=False):
+def to_chain_of_simple_datasets(dataset, cls, tokenizer, label_source, no_ground_truth=False):
     chunk_len = 2000
-    simple_datasets = [LazyDataset(dataset[i * chunk_len:(i + 1) * chunk_len], tokenizer, label_map, no_groud_truth) for i in range((len(dataset) - 1) // chunk_len + 1)]
+    simple_datasets = [cls(dataset[i * chunk_len:(i + 1) * chunk_len], tokenizer, label_source, no_ground_truth) for i in range((len(dataset) - 1) // chunk_len + 1)]
     return ChainDataset(simple_datasets)
 
 
@@ -271,7 +317,7 @@ def create_or_load_label_map(dataset: Optional[List[Dict]], path: str) -> Dict[s
     return label_map
 
 
-def predict(trainer, dataset, ids_to_labels, save_to):
+def predict(trainer, dataset, label_source, save_to):
     logging.info("*** Test ***")
 
     predictions = trainer.predict(test_dataset=dataset).predictions
@@ -284,11 +330,35 @@ def predict(trainer, dataset, ids_to_labels, save_to):
             logger.info("***** Test results *****")
             writer.write("index,prediction, probability\n")
             for datapoint, label, probability in zip(dataset, labels, probabilities):
-                writer.write("%s,%s,%f\n" % (datapoint['sha'], ids_to_labels[label], probability))
+                writer.write("%s,%s,%f\n" % (datapoint['sha'], label_source.label_from_id(label), probability))
 
 
+def evaluate(trainer, output_dir, label_names, valid_set):
+    logger.info("*** Evaluate ***")
 
-def main(dataset_id):
+    trainer.compute_metrics = lambda p: compute_metrics_fn(p, label_names)
+    eval_result = trainer.evaluate(eval_dataset=valid_set)
+
+    output_eval_file = os.path.join(
+        output_dir, f"eval_results.txt"
+    )
+    if trainer.is_world_process_zero():
+        with open(output_eval_file, "w") as writer:
+            logger.info("***** Eval results *****")
+            for key, value in eval_result.items():
+                logger.info("  %s = %s", key, value)
+                writer.write("%s = %s\n" % (key, value))
+
+
+def show_tokenization_example(dataset, tokenizer):
+    print("Tokenization example")
+    first_elm = next(iter(dataset))
+    print([tokenizer.decode(s) for s in first_elm['input_ids'].tolist()])
+    print(first_elm['input_ids'].shape)
+    print(first_elm['input_ids'].shape)
+
+
+def main(task: Task, test_dataset_id: str):
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
@@ -298,44 +368,34 @@ def main(dataset_id):
     print(model_args)
     print(training_args)
 
-    dataset = load_conventional_commit_changes('datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer)
+    if task.dataset == 'conventional':
+        dataset = load_conventional_commit_changes('datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer)
+    elif task.dataset == '200k_commits':
+        dataset = load_200k_changes('datasets/200k_commits.jsonl', False)
+    else:
+        raise AssertionError(f'Unknown dataset: {task.dataset}')
     train_set, valid_set = split_dataset(dataset)
     print(f'Train dataset - {len(train_set)} datapoints')
     print(f'Valid dataset - {len(valid_set)} datapoints')
 
-    test_dataset = load_test_dataset(dataset_id, f'datasets/dataset_{dataset_id}.jsonl', reload_from_commit_explorer, None)
+    test_dataset = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, None)
 
     print(f'Test dataset - {len(test_dataset)} datapoints')
 
-    label_map = create_or_load_label_map(dataset, os.path.join(training_args.output_dir, f"label_map.txt"))
-    ids_to_labels = {i: l for l, i in label_map.items()}
-    label_names = sorted(label_map.keys())
-    num_labels = len(label_map)
+    model, tokenizer = load_model(model_args, training_args, task.label_source.num_labels)
 
-    model, tokenizer = load_model(model_args, training_args, num_labels)
-
-    # if model_args.eval_test:
-    #     print("**** TEST EVAL *****")
-    #     eval_dataset = to_chain_of_simple_datasets(valid_set, tokenizer, label_map)
-    #     train_dataset = None
-    # else:
-    #     print("**** TRAINING ******")
-    #     train_dataset = to_chain_of_simple_datasets(train_set, tokenizer, label_map)
-    #     print("Tokenization example")
-    #     first_elm = next(iter(train_dataset))
-    #     print([tokenizer.decode(s) for s in first_elm['input_ids'].tolist()])
-    #     print(first_elm['input_ids'].shape)
-    #     print(first_elm['input_ids'].shape)
-    #
-    #     eval_dataset = to_chain_of_simple_datasets(valid_set, tokenizer, label_map)
+    print("**** TRAINING ******")
+    train_dataset = to_chain_of_simple_datasets(train_set, task.dataset_class, tokenizer, task.label_source)
+    valid_dataset = to_chain_of_simple_datasets(valid_set, task.dataset_class, tokenizer, task.label_source)
+    show_tokenization_example(train_dataset, tokenizer)
 
     # Initialize our Trainer
     trainer = Trainer(
         model=model,
         args=training_args,
-        # train_dataset=train_dataset,
-        # eval_dataset=eval_dataset,
-        compute_metrics=lambda p: compute_metrics_fn(p, label_names),
+        train_dataset=train_dataset,
+        eval_dataset=valid_dataset,
+        compute_metrics=lambda p: compute_metrics_fn(p, task.label_source.label_names),
     )
 
     # Training
@@ -352,41 +412,29 @@ def main(dataset_id):
             tokenizer.save_pretrained(training_args.output_dir)
 
     # Evaluation
-    eval_results = {}
     if training_args.do_eval:
-        logger.info("*** Evaluate ***")
-
-        # Loop to handle MNLI double evaluation (matched, mis-matched)
-        eval_datasets = [valid_set]
-
-        for eval_dataset in eval_datasets:
-            trainer.compute_metrics = lambda p: compute_metrics_fn(p, label_names)
-            eval_result = trainer.evaluate(eval_dataset=eval_dataset)
-
-            output_eval_file = os.path.join(
-                training_args.output_dir, f"eval_results.txt"
-            )
-            if trainer.is_world_process_zero():
-                with open(output_eval_file, "w") as writer:
-                    logger.info("***** Eval results *****")
-                    for key, value in eval_result.items():
-                        logger.info("  %s = %s", key, value)
-                        writer.write("%s = %s\n" % (key, value))
-
-            eval_results.update(eval_result)
+        evaluate(trainer, training_args.output_dir, task.label_source.label_names, valid_set)
 
     if training_args.do_predict:
-        save_to = os.path.join(training_args.output_dir, f"assigned_labels_{dataset_id}.csv")
-        test_dataset = to_chain_of_simple_datasets(test_dataset, tokenizer, label_map, True)
-        predict(trainer, test_dataset, ids_to_labels, save_to)
-        upload_transformer_labels(save_to)
-    return eval_results
+        save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
+        test_dataset = to_chain_of_simple_datasets(test_dataset, ChangeDataset, tokenizer, task.label_source, True)
+        predict(trainer, test_dataset, task.label_source, save_to)
+        #upload_transformer_labels(save_to)
 
 
 if __name__ == "__main__":
+    task = task5
     import sys
-    sys.argv.extend(['--model_name_or_path', "bohr_model"])
-    sys.argv.extend(['--output_dir', 'bohr_model'])
+    sys.argv.extend(['--model_name_or_path', task.get_pretrained_checkpoint()])
+    sys.argv.extend(['--output_dir', task.label_source.label_model_name])
     sys.argv.extend(['--per_device_eval_batch_size', '32'])
     sys.argv.extend(['--do_predict'])
-    main('manual_labels.berger')
+    sys.argv.extend(['--do_train'])
+    sys.argv.extend(['--do_eval'])
+    sys.argv.extend(['--per_device_train_batch_size', '32'])
+    sys.argv.extend(['--save_steps', '4000'])
+    sys.argv.extend(['--num_train_epochs', '3'])
+    sys.argv.extend(['--logging_steps', '4000'])
+    sys.argv.extend(['--eval_steps', '4000'])
+    sys.argv.extend(['--evaluation_strategy', 'steps'])
+    main(task, 'manual_labels.berger')

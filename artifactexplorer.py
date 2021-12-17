@@ -53,7 +53,7 @@ def load_conventional_commit_changes(dataset_file, reload_from_commit_explorer) 
     return load_from_commit_explorer(db, {'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, dataset_file, reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())
 
 
-def load_200_changes_changes(dataset_file, reload_from_commit_explorer) -> List[Dict]:
+def load_200k_changes(dataset_file, reload_from_commit_explorer) -> List[Dict]:
     return load_from_commit_explorer(db, {'bohr.200k_commits': {"$exists": True}}, dataset_file, reload_from_commit_explorer, lambda c: c['bohr']['label_model'])
 
 
@@ -90,5 +90,5 @@ if __name__ == '__main__':
     # for model_name in model_names:
     #     path = f'/Users/hlib/dev/bohr-workdir-bugginess/runs/bugginess/{model_name}/bohr.200k_commits/labeled.csv'
     #     upload_label_model_labels(path, model_name)
-    load_200_changes_changes('datasets/200k_commits.jsonl', False)
+    load_200k_changes('datasets/200k_commits.jsonl', False)
 
