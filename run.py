@@ -66,9 +66,6 @@ class LabelSource:
         return self.ids_to_labels[id]
 
 
-LabelSourceType = TypeVar('LabelSourceType', bound=LabelSource)
-
-
 class LabelModelSource(LabelSource):
     def __init__(self, label_map, label_model_name):
         super(LabelModelSource, self).__init__(label_map)
@@ -76,6 +73,9 @@ class LabelModelSource(LabelSource):
 
     def get_label_id_from_datapoint(self, datapoint) -> int:
         return round(datapoint['label'][self.label_model_name]['label'])
+
+
+LabelSourceType = TypeVar('LabelSourceType', bound=LabelSource)
 
 
 @dataclass
@@ -200,6 +200,7 @@ class Task:
     dataset: str
     dataset_class: Type[LazyDatasetType]
     label_source: LabelSourceType
+    test_label_source: LabelSourceType
 
     def get_pretrained_checkpoint(self) -> str:
         if self.dataset_class.__name__ == 'ChangeDataset':
@@ -347,11 +348,11 @@ def show_tokenization_example(dataset, tokenizer: PreTrainedTokenizer):
     print(first_elm['input_ids'].shape)
 
 
-TEST_DATASET_IDS = [
-    'manual_labels.berger',
-    'manual_labels.levin',
-    'manual_labels.herzig'
-]
+TEST_DATASETS = {
+    'manual_labels.berger': lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'),
+    'manual_labels.levin': lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'),
+    'manual_labels.herzig': lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix')
+}
 
 
 def main(task: Task):
@@ -408,19 +409,19 @@ def main(task: Task):
         evaluate(trainer, tokenized_valid_set, output_eval_file)
 
     if training_args.do_predict:
-        for test_dataset_id in TEST_DATASET_IDS:
-            test_set = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, None)
+        for test_dataset_id, func in TEST_DATASETS.items():
+            test_set = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, func)
             print(f'Test dataset ({test_dataset_id}) - {len(test_set)} datapoints')
             save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
-            tokenized_test_set = to_chain_of_simple_datasets(test_set, ChangeDataset, tokenizer, task.label_source, True)
+            tokenized_test_set = to_chain_of_simple_datasets(test_set, ChangeDataset, tokenizer, task.test_label_source)
             predict(trainer, tokenized_test_set, task.label_source, save_to)
             evaluate(trainer, tokenized_test_set, os.path.join(training_args.output_dir, f"eval_results_{test_dataset_id}.txt"))
             #upload_transformer_labels(save_to)
 
 
 tasks = {
-    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1")),
-    'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"))
+    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 0, "NonBugFix": 1})),
+    'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 0, "NonBugFix": 1}))
 }
 
 
