@@ -187,7 +187,11 @@ class ChangeDataset(LazyDataset):
 
 class MessageDataset(LazyDataset):
     def preprocess_input(self, datapoint: Dict) -> str:
-        return datapoint['message']
+        message = datapoint['message']
+        if not isinstance(message, str):
+            logger.warning(f'Strange message encountered: {message}')
+            message = str(message)
+        return message
 
 
 @dataclass
