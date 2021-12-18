@@ -385,6 +385,7 @@ def main(task: Task):
         model=model,
         args=training_args,
         train_dataset=tokenized_train_set,
+        eval_dataset=tokenized_valid_set,
         compute_metrics=lambda p: compute_metrics_fn(p, task.label_source.label_names),
     )
 
