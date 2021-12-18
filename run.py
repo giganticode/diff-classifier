@@ -185,6 +185,11 @@ class ChangeDataset(LazyDataset):
         return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in datapoint['changes']])[:MAX_LENGTH * 10]
 
 
+class MessageDataset(LazyDataset):
+    def preprocess_input(self, datapoint: Dict) -> str:
+        return datapoint['message']
+
+
 @dataclass
 class Task:
     name: str
@@ -195,11 +200,11 @@ class Task:
     def get_pretrained_checkpoint(self) -> str:
         if self.dataset_class.__name__ == 'ChangeDataset':
             return "huggingface/CodeBERTa-small-v1"
+        elif self.dataset_class.__name__ == 'MessageDataset':
+            return "giganticode/StackOBERTflow-comments-small-v1"
         else:
             raise AssertionError()
 
-
-task5 = Task("task5", "200k_commits", ChangeDataset, LabelModelSource({"BigFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"))
 
 #label_source = LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}, 'conventional')
 
@@ -319,14 +324,11 @@ def predict(trainer: Trainer, dataset, label_source: LabelSourceType, save_to: s
                 writer.write("%s,%s,%f\n" % (datapoint['sha'], label_source.get_label_from_id(label), probability))
 
 
-def evaluate(trainer: Trainer, output_dir: str) -> None:
+def evaluate(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
     logger.info("*** Evaluate ***")
-    eval_result = trainer.evaluate()
-    output_eval_file = os.path.join(
-        output_dir, f"eval_results.txt"
-    )
+    eval_result = trainer.evaluate(eval_dataset=tokenized_set)
     if trainer.is_world_process_zero():
-        with open(output_eval_file, "w") as writer:
+        with open(output_path, "w") as writer:
             logger.info("***** Eval results *****")
             for key, value in eval_result.items():
                 logger.info("  %s = %s", key, value)
@@ -379,7 +381,6 @@ def main(task: Task):
         model=model,
         args=training_args,
         train_dataset=tokenized_train_set,
-        eval_dataset=tokenized_valid_set,
         compute_metrics=lambda p: compute_metrics_fn(p, task.label_source.label_names),
     )
 
@@ -396,7 +397,10 @@ def main(task: Task):
             tokenizer.save_pretrained(training_args.output_dir)
 
     if training_args.do_eval:
-        evaluate(trainer, training_args.output_dir)
+        output_eval_file = os.path.join(
+            training_args.output_dir, f"eval_results.txt"
+        )
+        evaluate(trainer, tokenized_valid_set, output_eval_file)
 
     if training_args.do_predict:
         for test_dataset_id in TEST_DATASET_IDS:
@@ -405,14 +409,21 @@ def main(task: Task):
             save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
             tokenized_test_set = to_chain_of_simple_datasets(test_set, ChangeDataset, tokenizer, task.label_source, True)
             predict(trainer, tokenized_test_set, task.label_source, save_to)
+            evaluate(trainer, tokenized_test_set, os.path.join(training_args.output_dir, f"eval_results_{test_dataset_id}.txt"))
             #upload_transformer_labels(save_to)
 
 
+tasks = {
+    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1")),
+    'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"))
+}
+
+
 if __name__ == "__main__":
-    task = task5
+    task = tasks['task4']
     import sys
     sys.argv.extend(['--model_name_or_path', task.get_pretrained_checkpoint()])
-    sys.argv.extend(['--output_dir', task.label_source.label_model_name])
+    sys.argv.extend(['--output_dir', task.name])
     sys.argv.extend(['--per_device_eval_batch_size', '14'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--do_train'])
@@ -422,7 +433,7 @@ if __name__ == "__main__":
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
     sys.argv.extend(['--logging_steps', '4000'])
-    sys.argv.extend(['--eval_steps', '1'])
+    sys.argv.extend(['--eval_steps', '4000'])
     sys.argv.extend(['--evaluation_strategy', 'steps'])
     sys.argv.extend(['--load_best_model_at_end'])
     main(task)
