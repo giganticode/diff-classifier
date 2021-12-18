@@ -14,7 +14,7 @@ else:
     db = MongoClient(f'mongodb://read-only-user:123@10.10.20.160:27017')['commit_explorer']
 
 
-def load_from_commit_explorer(db, query, dataset_file, reload_from_commit_explorer, label_func = None):
+def load_from_commit_explorer(db, query, dataset_file, reload_from_commit_explorer, label_func = None) -> List[Dict]:
     file_exists = Path(dataset_file).exists()
     if not reload_from_commit_explorer and not file_exists:
         print(f"File {Path(dataset_file)} does not exists")
@@ -57,7 +57,7 @@ def load_200k_changes(dataset_file, reload_from_commit_explorer) -> List[Dict]:
     return load_from_commit_explorer(db, {'bohr.200k_commits': {"$exists": True}}, dataset_file, reload_from_commit_explorer, lambda c: c['bohr']['label_model'])
 
 
-def load_test_dataset(id: str, dataset_file, reload_from_commit_explorer, label_func):
+def load_test_dataset(id: str, dataset_file, reload_from_commit_explorer, label_func) -> List[Dict]:
     return load_from_commit_explorer(db, {id: {"$exists":  True}}, dataset_file, reload_from_commit_explorer, label_func)
 
 

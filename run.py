@@ -14,14 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """ Finetuning the library models for sequence classification on GLUE (Bert, XLM, XLNet, RoBERTa, Albert, XLM-RoBERTa)."""
-import csv
-import json
 import logging
 import os
 from abc import abstractmethod
 from dataclasses import dataclass, field
-from pathlib import Path
-from typing import Dict, Optional, Tuple, List, Type
+from typing import Dict, Optional, Tuple, List, Type, TypeVar
 
 from scipy.special import softmax
 
@@ -41,7 +38,7 @@ from transformers import (
     HfArgumentParser,
     Trainer,
     TrainingArguments,
-    set_seed,
+    set_seed, PreTrainedModel, PreTrainedTokenizer,
 )
 
 logger = logging.getLogger(__name__)
@@ -67,6 +64,9 @@ class LabelSource:
 
     def get_label_from_id(self, id: int) -> str:
         return self.ids_to_labels[id]
+
+
+LabelSourceType = TypeVar('LabelSourceType', bound=LabelSource)
 
 
 class LabelModelSource(LabelSource):
@@ -176,6 +176,9 @@ class LazyDataset(IterableDataset):
             } for label, attention_mask, input_ids, dp in zip(label_ids_t, encoding["attention_mask"], encoding["input_ids"], ds)]
 
 
+LazyDatasetType = TypeVar('LazyDatasetType', bound=LazyDataset)
+
+
 class ChangeDataset(LazyDataset):
     def preprocess_input(self, datapoint: Dict) -> str:
         # very naive way
@@ -186,8 +189,8 @@ class ChangeDataset(LazyDataset):
 class Task:
     name: str
     dataset: str
-    dataset_class: Type
-    label_source: LabelSource
+    dataset_class: Type[LazyDatasetType]
+    label_source: LabelSourceType
 
     def get_pretrained_checkpoint(self) -> str:
         if self.dataset_class.__name__ == 'ChangeDataset':
@@ -200,6 +203,7 @@ task5 = Task("task5", "200k_commits", ChangeDataset, LabelModelSource({"BigFix":
 
 #label_source = LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}, 'conventional')
 
+
 def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     train, val = [], []
     for datapoint in dataset:
@@ -210,13 +214,13 @@ def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     return train, val
 
 
-def to_chain_of_simple_datasets(dataset, cls, tokenizer, label_source, no_ground_truth=False):
+def to_chain_of_simple_datasets(dataset: List[Dict], cls: Type[LazyDatasetType], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool=False) -> IterableDataset:
     chunk_len = 2000
     simple_datasets = [cls(dataset[i * chunk_len:(i + 1) * chunk_len], tokenizer, label_source, no_ground_truth) for i in range((len(dataset) - 1) // chunk_len + 1)]
     return ChainDataset(simple_datasets)
 
 
-def compute_metrics_fn(p: EvalPrediction, label_names):
+def compute_metrics_fn(p: EvalPrediction, label_names: List[str]):
     preds = np.argmax(p.predictions, axis=1)
     print(preds)
     print(p.label_ids)
@@ -235,7 +239,7 @@ def compute_metrics_fn(p: EvalPrediction, label_names):
     }
 
 
-def load_model(model_args, training_args, num_labels):
+def load_model(model_args, training_args, num_labels: int) -> Tuple[PreTrainedModel, PreTrainedTokenizer]:
 
     if (
             os.path.exists(training_args.output_dir)
@@ -299,25 +303,7 @@ def load_model(model_args, training_args, num_labels):
     return model, tokenizer
 
 
-def create_or_load_label_map(dataset: Optional[List[Dict]], path: str) -> Dict[str, int]:
-    if (Path(path) / f"label_map.txt").exists():
-        with (Path(path) / f"label_map.txt").open() as f:
-            return json.load(f)
-    label_dct = {}
-    for datapoint in dataset:
-        if datapoint['label'] not in label_dct:
-            label_dct[datapoint['label']] = 0
-        label_dct[datapoint['label']] += 1
-
-    print(label_dct)
-    label_names = sorted(label_dct.keys())
-    label_map = {l: i for i, l in enumerate(label_names)}
-    with open(path, 'w') as f:
-        json.dump(label_map, f)
-    return label_map
-
-
-def predict(trainer, dataset, label_source, save_to):
+def predict(trainer: Trainer, dataset, label_source: LabelSourceType, save_to: str) -> None:
     logging.info("*** Test ***")
 
     predictions = trainer.predict(test_dataset=dataset).predictions
@@ -330,15 +316,12 @@ def predict(trainer, dataset, label_source, save_to):
             logger.info("***** Test results *****")
             writer.write("index,prediction, probability\n")
             for datapoint, label, probability in zip(dataset, labels, probabilities):
-                writer.write("%s,%s,%f\n" % (datapoint['sha'], label_source.label_from_id(label), probability))
+                writer.write("%s,%s,%f\n" % (datapoint['sha'], label_source.get_label_from_id(label), probability))
 
 
-def evaluate(trainer, output_dir, label_names, valid_set):
+def evaluate(trainer: Trainer, output_dir: str) -> None:
     logger.info("*** Evaluate ***")
-
-    trainer.compute_metrics = lambda p: compute_metrics_fn(p, label_names)
-    eval_result = trainer.evaluate(eval_dataset=valid_set)
-
+    eval_result = trainer.evaluate()
     output_eval_file = os.path.join(
         output_dir, f"eval_results.txt"
     )
@@ -350,7 +333,7 @@ def evaluate(trainer, output_dir, label_names, valid_set):
                 writer.write("%s = %s\n" % (key, value))
 
 
-def show_tokenization_example(dataset, tokenizer):
+def show_tokenization_example(dataset, tokenizer: PreTrainedTokenizer):
     print("Tokenization example")
     first_elm = next(iter(dataset))
     print([tokenizer.decode(s) for s in first_elm['input_ids'].tolist()])
@@ -358,7 +341,14 @@ def show_tokenization_example(dataset, tokenizer):
     print(first_elm['input_ids'].shape)
 
 
-def main(task: Task, test_dataset_id: str):
+TEST_DATASET_IDS = [
+    'manual_labels.berger',
+    'manual_labels.levin',
+    'manual_labels.herzig'
+]
+
+
+def main(task: Task):
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
     # We now keep distinct sets of args, for a cleaner separation of concerns.
@@ -378,27 +368,21 @@ def main(task: Task, test_dataset_id: str):
     print(f'Train dataset - {len(train_set)} datapoints')
     print(f'Valid dataset - {len(valid_set)} datapoints')
 
-    test_dataset = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, None)
-
-    print(f'Test dataset - {len(test_dataset)} datapoints')
-
     model, tokenizer = load_model(model_args, training_args, task.label_source.num_labels)
 
     print("**** TRAINING ******")
-    train_dataset = to_chain_of_simple_datasets(train_set, task.dataset_class, tokenizer, task.label_source)
-    valid_dataset = to_chain_of_simple_datasets(valid_set, task.dataset_class, tokenizer, task.label_source)
-    show_tokenization_example(train_dataset, tokenizer)
+    tokenized_train_set = to_chain_of_simple_datasets(train_set, task.dataset_class, tokenizer, task.label_source)
+    tokenized_valid_set = to_chain_of_simple_datasets(valid_set, task.dataset_class, tokenizer, task.label_source)
+    show_tokenization_example(tokenized_train_set, tokenizer)
 
-    # Initialize our Trainer
     trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=train_dataset,
-        eval_dataset=valid_dataset,
+        train_dataset=tokenized_train_set,
+        eval_dataset=tokenized_valid_set,
         compute_metrics=lambda p: compute_metrics_fn(p, task.label_source.label_names),
     )
 
-    # Training
     if training_args.do_train:
         trainer.train(
             resume_from_checkpoint=model_args.model_name_or_path
@@ -411,15 +395,17 @@ def main(task: Task, test_dataset_id: str):
         if trainer.is_world_process_zero():
             tokenizer.save_pretrained(training_args.output_dir)
 
-    # Evaluation
     if training_args.do_eval:
-        evaluate(trainer, training_args.output_dir, task.label_source.label_names, valid_set)
+        evaluate(trainer, training_args.output_dir)
 
     if training_args.do_predict:
-        save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
-        test_dataset = to_chain_of_simple_datasets(test_dataset, ChangeDataset, tokenizer, task.label_source, True)
-        predict(trainer, test_dataset, task.label_source, save_to)
-        #upload_transformer_labels(save_to)
+        for test_dataset_id in TEST_DATASET_IDS:
+            test_set = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, None)
+            print(f'Test dataset ({test_dataset_id}) - {len(test_set)} datapoints')
+            save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
+            tokenized_test_set = to_chain_of_simple_datasets(test_set, ChangeDataset, tokenizer, task.label_source, True)
+            predict(trainer, tokenized_test_set, task.label_source, save_to)
+            #upload_transformer_labels(save_to)
 
 
 if __name__ == "__main__":
@@ -427,14 +413,16 @@ if __name__ == "__main__":
     import sys
     sys.argv.extend(['--model_name_or_path', task.get_pretrained_checkpoint()])
     sys.argv.extend(['--output_dir', task.label_source.label_model_name])
-    sys.argv.extend(['--per_device_eval_batch_size', '32'])
+    sys.argv.extend(['--per_device_eval_batch_size', '14'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--do_train'])
     sys.argv.extend(['--do_eval'])
-    sys.argv.extend(['--per_device_train_batch_size', '32'])
+    sys.argv.extend(['--overwrite_output_dir'])
+    sys.argv.extend(['--per_device_train_batch_size', '14'])
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
     sys.argv.extend(['--logging_steps', '4000'])
-    sys.argv.extend(['--eval_steps', '4000'])
+    sys.argv.extend(['--eval_steps', '1'])
     sys.argv.extend(['--evaluation_strategy', 'steps'])
-    main(task, 'manual_labels.berger')
+    sys.argv.extend(['--load_best_model_at_end'])
+    main(task)
