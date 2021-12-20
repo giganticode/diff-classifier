@@ -413,15 +413,15 @@ def main(task: Task):
             test_set = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, func)
             print(f'Test dataset ({test_dataset_id}) - {len(test_set)} datapoints')
             save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
-            tokenized_test_set = to_chain_of_simple_datasets(test_set, ChangeDataset, tokenizer, task.test_label_source)
+            tokenized_test_set = to_chain_of_simple_datasets(test_set, task.dataset_class, tokenizer, task.test_label_source)
             predict(trainer, tokenized_test_set, task.label_source, save_to)
             evaluate(trainer, tokenized_test_set, os.path.join(training_args.output_dir, f"eval_results_{test_dataset_id}.txt"))
             #upload_transformer_labels(save_to)
 
 
 tasks = {
-    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 0, "NonBugFix": 1})),
-    'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 0, "NonBugFix": 1}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 0, "NonBugFix": 1}))
+    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0}))
 }
 
 
