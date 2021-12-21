@@ -18,7 +18,7 @@ import logging
 import os
 from abc import abstractmethod
 from dataclasses import dataclass, field
-from typing import Dict, Optional, Tuple, List, Type, TypeVar
+from typing import Dict, Optional, Tuple, List, Type, TypeVar, Callable
 
 from scipy.special import softmax
 
@@ -111,15 +111,15 @@ class ModelArguments:
 
 
 class LazyDataset(IterableDataset):
-    def __init__(self, ds, tokenizer, label_source, no_ground_truth):
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
         worker_info = torch.utils.data.get_worker_info()
         if worker_info is not None:
             raise AssertionError()
 
-        self.ds = ds
-        self.tokenizer = tokenizer
-        self.label_source = label_source
-        self.no_ground_truth = no_ground_truth
+        self.ds: List[Dict] = ds
+        self.tokenizer: PreTrainedTokenizer = tokenizer
+        self.label_source: LabelSourceType = label_source
+        self.no_ground_truth: bool = no_ground_truth
 
     def __len__(self):
         return len(self.ds)
@@ -159,21 +159,18 @@ class LazyDataset(IterableDataset):
             return_tensors="pt",
         )
 
-        label_ids_t = torch.tensor(labels)
-
-        if self.no_ground_truth:
-            return [{
+        res = []
+        for ind, (attention_mask, input_ids, dp) in enumerate(zip(encoding["attention_mask"], encoding["input_ids"], ds)):
+            dct = {
                 "input_ids": input_ids,
                 "attention_mask": attention_mask,
-                'sha': dp['sha']
-            } for attention_mask, input_ids, dp in zip(encoding["attention_mask"], encoding["input_ids"], ds)]
-        else:
-            return [{
-                "label": label,
-                "input_ids": input_ids,
-                "attention_mask": attention_mask,
-                'sha': dp['sha']
-            } for label, attention_mask, input_ids, dp in zip(label_ids_t, encoding["attention_mask"], encoding["input_ids"], ds)]
+                'sha': dp['sha'],
+                'is_truncated': 'True' if (not (attention_mask == 0).any() ) else 'False', #HACK has to be string so that its ignored by the model
+            }
+            if not self.no_ground_truth:
+                dct['label'] = labels[ind]
+            res.append(dct)
+        return res
 
 
 LazyDatasetType = TypeVar('LazyDatasetType', bound=LazyDataset)
@@ -313,20 +310,20 @@ def load_model(model_args, training_args, num_labels: int) -> Tuple[PreTrainedMo
     return model, tokenizer
 
 
-def predict(trainer: Trainer, dataset, label_source: LabelSourceType, save_to: str) -> None:
+def predict(trainer: Trainer, dataset: IterableDataset, label_source: LabelSourceType, save_to: str) -> None:
     logging.info("*** Test ***")
 
     predictions = trainer.predict(test_dataset=dataset).predictions
     predicitions_softmax = softmax(predictions, axis=1)
-    labels = np.argmax(predictions, axis=1)
+    predicted_labels = np.argmax(predictions, axis=1)
     probabilities = np.max(predicitions_softmax, axis=1)
 
     if trainer.is_world_process_zero():
         with open(save_to, "w") as writer:
             logger.info("***** Test results *****")
-            writer.write("index,prediction, probability\n")
-            for datapoint, label, probability in zip(dataset, labels, probabilities):
-                writer.write("%s,%s,%f\n" % (datapoint['sha'], label_source.get_label_from_id(label), probability))
+            writer.write("index,prediction,probability,true_label,truncated\n")
+            for datapoint, label, probability in zip(dataset, predicted_labels, probabilities):
+                writer.write("%s,%s,%f,%s,%s\n" % (datapoint['sha'], label_source.get_label_from_id(label), probability, label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
 
 
 def evaluate(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
