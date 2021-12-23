@@ -16,6 +16,7 @@
 """ Finetuning the library models for sequence classification on GLUE (Bert, XLM, XLNet, RoBERTa, Albert, XLM-RoBERTa)."""
 import logging
 import os
+import sys
 from abc import abstractmethod
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Tuple, List, Type, TypeVar, Callable
@@ -310,7 +311,7 @@ def load_model(model_args, training_args, num_labels: int) -> Tuple[PreTrainedMo
     return model, tokenizer
 
 
-def predict(trainer: Trainer, dataset: IterableDataset, label_source: LabelSourceType, save_to: str) -> None:
+def assign_labels(trainer: Trainer, dataset: IterableDataset, label_source: LabelSourceType, save_to: str) -> None:
     logging.info("*** Test ***")
 
     predictions = trainer.predict(test_dataset=dataset).predictions
@@ -326,7 +327,7 @@ def predict(trainer: Trainer, dataset: IterableDataset, label_source: LabelSourc
                 writer.write("%s,%s,%f,%s,%s\n" % (datapoint['sha'], label_source.get_label_from_id(label), probability, label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
 
 
-def evaluate(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
+def calc_metrics(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
     logger.info("*** Evaluate ***")
     eval_result = trainer.evaluate(eval_dataset=tokenized_set)
     if trainer.is_world_process_zero():
@@ -400,21 +401,24 @@ def main(task: Task):
         if trainer.is_world_process_zero():
             tokenizer.save_pretrained(training_args.output_dir)
 
-    if training_args.do_eval:
+    if training_args.do_eval and training_args.do_predict:
         output_eval_file = os.path.join(
             training_args.output_dir, f"eval_results.txt"
         )
-        evaluate(trainer, tokenized_valid_set, output_eval_file)
-
+        calc_metrics(trainer, tokenized_valid_set, output_eval_file)
     if training_args.do_predict:
-        for test_dataset_id, func in TEST_DATASETS.items():
-            test_set = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, func)
-            print(f'Test dataset ({test_dataset_id}) - {len(test_set)} datapoints')
-            save_to = os.path.join(training_args.output_dir, f"assigned_labels_{test_dataset_id}.csv")
-            tokenized_test_set = to_chain_of_simple_datasets(test_set, task.dataset_class, tokenizer, task.test_label_source)
-            predict(trainer, tokenized_test_set, task.label_source, save_to)
-            evaluate(trainer, tokenized_test_set, os.path.join(training_args.output_dir, f"eval_results_{test_dataset_id}.txt"))
-            #upload_transformer_labels(save_to)
+        assign_labels_to_all_datasets(trainer, tokenizer, task, training_args.output_dir)
+
+
+def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
+    for test_dataset_id, func in TEST_DATASETS.items():
+        test_set = load_test_dataset(test_dataset_id, f'datasets/dataset_{test_dataset_id}.jsonl', reload_from_commit_explorer, func)
+        print(f'Test dataset ({test_dataset_id}) - {len(test_set)} datapoints')
+        save_to = os.path.join(output_dir, f"assigned_labels_{test_dataset_id}.csv")
+        tokenized_test_set = to_chain_of_simple_datasets(test_set, task.dataset_class, tokenizer, task.test_label_source)
+        assign_labels(trainer, tokenized_test_set, task.label_source, save_to)
+        calc_metrics(trainer, tokenized_test_set, os.path.join(output_dir, f"eval_results_{test_dataset_id}.txt"))
+        #upload_transformer_labels(save_to)
 
 
 tasks = {
@@ -428,15 +432,10 @@ tasks = {
 }
 
 
-if __name__ == "__main__":
-    task = tasks['task4']
-    import sys
-    sys.argv.extend(['--model_name_or_path', task.get_pretrained_checkpoint()])
+def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', task.name])
     sys.argv.extend(['--per_device_eval_batch_size', '14'])
     sys.argv.extend(['--do_predict'])
-    sys.argv.extend(['--do_train'])
-    sys.argv.extend(['--do_eval'])
     sys.argv.extend(['--overwrite_output_dir'])
     sys.argv.extend(['--per_device_train_batch_size', '14'])
     sys.argv.extend(['--save_steps', '4000'])
@@ -445,4 +444,21 @@ if __name__ == "__main__":
     sys.argv.extend(['--eval_steps', '4000'])
     sys.argv.extend(['--evaluation_strategy', 'steps'])
     sys.argv.extend(['--load_best_model_at_end'])
+
+
+def training_config(task: Task) -> None:
+    add_common_config(task)
+    sys.argv.extend(['--model_name_or_path', task.get_pretrained_checkpoint()])
+    sys.argv.extend(['--do_train'])
+    sys.argv.extend(['--do_eval'])
+
+
+def evaluation_config(task: Task) -> None:
+    add_common_config(task)
+    sys.argv.extend(['--model_name_or_path', task.name])
+
+
+if __name__ == "__main__":
+    task = tasks['task4']
+    training_config(task)
     main(task)
