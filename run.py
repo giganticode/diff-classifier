@@ -422,8 +422,8 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
 
 
 tasks = {
-    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task7': Task("only_message_keywords_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task8': Task("all_heuristics_without_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task9': Task("only_message_keywords_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
