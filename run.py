@@ -17,9 +17,9 @@
 import logging
 import os
 import sys
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 from dataclasses import dataclass, field
-from typing import Dict, Optional, Tuple, List, Type, TypeVar, Callable
+from typing import Dict, Optional, Tuple, List, Type, TypeVar, Callable, Union
 
 from scipy.special import softmax
 
@@ -112,7 +112,7 @@ class ModelArguments:
 
 
 class LazyDataset(IterableDataset):
-    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool, bimodal: bool = False):
         worker_info = torch.utils.data.get_worker_info()
         if worker_info is not None:
             raise AssertionError()
@@ -121,6 +121,7 @@ class LazyDataset(IterableDataset):
         self.tokenizer: PreTrainedTokenizer = tokenizer
         self.label_source: LabelSourceType = label_source
         self.no_ground_truth: bool = no_ground_truth
+        self.bimodal = bimodal
 
     def __len__(self):
         return len(self.ds)
@@ -137,21 +138,23 @@ class LazyDataset(IterableDataset):
         pass
 
     def numericalize(self, ds):
-        changes = []
+        text_list = []
+        text_pair_list = []
         labels = []
-        total_chars_in_batch = 0
         for datapoint in ds:
-            cut_change = self.preprocess_input(datapoint)
-            changes.append(cut_change)
+            if self.bimodal:
+                text, text_pair = self.preprocess_input(datapoint)
+                text_pair_list.append(text_pair)
+            else:
+                text = self.preprocess_input(datapoint)
+
+            text_list.append(text)
             if not self.no_ground_truth:
                 labels.append(self.label_source.get_label_id_from_datapoint(datapoint))
-            total_chars_in_batch += len(cut_change)
-
-        print(f'Tokenizing another chunk of data with length {len(changes)}, '
-              f'total chars in batch: {total_chars_in_batch} (average: {float(total_chars_in_batch) / len(changes)}),')
 
         encoding = self.tokenizer(
-            changes,
+            text=text_list,
+            text_pair=text_pair_list if self.bimodal else None,
             add_special_tokens=True,
             return_attention_mask=True,
             truncation=True,
@@ -178,18 +181,39 @@ LazyDatasetType = TypeVar('LazyDatasetType', bound=LazyDataset)
 
 
 class ChangeDataset(LazyDataset):
-    def preprocess_input(self, datapoint: Dict) -> str:
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
+        super(ChangeDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth)
+
+    def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
         # very naive way
         return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in datapoint['changes']])[:MAX_LENGTH * 10]
 
 
 class MessageDataset(LazyDataset):
-    def preprocess_input(self, datapoint: Dict) -> str:
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
+        super(MessageDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth)
+
+    def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
         message = datapoint['message']
         if not isinstance(message, str):
             logger.warning(f'Strange message encountered: {message}')
             message = str(message)
         return message
+
+
+class MessageChangeDataset(LazyDataset):
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
+        super(MessageChangeDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth, True)
+
+    def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
+        message = datapoint['message']
+        if not isinstance(message, str):
+            logger.warning(f'Strange message encountered: {message}')
+            message = str(message)
+
+        # very naive way
+        change = "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in datapoint['changes']])[:MAX_LENGTH * 10]
+        return message, change
 
 
 @dataclass
@@ -205,6 +229,8 @@ class Task:
             return "huggingface/CodeBERTa-small-v1"
         elif self.dataset_class.__name__ == 'MessageDataset':
             return "giganticode/StackOBERTflow-comments-small-v1"
+        elif self.dataset_class.__name__ == 'MessageChangeDataset':
+            return "microsoft/codebert-base"
         else:
             raise AssertionError()
 
@@ -353,7 +379,6 @@ TEST_DATASETS = {
    # 'manual_labels.mauczka': lambda c: ('BugFix' if c['manual_labels']['herzig']['hl_corrective'] == 1 else 'NonBugFix'),
 }
 
-
 def main(task: Task):
     # See all possible arguments in src/transformers/training_args.py
     # or by passing the --help flag to this script.
@@ -422,6 +447,7 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
 
 
 tasks = {
+    'task3': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task7': Task("only_message_keywords_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
@@ -459,6 +485,6 @@ def evaluation_config(task: Task) -> None:
 
 
 if __name__ == "__main__":
-    task = tasks['task4']
+    task = tasks['task3']
     training_config(task)
     main(task)
