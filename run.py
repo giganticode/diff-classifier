@@ -235,9 +235,6 @@ class Task:
             raise AssertionError()
 
 
-#label_source = LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}, 'conventional')
-
-
 def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     train, val = [], []
     for datapoint in dataset:
@@ -376,7 +373,7 @@ TEST_DATASETS = {
     'manual_labels.berger': lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'),
     'manual_labels.levin': lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'),
      'manual_labels.herzig': lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix'),
-   # 'manual_labels.mauczka': lambda c: ('BugFix' if c['manual_labels']['herzig']['hl_corrective'] == 1 else 'NonBugFix'),
+    'manual_labels.mauczka': lambda c: ('BugFix' if c['manual_labels']['herzig']['hl_corrective'] == 1 else 'NonBugFix'),
 }
 
 def main(task: Task):
@@ -447,6 +444,7 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
 
 
 tasks = {
+    'task0': Task("bohr_model", "conventional", ChangeDataset, LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task1': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task2': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task3': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
@@ -487,6 +485,6 @@ def evaluation_config(task: Task) -> None:
 
 
 if __name__ == "__main__":
-    task = tasks['task3']
-    training_config(task)
+    task = tasks['task0']
+    evaluation_config(task)
     main(task)
