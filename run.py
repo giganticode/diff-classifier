@@ -446,8 +446,8 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
 
 tasks = {
     'task0': Task("bohr_model", "conventional", ChangeDataset, LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task1': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task2': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task1': Task("only_message_keywords_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task2': Task("all_heuristics_without_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task3': Task("all_heuristics_with_issues_message_and_change", "200k_commits", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task4': Task("all_heuristics_with_issues_only_message", "200k_commits", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task5': Task("all_heuristics_with_issues_only_change", "200k_commits", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
@@ -461,10 +461,10 @@ tasks = {
 
 def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', task.name])
-    sys.argv.extend(['--per_device_eval_batch_size', '14'])
+    sys.argv.extend(['--per_device_eval_batch_size', '7'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
-    sys.argv.extend(['--per_device_train_batch_size', '14'])
+    sys.argv.extend(['--per_device_train_batch_size', '7'])
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
     sys.argv.extend(['--logging_steps', '4000'])
