@@ -66,7 +66,7 @@ def upload_transformer_labels(file):
     with open(file) as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         _ = next(reader)
-        for sha, label, probability in reader:
+        for sha, label, probability, _, _ in reader:
             update = {'$set': {"bohr.change_transformer_label/0_1": {'label': label, 'probability': probability}}}
             operations.append(UpdateOne({"_id": sha}, update, upsert=True))
 
@@ -86,9 +86,17 @@ def upload_label_model_labels(file, model_name):
 
 
 if __name__ == '__main__':
-    # model_names = ['only_message_keywords', 'message_keywords_file_metrics_transformer', 'all_keywords_transformer_filemetrics']
-    # for model_name in model_names:
-    #     path = f'/Users/hlib/dev/bohr-workdir-bugginess/runs/bugginess/{model_name}/bohr.200k_commits/labeled.csv'
-    #     upload_label_model_labels(path, model_name)
+    model_names = ['gitcproc']
+    for model_name in model_names:
+        path = f'/Users/hlib/dev/bohr-workdir-bugginess/runs/bugginess/{model_name}/bohr.200k_commits/labeled.csv'
+        upload_label_model_labels(path, model_name)
     load_200k_changes('datasets/200k_commits.jsonl', False)
+    # path = '/Users/hlib/dev/diff-classifier/datasets/200k_commits_valid_long.jsonl'
+    # operations = []
+    # with jsonlines.open(path) as f:
+    #     for datapoint in f:
+    #         update = {'$set': {f"bohr.large_change": True}}
+    #         operations.append(UpdateOne({"_id": datapoint['sha']}, update, upsert=True))
+    # db.commits.bulk_write(operations)
+
 
