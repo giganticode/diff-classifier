@@ -49,15 +49,11 @@ def load_from_commit_explorer(db, query, dataset_file, reload_from_commit_explor
     return dataset
 
 
-def load_conventional_commit_changes(dataset_file, reload_from_commit_explorer) -> List[Dict]:
-    return load_from_commit_explorer(db, {'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, dataset_file, reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())
+def load_dataset_by_query(query, dataset_file, reload_from_commit_explorer, label_func) -> List[Dict]:
+    return load_from_commit_explorer(db, query, dataset_file, reload_from_commit_explorer, label_func)
 
 
-def load_200k_changes(dataset_file, reload_from_commit_explorer) -> List[Dict]:
-    return load_from_commit_explorer(db, {'bohr.200k_commits': {"$exists": True}}, dataset_file, reload_from_commit_explorer, lambda c: c['bohr']['label_model'])
-
-
-def load_test_dataset(id: str, dataset_file, reload_from_commit_explorer, label_func) -> List[Dict]:
+def load_dataset_by_id(id: str, dataset_file, reload_from_commit_explorer, label_func) -> List[Dict]:
     return load_from_commit_explorer(db, {id: {"$exists":  True}}, dataset_file, reload_from_commit_explorer, label_func)
 
 
@@ -90,7 +86,7 @@ if __name__ == '__main__':
     for model_name in model_names:
         path = f'/Users/hlib/dev/bohr-workdir-bugginess/runs/bugginess/{model_name}/bohr.200k_commits/labeled.csv'
         upload_label_model_labels(path, model_name)
-    load_200k_changes('datasets/200k_commits.jsonl', False)
+    load_dataset_by_id('bohr.200k_commits', 'datasets/200k_commits.jsonl', False, lambda c: c['bohr']['label_model'])
     # path = '/Users/hlib/dev/diff-classifier/datasets/200k_commits_valid_long.jsonl'
     # operations = []
     # with jsonlines.open(path) as f:
