@@ -334,7 +334,7 @@ def load_model(model_args, training_args, num_labels: int) -> Tuple[PreTrainedMo
     return model, tokenizer
 
 
-def assign_labels(trainer: Trainer, dataset: IterableDataset, label_source: LabelSourceType, save_to: str) -> None:
+def assign_labels(trainer: Trainer, dataset: IterableDataset, label_source: LabelSourceType, test_label_source: LabelSourceType, save_to: str) -> None:
     logging.info("*** Test ***")
 
     predictions = trainer.predict(test_dataset=dataset).predictions
@@ -346,8 +346,8 @@ def assign_labels(trainer: Trainer, dataset: IterableDataset, label_source: Labe
         with open(save_to, "w") as writer:
             logger.info("***** Test results *****")
             writer.write("index,prediction,probability,true_label,truncated\n")
-            for datapoint, label, probability in zip(dataset, predicted_labels, probabilities):
-                writer.write("%s,%s,%f,%s,%s\n" % (datapoint['sha'], label_source.get_label_from_id(label), probability, label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
+            for datapoint, predicted_label, probability in zip(dataset, predicted_labels, probabilities):
+                writer.write("%s,%s,%f,%s,%s\n" % (datapoint['sha'], label_source.get_label_from_id(predicted_label), probability, test_label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
 
 
 def calc_metrics(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
@@ -438,8 +438,9 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
         print(f'Test dataset ({test_dataset_id}) - {len(test_set)} datapoints')
         save_to = os.path.join(output_dir, f"assigned_labels_{test_dataset_id}.csv")
         tokenized_test_set = to_chain_of_simple_datasets(test_set, task.dataset_class, tokenizer, task.test_label_source)
-        assign_labels(trainer, tokenized_test_set, task.label_source, save_to)
-        calc_metrics(trainer, tokenized_test_set, os.path.join(output_dir, f"eval_results_{test_dataset_id}.txt"))
+        assign_labels(trainer, tokenized_test_set, task.label_source, task.test_label_source, save_to)
+        if task.label_source.label_map == task.test_label_source.label_map:
+            calc_metrics(trainer, tokenized_test_set, os.path.join(output_dir, f"eval_results_{test_dataset_id}.txt"))
         #upload_transformer_labels(save_to)
 
 
