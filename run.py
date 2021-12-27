@@ -421,6 +421,7 @@ def main(task: Task):
 
 datasets = {
     '200k_commits': (lambda: load_dataset_by_id('bohr.200k_commits', 'datasets/200k_commits.jsonl', reload_from_commit_explorer, lambda c: c['bohr']['label_model'])),
+    '200k_commits_no_merge': (lambda: load_dataset_by_query({"bohr.200k_commits": {"$exists": True}, "special_commit_finder/0_1.merge": False, "files": {"$exists": True}}, 'datasets/200k_commits_no_merges.jsonl', reload_from_commit_explorer, lambda c: c['bohr']['label_model'])),
     'conventional': (lambda: load_dataset_by_query({'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, 'datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())),
     'manual_labels.levin': (lambda: load_dataset_by_id('manual_labels.levin', f'datasets/dataset_manual_labels.levin.jsonl', reload_from_commit_explorer,  lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'))),
     'levin_with_files': (lambda: load_dataset_by_query({"manual_labels.levin": {"$exists": True}, 'files': {"$exists": True}}, f'datasets/dataset_levin_with_files.jsonl', reload_from_commit_explorer,  lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'))),
@@ -467,6 +468,7 @@ tasks = {
     'task9': Task("only_message_keywords_only_change", datasets["200k_commits"], ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task10': Task("gitcproc_only_message", datasets["200k_commits"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task11': Task("gitcproc_only_change", datasets["200k_commits"], ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task12': Task("only_message_keywords_no_merge_only_message", datasets["200k_commits_no_merge"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_2"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
 }
 
 
