@@ -17,13 +17,13 @@
 import logging
 import os
 import sys
-from abc import abstractmethod, ABC
+from abc import abstractmethod
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Tuple, List, Type, TypeVar, Callable, Union
 
 from scipy.special import softmax
 
-from artifactexplorer import load_dataset_by_id, load_dataset_by_query
+from artifactexplorer import load_dataset
 
 os.environ["WANDB_DISABLED"] = "true"
 
@@ -168,7 +168,7 @@ class LazyDataset(IterableDataset):
             dct = {
                 "input_ids": input_ids,
                 "attention_mask": attention_mask,
-                'sha': dp['sha'],
+                'sha': dp['_id'],
                 'is_truncated': 'True' if (not (attention_mask == 0).any() ) else 'False', #HACK has to be string so that its ignored by the model
             }
             if not self.no_ground_truth:
@@ -186,7 +186,7 @@ class ChangeDataset(LazyDataset):
 
     def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
         # very naive way
-        return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in datapoint['changes']])[:MAX_LENGTH * 10]
+        return "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + (file['changes'] if 'changes' in file else '') for file in datapoint['files']])[:MAX_LENGTH * 10]
 
 
 class MessageDataset(LazyDataset):
@@ -219,7 +219,7 @@ class MessageChangeDataset(LazyDataset):
 @dataclass
 class Task:
     name: str
-    dataset: Callable
+    dataset: str
     dataset_class: Type[LazyDatasetType]
     label_source: LabelSourceType
     test_label_source: LabelSourceType
@@ -238,7 +238,7 @@ class Task:
 def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     train, val = [], []
     for datapoint in dataset:
-        if datapoint['sha'][-1] in ['d', 'e', 'f']:
+        if datapoint['_id'][-1] in ['d', 'e', 'f']:
             val.append(datapoint)
         else:
             train.append(datapoint)
@@ -379,7 +379,7 @@ def main(task: Task):
     print(model_args)
     print(training_args)
 
-    train_set, valid_set = split_dataset(task.dataset())
+    train_set, valid_set = split_dataset(load_dataset(task.dataset, datasets[task.dataset]))
     print(f'Train dataset - {len(train_set)} datapoints')
     print(f'Valid dataset - {len(valid_set)} datapoints')
 
@@ -420,27 +420,21 @@ def main(task: Task):
 
 
 datasets = {
-    '200k_commits': (lambda: load_dataset_by_id('bohr.200k_commits', 'datasets/200k_commits.jsonl', reload_from_commit_explorer, lambda c: c['bohr']['label_model'])),
-    '200k_commits_no_merge': (lambda: load_dataset_by_query({"bohr.200k_commits": {"$exists": True}, "special_commit_finder/0_1.merge": False, "files": {"$exists": True}}, 'datasets/200k_commits_no_merges.jsonl', reload_from_commit_explorer, lambda c: c['bohr']['label_model'])),
-    'conventional': (lambda: load_dataset_by_query({'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, 'datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())),
-    'manual_labels.levin': (lambda: load_dataset_by_id('manual_labels.levin', f'datasets/dataset_manual_labels.levin.jsonl', reload_from_commit_explorer,  lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'))),
-    'levin_with_files': (lambda: load_dataset_by_query({"manual_labels.levin": {"$exists": True}, 'files': {"$exists": True}}, f'datasets/dataset_levin_with_files.jsonl', reload_from_commit_explorer,  lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'))),
-    'manual_labels.berger': (lambda: load_dataset_by_id('manual_labels.berger', f'datasets/dataset_manual_labels.berger.jsonl', reload_from_commit_explorer, lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'))),
-    'berger_with_files': (lambda: load_dataset_by_query({"manual_labels.berger": {"$exists": True}, 'files': {"$exists": True}}, f'datasets/dataset_berger_with_files.jsonl', reload_from_commit_explorer, lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'))),
-    'manual_labels.herzig': (lambda: load_dataset_by_id('manual_labels.herzig', f'datasets/dataset_manual_labels.herzig.jsonl', reload_from_commit_explorer, lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix'))),
-    'manual_labels.mauczka': (lambda: load_dataset_by_id('manual_labels.mauczka', f'datasets/dataset_manual_labels.mauczka.jsonl', reload_from_commit_explorer, lambda c: ('BugFix' if c['manual_labels']['mauczka']['hl_corrective'] == 1 else 'NonBugFix'))),
-    'mauczka_with_files': (lambda: load_dataset_by_query({"manual_labels.mauczka": {"$exists": True}, 'files': {"$exists": True}}, f'datasets/dataset_mauczka_with_files.jsonl', reload_from_commit_explorer, lambda c: ('BugFix' if c['manual_labels']['mauczka']['hl_corrective'] == 1 else 'NonBugFix'))),
+    'commits_200k_files': lambda c: c['bohr']['label_model'],
+    'commits_200k_files_no_merges': lambda c: c['bohr']['label_model'],
+    # 'conventional': (lambda: load_dataset_by_query({'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, 'datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())),
+    'levin_files': lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'),
+    'berger_files': lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'),
+    'herzig': lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix'),
+    'mauczka_files': lambda c: ('BugFix' if c['manual_labels']['mauczka']['hl_corrective'] == 1 else 'NonBugFix'),
 }
 
 
 TEST_DATASET_NAMES = [
-    'manual_labels.levin',
-    'levin_with_files',
-    'manual_labels.berger',
-    'berger_with_files',
-    'manual_labels.herzig',
-    'manual_labels.mauczka',
-    'mauczka_with_files',
+    'levin_files',
+    'berger_files',
+    'herzig',
+    'mauczka_files',
 ]
 
 
@@ -457,18 +451,18 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
 
 
 tasks = {
-    'task0': Task("bohr_model", datasets["conventional"], ChangeDataset, LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task1': Task("only_message_keywords_message_and_change", datasets["200k_commits"], MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task2': Task("all_heuristics_without_issues_message_and_change", datasets["200k_commits"], MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task3': Task("all_heuristics_with_issues_message_and_change", datasets["200k_commits"], MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task4': Task("all_heuristics_with_issues_only_message", datasets["200k_commits"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task5': Task("all_heuristics_with_issues_only_change", datasets["200k_commits"], ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task7': Task("only_message_keywords_only_message", datasets["200k_commits"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task8': Task("all_heuristics_without_issues_only_message", datasets["200k_commits"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task9': Task("only_message_keywords_only_change", datasets["200k_commits"], ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task10': Task("gitcproc_only_message", datasets["200k_commits"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task11': Task("gitcproc_only_change", datasets["200k_commits"], ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task12': Task("only_message_keywords_no_merge_only_message", datasets["200k_commits_no_merge"], MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_2"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    # 'task0': Task("bohr_model", datasets["conventional"], ChangeDataset, LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task1': Task("only_message_keywords_message_and_change", "commits_200k_files", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task2': Task("all_heuristics_without_issues_message_and_change", "commits_200k_files", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task3': Task("all_heuristics_with_issues_message_and_change", "commits_200k_files", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task4': Task("all_heuristics_with_issues_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task5': Task("all_heuristics_with_issues_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task7': Task("only_message_keywords_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task8': Task("all_heuristics_without_issues_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task9': Task("only_message_keywords_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task10': Task("gitcproc_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task11': Task("gitcproc_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task12': Task("only_message_keywords_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_2"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
 }
 
 
@@ -499,6 +493,6 @@ def evaluation_config(task: Task) -> None:
 
 
 if __name__ == "__main__":
-    task = tasks['task0']
+    task = tasks['task5']
     evaluation_config(task)
     main(task)
