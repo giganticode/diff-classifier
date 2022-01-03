@@ -212,7 +212,7 @@ class MessageChangeDataset(LazyDataset):
             message = str(message)
 
         # very naive way
-        change = "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + file['changes'] for file in datapoint['changes']])[:MAX_LENGTH * 10]
+        change = "\n".join([file['filename'] + f' {NEXT_FILE_TOKEN} ' + (file['changes'] if 'changes' in file else '') for file in datapoint['files']])[:MAX_LENGTH * 10]
         return message, change
 
 
