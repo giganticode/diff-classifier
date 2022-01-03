@@ -440,7 +440,7 @@ TEST_DATASET_NAMES = [
 
 def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
     for test_dataset_name in TEST_DATASET_NAMES:
-        test_set = datasets[test_dataset_name]()
+        test_set = load_dataset(test_dataset_name, datasets[test_dataset_name])
         print(f'Test dataset ({test_dataset_name}) - {len(test_set)} datapoints')
         save_to = os.path.join(output_dir, f"assigned_labels_{test_dataset_name}.csv")
         tokenized_test_set = to_chain_of_simple_datasets(test_set, task.dataset_class, tokenizer, task.test_label_source)
