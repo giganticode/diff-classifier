@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """ Finetuning the library models for sequence classification on GLUE (Bert, XLM, XLNet, RoBERTa, Albert, XLM-RoBERTa)."""
+import csv
 import logging
 import os
 import sys
@@ -344,11 +345,20 @@ def assign_labels(trainer: Trainer, dataset: IterableDataset, label_source: Labe
     probabilities = np.max(predicitions_softmax, axis=1)
 
     if trainer.is_world_process_zero():
-        with open(save_to, "w") as writer:
+
+        with open(save_to, "w") as csvfile:
             logger.info("***** Test results *****")
-            writer.write("sha,message,prediction,probability,true_label,truncated\n")
+            writer = csv.writer(csvfile, delimiter=',')
+
+            writer.writerow(["sha", "message", "prediction", "probability", "true_label", "truncated"])
             for datapoint, predicted_label, probability in zip(dataset, predicted_labels, probabilities):
-                writer.write("%s,%s,%s,%f,%s,%s\n" % (datapoint['sha'], datapoint['message'], label_source.get_label_from_id(predicted_label), probability, test_label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
+                writer.writerow(
+                    [datapoint['sha'],
+                     datapoint['message'],
+                     label_source.get_label_from_id(predicted_label),
+                     probability,
+                     test_label_source.get_label_from_id(datapoint['label']),
+                     datapoint['is_truncated']])
 
 
 def calc_metrics(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
