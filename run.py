@@ -425,7 +425,7 @@ datasets = {
     # 'conventional': (lambda: load_dataset_by_query({'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, 'datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())),
     'levin_files': lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'),
     'berger_files': lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'),
-    'herzig': lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix'),
+    'manual_labels.herzig': lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix'),
     'mauczka_files': lambda c: ('BugFix' if c['manual_labels']['mauczka']['hl_corrective'] == 1 else 'NonBugFix'),
 }
 
@@ -433,7 +433,7 @@ datasets = {
 TEST_DATASET_NAMES = [
     'levin_files',
     'berger_files',
-    'herzig',
+    'manual_labels.herzig',
     'mauczka_files',
 ]
 
