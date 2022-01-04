@@ -1,6 +1,9 @@
-bohr_model
-dataset_*.jsonl
 log.log
 venv
 datasets
 .idea
+**/checkpoint-*
+**/pytorch_model.bin
+**/tokenizer.json
+__pycache__
+**/runs
