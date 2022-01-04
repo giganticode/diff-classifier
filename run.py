@@ -169,6 +169,7 @@ class LazyDataset(IterableDataset):
                 "input_ids": input_ids,
                 "attention_mask": attention_mask,
                 'sha': dp['_id'],
+                'message': dp['message'],
                 'is_truncated': 'True' if (not (attention_mask == 0).any() ) else 'False', #HACK has to be string so that its ignored by the model
             }
             if not self.no_ground_truth:
@@ -345,9 +346,9 @@ def assign_labels(trainer: Trainer, dataset: IterableDataset, label_source: Labe
     if trainer.is_world_process_zero():
         with open(save_to, "w") as writer:
             logger.info("***** Test results *****")
-            writer.write("index,prediction,probability,true_label,truncated\n")
+            writer.write("sha,message,prediction,probability,true_label,truncated\n")
             for datapoint, predicted_label, probability in zip(dataset, predicted_labels, probabilities):
-                writer.write("%s,%s,%f,%s,%s\n" % (datapoint['sha'], label_source.get_label_from_id(predicted_label), probability, test_label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
+                writer.write("%s,%s,%s,%f,%s,%s\n" % (datapoint['sha'], datapoint['message'], label_source.get_label_from_id(predicted_label), probability, test_label_source.get_label_from_id(datapoint['label']), datapoint['is_truncated']))
 
 
 def calc_metrics(trainer: Trainer, tokenized_set: IterableDataset, output_path: str) -> None:
