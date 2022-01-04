@@ -470,7 +470,7 @@ tasks = {
 
 
 def add_common_config(task: Task) -> None:
-    sys.argv.extend(['--output_dir', task.name])
+    sys.argv.extend(['--output_dir', f'models/{task.name}'])
     sys.argv.extend(['--per_device_eval_batch_size', '50'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
