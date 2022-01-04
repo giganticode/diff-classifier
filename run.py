@@ -489,8 +489,7 @@ def training_config(task: Task) -> None:
 
 def evaluation_config(task: Task) -> None:
     add_common_config(task)
-    sys.argv.extend(['--model_name_or_path', task.name])
-
+    sys.argv.extend(['--model_name_or_path', f'models/{task.name}'])
 
 if __name__ == "__main__":
     task = tasks['task5']
