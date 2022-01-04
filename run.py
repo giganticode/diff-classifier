@@ -463,15 +463,17 @@ tasks = {
     'task10': Task("gitcproc_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task11': Task("gitcproc_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task12': Task("only_message_keywords_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_2"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task13': Task("only_message_keywords_no_merge_only_change", "commits_200k_files_no_merges", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_3"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task14': Task("all_heuristics_without_issues_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_3"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
 }
 
 
 def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', task.name])
-    sys.argv.extend(['--per_device_eval_batch_size', '7'])
+    sys.argv.extend(['--per_device_eval_batch_size', '50'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
-    sys.argv.extend(['--per_device_train_batch_size', '7'])
+    sys.argv.extend(['--per_device_train_batch_size', '20'])
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
     sys.argv.extend(['--logging_steps', '4000'])
@@ -491,7 +493,9 @@ def evaluation_config(task: Task) -> None:
     add_common_config(task)
     sys.argv.extend(['--model_name_or_path', f'models/{task.name}'])
 
+
 if __name__ == "__main__":
-    task = tasks['task5']
+    import os
+    task = tasks[os.environ['task']]
     evaluation_config(task)
     main(task)
