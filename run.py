@@ -170,7 +170,7 @@ class LazyDataset(IterableDataset):
                 "input_ids": input_ids,
                 "attention_mask": attention_mask,
                 'sha': dp['_id'],
-                'message': dp['message'],
+                'message': str(dp['message']),
                 'is_truncated': 'True' if (not (attention_mask == 0).any() ) else 'False', #HACK has to be string so that its ignored by the model
             }
             if not self.no_ground_truth:
