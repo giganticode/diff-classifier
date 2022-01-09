@@ -437,15 +437,12 @@ datasets = {
     'levin_files': lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'),
     'berger_files': lambda c: ('BugFix' if c['manual_labels']['berger']['bug'] == 1 else 'NonBugFix'),
     'manual_labels.herzig': lambda c: ('BugFix' if c['manual_labels']['herzig']['CLASSIFIED'] == 'BUG' else 'NonBugFix'),
-    'mauczka_files': lambda c: ('BugFix' if c['manual_labels']['mauczka']['hl_corrective'] == 1 else 'NonBugFix'),
+    'idan_files': lambda c: ('BugFix' if c['idan/0_1']['Is_Corrective'] == 1 else 'NonBugFix'),
 }
 
 
 TEST_DATASET_NAMES = [
-    'levin_files',
-    'berger_files',
-    'manual_labels.herzig',
-    'mauczka_files',
+    'idan_files',
 ]
 
 
@@ -481,13 +478,13 @@ tasks = {
 
 def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', f'models/{task.name}'])
-    sys.argv.extend(['--per_device_eval_batch_size', '50'])
+    sys.argv.extend(['--per_device_eval_batch_size', '20'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
-    sys.argv.extend(['--per_device_train_batch_size', '20'])
+    sys.argv.extend(['--per_device_train_batch_size', '8'])
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
-    sys.argv.extend(['--logging_steps', '4000'])
+    sys.argv.extend(['--logging_steps', '400000'])
     sys.argv.extend(['--eval_steps', '4000'])
     sys.argv.extend(['--evaluation_strategy', 'steps'])
     sys.argv.extend(['--load_best_model_at_end'])
