@@ -55,26 +55,30 @@ NEXT_FILE_TOKEN = '<nextfile>'
 
 
 class LabelSource:
-    def __init__(self, label_map):
+    def __init__(self, label_map, soft_labels: bool = False):
         self.label_map = label_map
         self.ids_to_labels = {i: l for l, i in self.label_map.items()}
         self.label_names = sorted(self.label_map.keys())
         self.num_labels = len(label_map)
+        self.soft_labels = soft_labels
 
     def get_label_id_from_datapoint(self, datapoint) -> int:
-        return self.label_map[datapoint['label']]
+        l = self.label_map[datapoint['label']]
+        return [1.0-l, l] if self.soft_labels else l
 
     def get_label_from_id(self, id: int) -> str:
         return self.ids_to_labels[id]
 
 
 class LabelModelSource(LabelSource):
-    def __init__(self, label_map, label_model_name):
+    def __init__(self, label_map, label_model_name, soft_labels: bool = False):
         super(LabelModelSource, self).__init__(label_map)
         self.label_model_name = label_model_name
+        self.soft_labels = soft_labels
 
-    def get_label_id_from_datapoint(self, datapoint) -> int:
-        return round(datapoint['label'][self.label_model_name]['label'])
+    def get_label_id_from_datapoint(self, datapoint) -> Union[int, float]:
+        dp = datapoint['label'][self.label_model_name]['label']
+        return [1-dp, dp] if self.soft_labels else round(dp)
 
 
 LabelSourceType = TypeVar('LabelSourceType', bound=LabelSource)
@@ -256,16 +260,20 @@ def to_chain_of_simple_datasets(dataset: List[Dict], cls: Type[LazyDatasetType],
 def compute_metrics_fn(p: EvalPrediction, label_names: List[str]):
     preds = np.argmax(p.predictions, axis=1)
     print(preds)
-    print(p.label_ids)
+    label_ids = p.label_ids
+    print(label_ids)
+    if len(label_ids) > 0 and isinstance(label_ids[0], np.ndarray):
+        label_ids = np.argmax(label_ids, axis=1)
+
 
     print(
         classification_report(
-            p.label_ids, preds, target_names=label_names, digits=3, labels=list(range(len(label_names)))
+            label_ids, preds, target_names=label_names, digits=3, labels=list(range(len(label_names)))
         )
     )
 
-    acc = accuracy_score(p.label_ids, preds)
-    f1 = f1_score(p.label_ids, preds, average="macro")
+    acc = accuracy_score(label_ids, preds)
+    f1 = f1_score(label_ids, preds, average="macro")
     return {
         "acc": acc,
         "f1": f1,
@@ -476,6 +484,8 @@ tasks = {
     'task12': Task("only_message_keywords_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_2"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task13': Task("only_message_keywords_no_merge_only_change", "commits_200k_files_no_merges", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_3"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
     'task14': Task("all_heuristics_without_issues_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_3"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
+    'task15': Task("all_heuristics_without_issues_only_message_soft", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1", soft_labels=True), LabelSource({"BugFix": 1, "NonBugFix": 0}, soft_labels=True)),
+    'task16': Task("only_message_keywords_only_message_soft", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1", soft_labels=True), LabelSource({"BugFix": 1, "NonBugFix": 0}, soft_labels=True)),
 }
 
 
@@ -508,5 +518,5 @@ def evaluation_config(task: Task) -> None:
 if __name__ == "__main__":
     import os
     task = tasks[os.environ['task']]
-    evaluation_config(task)
+    training_config(task)
     main(task)
