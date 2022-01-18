@@ -1,20 +1,20 @@
 sha,message,prediction,probability,true_label,truncated
 0fdbdac63953120b626c7fdf192756f23e95571a,Set version for 0.10.0 release,NonBugFix,0.97956103,NonBugFix,False
 0fb7d36f4dbda94889528823cd2130a12e4664ca,"Separate printing context chain method into its own method
-change contextWorkingName to property workingName",NonBugFix,0.8139511,NonBugFix,True
+change contextWorkingName to property workingName",NonBugFix,0.81395113,NonBugFix,True
 172ae58a8b89e71b5100f6435139b303edd4dd5e,More cleanup and docs,NonBugFix,0.94828683,NonBugFix,True
-17f13f466f11f3b7990691a64764d2ad8f9f25a6,Support nested fields in embedded structs,NonBugFix,0.8439212,NonBugFix,True
+17f13f466f11f3b7990691a64764d2ad8f9f25a6,Support nested fields in embedded structs,NonBugFix,0.8439211,NonBugFix,True
 17ac53d63e0e0c4326d628f798207f4e2bf513a2,some cosmetic refactorings,NonBugFix,0.8071323,NonBugFix,True
-25d2a7a5c305b232a2d8fec3fa82f9e237fc4580,Allow callers to get data out in slices of pointers or values,NonBugFix,0.7289733,NonBugFix,True
+25d2a7a5c305b232a2d8fec3fa82f9e237fc4580,Allow callers to get data out in slices of pointers or values,NonBugFix,0.72897327,NonBugFix,True
 30fec17901216753cfd6af1c8142592fce2644f1,Add a test for positional-fnks via positional-fn,NonBugFix,0.86420375,NonBugFix,False
 30b9871ceef52cd43b830c058a3a3d34c36eb742,"add input body filter
 http://rb.corp.taobao.com/r/22419/
 
 git-svn-id: http://code.taobao.org/svn/tengine/trunk@16 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",NonBugFix,0.8951546,NonBugFix,True
 d7340a55f0c5ee903ae19bc3a733907127eb4d99,Fix TODO,NonBugFix,0.88083583,NonBugFix,False
-57c3226147127fc860fa7dec9ec60ec98bb01a79,PropEr now catches exits by default.,NonBugFix,0.7671516,NonBugFix,True
-19c9306b7d48af34a8156e3a94447c68ed4902b0,better log message,BugFix,0.5779027,NonBugFix,False
-979308570786c30291feb43b111306e5ffa8c0a1,note on how we intend to fix walk-term for IPersistentMaps,NonBugFix,0.66906583,NonBugFix,False
+57c3226147127fc860fa7dec9ec60ec98bb01a79,PropEr now catches exits by default.,NonBugFix,0.76715165,NonBugFix,True
+19c9306b7d48af34a8156e3a94447c68ed4902b0,better log message,BugFix,0.57790273,NonBugFix,False
+979308570786c30291feb43b111306e5ffa8c0a1,note on how we intend to fix walk-term for IPersistentMaps,NonBugFix,0.669066,NonBugFix,False
 974fff51e0d0c98b667700d2c517af4d40a2adee,"Add lazyness to infix operators (* + - etc)
 
 In the test case I've replaced undefineds with a division by 0 due to
@@ -29,13 +29,13 @@ http://rb.corp.taobao.com/r/29643/
 
 
 git-svn-id: http://code.taobao.org/svn/tengine/trunk@64 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",NonBugFix,0.85551375,NonBugFix,True
-1863540842c9a5bb532d8fd75de6ede6cf5068ac,Fix semantic_rename/test.0002.,NonBugFix,0.73011434,NonBugFix,False
+1863540842c9a5bb532d8fd75de6ede6cf5068ac,Fix semantic_rename/test.0002.,NonBugFix,0.7301143,NonBugFix,False
 18630203c44d34b04aa1bc94ca49f7759565954e,merge changes between nginx 1.2.6 and nginx 1.2.7,NonBugFix,0.91346776,NonBugFix,True
-18aa3c4c4d9f75508771a1887bb24ab35bf404a5,bringing back declaration and source mapping.,NonBugFix,0.84926665,NonBugFix,True
-18804a91672b28cb9bf7a38fa1fe28d91f4ba30a,Tabs to spaces formatting fixes,NonBugFix,0.8773527,NonBugFix,False
-161674bc2271df5dff314e6eb01e0438eaa4f874,Added Unit test for string to number conversion,NonBugFix,0.8901889,NonBugFix,True
-16615300f51ad148e2dad619aaf8bfaf398f405f,add support for tunneling through http proxies,NonBugFix,0.8939338,NonBugFix,True
-16a3d5d298bd0427e74e8f283c00a994b97b53ce,A handful of additional fixes to the way register playback their macros,NonBugFix,0.8712933,NonBugFix,True
+18aa3c4c4d9f75508771a1887bb24ab35bf404a5,bringing back declaration and source mapping.,NonBugFix,0.8492667,NonBugFix,True
+18804a91672b28cb9bf7a38fa1fe28d91f4ba30a,Tabs to spaces formatting fixes,NonBugFix,0.87735265,NonBugFix,False
+161674bc2271df5dff314e6eb01e0438eaa4f874,Added Unit test for string to number conversion,NonBugFix,0.89018893,NonBugFix,True
+16615300f51ad148e2dad619aaf8bfaf398f405f,add support for tunneling through http proxies,NonBugFix,0.8939337,NonBugFix,True
+16a3d5d298bd0427e74e8f283c00a994b97b53ce,A handful of additional fixes to the way register playback their macros,NonBugFix,0.8712932,NonBugFix,True
 167558157292c8393d2391124bfb9613f026c441,"upgrade to TS compiler 0.9 beta
 
 updated compiler to beta (6/6/2013), emitter, declaration local units.",NonBugFix,0.9592818,NonBugFix,True
@@ -45,7 +45,7 @@ updated compiler to beta (6/6/2013), emitter, declaration local units.",NonBugFi
 e973a3f440164cefd4d4fa2499f11a108eb974a8,Each module adds its own entries to the jsToFay/fayToJs hashes. Also put jsToFayUserDefined and fayToJsUserDefined in runtime.,NonBugFix,0.9501928,NonBugFix,True
 08f67c8a7ddcd85b3ee72805cc3b9d64374fe21d,Merged latest,NonBugFix,0.8912597,NonBugFix,True
 08c6bf3dbeff840ac94fb8a305325b86164b6443,Add function pretty printing.,NonBugFix,0.83112174,NonBugFix,True
-085a4f448083c21061a849ccb3ced97591f8f909,v5.0.1. Initialising a skeleton will also reload the configuration.,NonBugFix,0.8113309,NonBugFix,True
+085a4f448083c21061a849ccb3ced97591f8f909,v5.0.1. Initialising a skeleton will also reload the configuration.,NonBugFix,0.81133103,NonBugFix,True
 f36ed6ec9caf15cc7cf7fe8ec8d631ee34748d97,"Add test.0012. No import statements issue.
 
 For some reason local parsing fails if there are no import statements.",NonBugFix,0.9611628,NonBugFix,False
@@ -56,17 +56,17 @@ For some reason local parsing fails if there are no import statements.",NonBugFi
 the compiled unit now contains a references() function. the references
 is resolved from the compiled units declaration content, not the
 compiled content.",NonBugFix,0.9317493,NonBugFix,False
-011fc0f25352a67fd6e9dc2e688d814bb1517bd3,"Added justify text example, which only works in CoreText",NonBugFix,0.92504805,NonBugFix,True
+011fc0f25352a67fd6e9dc2e688d814bb1517bd3,"Added justify text example, which only works in CoreText",NonBugFix,0.9250481,NonBugFix,True
 01147d49b04d26c395d5b3e381110b49f8f6b3c9,* src/logos/match.clj: sketch,NonBugFix,0.90836495,NonBugFix,False
-01f9ae36706a30a030be58986987c6dbdf8c74a4,"Support block delete , put",NonBugFix,0.8761993,NonBugFix,True
+01f9ae36706a30a030be58986987c6dbdf8c74a4,"Support block delete , put",NonBugFix,0.87619936,NonBugFix,True
 01eb8eefb36665c1736ac830beaf98d70aea8714,client initiates heartbeats and detects when connections are stale,NonBugFix,0.86945975,NonBugFix,True
 01f796f71eb78891b51a08c4ce82311a3696c7e7,* src/logos/bench.clj: better formatting,NonBugFix,0.5579148,NonBugFix,True
 01f784a733007f24fe7e4d162d985b1a4d460af8,update to register(),NonBugFix,0.703591,NonBugFix,False
-013466705504851f809adbbe8856164fa2182a61,bump version,NonBugFix,0.9560391,NonBugFix,False
+013466705504851f809adbbe8856164fa2182a61,bump version,NonBugFix,0.956039,NonBugFix,False
 af8337d4a1d0d35911c3cd1a8d4be58bf518fa03,Add sqlite3 and PostgreSQL Dialects.  Fix issues in tests that let errs pass unnoticed in CreateTables().,NonBugFix,0.90355986,NonBugFix,True
-bdc1aebb04e58d44a537d52573e63a4c63a6e1b0,Remove unused CompileErrors and do some renaming,NonBugFix,0.5282164,NonBugFix,True
+bdc1aebb04e58d44a537d52573e63a4c63a6e1b0,Remove unused CompileErrors and do some renaming,NonBugFix,0.5282165,NonBugFix,True
 bd72d4bc5941f538c3f789fb9a3d54a43043800b,"Mutlifile packages support, few misc fixes.",NonBugFix,0.872217,NonBugFix,True
-1c3640ffb9b8a1727d41625a6a80588f27f680ff,Fixed unit tests :),NonBugFix,0.6688,NonBugFix,True
+1c3640ffb9b8a1727d41625a6a80588f27f680ff,Fixed unit tests :),NonBugFix,0.6687999,NonBugFix,True
 fc13c0ebcb184a5fde3ae0eb17fe97e91555c107,"set ""deprecation"" and ""unchecked"" scalac settings according to scalacOptions key in sbt. fix for #120",NonBugFix,0.882248,NonBugFix,False
 046d83791f21ef0541ebde18e45ef91520115085,Update the photo albums project to not use ASI anymore and the new processor features.,NonBugFix,0.9028241,NonBugFix,True
 042fb11e5359e481f6e091340c2c736357d1c897,Flag to exclude stdlib from output (refs #203).,BugFix,0.5216131,NonBugFix,False
@@ -93,26 +93,26 @@ git-svn-id: http://code.taobao.org/svn/tengine/trunk@33 8a6cbc4f-5610-49f6-9325-
 1125a8b760810f682a3c929534e3d235a27e1245,"Add 'Runtime' scope support to unmanagedClasspath
 
 Also added support for classes dirs in unmanagedClasspath, 
-in addition to jars (Issue #181).",NonBugFix,0.8333936,NonBugFix,True
+in addition to jars (Issue #181).",NonBugFix,0.8333935,NonBugFix,True
 119ed05e5985c2497e0715ace271d44425e87340,adding line info to output,NonBugFix,0.9556074,NonBugFix,True
 1118a4f4b4f309121190cb15e24aa36263210747,Don't panic if you can't repeat a test failure,NonBugFix,0.6908227,NonBugFix,False
-1199ce41b094def9b90edb56afcf8761d2294521,Make rhino error support better,NonBugFix,0.7571979,NonBugFix,True
+1199ce41b094def9b90edb56afcf8761d2294521,Make rhino error support better,NonBugFix,0.7571978,NonBugFix,True
 1162e1f0a083a71a7d3166144d88e3d3f6d8f67a,"Implemented sampleshrink/1,2, type changes, added safe_pop to stack ADT",NonBugFix,0.7995976,NonBugFix,True
 36f079e4e39e550bb599a459eb44e5d58a87c9f1,Prepare for next development iteration,NonBugFix,0.8625731,NonBugFix,False
 09165c24071c1c7659f6eb2fb6780abc0e79d4ef,First *trial' version of parameterized modules.,NonBugFix,0.9598533,NonBugFix,True
-09e082e6c36809f8d653d3a73b80e1fdf0ef6955,Use path.Join instead of simple Sprintf.,BugFix,0.5739674,NonBugFix,False
+09e082e6c36809f8d653d3a73b80e1fdf0ef6955,Use path.Join instead of simple Sprintf.,BugFix,0.57396734,NonBugFix,False
 09da66e0030e1c51750fc2f0c37a750013257ea3,"Remove project/boot lib references from build-definition descriptor
 
-These directories/jars do not exist anymore in sbt 0.11+",NonBugFix,0.80222684,NonBugFix,False
-00713ca48870d90b4a2d7a45212b22b6e14fd0b4,[core] Modernize NIIsPad.,BugFix,0.56992537,NonBugFix,False
+These directories/jars do not exist anymore in sbt 0.11+",NonBugFix,0.8022269,NonBugFix,False
+00713ca48870d90b4a2d7a45212b22b6e14fd0b4,[core] Modernize NIIsPad.,BugFix,0.5699255,NonBugFix,False
 00f3c09f44c99c631b7c6ed4b137e67154735973,.,NonBugFix,0.80297166,NonBugFix,False
-004c1747f62c4085fdf55348c5f6f5cdcddc9c1e,* src/main/clojure/clojure/core/logic.clj: improvements to !=fd,NonBugFix,0.7126093,NonBugFix,False
+004c1747f62c4085fdf55348c5f6f5cdcddc9c1e,* src/main/clojure/clojure/core/logic.clj: improvements to !=fd,NonBugFix,0.7126096,NonBugFix,False
 00279d8a06bd1f52e9b8e70896585bd16d88e430,"in an operation, inherit the unit of either operand",BugFix,0.87661177,NonBugFix,False
 0060df80155401c1bf34a0f6f791c193f7825ca1,Ability to customise album and photo scroll view background colors.,NonBugFix,0.85345995,NonBugFix,False
-0037eefde06cbd16352cafe2c756abdb81bc726e,[core] Flesh out the metrics tests.,NonBugFix,0.7603328,NonBugFix,False
-004677c4fe512e89b111a88556e2aadf3e5995ad,Replace gname2Qname with origName2QName,NonBugFix,0.62942326,NonBugFix,True
-0052ded0a918227cb9f62ec892a95082925a6481,Remove tableView delegates when dealloc.,NonBugFix,0.7866004,NonBugFix,False
-002d6db966601ce46f688fe8c6ac59f29185f6b5,Experimental support for mixins with interpolated selectors.,NonBugFix,0.55427396,NonBugFix,True
+0037eefde06cbd16352cafe2c756abdb81bc726e,[core] Flesh out the metrics tests.,NonBugFix,0.7603329,NonBugFix,False
+004677c4fe512e89b111a88556e2aadf3e5995ad,Replace gname2Qname with origName2QName,NonBugFix,0.6294233,NonBugFix,True
+0052ded0a918227cb9f62ec892a95082925a6481,Remove tableView delegates when dealloc.,NonBugFix,0.7866006,NonBugFix,False
+002d6db966601ce46f688fe8c6ac59f29185f6b5,Experimental support for mixins with interpolated selectors.,NonBugFix,0.5542742,NonBugFix,True
 009264f02318358ffde6fb93e9957ba4b4c7c4ec,* test/logos/test/core.clj: add flatten o test,NonBugFix,0.9583481,NonBugFix,False
 6ff6c50bd27bb33076fb3196f4b409507a33a1d1,"Modified data reader mapper to support yielding records rather than loading the entire result set into memory
 
@@ -121,11 +121,11 @@ added configuration option that allows user to specify whether DataReaderMapper 
 Fixing compile error; closes #254",NonBugFix,0.8945131,NonBugFix,True
 1f4bab64533366f4312621f6cbcfe3b8f95b3820,Added rootpath tests.,NonBugFix,0.7875717,NonBugFix,False
 03b49f7d7d3ea9ec80dd938af634b21026a99c92,"* src/main/clojure/clojure/core/logic.clj: remove expand for now, clean up how integers and more complex domains are handled. as long as a seq of intervals can be produced, we can do generic ops.",NonBugFix,0.8429408,NonBugFix,True
-032a1abe48bd2b92645876f986a70724196c93f9,Fix color for static text field,NonBugFix,0.79261976,NonBugFix,False
+032a1abe48bd2b92645876f986a70724196c93f9,Fix color for static text field,NonBugFix,0.79261965,NonBugFix,False
 0337bfa178691354397bea8939e5782344de6a95,Remove force-inline option (closes #102).,NonBugFix,0.7447829,NonBugFix,False
 0395e37d2cde8732ca09b6f53e4313e88f3b3c22,Include classes jars with classifier in idea config (issue #145),NonBugFix,0.9055787,NonBugFix,True
 035262f297613c75d394b8f0dcbd4f41390975eb,Adding overload for ForSourceMember that just takes in the property name as a string,NonBugFix,0.9029922,NonBugFix,True
-81b48ac826176b9899d0d34f672390d29bf657a9,Extend ? macro to handle optional timeout and default value.,NonBugFix,0.73700386,NonBugFix,False
+81b48ac826176b9899d0d34f672390d29bf657a9,Extend ? macro to handle optional timeout and default value.,NonBugFix,0.7370038,NonBugFix,False
 2eb1339249cc3cdeb734e8d93b34659fe9920d34,"PrimitiveArrayMapper implementation
 
 Fixes AutoMapper/Automapper#279",NonBugFix,0.924766,NonBugFix,False
@@ -135,16 +135,16 @@ Fixes AutoMapper/Automapper#279",NonBugFix,0.924766,NonBugFix,False
 - v6.49.0 August 9, 2013
 	- DocPad will now shutdown and destroy itself more thoroughly
 		- Thanks to [Ashton Williams](https://github.com/Ashton-W) for [issue #595](https://github.com/bevry/docpad/issues/595)
-	- Added the event `docpadDestroy` for plugins that are doing anything long-running so they can destroy themselves thoroughly too",NonBugFix,0.77910256,NonBugFix,True
-0b6eda1b1bb12d29e0394bd5f012e438b5cf40d3,Updated for Express.js v3. Need to update some plugins to.,NonBugFix,0.9227706,NonBugFix,True
+	- Added the event `docpadDestroy` for plugins that are doing anything long-running so they can destroy themselves thoroughly too",NonBugFix,0.7791026,NonBugFix,True
+0b6eda1b1bb12d29e0394bd5f012e438b5cf40d3,Updated for Express.js v3. Need to update some plugins to.,NonBugFix,0.9227707,NonBugFix,True
 0b9a53206817781d7aac002ab14b8c29b5bdde14,"more updates to the resolver...
 
-more updates to the resolver, added the compiler services in there.",NonBugFix,0.9050065,NonBugFix,True
+more updates to the resolver, added the compiler services in there.",NonBugFix,0.90500647,NonBugFix,True
 0b7ceda19867381e76d0bd755b9acd6bef426935,"use nrsc to pack static data into the binaries, making adding assets easier and simplifying the build process",NonBugFix,0.9313018,NonBugFix,True
 0b9bd2f4704b6d1708ec5f224d65403513de6061,add some notes to pick up with later,NonBugFix,0.7697435,NonBugFix,False
 0b00e39b2692f34e1d9c2f00e96a801892e53f14,Making all relevant contexts obtain a permanent id before saving,NonBugFix,0.6427034,NonBugFix,False
 0b81151c7e8041127974c7d40f8f781359b597ce,gofmt,BugFix,0.5359989,NonBugFix,False
-0b561e911cb9959f9b7cff165d4c05dd1ba5cbae,"Update test.0028, include unary op check.",NonBugFix,0.8451237,NonBugFix,False
+0b561e911cb9959f9b7cff165d4c05dd1ba5cbae,"Update test.0028, include unary op check.",NonBugFix,0.84512377,NonBugFix,False
 0b074872ea922709b8d280e9062a6856d9eb9024,"v6.31.0. Improvement.
 
 - v6.31.0 April 24, 2013
@@ -165,14 +165,14 @@ ed.tester.coffee)
 	- Change events will now fire when adding a url to a file
 	- URL cache index for serving files is now generated via change
 events, rather than after generation",NonBugFix,0.9217734,NonBugFix,True
-0b0c7711803709aa338468856924ca6037e7c033,Minor code standards enforncement,BugFix,0.74534786,NonBugFix,False
+0b0c7711803709aa338468856924ca6037e7c033,Minor code standards enforncement,BugFix,0.7453479,NonBugFix,False
 53ce240d76add2e2fe5417fdafafd4337ea3b0ec,Removed networking operations from Nimbus. AFNetworking is now the default networking stack.,NonBugFix,0.82352656,NonBugFix,True
 894b56a6ffe67825ef7d8e2282ae5752c27f59f7,"Fix tests for importer rewrite. Caterpillar optimisation attempt.
 
 - load events now parse events
 - split out `populateCollections` into it's own thing
 - moved `generateParse` logic into `populateCollections`
-- added `opts.collection` support back to `parseDirectory`",NonBugFix,0.8732983,NonBugFix,True
+- added `opts.collection` support back to `parseDirectory`",NonBugFix,0.87329817,NonBugFix,True
 12dbb04e9afdc58834a2f91aca871725f296d045,Clean up handling of print depth and make it consistent.,NonBugFix,0.8294215,NonBugFix,True
 12cc2558a25d2b0954e39ede0df1c50dbb59d60c,updated reflection sample,NonBugFix,0.83282495,NonBugFix,True
 12f2fe0d728932d61cf35d75ffeeac1e4080f571,"Refined stats printing subsystem, minor cleanups.
@@ -183,14 +183,14 @@ events, rather than after generation",NonBugFix,0.9217734,NonBugFix,True
 12b6c1d60b382ebd4e7827f81a8f717f3bdeefe7,Set version 1.5.2,NonBugFix,0.9869602,NonBugFix,False
 d527586ee7ac5646068ffb885198814e877d8fca,"Make error messages a tiny bit friendlier, and some general house-keeping.",NonBugFix,0.7583749,NonBugFix,True
 d5e82f8b9e7966fccad8ed6f4750d8509509607c,Adding a test to verify deep nested graph of filling existing destinations; closes #170,NonBugFix,0.9642229,NonBugFix,True
-0217bf5ce24fa1475d08fa74f72c0c8c7e2bd22c,Expand macro ++ in such a way as to allow use in patterns.,NonBugFix,0.87787485,NonBugFix,True
-02e5bee3b39eb4defca56ca46c290c435eba4563,Made 'dj' and 'dk' function like vim,NonBugFix,0.8972173,NonBugFix,True
+0217bf5ce24fa1475d08fa74f72c0c8c7e2bd22c,Expand macro ++ in such a way as to allow use in patterns.,NonBugFix,0.8778749,NonBugFix,True
+02e5bee3b39eb4defca56ca46c290c435eba4563,Made 'dj' and 'dk' function like vim,NonBugFix,0.8972174,NonBugFix,True
 02fa34fb3f5d1e84f6163429c7a88e1c1425cba2,Restoring FindTypeMapFor,NonBugFix,0.94961447,NonBugFix,False
 02bb402c4df4f1fa0a951d4a9e9ad2b671794afc,change @arguments behaviour to be more like js,BugFix,0.76113147,NonBugFix,False
 02912b2be77ab4fce58efbcc96784f36d69a0898,* project.clj: can unify all core datatypes,NonBugFix,0.8636112,NonBugFix,True
 021f6a9734f494dd31cd0655f43ca6369a98f106,"Move things again, trying to suit GOPATH scheme.",NonBugFix,0.98348075,NonBugFix,True
-02e3559664f87e65f5e96edbab567077e5fc527f,* src/main/clojure/clojure/core/logic.clj: move some stuff around,NonBugFix,0.58656687,NonBugFix,False
-0213579de43a5eadbbce234dfcff65d6f8c4b466,1.5.0 release,NonBugFix,0.65492404,NonBugFix,True
+02e3559664f87e65f5e96edbab567077e5fc527f,* src/main/clojure/clojure/core/logic.clj: move some stuff around,NonBugFix,0.5865668,NonBugFix,False
+0213579de43a5eadbbce234dfcff65d6f8c4b466,1.5.0 release,NonBugFix,0.654924,NonBugFix,True
 0245026e393d0f95d8f8534a753f68c4ffe5d80f,"Fix #189.
 
 * XVimWindow is no longer an NSView
@@ -201,9 +201,9 @@ d5e82f8b9e7966fccad8ed6f4750d8509509607c,Adding a test to verify deep nested gra
 020cc2cd70052831032ec8b2f286b8caa8ffc1fc,-pretty flag to jsbeautify output,NonBugFix,0.83861643,NonBugFix,True
 02aa47b917e05279e5acc5802a084a718a3ab196,bump version,NonBugFix,0.96944326,NonBugFix,False
 0284274e2805d9cf01aa52fe4219fa61801e041c,* src/main/clojure/clojure/core/logic.clj: implement super? for RangeFD,NonBugFix,0.5916735,NonBugFix,True
-0285cb83db40e5d5c6742b1d2e5f1b6052fa4285,* src/logos/minikanren.clj: quick note,NonBugFix,0.9367497,NonBugFix,False
+0285cb83db40e5d5c6742b1d2e5f1b6052fa4285,* src/logos/minikanren.clj: quick note,NonBugFix,0.93674976,NonBugFix,False
 022d689a494348ab0893fbe4df8608288e41f4ff,"e,E to use XVimMotion",NonBugFix,0.8307242,NonBugFix,True
-33af4ecb42695868a3717e9fb09a7611b730d886,merge nginx changes between 1.2.5 and 1.2.6,NonBugFix,0.7682304,NonBugFix,True
+33af4ecb42695868a3717e9fb09a7611b730d886,merge nginx changes between 1.2.5 and 1.2.6,NonBugFix,0.7682303,NonBugFix,True
 33b6d722e59dab58a64c282232f857abaf26e20d,Bump schema version,NonBugFix,0.775306,NonBugFix,False
 620d9580c9e401168996b17ea00e2dc77e43e245,"Fix up vertical alignment of images in attributed strings. Now supports top, bottom and middle alignment.",NonBugFix,0.7318646,NonBugFix,True
 1581668d79e71fe5ba1fb50154033eef52583158,Use android-sbt 0.6.4 stable version,NonBugFix,0.79280275,NonBugFix,False
@@ -226,7 +226,7 @@ successfully tested that with the fix from pull request #77 applied to
 mymysql, and with the current commit applied, gorp can correctly store
 and retrieve time.Time objects from mysql databases.
 
-This commit is NOT tested with the github.com/lib/pq driver.",NonBugFix,0.9396267,NonBugFix,False
+This commit is NOT tested with the github.com/lib/pq driver.",NonBugFix,0.9396269,NonBugFix,False
 14180d6f839760ce071fb49d07f21dfaaa612795,"Better record handling, internal fixes, documentation.",NonBugFix,0.94780284,NonBugFix,True
 144062347c01d72e4792b1b8aee1f687eb793a4a,Minor formatting updates,BugFix,0.5200626,NonBugFix,False
 35630db0de0609a3799d91891deea9301d0dad4c,Cut 0.1.1 release,NonBugFix,0.84149545,NonBugFix,False
@@ -281,11 +281,11 @@ check_specs(Mod, FUT, PropErOptions, MeckOptions) ->
             error(Reason, [Mod, PropErOptions, MeckOptions])
     end.
 ````",NonBugFix,0.76663995,NonBugFix,False
-13635e746222e5d7a438ce2727efc8488011bedf,ability to insert uppercase color names,BugFix,0.8363267,NonBugFix,False
+13635e746222e5d7a438ce2727efc8488011bedf,ability to insert uppercase color names,BugFix,0.83632666,NonBugFix,False
 2a9361439752ceb0daa852aa86e9b8c078096147,Tests passing for WinRT,NonBugFix,0.9625229,NonBugFix,True
-d34194b3987d2d527e78369744cfa46a0ecaea96,better lazy test -- make sure that lazy error checking happens,NonBugFix,0.76438695,NonBugFix,False
-45d764a58d4b11c0cbdeb10fa442a18680e492ff,Cleanup code is now debug-only,BugFix,0.50491995,NonBugFix,False
-45b9d8abaaf4d5c89aad716ed20d947975ac199c,add consistent_hash_module for tengine,NonBugFix,0.8035122,NonBugFix,True
+d34194b3987d2d527e78369744cfa46a0ecaea96,better lazy test -- make sure that lazy error checking happens,NonBugFix,0.764387,NonBugFix,False
+45d764a58d4b11c0cbdeb10fa442a18680e492ff,Cleanup code is now debug-only,BugFix,0.5049199,NonBugFix,False
+45b9d8abaaf4d5c89aad716ed20d947975ac199c,add consistent_hash_module for tengine,NonBugFix,0.80351216,NonBugFix,True
 e048f91c71798d10c8709f19687faed01895d8ca,"fix comments, add new context helper, made helpers more consistent",NonBugFix,0.9194536,NonBugFix,True
 831cd1666015ed07bd218995e8ab9b760739a380,"Make 'no-sbt-classifiers' to be the default
 
@@ -297,18 +297,18 @@ resolution.
 Until now the workaround was to run 'gen-idea no-sbt-classifiers'.",NonBugFix,0.5929332,NonBugFix,False
 07fe116be5959b6b296c52af56b2c78f0c788d7b,Allow aeson 0.7.*,NonBugFix,0.8502229,NonBugFix,False
 07c7bf190317709b2e4df486241e192d06e11785,gofmt,NonBugFix,0.80572796,NonBugFix,False
-0739c2a6af1b994f948a4b3d80ca618cc6f6e886,Applying patch for ordering member mapping from Mattias Fagerlund,NonBugFix,0.93591607,NonBugFix,True
+0739c2a6af1b994f948a4b3d80ca618cc6f6e886,Applying patch for ordering member mapping from Mattias Fagerlund,NonBugFix,0.9359162,NonBugFix,True
 071ca908b6e5049351dfbd6242d800e53463cce6,Add named query parameter binding from map or struct.  Fixes #61,NonBugFix,0.84514374,NonBugFix,True
 072a8519ab9484e753ad07b9eccbec56af23033d,"Removed base Model requirement for Document
 
 This var is unused since DocumentModel inherits from FileModel",NonBugFix,0.5294196,NonBugFix,False
-07cbaebd9d79670f32918a4d43cfb612f4b08fcd,0.9.7. added maxAge option,NonBugFix,0.60627383,NonBugFix,False
+07cbaebd9d79670f32918a4d43cfb612f4b08fcd,0.9.7. added maxAge option,NonBugFix,0.6062739,NonBugFix,False
 07474efb5d95a0869da5aaa079fc5534c4d2125b,"Adds support for SAVEPOINT, ROLLBACK TO SAVEPOINT, and RELEASE SAVEPOINT",NonBugFix,0.9340947,NonBugFix,True
-0785265c7cd25170cff59c5d2bf916ab64519998,Add the cleanup code for the region db connection,BugFix,0.63628596,NonBugFix,False
+0785265c7cd25170cff59c5d2bf916ab64519998,Add the cleanup code for the region db connection,BugFix,0.63628584,NonBugFix,False
 0cae1486c1c11ef3e5ee06e3a4a72785f73e3726,"Clean up structure of positional.
 
 I attempted to address Jason's ""code smell"" comment about separate functions
-for efficient call forms and efficient functions. I'm not sure I succeeded.",NonBugFix,0.8608169,NonBugFix,True
+for efficient call forms and efficient functions. I'm not sure I succeeded.",NonBugFix,0.860817,NonBugFix,True
 0c360f2086d331731b4cb8912f4bf9c9f2cd99da,"Add support for built-in package ""unsafe"".",NonBugFix,0.89862275,NonBugFix,True
 0c8ba3352292e2a5cdd0c7b11615bf2248021afb,"Added ability for custom resolver to programatically determine if the mapping should be ignored (and thus use destination value).
 
@@ -316,7 +316,7 @@ closes #21",NonBugFix,0.59748054,NonBugFix,False
 0c2a43ca2922cbda6916a97cee4bef8cfbfc67c2,[overview] Fix strict warnings.,BugFix,0.5968306,NonBugFix,False
 0c60bcd4b8c2ca38555f9e7a3fd57cd7e9c0258a,Added inContext helper to get a managed object in another context,NonBugFix,0.74648947,NonBugFix,False
 0c28ea2ef98432bae85581da1951e49e76646375,cleanded docpad dev comments,NonBugFix,0.9231717,NonBugFix,False
-0c29955c6b3d30e8f1eac0a472cdf2f7b1a7f1c5,"Cleaned up the generation code. Tests passing. May need to change the mtime query to include new documents, as new imported documents with an old mtime won't be generated.",NonBugFix,0.8356698,NonBugFix,False
+0c29955c6b3d30e8f1eac0a472cdf2f7b1a7f1c5,"Cleaned up the generation code. Tests passing. May need to change the mtime query to include new documents, as new imported documents with an old mtime won't be generated.",NonBugFix,0.8356697,NonBugFix,False
 224cdcad4a96887097e1db236bda9da85c0e1fa3,Move code generation out of lfe_comp into lfe_codegen.,NonBugFix,0.9336702,NonBugFix,True
 22537c01364b867d0ba335e6024242752a9bda47,add bug reporting instructions on crash,BugFix,0.8349498,NonBugFix,False
 65bdedafa827a17eccc33f497d166810fbd162f2,"Disequality that does not depend on unify.
@@ -329,14 +329,14 @@ to IDisunifyTerms.
 No more calls to unify in !=c. Commented out normalize-store and
 prefix-subsumes? as those are optimizations anyhow. != goal now calls
 disunify and uses the :prefixc property of the constraint set to
-construct the !=c constraint.",NonBugFix,0.90155554,NonBugFix,True
+construct the !=c constraint.",NonBugFix,0.9015556,NonBugFix,True
 654256c47a45764f5356c71b9fd00ae8ae8a897f,"Significant Refactoring of Compiler
 
 Have refactored the compiler to make it more manageable, and have also
 tried to solve the missing lambda, '_this' bug by way of double passing
 on first load.",NonBugFix,0.8793904,NonBugFix,True
 063d5192a1312fa5cdf8d436f3e8bd0f35cfaf67,Add tests for () conversions,BugFix,0.53138834,NonBugFix,False
-066e38ce09791d815301c3057725da41c92c1b95,watch generate will now output time it was regenerated - as it is super dooper fast these days,NonBugFix,0.73269665,NonBugFix,False
+066e38ce09791d815301c3057725da41c92c1b95,watch generate will now output time it was regenerated - as it is super dooper fast these days,NonBugFix,0.7326967,NonBugFix,False
 06e31b3c428949a1ec618283749b4171655d4647,"Better syntax: Ability to write Map<B>(objectA) instead of Map<A,B>(objectA)
 
 Tests for Map method with one generic parameter",NonBugFix,0.9314027,NonBugFix,True
@@ -348,11 +348,11 @@ protocol has been changed.",NonBugFix,0.95515645,NonBugFix,True
 0e6eca5d06f99d3cefd278eb4e7ca705b499b663,"Handle compiler option warnings_as_errors
 
 We do this in the samw way as the vanilla compiler by flagging an
-error when there are warnings, but leaving them as warnings.",NonBugFix,0.87228537,NonBugFix,True
+error when there are warnings, but leaving them as warnings.",NonBugFix,0.8722854,NonBugFix,True
 0e00ea7ac0e8517265555b719c5c5dfbc9ea5fe2,"Support Ctrl-p, Ctrl-n in command and search history",NonBugFix,0.9408133,NonBugFix,False
 0e552449d23bfcdee4ba2fe292b6f3c8e1f97d43,"Made scrollToCursor more like vim
 
-If scrolling more than the page height then center the view",BugFix,0.67219377,NonBugFix,False
+If scrolling more than the page height then center the view",BugFix,0.6721938,NonBugFix,False
 0e46b3d56609b96d2f8a0208b59c0724c71bf7c0,"Use case-insensitive filtering as a fallback, if no proposals were found.
 
 Closes #91.",NonBugFix,0.5346339,NonBugFix,True
@@ -367,7 +367,7 @@ Added ability to skip sbt sub-project in idea module generation
 Added managed source directories when applicable.",NonBugFix,0.8715757,NonBugFix,True
 d9817d2f734d4a5b87393a18cd7b23c205a940f0,"- Removing configuration validation from dynamic mapping
 - Adding overloads for mapping to existing objects for dynamic mapping",NonBugFix,0.9546751,NonBugFix,True
-4f7acd829eb4b330ae263404dd56c8fb27b85993,Make classifiers of sources and javadocs configurable (issue #97),NonBugFix,0.8648284,NonBugFix,True
+4f7acd829eb4b330ae263404dd56c8fb27b85993,Make classifiers of sources and javadocs configurable (issue #97),NonBugFix,0.86482835,NonBugFix,True
 b11a797379b358448e499e5ae9529f953765d23f,Converted CoreDataRecipes sample to MagicalRecordRecipes sample application,NonBugFix,0.94296646,NonBugFix,True
 26b5aa7506408e52e025193a8e72a98b1d8b4b0a,cache sql queries for get/insert/update/delete. shaved about half the overhead off according to benchmarks,NonBugFix,0.95440316,NonBugFix,True
 2670b6afcd7b97daedc5b4f4ce7ed362fea3238c,"Added formatted output. Very like the erlang versions but they do
@@ -376,7 +376,7 @@ d0f665773075206460532ba54158979deb4f56ec,"dialect: support quoting column names
 
 Add support for quoting column names when generating queries. If a table
 uses a reserved word for a column name (silly but happens) then there
-will be a SQL error when trying to fetch a mapped struct.",NonBugFix,0.5726526,NonBugFix,True
+will be a SQL error when trying to fetch a mapped struct.",NonBugFix,0.5726524,NonBugFix,True
 286fdfc901f650d5657225f57a9ff221569e9a26,"Strengthen some specs
 
 While at it, shortened some comment lines so that they fit
@@ -384,7 +384,7 @@ on one line in my emacs buffer...",NonBugFix,0.7955418,NonBugFix,True
 282ee5c6d1349881c3d218b81f16e86ac74223e6,"Incorporated positional compile to replace eager-compile.
 
 This is largely an export so Jason can take a look; I still plan to clean
-things up.",NonBugFix,0.8702297,NonBugFix,True
+things up.",NonBugFix,0.8702298,NonBugFix,True
 28672dc2b4419582cd4a6dfc9b2dfd06f3f12c92,"review url:http://rb.corp.taobao.com/r/25219/
 
 changelog:
@@ -392,10 +392,10 @@ changelog:
 
 
 
-git-svn-id: http://code.taobao.org/svn/tengine/trunk@40 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",NonBugFix,0.5870798,NonBugFix,False
-109ef9b4c0515442cfc979271b3709e43748edad,fix up to lib.d.ts,NonBugFix,0.92064935,NonBugFix,True
-10a3fecf90444de506dadafdf91088e4b6b2e05a,Some adjustments to the iCloud helpers,NonBugFix,0.88368976,NonBugFix,True
-10ed027555fd5ca0cb8ddda3853c399c7809bd8a,Include 'optional' dependencies in classpath (#198),NonBugFix,0.680398,NonBugFix,False
+git-svn-id: http://code.taobao.org/svn/tengine/trunk@40 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",NonBugFix,0.5870797,NonBugFix,False
+109ef9b4c0515442cfc979271b3709e43748edad,fix up to lib.d.ts,NonBugFix,0.92064947,NonBugFix,True
+10a3fecf90444de506dadafdf91088e4b6b2e05a,Some adjustments to the iCloud helpers,NonBugFix,0.8836897,NonBugFix,True
+10ed027555fd5ca0cb8ddda3853c399c7809bd8a,Include 'optional' dependencies in classpath (#198),NonBugFix,0.6803979,NonBugFix,False
 697f4185757b4b5aecd054d9514504c4c32714f4,"v6.42.3. Improvement.
 
 - v6.42.3 June 26, 2013
@@ -406,34 +406,34 @@ git-svn-id: http://code.taobao.org/svn/tengine/trunk@40 8a6cbc4f-5610-49f6-9325-
 setting the `poweredByDocPad` to `false` in your configuration",NonBugFix,0.55558556,NonBugFix,False
 b7c3895a7b3a1dd7489c9f084e4d9e7366152747,"Download classifiers by default unless no-classifiers or no-sbt-classifiers is specified.
 
-Fixes issue #63",NonBugFix,0.6613631,NonBugFix,False
+Fixes issue #63",NonBugFix,0.661363,NonBugFix,False
 6a707e2887bb385a49d6ddd5d1991f95ff4675e4,Use full path to fix Idea complaining about the Null import (Idea Scala plugin bug?).,BugFix,0.565499,NonBugFix,False
 2c1bf84c95e7eb0bac171a99e126cc50510cbbbf,added unit tests for tagging,NonBugFix,0.824399,NonBugFix,True
-2bea3358c00627cd091c1ed37423c30b2dd6e948,better indentation,NonBugFix,0.9110258,NonBugFix,True
+2bea3358c00627cd091c1ed37423c30b2dd6e948,better indentation,NonBugFix,0.91102576,NonBugFix,True
 29e8a92d6b2a54212113cb7e69957cec660eeac2,"Handful of fixes and better visual support
 
 Reorganized the way XVimVisualEvaluator handles a number of actions in
 order to be more extensible in the future.",NonBugFix,0.8871959,NonBugFix,True
-38d0fd593b5b4050cad8d7539ae98cd519206934,All tests pass,NonBugFix,0.72865295,NonBugFix,False
+38d0fd593b5b4050cad8d7539ae98cd519206934,All tests pass,NonBugFix,0.7286531,NonBugFix,False
 1b4a1c02a5d6f4c202b62c9c283f7b3fe35028ef,Removed unnecessary $ from test wrapper tags.,NonBugFix,0.65248144,NonBugFix,True
-1e85846418479ec9626aa71f196a3ff619f42bb5,use type switching for different commands instead of type codes,NonBugFix,0.61613125,NonBugFix,False
+1e85846418479ec9626aa71f196a3ff619f42bb5,use type switching for different commands instead of type codes,NonBugFix,0.6161313,NonBugFix,False
 0ac97e8c38a85b10557f246c4c1fc90ebcbb1d5f,v5.0.2. Removed some stray console.log's,NonBugFix,0.85470194,NonBugFix,False
 0a3031f31c66335d78a3a75ad6a0974c467b2737,added the 'log_empty_request' directive,NonBugFix,0.63427514,NonBugFix,False
 0abdc4acec39581e799d7699ebb8fb0819a8aff8,Add 'rename' test.0004.,NonBugFix,0.93652886,NonBugFix,False
-0a8db05d02d31fadc2f51e6b573565a14fdab74b,Create new spec based upon ImportSingleRelatedEntityTests.m,NonBugFix,0.8297802,NonBugFix,True
+0a8db05d02d31fadc2f51e6b573565a14fdab74b,Create new spec based upon ImportSingleRelatedEntityTests.m,NonBugFix,0.82978046,NonBugFix,True
 0a380242596738bf8eabebe4dfdb8eb7a371bde1,Adding sample for mapping to interfaces,NonBugFix,0.92196137,NonBugFix,True
 52c7b57392633d4c01d10b99585230d2b048caad,"added declarations to compiled unit object.
 
 additional updates on d.ts files added to the resource (resx) folder.
 the node.d.ts file now differs from the default in that it now contains
 a portions of lib.d.ts minus the DOM specific API's and that all
-declarations as no longer module scoped under the AMD quotation scheme.",NonBugFix,0.841658,NonBugFix,True
+declarations as no longer module scoped under the AMD quotation scheme.",NonBugFix,0.84165806,NonBugFix,True
 e163397cdf515d653060758d8c8ae593e0ce9104,A small fix in the docs and update copyrights.,NonBugFix,0.80785537,NonBugFix,True
-a0149aba501833dafe57cd35962bb6802fb87fda,better error messages for graph,NonBugFix,0.8234837,NonBugFix,True
+a0149aba501833dafe57cd35962bb6802fb87fda,better error messages for graph,NonBugFix,0.82348377,NonBugFix,True
 8541d7ca595449570852428edbe647aa00f0d435,fix on register(),BugFix,0.52740145,NonBugFix,False
 756771aa990c5b6284595036de231398ee4819ca,allow `fixc` to take rands. x can be a vector values in this case.,BugFix,0.8953585,NonBugFix,False
-2da2027c6ab38bb971eab2192124e94a3bbf0470,Simplify add_exports/1 transformation.,NonBugFix,0.8637748,NonBugFix,False
-2d6b26acd42bf67fbf6c3c249ce1d818e393b45a,Ensure we compile with full speed under leiningen.,NonBugFix,0.51957184,NonBugFix,False
+2da2027c6ab38bb971eab2192124e94a3bbf0470,Simplify add_exports/1 transformation.,NonBugFix,0.86377484,NonBugFix,False
+2d6b26acd42bf67fbf6c3c249ce1d818e393b45a,Ensure we compile with full speed under leiningen.,NonBugFix,0.5195718,NonBugFix,False
 245c721d45a886bb18a9bb5b635d7c2bad38aaf4,gofmt,NonBugFix,0.5707063,NonBugFix,False
 2406f2d31ebebcdaca4b3dd9c302b9b9688c6e0c,"`fixc`
 
@@ -442,7 +442,7 @@ a higher order contraint `fixc` which takes a function which must take
 3 arguments - the term, the substitution and a reifier. This function
 must return a goal. This goal can of course call fixc again
 recursively, perhaps using constrain-tree to get tree constraining
-behavior. Redefine `treec` in terms of `fixc` as an example :)",NonBugFix,0.6970336,NonBugFix,True
+behavior. Redefine `treec` in terms of `fixc` as an example :)",NonBugFix,0.69703364,NonBugFix,True
 0565b7717b5147c81c9cbebd4b1e0f3671270ab8,Move Defined and Nullable to Language.Fay.FFI,NonBugFix,0.73029834,NonBugFix,True
 00611261c9eff0eb3280217ed570dbe03d8c59e4,"This simplifies and documents the two AddAudioData()
 methods in the NVP. 
@@ -483,7 +483,7 @@ git-svn-id: http://svn.mythtv.org/svn/trunk@18325 7dbf422c-18fa-0310-86e9-fd2092
 00140d193197d6d4e371d5f6bfd410c89702ca5a,"Atari and Odyssey2 support, patch by Bill Soudan.
 
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@3755 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.9520309,NonBugFix,True
+git-svn-id: http://svn.mythtv.org/svn/trunk@3755 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.95203096,NonBugFix,True
 004205015d5f4dcad9d095ed20251b1f96ae53af,"A little more of the new scanner code is in this commit.
 
 Please test DVB scanning in Europe with this commit.
@@ -528,44 +528,44 @@ cda48814e7257587a5787e7a6757c210d4017eab,Temporary fix to avoid duplicate projec
 simply not exporting declarations from the compiler. can be resolved
 from the reflection metadata.",NonBugFix,0.88924503,BugFix,True
 3d5148e389c4eb92cc5cc00219793f4c6cf85cde,Fix compiler warning,NonBugFix,0.69686687,BugFix,False
-9e35e4b7df146e3f1610380af59ea4cb3672540f,Fix 'rename' test.0004.,NonBugFix,0.7776278,BugFix,False
+9e35e4b7df146e3f1610380af59ea4cb3672540f,Fix 'rename' test.0004.,NonBugFix,0.77762765,BugFix,False
 3047f7603e62edd5a2b2b6953b04a3f55e09e415,"use a hash to store variables, fixes variable redifinition bug",BugFix,0.5961541,BugFix,False
 9761e82ec735d15f0b47045da41f9028c3402a9b,Proper fix for ability to rename non-maps with [:x :as y],BugFix,0.633555,BugFix,False
-16ad5bee0ba80d5f7db40efcb2c0ec175bc14faf,Fixed inner quotes,BugFix,0.7801991,BugFix,False
+16ad5bee0ba80d5f7db40efcb2c0ec175bc14faf,Fixed inner quotes,BugFix,0.78019917,BugFix,False
 1683a2df95c72beefb9feac0559c10324c1ef413,fixed a segment fault bug with upstream check module when check timeout is longer than the check interval,BugFix,0.5599633,BugFix,False
 b37897f3865693853af848ade4d461fb3d7719cd,Don't override existing modules with constructor definitions. Fixes ModuleRecordClash test,NonBugFix,0.8811929,BugFix,True
 08176c617db0daf4130b748d65524d91c4a28d2f,Fix bug and add test for shadowing of optional value with fnk args,BugFix,0.8999923,BugFix,False
 081a1f7fde6de73f590513bfbd6ca8dada1edd95,"fix update to use ssl, specify the right parameters",NonBugFix,0.59063125,BugFix,False
-080c39ef2e609414880a1550cffad3fad9cb2870,Fix NSAttributeDescription lookups using attributesByName by switching to fast enumeration,NonBugFix,0.88714325,BugFix,True
-08f11248c48e189b0bfb9f067af627de2557e4d3,Verifying inheritance is working OK; closes #153,NonBugFix,0.6585684,BugFix,True
+080c39ef2e609414880a1550cffad3fad9cb2870,Fix NSAttributeDescription lookups using attributesByName by switching to fast enumeration,NonBugFix,0.8871431,BugFix,True
+08f11248c48e189b0bfb9f067af627de2557e4d3,Verifying inheritance is working OK; closes #153,NonBugFix,0.6585683,BugFix,True
 c1928b018e4e0e05bacdd34fc23514bc1ca6e8c9,fixed ColumnMap.Nullable docs,NonBugFix,0.5616642,BugFix,False
 4c374be5a7e1a2cc94b2bdb4c7d4b0cfce6ddf8a,Fix Memory Leaks found through instruments,NonBugFix,0.5935806,BugFix,False
-017bb2c234973a44942b9ae657d4c6f3f3f40601,Improvements to browser tests that don't raise a false negative when switching branches,NonBugFix,0.8851814,BugFix,False
+017bb2c234973a44942b9ae657d4c6f3f3f40601,Improvements to browser tests that don't raise a false negative when switching branches,NonBugFix,0.8851815,BugFix,False
 01117d79ddd65d18766965971717bfbbf84b2b2f,[models] Take into account images on switch cell layouts.,NonBugFix,0.6596799,BugFix,False
-01ab6fef7b8bd8546bddc5c3c189d47e22e7b23d,Add Maybe hack to compiler until order is sorted out.,NonBugFix,0.5195808,BugFix,False
+01ab6fef7b8bd8546bddc5c3c189d47e22e7b23d,Add Maybe hack to compiler until order is sorted out.,NonBugFix,0.5195807,BugFix,False
 39445d4e3cb1e680b6ec3c3615e697307fcc18d9,"Fixed bugs related to reusing table view cells
 
 - SegmentedControl selected index reapplied from FormElement object
 - DatePicker date is saved to FormElement on change",BugFix,0.663525,BugFix,False
-b9ca4ca2816dc7451c7e47f65ab3772d67f268a4,Fixed an issue with content type being looked up twice,BugFix,0.768118,BugFix,False
+b9ca4ca2816dc7451c7e47f65ab3772d67f268a4,Fixed an issue with content type being looked up twice,BugFix,0.7681179,BugFix,False
 04204899b10dfb32ab9cbea4d4da26075e6236da,"Add "")"" only if the type is a function.",BugFix,0.5914853,BugFix,False
 097ec88425ae7daaeb807ba34099fe167a0a704b,fix an issue where closing a TCP tunnel caused an infinite loop of errors,BugFix,0.80917895,BugFix,False
 0933e421f5f504eb098e42f05e8cda288d67a80b,Fix misunderstanding in handling of binary types,NonBugFix,0.8116423,BugFix,True
 09f75f469a83c7b4a3a5134d8b25f82d9f87724d,fixed type orddict(),BugFix,0.6401308,BugFix,False
-2733f15ef93092e86f65ed551fa408cd42a93084,Fix memory leaks,BugFix,0.61735445,BugFix,False
-b266b4eebbef51f48a87da6c8206463e0ae868b2,Fix typos in docstrings,BugFix,0.83222634,BugFix,False
-00c43427b078b1f22d7bcdd551a7573a70d88e23,Add automatically generated version information. Fixes #541.,NonBugFix,0.95170647,BugFix,True
+2733f15ef93092e86f65ed551fa408cd42a93084,Fix memory leaks,BugFix,0.6173545,BugFix,False
+b266b4eebbef51f48a87da6c8206463e0ae868b2,Fix typos in docstrings,BugFix,0.8322264,BugFix,False
+00c43427b078b1f22d7bcdd551a7573a70d88e23,Add automatically generated version information. Fixes #541.,NonBugFix,0.9517063,BugFix,True
 0086f1babb23b84c56542fdda0ea37a5f1e5443c,Declare `e` properly in `mediaFeature`,BugFix,0.7208837,BugFix,False
 00243b50d73a14e605fa59e70cb5782ab0b721a9,"[models] Properly respect the return value of the radio group delegate's willShow method.
 
 The logic was inverted.",BugFix,0.8195064,BugFix,False
 6fb09ce19cef31dfc91ca07face1b78fb8aad5f6,fixed bug in proper_types:with_parameters/2,NonBugFix,0.8739202,BugFix,True
 4b7742ed627a2c4b8140cd73779e5af164644867,"Following bug fix for nextLine
- - 'j' on a blankline moves cursor 2 lines donw",NonBugFix,0.76504827,BugFix,True
-9326c7b724ec9daf88d6e4cf0d81e01161dcdbab,* src/main/clojure/clojure/core/logic/minikanren.clj: occur-check fix and test,BugFix,0.62211084,BugFix,False
+ - 'j' on a blankline moves cursor 2 lines donw",NonBugFix,0.7650483,BugFix,True
+9326c7b724ec9daf88d6e4cf0d81e01161dcdbab,* src/main/clojure/clojure/core/logic/minikanren.clj: occur-check fix and test,BugFix,0.6221109,BugFix,False
 03cd303b596d27bd4b6cb4afd1029fa837a3323a,"When scanning for Go files in dir, filter by also file class. Closes #13
 
-We don't need to use dirs as go files, etc.",BugFix,0.72575307,BugFix,False
+We don't need to use dirs as go files, etc.",BugFix,0.7257532,BugFix,False
 031c955cab6b0b590ab39afe67ee30b0a12fdcc8,Reverting commit where destination objects passed in are void methods,NonBugFix,0.92310745,BugFix,True
 51b2833c1c381550f753f1b15ab05e8858bd122e,"Fix #443
 The root cause of the problem was inconsistent state of observer objects.
@@ -574,22 +574,22 @@ a view is newly created and deallocated the method ""removeObserver"" is called
 for a object which is not registered as a observer.
 
 This has not been a problem in Xcode4 because Xcode4 deos not dealloc unused
-view objects. Xcode5 does properly dealloc unused view objects which leads crashes.",NonBugFix,0.5978111,BugFix,False
-8b3bb71379ffcb2dbb5e19d532e95f65b3f23bf0,make version field overrideable. fix primary key declaration in create table if table has more than one pk,NonBugFix,0.9263389,BugFix,True
-8b34e461970723c63275268fa12ba9dcc8fca33a,"Fix win32 build, due to package renames in one of the latest weeklies.",NonBugFix,0.7102316,BugFix,False
-d8e5a49085f18cd903070a71a354e77cfeb34ff0,Fix invalid Symbols as Idents in ModuleScope,NonBugFix,0.51487166,BugFix,True
+view objects. Xcode5 does properly dealloc unused view objects which leads crashes.",NonBugFix,0.59781116,BugFix,False
+8b3bb71379ffcb2dbb5e19d532e95f65b3f23bf0,make version field overrideable. fix primary key declaration in create table if table has more than one pk,NonBugFix,0.926339,BugFix,True
+8b34e461970723c63275268fa12ba9dcc8fca33a,"Fix win32 build, due to package renames in one of the latest weeklies.",NonBugFix,0.71023136,BugFix,False
+d8e5a49085f18cd903070a71a354e77cfeb34ff0,Fix invalid Symbols as Idents in ModuleScope,NonBugFix,0.51487195,BugFix,True
 21cc34b608f483fb101923b597640408815ab0f5,Fix #791 - avoid engineering syntax in dimensions,BugFix,0.89156026,BugFix,False
-d2f3fc844007b54e4caf6a896e273988b27a01b9,fix a race condition handling new proxy connections by passing the connection variable into the goroutine instead of closing over it,BugFix,0.71944743,BugFix,False
+d2f3fc844007b54e4caf6a896e273988b27a01b9,fix a race condition handling new proxy connections by passing the connection variable into the goroutine instead of closing over it,BugFix,0.7194476,BugFix,False
 5341e84c4c0c23e7a650ec3f433b564e4a3357d8,Adding an observer to check for icloud being setup after default context has been set. Should fix race condition in Issue #241,NonBugFix,0.7314367,BugFix,False
-5387e850af5c2d20605658a3dabe5e69a8bec5d1,Fixing checking of bitsegs in patterns.,NonBugFix,0.914412,BugFix,True
+5387e850af5c2d20605658a3dabe5e69a8bec5d1,Fixing checking of bitsegs in patterns.,NonBugFix,0.9144122,BugFix,True
 3f308d97a1c48423d23733b1361484f04228cdda,"Process 'provided' scope before test and runtime (#186)
 
 Fixes a case where a dependency declared as 'provided' will
 end up as 'test' scoped when the same dependency is also a
 transitive dependency of test scoped dependency. Provided dependency
 may be needed for compilation, so it ending as test dep breaks 
-compilation in Idea.",NonBugFix,0.54892933,BugFix,False
-3f451e9986646690b3f70ac53641b92cdfbf89f4,Fix windows build.,NonBugFix,0.8790707,BugFix,True
+compilation in Idea.",NonBugFix,0.5489293,BugFix,False
+3f451e9986646690b3f70ac53641b92cdfbf89f4,Fix windows build.,NonBugFix,0.87907064,BugFix,True
 bee9f4a3cf9b9ee3301da7ccb2e450eef102c1e9,"Fix some data import tests
 Added data update tests",NonBugFix,0.9222782,BugFix,True
 d56b7ecd5fd9fe4fd1e2efbae616cda4562a7a01,"Fix memory leak, add check for previous import",NonBugFix,0.70226187,BugFix,False
@@ -601,25 +601,25 @@ use scan-build(http://clang-analyzer.llvm.org/) check and find a little warnning
 
 
 
-git-svn-id: http://code.taobao.org/svn/tengine/trunk@53 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",NonBugFix,0.5696798,BugFix,False
-02ce1378f5724babbd43cf2ff9e93d3fc86ea322,"remove root-var calls, not needed w/ update-dom",BugFix,0.73877937,BugFix,False
+git-svn-id: http://code.taobao.org/svn/tengine/trunk@53 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",NonBugFix,0.56967974,BugFix,False
+02ce1378f5724babbd43cf2ff9e93d3fc86ea322,"remove root-var calls, not needed w/ update-dom",BugFix,0.73877954,BugFix,False
 02d40258f4540cabd1a66c6eb19c229b2ba8211b,"Prevent crashes after deletion.
 
 If you delete the last characters on a line the cursor ends up in an
 invalid position. Replace all [view cut] with [view del], where the
-latter adjusts the cursor position after deletion.",BugFix,0.5814719,BugFix,False
-02be3bd366d4dcb533a98a3c047772799e6ebac4,fixing options.,BugFix,0.65975094,BugFix,False
-02f55393fece8662c74db211cdedd3eb3d28144d,allow to intercept responses with status 300.,BugFix,0.849028,BugFix,False
+latter adjusts the cursor position after deletion.",BugFix,0.58147174,BugFix,False
+02be3bd366d4dcb533a98a3c047772799e6ebac4,fixing options.,BugFix,0.6597509,BugFix,False
+02f55393fece8662c74db211cdedd3eb3d28144d,allow to intercept responses with status 300.,BugFix,0.84902793,BugFix,False
 628cc94ed6da619e47feecd36da784fbf14d8999,"Fixes in initial state computation
 
 *Now initial_state/0 is only called during command generation
  and evaluated during command execution.
 
-*Also fixed proper_types:parameter/3",NonBugFix,0.7922793,BugFix,True
+*Also fixed proper_types:parameter/3",NonBugFix,0.79227936,BugFix,True
 563793aff7b19062ecfc39e6a1ec26063bb93e45,typo error in markdown plugin renderer,BugFix,0.6249586,BugFix,False
 15152a6ff82471e0dfd592ea94f0aec832d60792,Fix block selection corruption,NonBugFix,0.69165015,BugFix,True
-15a9cf4f66b3bb6d4fbb9fd1ad49580158aadc29,Xcode 5 is a wonderland of typecasting,NonBugFix,0.71383107,BugFix,True
-3a530a0c716210cf80bb833e32eb88909171b1b0,Fix bug in compose-schemata / comp-partial for optional args,NonBugFix,0.57749146,BugFix,True
+15a9cf4f66b3bb6d4fbb9fd1ad49580158aadc29,Xcode 5 is a wonderland of typecasting,NonBugFix,0.713831,BugFix,True
+3a530a0c716210cf80bb833e32eb88909171b1b0,Fix bug in compose-schemata / comp-partial for optional args,NonBugFix,0.5774915,BugFix,True
 3afb63081ce01a7a8f8c90aa2a7ad9429a23e470,"Return a sql.ErrNoRows when SelectOne does not return any row.
 
 The SelectOne wants to return just one row, so it should also return an error
@@ -629,10 +629,10 @@ sql.ErrNoRows, as it's done in some functions of the database/sql package.",BugF
 6c3d57e7a53fb0940045e38163f035fff0ff66b5,"Bugfix: the ""[alert] zero size buf"" error.",BugFix,0.664555,BugFix,False
 13be54d4e7262343a004afb512a12e4610533b7a,make sure every new tunnel connection and every new http connection has a read/write timeouts until handled by a tunnel. fix a bug where a slow tunnel or proxy connection could block all others. fix a bug where sending a non-expected valid ngrok protocol message over a new connection could leak a connection,BugFix,0.7825125,BugFix,False
 b0e01e749a777738d8d0df2eb315a339ee519d76,Trying to fix SN problem and probing adapter resolver issue,NonBugFix,0.5437794,BugFix,False
-b0836494a4b3494f5b62aa00c0f7f4dea124fc57,"Fix fields of records that should also not be forced, also very important (refs #237).",BugFix,0.65033287,BugFix,False
+b0836494a4b3494f5b62aa00c0f7f4dea124fc57,"Fix fields of records that should also not be forced, also very important (refs #237).",BugFix,0.6503328,BugFix,False
 4507a9778e9ebe2512cd1e922315b5d52d2fb2b8,Fix graph tests and add tests for new positional compilations,NonBugFix,0.66856223,BugFix,True
-4547c7257c5a540b5395b650e52655756696a875,* src/main/clojure/clojure/core/logic.clj: fix make-cs calls,BugFix,0.73268306,BugFix,False
-a6ef5bcba753175c021e9c5e88885895090c7ec6,fixed top level reflection object,NonBugFix,0.8844713,BugFix,True
+4547c7257c5a540b5395b650e52655756696a875,* src/main/clojure/clojure/core/logic.clj: fix make-cs calls,BugFix,0.732683,BugFix,False
+a6ef5bcba753175c021e9c5e88885895090c7ec6,fixed top level reflection object,NonBugFix,0.88447124,BugFix,True
 f9b68f8f741c3e48520edeb597a20714c18bc165,"Update tree.js
 
 in windows system,path sep is '\',the old regexp is not match it. I whrite a
@@ -640,27 +640,27 @@ new regexp and fix it;",BugFix,0.77643704,BugFix,False
 54f6b040ac8a22f3e48f33414afaa0a96ea20182,"repair a bug in upstream, process_header and process_body_in_memory
 http://rb.corp.taobao.com/r/23292/
 
-git-svn-id: http://code.taobao.org/svn/tengine/trunk@24 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",BugFix,0.5968908,BugFix,False
+git-svn-id: http://code.taobao.org/svn/tengine/trunk@24 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",BugFix,0.5968907,BugFix,False
 54751ce3135544e19b950c091229c2436673face,Use DumpRequest which includes all headers unlike it did in Go 1.0 instead of the hack to use DumpRequestOut which was limiting raw request body lengths to 8192 bytes. Fixes github issue #4.,BugFix,0.8422356,BugFix,False
-42f74303f4a11e785b50c0790355b327883d4195,minor fixes to unit tests,BugFix,0.6217364,BugFix,False
-0c7bf6ae13068ec059231c7f7214ddb3b1d2d2c4,web ui address displayed properly in terminal,NonBugFix,0.66865325,BugFix,False
-0c09090eb2ced65b7082d045c7c05f315b31f37c,fix the wrong number of arguments in keepalive_timeout,NonBugFix,0.5266039,BugFix,False
+42f74303f4a11e785b50c0790355b327883d4195,minor fixes to unit tests,BugFix,0.62173635,BugFix,False
+0c7bf6ae13068ec059231c7f7214ddb3b1d2d2c4,web ui address displayed properly in terminal,NonBugFix,0.6686534,BugFix,False
+0c09090eb2ced65b7082d045c7c05f315b31f37c,fix the wrong number of arguments in keepalive_timeout,NonBugFix,0.5266041,BugFix,False
 55c2333c17bc9eb06e64c8f446269accfd6200a9,"[css] Maintain casing of CSS property values.
 
 Fixes #185.",BugFix,0.7274956,BugFix,False
-22c5bd77c43e796a86aceeff3450c3583718cd7c,Fix global variable leaks,BugFix,0.693171,BugFix,False
+22c5bd77c43e796a86aceeff3450c3583718cd7c,Fix global variable leaks,BugFix,0.6931709,BugFix,False
 4864397df52454a24a41029b7b9339c70b0a8caa,"v6.21.7. Bugfix.
 
 - v6.21.7 January 25, 2013
 	- Fixed port not defaulting correctly on the `docpad-server` executable since v6.21.5
 		- Closes [issue #407](https://github.com/bevry/docpad/issues/407) thanks to [man4u](https://github.com/man4u)
 	- Updated dependencies
-		- [bal-util](https://github.com/balupton/bal-util) from ~1.16.0 to ~1.16.1",BugFix,0.7728,BugFix,False
+		- [bal-util](https://github.com/balupton/bal-util) from ~1.16.0 to ~1.16.1",BugFix,0.77279997,BugFix,False
 660629cfe839280444409e7a62c52e63004766e0,fixed up the npm stuff.,NonBugFix,0.94591254,BugFix,True
 3171a62f0d16641ea329f72197acce76c7c71841,fix font shorthand with %,BugFix,0.74819016,BugFix,False
 3154568a8996d0ebe3de25df163db61e85515905,fix safefd example to use !=fd,BugFix,0.72315884,BugFix,False
 947c742d04edf30b295e34a77676eee2c609dbeb,Don't swallow useful PostgreSQL errors when INSERT fails for some reason.,BugFix,0.77221626,BugFix,False
-062953110a99962972b3793846b2588a1a1a2ef7,Making sure not defining MR_SHORTHAND does NOT include any unnecessary runtime changes,NonBugFix,0.79475045,BugFix,False
+062953110a99962972b3793846b2588a1a1a2ef7,Making sure not defining MR_SHORTHAND does NOT include any unnecessary runtime changes,NonBugFix,0.7947506,BugFix,False
 41700e72f46281f56934400265e8ce583604c53f,Fix FFI callbacks when too many arguments are provided.,NonBugFix,0.63817906,BugFix,False
 0e43b65049ef98fbc4b959b88854bc17733d0cb2,"Added weighted_default/2 and some bugfixes
 
@@ -669,13 +669,13 @@ Fixes #185.",BugFix,0.7274956,BugFix,False
 0e98c7e8e7d92d64d9aa2214db1d3c48cfb2c398,"Remove unnecssary special case guard handling in lfe_codegen.erl
 
 These special cases are unnecssary as the optimiser fixes it for us
-and they are a rememant of old guard handling.",NonBugFix,0.8619259,BugFix,True
+and they are a rememant of old guard handling.",NonBugFix,0.8619257,BugFix,True
 7a6ec41d8bc104e8bf2bb2f2950a3a8d567b0447,"1 fix bugs of the limit_req module(please read this issue https://github.com/taobao/tengine/pull/1).
 
 2 add test case for limit_req module.
 
-3 refactor some code and fixed code style.",BugFix,0.50636584,BugFix,True
-7afc78579e7ce77a4b1c6000cd199462ba0dd279,Fix and test ability to rename non-maps with [:x :as y],BugFix,0.52372533,BugFix,False
+3 refactor some code and fixed code style.",BugFix,0.5063657,BugFix,True
+7afc78579e7ce77a4b1c6000cd199462ba0dd279,Fix and test ability to rename non-maps with [:x :as y],BugFix,0.5237253,BugFix,False
 4a9267ee77abd1e0938543031628c74d236acf0a,"[photos] Fix bugs in the layout of the photo scroll views.
 
 Due to pushing the scroll view down to a subview I needed to update
@@ -688,36 +688,36 @@ of the view.
 Also fixed some issues with photo centering. The problem was related
 to when we set the frame of the paging scroll view and the fact that
 it was simply setting the frame of all of the subviews, without giving
-them the opportunity to maintain their existing state.",NonBugFix,0.7419966,BugFix,True
-260be7807abad2302323213bf0289fbd09525adf,Fixes and cleanups to typeserver and transformer.,NonBugFix,0.8020942,BugFix,True
+them the opportunity to maintain their existing state.",NonBugFix,0.7419967,BugFix,True
+260be7807abad2302323213bf0289fbd09525adf,Fixes and cleanups to typeserver and transformer.,NonBugFix,0.80209416,BugFix,True
 26e19be4a499eef06d5ef5450a3ffa6a1441c67c,fixed for nginx standard,BugFix,0.6792738,BugFix,False
-bfd7e64d9fdbe902d74cc96d4577b6d5cfaf60a0,fix race condition in logging initialization. go fmt,NonBugFix,0.6696609,BugFix,False
-5fd65be3cf7bbbade37b51b9a0e1e84b8f55cf58,fix a small print formatting in displaying the metrics reporting interval,BugFix,0.7462044,BugFix,False
+bfd7e64d9fdbe902d74cc96d4577b6d5cfaf60a0,fix race condition in logging initialization. go fmt,NonBugFix,0.66966105,BugFix,False
+5fd65be3cf7bbbade37b51b9a0e1e84b8f55cf58,fix a small print formatting in displaying the metrics reporting interval,BugFix,0.7462043,BugFix,False
 633e5ad362943a6eb043fa68da2963929466b796,Fix sneaky package parser rewrite regression.,NonBugFix,0.8182726,BugFix,False
 10139f1c2e9c473bbf2412b34ee76d6427c659a6,maybeExpandNamedQuery: ignore time.Time struct - fixes #84,NonBugFix,0.51171815,BugFix,False
 10de9d02e4ee08b2dc07e0035b0ab9bf7f43781a,critical fix for browser,NonBugFix,0.7382141,BugFix,False
 5d4b069c85dc28642f22a01650482f8c1ddcfd06,* src/logos/minikanren.clj: fix the behavior of rest-lvars during reification,NonBugFix,0.92361027,BugFix,True
 5db1b4d46aa1ad050331e60c7ac731295b053063,bugfix when use chrome and safari.,NonBugFix,0.5018691,BugFix,True
 5b54b543792fd6e0a30c1c213063b4aef3f14ea3,bugfix: don't record request time in subrequest,BugFix,0.81133807,BugFix,False
-b79a49fc57b65ac63f2b3d02b60734d984da6634,Fixed when a crash when there is bogus import statement; alias but no path.,BugFix,0.5210204,BugFix,False
+b79a49fc57b65ac63f2b3d02b60734d984da6634,Fixed when a crash when there is bogus import statement; alias but no path.,BugFix,0.52102035,BugFix,False
 b748c8980cbb6575c673625b4cf4a3f7f139662b,"Safe-get only prints keys on error, not whole target map",BugFix,0.8171084,BugFix,False
-6a2b9c31b1c8484471b8e140a92ec81de1fce40f,fix a bug where ngrokd would reject http requests with an authorization header if the client had not specified any authentication necessary,BugFix,0.7893233,BugFix,False
-2cc1b018fef08f73cb64e4b4be07bfc5a921c08e,fix 'File not found' import error,BugFix,0.7627277,BugFix,False
+6a2b9c31b1c8484471b8e140a92ec81de1fce40f,fix a bug where ngrokd would reject http requests with an authorization header if the client had not specified any authentication necessary,BugFix,0.78932303,BugFix,False
+2cc1b018fef08f73cb64e4b4be07bfc5a921c08e,fix 'File not found' import error,BugFix,0.76272774,BugFix,False
 2b56e090ba91c74315e3f00123b6094e225dde73,"[attributedlabel] Don't remove images when the run delegate deallocates.
 
 This caused periodic crashes that were revealed by avoiding the memory leak fixed in 3b46abf455389e55384663b526a0567e13e27460.",NonBugFix,0.72038466,BugFix,False
-29a894231a9eea1198ba97b1c46650792a202911,"fix error message when no filename, also try to print stack",BugFix,0.62970823,BugFix,False
-38431cd0773b1967d5fe5892652a585d6b9c0eb0,v6.54.8. Bugfix.,BugFix,0.7896352,BugFix,False
-1bfe47835fac48b76e96fc920db38fcda5cedffc,more fixes,NonBugFix,0.7375954,BugFix,True
-1b54f1fb166ab532be0975a84ffd56193068813e,Fix implicit float/double conversion,BugFix,0.65341306,BugFix,False
-0a3798bb3de6625f23b324c6bdc01505f11a35da,Don't import modules twice.,NonBugFix,0.7310531,BugFix,True
+29a894231a9eea1198ba97b1c46650792a202911,"fix error message when no filename, also try to print stack",BugFix,0.6297084,BugFix,False
+38431cd0773b1967d5fe5892652a585d6b9c0eb0,v6.54.8. Bugfix.,BugFix,0.78963524,BugFix,False
+1bfe47835fac48b76e96fc920db38fcda5cedffc,more fixes,NonBugFix,0.73759544,BugFix,True
+1b54f1fb166ab532be0975a84ffd56193068813e,Fix implicit float/double conversion,BugFix,0.6534131,BugFix,False
+0a3798bb3de6625f23b324c6bdc01505f11a35da,Don't import modules twice.,NonBugFix,0.73105305,BugFix,True
 0a5b47f497789dfb239af0966c90c845fb8f5532,Integrating patch to fix ambiguous match exceptions on multiple IEnumerable implementors,NonBugFix,0.8294055,BugFix,True
 5223e92c2ed490cc72bb2cd34f33a2544a0410ff,Fix memory leak,BugFix,0.74107015,BugFix,False
 52c7559c5e825841e089181adbf30c5ae3d03a68,"* src/main/clojure/clojure/core/logic.clj: fix typo in tests, fix exclude-from-dom, y* will be a set in -distinctfdc, list-sorted? impl",NonBugFix,0.7602403,BugFix,False
 e13175d8c17e8fac5e122663c81606ff7635533c,Fix bug in merge-disjoint with nil map,BugFix,0.6631828,BugFix,False
 5804d573ef6e1364e7daee37fc354a07db617a5d,fixed resx declaration file.,NonBugFix,0.9437675,BugFix,True
 4d08291813a24342972a127fe07facc7df3c655c,fix a bug which causes updates to be tried without delay after the first update interval,BugFix,0.7156762,BugFix,False
-4d55378c47d50a909ec4ee4a31ad59a28ac52599,Fix rotation issues in the paging scroll view demo by forwarding the proper events to the view.,NonBugFix,0.7889512,BugFix,False
+4d55378c47d50a909ec4ee4a31ad59a28ac52599,Fix rotation issues in the paging scroll view demo by forwarding the proper events to the view.,NonBugFix,0.7889513,BugFix,False
 4d526264f2d16db3ca68f52893657096982d979c,Fixed bug where destination collections were not cleared before mapping,NonBugFix,0.9354337,BugFix,True
 a03b6ee36175620d1f22fd1148fe2086dd0195b3,"Fixed issue with mapping og void methods
 
@@ -727,26 +727,26 @@ methods should've been filtered out but the ReturnType was checked
 against null instead of typeof(void). Added unit tests to support the
 fix.
 
-closes #214",NonBugFix,0.8099152,BugFix,True
+closes #214",NonBugFix,0.80991524,BugFix,True
 a086b9eebc4dbe2b4fb754c76bb268da0debad14,Fixing bug where type map resolution did not attempt to find a map for the underlying member type,NonBugFix,0.92060447,BugFix,True
 858583237c77c142a2a4e49ba7b6c11f072ef503,fixed typo in locals-membero recursive call,BugFix,0.8544926,BugFix,False
 2d8f99afd4437036b1c1b04175f263ab3fe0963f,ngx_http_user_agent_module bugfix,BugFix,0.6764924,BugFix,False
-24872e9cd57d8e7ce3351c97657943f826f198b4,Fix jschardet being undefiend if Iconv fails - Ref #411,BugFix,0.59410506,BugFix,False
+24872e9cd57d8e7ce3351c97657943f826f198b4,Fix jschardet being undefiend if Iconv fails - Ref #411,BugFix,0.5941052,BugFix,False
 d66806cf5ce4950440f30e03698ab92762cc0220,remove debug print,NonBugFix,0.93312836,BugFix,True
 7643c5af0504ee90af08a2b85f68b8b28d4c7ddd,Re-add fix for cleanup of background queue,BugFix,0.63340276,BugFix,False
 0543ba408f2eecea2c425ef83735303d7898d295,Fix win port issues. Signal handling and default sock type.,NonBugFix,0.74828744,BugFix,False
-05109446550dd8cc35d222ff11201867c701c226,Fixed issue where the profile was not being used correctly,NonBugFix,0.8620856,BugFix,True
+05109446550dd8cc35d222ff11201867c701c226,Fixed issue where the profile was not being used correctly,NonBugFix,0.86208564,BugFix,True
 05de0ed1f06bb11e09783534a712386e60f14400,"v6.47.0. Bugfix. Improvement.
 
 - v6.47.0 July 31, 2013
 	- Added `FileModel::deleteSource`
 	- Added support for specifying inline content within the styles block
-	- Fixed `DocPad::parseFileDirectory`",BugFix,0.6539847,BugFix,True
+	- Fixed `DocPad::parseFileDirectory`",BugFix,0.65398467,BugFix,True
 32e1cd63c0656e245bcae6b28ed6c013fcaed3cc,fix first selection range of visual mode of 'V',NonBugFix,0.8619856,BugFix,True
 ed42484be60a6bbae825cc88f9b6fab3d3af88fd,"Unwind variable scoping code in lfe_trans.erl
 
 To do this properly will take more work than I am prepared to do
-for the moment. Also fixed binary handling in from_bitseg.",NonBugFix,0.9054201,BugFix,True
+for the moment. Also fixed binary handling in from_bitseg.",NonBugFix,0.90542006,BugFix,True
 0384bfe2b2e50d8bc40f58fd8e27779d68880a38,"Fix a problem with DVB subtitles which don't take the current OSD
 dimensions into account.
 
@@ -783,11 +783,11 @@ git-svn-id: http://svn.mythtv.org/svn/trunk@8098 7dbf422c-18fa-0310-86e9-fd20926
 and syntax warning fix (variable was being redefined)
 
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@8640 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.65341055,BugFix,False
+git-svn-id: http://svn.mythtv.org/svn/trunk@8640 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.6534106,BugFix,False
 00521a7bdd238534f89b55f5e998fd046a68ff14,"Set the painter object before we load OSD windows.
 
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@27023 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.5576838,BugFix,True
+git-svn-id: http://svn.mythtv.org/svn/trunk@27023 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.5576839,BugFix,True
 00d899b6c93e1c63f097d44afa7a3d9c9295aa76," A Couple of fixes for compiling under OpenBSD
 
 
@@ -803,7 +803,7 @@ while still not trying to load a non existant poster.
 
 
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@6957 7dbf422c-18fa-0310-86e9-fd20926502f2",BugFix,0.7773618,BugFix,False
+git-svn-id: http://svn.mythtv.org/svn/trunk@6957 7dbf422c-18fa-0310-86e9-fd20926502f2",BugFix,0.7773617,BugFix,False
 04798229286ef81b16aaae21a3d425bafcc36dda,"rmdec: Pass AVIOContext to rm_read_metadata()
 
 Fix null pointer dereference
@@ -816,11 +816,11 @@ Signed-off-by: Jean-Yves Avenard <jyavenard@mythtv.org>",NonBugFix,0.8043685,Bug
 
 fixes hopefully pcc compilation
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@21571 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.6393789,BugFix,False
+git-svn-id: http://svn.mythtv.org/svn/trunk@21571 7dbf422c-18fa-0310-86e9-fd20926502f2",NonBugFix,0.639379,BugFix,False
 02c8992faf15ba002ed774179038c3f92b139d1c,"Fixes #1873. Fixes DVB-T Radio, by writing fake video stream pid.
 
 I didn't use the patch because it had some errors in it, but I added a one liner which should fix the problem.
 
 
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@10087 7dbf422c-18fa-0310-86e9-fd20926502f2",BugFix,0.7445077,BugFix,False
+git-svn-id: http://svn.mythtv.org/svn/trunk@10087 7dbf422c-18fa-0310-86e9-fd20926502f2",BugFix,0.74450755,BugFix,False

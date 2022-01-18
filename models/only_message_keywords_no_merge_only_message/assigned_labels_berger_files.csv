@@ -96,7 +96,7 @@ Also added support for classes dirs in unmanagedClasspath,
 in addition to jars (Issue #181).",NonBugFix,0.9999623,NonBugFix,False
 119ed05e5985c2497e0715ace271d44425e87340,adding line info to output,NonBugFix,0.9999795,NonBugFix,False
 1118a4f4b4f309121190cb15e24aa36263210747,Don't panic if you can't repeat a test failure,NonBugFix,0.9022752,NonBugFix,False
-1199ce41b094def9b90edb56afcf8761d2294521,Make rhino error support better,NonBugFix,0.74497086,NonBugFix,False
+1199ce41b094def9b90edb56afcf8761d2294521,Make rhino error support better,NonBugFix,0.74496967,NonBugFix,False
 1162e1f0a083a71a7d3166144d88e3d3f6d8f67a,"Implemented sampleshrink/1,2, type changes, added safe_pop to stack ADT",NonBugFix,0.99995613,NonBugFix,False
 36f079e4e39e550bb599a459eb44e5d58a87c9f1,Prepare for next development iteration,NonBugFix,0.99997663,NonBugFix,False
 09165c24071c1c7659f6eb2fb6780abc0e79d4ef,First *trial' version of parameterized modules.,NonBugFix,0.9999781,NonBugFix,False
@@ -173,7 +173,7 @@ events, rather than after generation",NonBugFix,0.999877,NonBugFix,False
 - split out `populateCollections` into it's own thing
 - moved `generateParse` logic into `populateCollections`
 - added `opts.collection` support back to `parseDirectory`",NonBugFix,0.999794,NonBugFix,False
-12dbb04e9afdc58834a2f91aca871725f296d045,Clean up handling of print depth and make it consistent.,NonBugFix,0.7374468,NonBugFix,False
+12dbb04e9afdc58834a2f91aca871725f296d045,Clean up handling of print depth and make it consistent.,NonBugFix,0.7374474,NonBugFix,False
 12cc2558a25d2b0954e39ede0df1c50dbb59d60c,updated reflection sample,NonBugFix,0.9999791,NonBugFix,False
 12f2fe0d728932d61cf35d75ffeeac1e4080f571,"Refined stats printing subsystem, minor cleanups.
 
@@ -197,7 +197,7 @@ d5e82f8b9e7966fccad8ed6f4750d8509509607c,Adding a test to verify deep nested gra
 * Associate XVimWindow instance with DVTSourceTextView
 * Associate XVimStatusLine with container view
 * Associate XVimCommandLine with editor
-* Move command line functions to XVim",BugFix,0.9062286,NonBugFix,False
+* Move command line functions to XVim",BugFix,0.9062285,NonBugFix,False
 020cc2cd70052831032ec8b2f286b8caa8ffc1fc,-pretty flag to jsbeautify output,NonBugFix,0.9999027,NonBugFix,False
 02aa47b917e05279e5acc5802a084a718a3ab196,bump version,NonBugFix,0.99997663,NonBugFix,False
 0284274e2805d9cf01aa52fe4219fa61801e041c,* src/main/clojure/clojure/core/logic.clj: implement super? for RangeFD,NonBugFix,0.99997336,NonBugFix,False
@@ -205,7 +205,7 @@ d5e82f8b9e7966fccad8ed6f4750d8509509607c,Adding a test to verify deep nested gra
 022d689a494348ab0893fbe4df8608288e41f4ff,"e,E to use XVimMotion",NonBugFix,0.9999361,NonBugFix,False
 33af4ecb42695868a3717e9fb09a7611b730d886,merge nginx changes between 1.2.5 and 1.2.6,NonBugFix,0.9999471,NonBugFix,False
 33b6d722e59dab58a64c282232f857abaf26e20d,Bump schema version,NonBugFix,0.9999752,NonBugFix,False
-620d9580c9e401168996b17ea00e2dc77e43e245,"Fix up vertical alignment of images in attributed strings. Now supports top, bottom and middle alignment.",NonBugFix,0.5305186,NonBugFix,False
+620d9580c9e401168996b17ea00e2dc77e43e245,"Fix up vertical alignment of images in attributed strings. Now supports top, bottom and middle alignment.",NonBugFix,0.5305213,NonBugFix,False
 1581668d79e71fe5ba1fb50154033eef52583158,Use android-sbt 0.6.4 stable version,NonBugFix,0.9999786,NonBugFix,False
 15e017d2855eb2f7e7519d6ae5a190c0c5b974c6,add support for proxy authentication,NonBugFix,0.99998,NonBugFix,False
 156088e42804d47b5924e62c633acc77a6812f8b,"added types, minor refactoring, added rudimentary README instructions",NonBugFix,0.99997616,NonBugFix,False
@@ -226,8 +226,8 @@ successfully tested that with the fix from pull request #77 applied to
 mymysql, and with the current commit applied, gorp can correctly store
 and retrieve time.Time objects from mysql databases.
 
-This commit is NOT tested with the github.com/lib/pq driver.",BugFix,0.9730448,NonBugFix,False
-14180d6f839760ce071fb49d07f21dfaaa612795,"Better record handling, internal fixes, documentation.",BugFix,0.9747043,NonBugFix,False
+This commit is NOT tested with the github.com/lib/pq driver.",BugFix,0.9730449,NonBugFix,False
+14180d6f839760ce071fb49d07f21dfaaa612795,"Better record handling, internal fixes, documentation.",BugFix,0.97470456,NonBugFix,False
 144062347c01d72e4792b1b8aee1f687eb793a4a,Minor formatting updates,NonBugFix,0.9999775,NonBugFix,False
 35630db0de0609a3799d91891deea9301d0dad4c,Cut 0.1.1 release,NonBugFix,0.9998965,NonBugFix,False
 356b4f09c54bf9a7a33bff8b598902238335cce2,Update project.clj to 0.0.2-SNAPSHOT,NonBugFix,0.99998,NonBugFix,False
@@ -283,7 +283,7 @@ check_specs(Mod, FUT, PropErOptions, MeckOptions) ->
 ````",NonBugFix,0.9987272,NonBugFix,True
 13635e746222e5d7a438ce2727efc8488011bedf,ability to insert uppercase color names,NonBugFix,0.999939,NonBugFix,False
 2a9361439752ceb0daa852aa86e9b8c078096147,Tests passing for WinRT,NonBugFix,0.9999218,NonBugFix,False
-d34194b3987d2d527e78369744cfa46a0ecaea96,better lazy test -- make sure that lazy error checking happens,BugFix,0.7779933,NonBugFix,False
+d34194b3987d2d527e78369744cfa46a0ecaea96,better lazy test -- make sure that lazy error checking happens,BugFix,0.77799433,NonBugFix,False
 45d764a58d4b11c0cbdeb10fa442a18680e492ff,Cleanup code is now debug-only,NonBugFix,0.9999075,NonBugFix,False
 45b9d8abaaf4d5c89aad716ed20d947975ac199c,add consistent_hash_module for tengine,NonBugFix,0.99997663,NonBugFix,False
 e048f91c71798d10c8709f19687faed01895d8ca,"fix comments, add new context helper, made helpers more consistent",NonBugFix,0.99991316,NonBugFix,False
@@ -413,7 +413,7 @@ Fixes issue #63",BugFix,0.9999042,NonBugFix,False
 29e8a92d6b2a54212113cb7e69957cec660eeac2,"Handful of fixes and better visual support
 
 Reorganized the way XVimVisualEvaluator handles a number of actions in
-order to be more extensible in the future.",NonBugFix,0.84968525,NonBugFix,False
+order to be more extensible in the future.",NonBugFix,0.8496854,NonBugFix,False
 38d0fd593b5b4050cad8d7539ae98cd519206934,All tests pass,NonBugFix,0.99977106,NonBugFix,False
 1b4a1c02a5d6f4c202b62c9c283f7b3fe35028ef,Removed unnecessary $ from test wrapper tags.,NonBugFix,0.9999623,NonBugFix,False
 1e85846418479ec9626aa71f196a3ff619f42bb5,use type switching for different commands instead of type codes,NonBugFix,0.99994993,NonBugFix,False
@@ -433,7 +433,7 @@ a0149aba501833dafe57cd35962bb6802fb87fda,better error messages for graph,BugFix,
 8541d7ca595449570852428edbe647aa00f0d435,fix on register(),BugFix,0.99995995,NonBugFix,False
 756771aa990c5b6284595036de231398ee4819ca,allow `fixc` to take rands. x can be a vector values in this case.,NonBugFix,0.9998508,NonBugFix,False
 2da2027c6ab38bb971eab2192124e94a3bbf0470,Simplify add_exports/1 transformation.,NonBugFix,0.9999752,NonBugFix,False
-2d6b26acd42bf67fbf6c3c249ce1d818e393b45a,Ensure we compile with full speed under leiningen.,BugFix,0.9465812,NonBugFix,False
+2d6b26acd42bf67fbf6c3c249ce1d818e393b45a,Ensure we compile with full speed under leiningen.,BugFix,0.9465815,NonBugFix,False
 245c721d45a886bb18a9bb5b635d7c2bad38aaf4,gofmt,NonBugFix,0.9999566,NonBugFix,False
 2406f2d31ebebcdaca4b3dd9c302b9b9688c6e0c,"`fixc`
 
@@ -479,7 +479,7 @@ Much easier to change these instances, and pass char* around,
 than change all the method signatures, like in Daniel's patch. See #5596
 
 
-git-svn-id: http://svn.mythtv.org/svn/trunk@18325 7dbf422c-18fa-0310-86e9-fd20926502f2",BugFix,0.7918452,NonBugFix,False
+git-svn-id: http://svn.mythtv.org/svn/trunk@18325 7dbf422c-18fa-0310-86e9-fd20926502f2",BugFix,0.7918449,NonBugFix,False
 00140d193197d6d4e371d5f6bfd410c89702ca5a,"Atari and Odyssey2 support, patch by Bill Soudan.
 
 
@@ -576,7 +576,7 @@ for a object which is not registered as a observer.
 This has not been a problem in Xcode4 because Xcode4 deos not dealloc unused
 view objects. Xcode5 does properly dealloc unused view objects which leads crashes.",BugFix,0.99995995,BugFix,False
 8b3bb71379ffcb2dbb5e19d532e95f65b3f23bf0,make version field overrideable. fix primary key declaration in create table if table has more than one pk,NonBugFix,0.9993634,BugFix,False
-8b34e461970723c63275268fa12ba9dcc8fca33a,"Fix win32 build, due to package renames in one of the latest weeklies.",BugFix,0.9654852,BugFix,False
+8b34e461970723c63275268fa12ba9dcc8fca33a,"Fix win32 build, due to package renames in one of the latest weeklies.",BugFix,0.9654853,BugFix,False
 d8e5a49085f18cd903070a71a354e77cfeb34ff0,Fix invalid Symbols as Idents in ModuleScope,BugFix,0.9999566,BugFix,False
 21cc34b608f483fb101923b597640408815ab0f5,Fix #791 - avoid engineering syntax in dimensions,BugFix,0.99844724,BugFix,False
 d2f3fc844007b54e4caf6a896e273988b27a01b9,fix a race condition handling new proxy connections by passing the connection variable into the goroutine instead of closing over it,BugFix,0.999957,BugFix,False
@@ -588,7 +588,7 @@ Fixes a case where a dependency declared as 'provided' will
 end up as 'test' scoped when the same dependency is also a
 transitive dependency of test scoped dependency. Provided dependency
 may be needed for compilation, so it ending as test dep breaks 
-compilation in Idea.",NonBugFix,0.5512864,BugFix,False
+compilation in Idea.",NonBugFix,0.5512874,BugFix,False
 3f451e9986646690b3f70ac53641b92cdfbf89f4,Fix windows build.,BugFix,0.99995905,BugFix,False
 bee9f4a3cf9b9ee3301da7ccb2e450eef102c1e9,"Fix some data import tests
 Added data update tests",NonBugFix,0.9999609,BugFix,False
@@ -625,7 +625,7 @@ latter adjusts the cursor position after deletion.",BugFix,0.9999438,BugFix,Fals
 The SelectOne wants to return just one row, so it should also return an error
 when no rows were returned. In this case, this function will return an
 sql.ErrNoRows, as it's done in some functions of the database/sql package.",BugFix,0.9974303,BugFix,False
-148702929b4f0d54be8fc9b52a9234d34012f3ea,switch back to Close() calls since CloseRead() seems to cause sockets not to flush their writes,BugFix,0.86050284,BugFix,False
+148702929b4f0d54be8fc9b52a9234d34012f3ea,switch back to Close() calls since CloseRead() seems to cause sockets not to flush their writes,BugFix,0.8605025,BugFix,False
 6c3d57e7a53fb0940045e38163f035fff0ff66b5,"Bugfix: the ""[alert] zero size buf"" error.",BugFix,0.9999566,BugFix,False
 13be54d4e7262343a004afb512a12e4610533b7a,make sure every new tunnel connection and every new http connection has a read/write timeouts until handled by a tunnel. fix a bug where a slow tunnel or proxy connection could block all others. fix a bug where sending a non-expected valid ngrok protocol message over a new connection could leak a connection,BugFix,0.9999509,BugFix,False
 b0e01e749a777738d8d0df2eb315a339ee519d76,Trying to fix SN problem and probing adapter resolver issue,BugFix,0.999958,BugFix,False
@@ -641,7 +641,7 @@ new regexp and fix it;",NonBugFix,0.99972993,BugFix,False
 http://rb.corp.taobao.com/r/23292/
 
 git-svn-id: http://code.taobao.org/svn/tengine/trunk@24 8a6cbc4f-5610-49f6-9325-3f9afe71ff98",BugFix,0.99995995,BugFix,False
-54751ce3135544e19b950c091229c2436673face,Use DumpRequest which includes all headers unlike it did in Go 1.0 instead of the hack to use DumpRequestOut which was limiting raw request body lengths to 8192 bytes. Fixes github issue #4.,NonBugFix,0.6227441,BugFix,False
+54751ce3135544e19b950c091229c2436673face,Use DumpRequest which includes all headers unlike it did in Go 1.0 instead of the hack to use DumpRequestOut which was limiting raw request body lengths to 8192 bytes. Fixes github issue #4.,NonBugFix,0.6227417,BugFix,False
 42f74303f4a11e785b50c0790355b327883d4195,minor fixes to unit tests,NonBugFix,0.9834688,BugFix,False
 0c7bf6ae13068ec059231c7f7214ddb3b1d2d2c4,web ui address displayed properly in terminal,BugFix,0.99995273,BugFix,False
 0c09090eb2ced65b7082d045c7c05f315b31f37c,fix the wrong number of arguments in keepalive_timeout,BugFix,0.9999543,BugFix,False
@@ -674,7 +674,7 @@ and they are a rememant of old guard handling.",BugFix,0.999597,BugFix,False
 
 2 add test case for limit_req module.
 
-3 refactor some code and fixed code style.",BugFix,0.99458516,BugFix,False
+3 refactor some code and fixed code style.",BugFix,0.99458545,BugFix,False
 7afc78579e7ce77a4b1c6000cd199462ba0dd279,Fix and test ability to rename non-maps with [:x :as y],NonBugFix,0.99996275,BugFix,False
 4a9267ee77abd1e0938543031628c74d236acf0a,"[photos] Fix bugs in the layout of the photo scroll views.
 
@@ -693,7 +693,7 @@ them the opportunity to maintain their existing state.",BugFix,0.99994135,BugFix
 26e19be4a499eef06d5ef5450a3ffa6a1441c67c,fixed for nginx standard,BugFix,0.9999566,BugFix,False
 bfd7e64d9fdbe902d74cc96d4577b6d5cfaf60a0,fix race condition in logging initialization. go fmt,BugFix,0.9999509,BugFix,False
 5fd65be3cf7bbbade37b51b9a0e1e84b8f55cf58,fix a small print formatting in displaying the metrics reporting interval,BugFix,0.96231043,BugFix,False
-633e5ad362943a6eb043fa68da2963929466b796,Fix sneaky package parser rewrite regression.,BugFix,0.85356474,BugFix,False
+633e5ad362943a6eb043fa68da2963929466b796,Fix sneaky package parser rewrite regression.,BugFix,0.8535649,BugFix,False
 10139f1c2e9c473bbf2412b34ee76d6427c659a6,maybeExpandNamedQuery: ignore time.Time struct - fixes #84,BugFix,0.9997697,BugFix,False
 10de9d02e4ee08b2dc07e0035b0ab9bf7f43781a,critical fix for browser,BugFix,0.999957,BugFix,False
 5d4b069c85dc28642f22a01650482f8c1ddcfd06,* src/logos/minikanren.clj: fix the behavior of rest-lvars during reification,BugFix,0.99988127,BugFix,False

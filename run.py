@@ -443,6 +443,9 @@ datasets = {
 
 TEST_DATASET_NAMES = [
     'idan_files',
+    'levin_files',
+    'berger_files',
+    'manual_labels.herzig',
 ]
 
 
