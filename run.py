@@ -67,10 +67,11 @@ class LabelSource:
         return [1.0-l, l] if self.soft_labels else l
 
     def get_label_from_id(self, id: int) -> str:
-        if isinstance(id, int):
-            return self.ids_to_labels[id]
-        else:
+        try:
             return self.ids_to_labels[id[1]]
+        except IndexError:
+            return self.ids_to_labels[id]
+
 
 
 class LabelModelSource(LabelSource):
