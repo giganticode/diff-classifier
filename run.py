@@ -495,10 +495,10 @@ tasks = {
 
 def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', f'models/{task.name}'])
-    sys.argv.extend(['--per_device_eval_batch_size', '20'])
+    sys.argv.extend(['--per_device_eval_batch_size', '5'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
-    sys.argv.extend(['--per_device_train_batch_size', '8'])
+    sys.argv.extend(['--per_device_train_batch_size', '5'])
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
     sys.argv.extend(['--logging_steps', '400000'])
@@ -522,5 +522,5 @@ def evaluation_config(task: Task) -> None:
 if __name__ == "__main__":
     import os
     task = tasks[os.environ['task']]
-    training_config(task)
+    evaluation_config(task)
     main(task)

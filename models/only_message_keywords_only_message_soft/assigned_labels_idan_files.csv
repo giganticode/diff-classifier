@@ -1,0 +1,3535 @@
+sha,message,prediction,probability,true_label,truncated
+787d05616dff3cc3cf26b15047957fa3d6d9666e,"switched to new config
+",NonBugFix,0.989328,NonBugFix,False
+36f70f5ab183cacde6d68079d927dbaf63444f2a,"Auto merge of #24360 - servo:build-box-tree, r=SimonSapin
+
+Call BoxTreeRoot::construct from layout_thread_2020
+
+<!-- Reviewable:start -->
+This change is [<img src=""https://reviewable.io/review_button.svg"" height=""34"" align=""absmiddle"" alt=""Reviewable""/>](https://reviewable.io/reviews/servo/servo/24360)
+<!-- Reviewable:end -->
+",NonBugFix,0.8994803,NonBugFix,False
+e41c550e9371bc246a66df25edd02fec109d67b0,"win32gdk source files.
+
+
+git-svn-id: acec3fd5b7ea1eb9e79d6329d318e8118ee2e14f@3309 27541ba8-7e3a-0410-8455-c3a389f83636
+",BugFix,0.5035922,NonBugFix,False
+31a010ba3969eb6781873d222fce3ba4683c8dc9,"Merge branch 'master' of github.com:/maxcom/lorsource
+",BugFix,0.5018094,NonBugFix,False
+7c4fc8847c7c9eebd7e1f5b69a284a0c1a72987f,"discrete states for the overlay height
+",NonBugFix,0.5103997,NonBugFix,False
+9e04596beb96f606833d38feabcb0fdf67d59e0c,"some edits ...
+",BugFix,0.50499266,NonBugFix,False
+5ff7c0f0b4376aa65f4ad5904144f1031a800f4d,"electronegativity
+",BugFix,0.5061955,NonBugFix,False
+268648a30ee7fdf785ef80a7bc09767e43d8da44,"Have topology wait for any start-of-day Felix restarts.
+
+Ensures that tests don't have to worry about Felix restarting mid-test when
+its config arrives.
+",BugFix,0.7040751,NonBugFix,False
+47d976fc2451813d96b318fad4a46e20e5b0b7fc,"add additional test in the payload
+",NonBugFix,0.99450886,NonBugFix,False
+5cf19dde417597609e09a5be0ce537c7f0cff2f4,"Merge remote-tracking branch 'upstream/sql-server' into sql-server
+",BugFix,0.50379246,NonBugFix,False
+d90d6cef2e539c378ccd2cee9ab9c8a9182553ee,"Zero-copy for umbrella
+
+Summary:
+title
+This alone is not a zero-copy yet, will need to rebase on top of all other zero-copy diffs before we will be able to test performance of this.
+But it should be ok for review, since it doesn't conflict with other parts.
+
+Test Plan: tests
+
+Reviewed By: brianp@fb.com
+
+Subscribers: trunkagent, alikhtarov
+
+FB internal diff: D1538327
+
+Tasks: 4889426
+",NonBugFix,0.99467194,NonBugFix,False
+c7e2ec44546d870fb3c06890bfe143536af413fd,"single IPC client
+",NonBugFix,0.50319946,NonBugFix,False
+ccc555ee1ee1155eeaee9e8701fe98ce8c6c7ac8,"PLFM-5170-II
+",BugFix,0.50111663,NonBugFix,False
+fba089b2ba51844fa16691cf63ea24525c7d2e3d,"Address comments
+",NonBugFix,0.8855285,NonBugFix,False
+39d8f50a15b28e9cdec55b74ad33be1a5e7eb081,"merge master into branch
+",BugFix,0.5028067,NonBugFix,False
+c5df73d63a682ac00db1c57230ad832a0d7f65a9,"more cursors
+",BugFix,0.5350942,NonBugFix,False
+b17d97803f89cfa596718874cdf69916616bbe16,"Merge remote-tracking branch 'upstream/develop' into develop
+",NonBugFix,0.90383685,NonBugFix,False
+12727be1a5a7955929b6be713068f8398e5d8325,"Merge branch 'master' into ArtifactsSeparation
+",BugFix,0.50435865,NonBugFix,False
+42fc4a1080a954d11cbea21a6b914d3b833e3438,"Merge pull request #6835 from wordpress-mobile/issue/6808-analytics-parity
+
+Media: analytics parity with Android",NonBugFix,0.5230479,NonBugFix,False
+2c12b99c48be0c7c971e8889722f8425e6a68b4d,"test - ignore
+
+git-svn-id: 51b39fcfd0d3a6ea7caa15377cad4af13b9d2664@10141 5fb7f6ec-07c1-534a-b4ca-9155e429e800
+",NonBugFix,0.79081225,NonBugFix,False
+1e3899fbe40ad64f0ea6fd35e2042897370c4e2b,"Merge remote-tracking branch 'origin/v01_release' into v01_release
+",BugFix,0.5002106,NonBugFix,False
+7c5c12b5d1151c1a6ab4970bae4442fce545a0dd,"Merge branch 'devel' of https://gitlab.com/embree/embree into devel
+",BugFix,0.5071755,NonBugFix,False
+ba793054af23a971a127e54be3beb8625977e435,"Merge branch 'develop' into cl_kernel_genertator_block
+",NonBugFix,0.88849217,NonBugFix,False
+f6e4d7cc6bd88cf3bb3bbfb453ebf802fb6ec7ff,"Lowering thread pools in Enterprise filer
+",BugFix,0.5079416,NonBugFix,False
+b0e3fbac99afc5297c4c2f7e461dcb1ee1ef295e,"remove task thats never been used, sorry
+",NonBugFix,0.80220497,NonBugFix,False
+d027e958e8ef212635b3656ceaffffaff9798ff1,"what a sorry excuse of code this is
+
+",BugFix,0.5071151,NonBugFix,False
+61adb009f767e202cf92ab68bd1eff8237464460,"Merge branch 'master' into navigationBar
+",BugFix,0.5047396,NonBugFix,False
+369b2c5a06f793a9eb29ddcb612e4bf4764d64db,"Give URLs 50 characters
+
+Hopefully this will get most URLs to the point where they're not being
+truncated.
+
+
+Former-commit-id: 8338127eb93d37611e5d9d094d9e9b6b245ceb5c",BugFix,0.5131661,NonBugFix,False
+ce3c772677111a2aabf0905261b526e2401ea55a,"MDL-62237 repositories: Add SVG icons for built-in repositories
+",NonBugFix,0.88183135,NonBugFix,False
+855156ce7d97c795a5813f59e070d39672b440b0,"Historic presets
+",NonBugFix,0.5006817,NonBugFix,False
+7ae6a75826be6d7ddd885947630ecb26ba9fa1a5,"usb: sr_usb_find() uses standardized connection string to find a USB device
+",BugFix,0.50243276,NonBugFix,False
+8296b6bbe29d8ead112b7690a19d6589c2dc912e,"Following old code
+",BugFix,0.50166416,NonBugFix,False
+24429a2a352b05ebe692fd4902e5be269cecdd08,"link to filtered project list
+",NonBugFix,0.50166965,NonBugFix,False
+f43c263c7d9ff49afa738063cd6431c44165f449,"Ticket #1164 - for Timeline.
+",NonBugFix,0.50091,NonBugFix,False
+423d88c3f279da62c8802e3f9df86654a659fcb3,LDEV-4429 Open JLatexmath dialog when clicking on its image,BugFix,0.5024628,NonBugFix,False
+b9fe2a4024280b35b32cc4e532eaa0c820b3b14d,"Separate case for handling option matches in autosolve
+",BugFix,0.89422995,NonBugFix,False
+01a6cb37b3eeeea848c4bd584960328a360c9f18,"appleseed.package 1.5: on windows, copy the Visual C++ runtime DLLs to appleseed/bin/ instead of appleseed/bin/Microsoft.VC100.CRT/.
+",NonBugFix,0.50377554,NonBugFix,False
+5b5fa7467132330b98cad17f3796951248d724e3,"mongoid version of karimari
+",NonBugFix,0.95818627,NonBugFix,False
+cd0e35ead56313118e3c0c999bf96b7d62d05ca1,"libxss-dev is enough in debian unstable
+",BugFix,0.50175273,NonBugFix,False
+d0515095bacfb6e668fe775b2decdf6906f8f306,"Semi-transparent sections background
+",NonBugFix,0.5072442,NonBugFix,False
+3fa4202a563273033c73afeb65d5fec2dbb38826,"Raise an exception (and catch it) on authentication failure instead of returning nothing.
+",BugFix,0.98621964,NonBugFix,False
+1c8306bc386c5ee25ba70c4605db6a98ad0922f6,"go-online mit subSections.
+Ungetestet.
+",NonBugFix,0.50472325,NonBugFix,False
+1b20f02052d347f44198b0b2e3aec94cf5720f59,"[sledge] Strengthen normalization of division, avoiding non-reals
+
+Summary:
+Strengthen the canonizer for division and rational constant terms. It
+is important to avoid constructing `Q.t` values with 0 denominators,
+as they do not represent real numbers, and the algebraic manipulation
+done by the rest of the solver is incorrect in that case.
+
+Additionally strengthen the Term representation invariants to check
+that all coefficients and exponents are valid real rational numbers.
+
+Also normalize division by an integer or rational to multiplication by
+a rational.
+
+Reviewed By: jvillard
+
+Differential Revision: D20663964
+
+fbshipit-source-id: 210962fe0
+",BugFix,0.8615948,NonBugFix,False
+a7e3b6ba30391ee64424f54ba9d6564762791ad3,"genstage stuff
+",NonBugFix,0.50439495,NonBugFix,False
+0bacb5e662b899aa961ab9bae42db2b9ff1c2fd1,"k=0 and k=1
+",BugFix,0.5023854,NonBugFix,False
+230cc247c757673509a1c55a2a3abb037416a96f,"Bump common for unpooling of block snapshot builders.
+
+Signed-off-by: Gabriel Harris-Rouquette <f9869a2c93dad38a06e8fb39147155331a1102ab@me.com>
+",NonBugFix,0.96092737,NonBugFix,False
+b7b8e33289f2fdb5d0d4586bd4c64aadb98997d6,"+ Events (3)
+",BugFix,0.5115813,NonBugFix,False
+600cd9ba4c1246a24592f4bd0fd7a1129ef32c71,"Warning message for not latin languages on OCR files
+",BugFix,0.500936,NonBugFix,False
+beaec2d814a07cec67b500a04a441bf17327b025,"cli --vars flag for variable substitution (#1040)
+
+",BugFix,0.5061899,NonBugFix,False
+87ef8011e21d1bed37e42020e8ae1fc8e740f879,"type and history of ESPE INTEG
+",NonBugFix,0.5022242,NonBugFix,False
+d72e24a8e6ded0a1bc0d8360bd93b16cc4e4d05f,"Rebuild JS
+",BugFix,0.50266504,NonBugFix,False
+221a698ecb781fc9c12ef3aafc0e1e96d937ea6d,"factoids: if unknown keyword is triggered inadvertedly, .e.g. by referencing the bot by name, and the args dont look like a nick then do not spit out the levenshtein matches text
+",NonBugFix,0.616911,NonBugFix,False
+a22fbec8d8126fdbc96903154a83cecb8c2ed2be,"- Made it easier to render the fiducial's number
+- Updated square fiducial examples for new images
+- Applications
+  * Fully featured command-line application for making square image fiducials
+  * gradle task for creating a jar
+",NonBugFix,0.99982214,NonBugFix,False
+dc363963690f220f813444e570d2aa119cc82687,"Add view logic for all projects
+",NonBugFix,0.8814114,NonBugFix,False
+d3a41fa35f6a496b61e0e273bf0000760e56e0bc,"Add ImageTask description
+",NonBugFix,0.8833452,NonBugFix,False
+9315a054ca47167718c615d90b32ccb09f83c747,"Added support for text upload to pastie.org
+",NonBugFix,0.98631984,NonBugFix,False
+80a677d9852bb4eb26c2c0bb2c119fdae0770c43,"Initial revision
+",NonBugFix,0.5023179,NonBugFix,False
+05733fb7ad78e0ba9d64b24e90ddc8cf5d440334,.,NonBugFix,0.51001364,NonBugFix,False
+68259fba7c4b1869284fd94ca783af53212db7a3,"WIP (#168)
+",NonBugFix,0.50238323,NonBugFix,False
+980de6de8a5bb282905e11e4c93feca87eb2e148,"Call onComplete from mutations inside next() handler.
+
+Reviewed By: dwwoelfel
+
+Differential Revision: D5748574
+
+fbshipit-source-id: 4e05552411d76aab5ba9791d6b78e952c75e4be4
+",NonBugFix,0.8550428,NonBugFix,False
+7544874aebc5926828c81220b55420a21b4a0dfc,"Activate the learning circle language when sending learner messaging
+",NonBugFix,0.50484806,NonBugFix,False
+9c3fdfcd42345acc63b00b88f92e0f920ba1c747,"Reset game tooltip when opening an option window
+",BugFix,0.5030235,NonBugFix,False
+f5513bbeda9f83ec3c9bd3a1875c69c0fc1cdba1,"add tox debug info
+",NonBugFix,0.9889489,NonBugFix,False
+06f35b1a7b5ab80a0b03dbcaa652d7a833a9fa19,"[i18n:it] Add 'Block Element"" i18n
+
+committer: Tom Joseph <a9c0f5359180f675a19eaf18c5679c5d73ed7250@gmail.com>
+",NonBugFix,0.88091964,NonBugFix,False
+9fd158412ad69751060160b9259628a090a48295,"Added rate limit settings to MSP API 1.42 for configurator.
+
+
+",NonBugFix,0.9524018,NonBugFix,False
+6eea5834fa91716914c604464c4fd4d2ba032ac8,"add tests
+",NonBugFix,0.9666994,NonBugFix,False
+b715fca08b42a02337ee1f4e5eae4f9f0789eb30,"glib-2.0: add HashTable.take and length
+",NonBugFix,0.8812746,NonBugFix,False
+c6b9183174e6ddc522499716bc8e6d56e3b9b7b3,"travis-build: add --default option for changing the default response
+
+Signed-off-by: David Aguilar <9de348c050f7cd1ca590883733c4e531ce610bf4@gmail.com>
+",NonBugFix,0.88411236,NonBugFix,False
+a8ba1c08ae56dfd62d5c604e853c00341db7dd1f,"GDPR: Add consent re-request
+
+If user had consented to something already and the page changes, request new consent.
+",NonBugFix,0.98985237,NonBugFix,False
+fc7e526f33e0506774583572fc723039097c8aa0,"Merge pull request #313 from mmaslowskicc/issue-310-mypy
+
+Run mypy and add type hints",NonBugFix,0.88020957,NonBugFix,False
+21682f403fb60fc2fcf7e2e90b9ad235e7efa3dc,"Add fuzz/c/std/json_fuzzer.c
+",NonBugFix,0.88607496,NonBugFix,False
+008e4b621e427d19e0aed50b7b19c8b66d22fe85,"Add storage section to json report data in TP
+",NonBugFix,0.8837516,NonBugFix,False
+ad9f64efb5ccaecb71ab27583b628e9a5858a7b7,"Add a few more required fields to <amp-user-notification> tag to stay in
+sync with the published spec.
+",NonBugFix,0.98007315,NonBugFix,False
+1553a45f79623acfce40254bf783131b2c2d013b,"Merge pull request #1879 from uwcirg/bug/patch-patient-qnr-dstu2
+
+Add another DSTU2 patch",BugFix,0.99472415,NonBugFix,False
+484f285025dd95a85e4d084d20814672a92545b4,"Add agenda url text
+",NonBugFix,0.8831192,NonBugFix,False
+31a26ea1cd06b474d0717c8115d76a77b5178620,"Add the original get_dex function
+",NonBugFix,0.89115113,NonBugFix,False
+017a3b9e4f5c23fc2418864b266fa4651f73fae4,"add listFiles function to GPI
+",NonBugFix,0.88159347,NonBugFix,False
+5022c16735b48aaa2302a9e5dd72afe9818e874b,"add LissajousWidget
+",NonBugFix,0.88397473,NonBugFix,False
+50bfa05e3e64232d731f2ef3e46f7652f3f66e64,"Add a title for table of contents.
+",NonBugFix,0.88309896,NonBugFix,False
+c767e918e07c8ff3516a7ee54cb7d143de18282e,"add a content-type header
+
+Merges https://pagure.io/pagure/pull-request/3161
+",NonBugFix,0.8829091,NonBugFix,False
+dcdd960bae4dc0629d5b60adcc08455e58faf626,"add dom hooks for testing
+",NonBugFix,0.96616143,NonBugFix,False
+b981f4bd6288bd576ed6936e499554bcbfa6e55c,"add mac dmg packaging via travis
+",NonBugFix,0.88315153,NonBugFix,False
+595858c6e2e82ae745c12f7d7f40bbf6d445dc60,"stateEngine.ps1, utilFunctions.ps1 - add running time support in forceshutdown state, and enhance SetRunningTime function.
+",NonBugFix,0.9991097,NonBugFix,False
+016a165ef72b88c9b23374b701063ac6deb2d25e,"Merge pull request #8153 from rgacogne/ddist-doh-http-more
+
+dnsdist: Add Lua bindings, rules and action for DoH",NonBugFix,0.8786924,NonBugFix,False
+5ff867362a40521efc16d30990859e758625aa2c,"MDL-47922 tool_monitor: Add a config to disable the tool
+",NonBugFix,0.7340901,NonBugFix,False
+e0add1f06a5e6496a623435fcd8e8fbf98a4ffcf,"Add syntax check loop
+",NonBugFix,0.6584916,NonBugFix,False
+2329d04e9fdd6e3138c8af119b9099753c3e171b,"Add initial support for AddressSanitizer (only with GCC for now)
+",NonBugFix,0.9870195,NonBugFix,False
+94f1c4f8fdbdda4becca6417fcaf286abdc82daf,"RowPartition: add static nrows/nvals/uniform_row_length accessors.
+
+(RowPartition.static_nrows replaces RowPartition.nrows_as_dimension -- note that the tf.Dimension object is deprecated for public-facing APIs in TF 2.x.)
+
+PiperOrigin-RevId: 300218572
+Change-Id: I386631d8ac22ea6b57049c90e8d2f8fe12117a26
+",NonBugFix,0.9998699,NonBugFix,False
+10a1111740b4455a054dad543f313f5f4ee912f6,"add ifdef for R__QT to set lightsource (same as for Inventor).
+
+
+git-svn-id: acec3fd5b7ea1eb9e79d6329d318e8118ee2e14f@7557 27541ba8-7e3a-0410-8455-c3a389f83636
+",NonBugFix,0.88055265,NonBugFix,False
+4445df1df44cbf6857896fc2b5deac290fc71804,"serverset: Add ability to retry a function (#6953)
+
+",NonBugFix,0.9890757,NonBugFix,False
+d122e0b8bd8fb8a7bd1cd0ca1e121bb2840ddd11,"VFS-496: add 'abort' event
+",NonBugFix,0.86498517,NonBugFix,False
+fed4f1c5712868e309a67cb066b2265f39c8db24,"Add an analog clock layout.
+",NonBugFix,0.8799654,NonBugFix,False
+effef7f736a9f99c6f43f37a52cf36ae6806dd39,"Add the global data vector 'gdata' to the siminf solver C code
+",NonBugFix,0.8822913,NonBugFix,False
+800c436ed2630ae606304f197c5b384841947fba,"Add C++ tests of fwdpy11 functions to expose non-owning numpy arrays
+",NonBugFix,0.9668162,NonBugFix,False
+190243ee895a708e253278f5f2623bf90c7cbc9d,"lint: Add ""legacy"" configuration
+
+Regarding coding style, gjs is moving in a direction that departs quite
+significantly from the established style, in particular when indenting
+multi-line array/object literals or method arguments:
+
+Currently we are keeping those elements aligned, while the gjs rules now
+expect them to use the regular 4-space indentation.
+
+There are certainly good arguments that can be made for that move - it's
+much less prone to leading to overly-long lines, and matches popluar JS
+styles elsewhere. But switching coding style implies large diffs which
+interfere with git-blame and friends, so in order to allow for a more
+gradual change, add a separate set of ""legacy"" rules that match more
+closely the style we would expect up to now.
+
+It also disables the rules for quotes and template strings - the former
+because we cannot match the current style to use double-quotes for
+translatable strings and single-quotes otherwise, the latter because
+template strings are still relatively new, so we haven't adopted them
+yet.
+
+https://gitlab.gnome.org/GNOME/gnome-shell-extensions/merge_requests/50
+",NonBugFix,0.99968576,NonBugFix,False
+b29670bc52f55968902f4ad0b2569d24af990c9c,"Split stage selection from sprites
+
+Add a new stage selection component that displays the stage separately from the sprite list.
+",NonBugFix,0.9948157,NonBugFix,False
+5b1a633b1271916849b5358e4e8e51a650a3161f,"Add quick version info
+",NonBugFix,0.9997267,NonBugFix,False
+81273dbb539f08ad5cb2ba39c05fe85039f2e6c0,"Merge pull request #2003 from asmeurer/travis-sphinx
+
+Add Sphinx doc building to Travis",NonBugFix,0.9756923,NonBugFix,False
+81a28a44dde692fd30f2f2196ace32bff229f892,"SONAR-2218 add whitelines between blocks of lines
+",NonBugFix,0.8830005,NonBugFix,False
+0584ab45df8918df22c878dd9e9ebb98bda57316,"qubes-os: add fuzzers, update contact emails (#3554)
+
+Qrexec [1] is a secure communication channel between virtual
+machines in Qubes OS. We have fuzzers for some parts of its message
+parsing code [2].
+
+[1] https://www.qubes-os.org/doc/qrexec/
+[2] https://github.com/QubesOS/qubes-core-qrexec/tree/master/fuzz",NonBugFix,0.99856365,NonBugFix,False
+4e59b83b70963d8f145bf5a0a0d73db7ddfc077e,"Added DISCOVERY_DB_UPDATED so databases can notify other nodes about changes
+",NonBugFix,0.98434174,NonBugFix,False
+c53730f2e9dfcedffc6040a7a1125749400341d2,"Added enthalpy to list of thermo attributes
+
+git-svn-id: 53f22b28e73aa627d2a2069eeb1f23c43fecd57f@203 f3b2605a-c512-4ea7-a41b-209d697bcdaa
+",NonBugFix,0.87364584,NonBugFix,False
+1eb72aa435352a100fd973fd19f2623ff16d7306,"Bug 1774274: Added scenarios that incorporate checking popups
+
+To allow checking for a popup we need to stop the after_step hook
+closing the popup before we check it.
+
+To do this we need to add tag called @allow_popups to the feature file
+so that popups stay open for the next step to check
+
+To use with steps:
+- And I should not see a popup
+- And I accept the alert popup
+- And I accept the confirm popup
+- And I cancel the confirm popup
+- And I should see ""text"" in popup
+
+Change-Id: I5fa4827b12b355204141dd8b052bc4f5c77ae3a0
+Signed-off-by: Robert Lyon <ccc28dc4e353f32f975f2fb55ac00664299adc7a@catalyst.net.nz>
+",BugFix,0.9397075,NonBugFix,False
+9c0df5700d4a84ce23d6e5a6485300d1985ba7e2,"Merge pull request #315 from Jam3/totalFrames
+
+Added totalframes to MovieClip",NonBugFix,0.87430406,NonBugFix,False
+4babc642c0113d0891fc650a3946fdaeac466b5d,"Added the ""quick start""  page to the docs
+",NonBugFix,0.9751326,NonBugFix,False
+96e29d13bcefe60cab4cb68089cf028646d577cd,"Added tests for BaseLink
+",NonBugFix,0.9660201,NonBugFix,False
+d0e258f42b6517420a1a10454c9751315d916c57,"[WFLY-8559] Added DWM test with multiple cases
+",NonBugFix,0.96397007,NonBugFix,False
+7f2196a19cc85b9c566a6e552ef436e851bbaa10,"cpu: Added compile source from disk in addition to source from stdin.
+",NonBugFix,0.97953796,NonBugFix,False
+d42b0f372eb97a488f44477fc9c6471049a91224,"Added local matrix method to LD Matrix (#1875)
+
+* Added local matrix method to LD Matrix
+
+* Addressed comments
+",NonBugFix,0.98303634,NonBugFix,False
+8d7731cd515b228f329c060e159341e1464350b6,"added an Override annotation
+",NonBugFix,0.8714101,NonBugFix,False
+f98254be83a5545a3e6ca8b763307ae75fba1aa9,"Merge pull request #571 from gilbertgede/large_printing
+
+Added option to printers for large expressions",NonBugFix,0.8808675,NonBugFix,False
+0f3562a398d9a6fa792debf7f29c21892d1fdcf3,"Added schema for eventhub 2018-01-01-preview
+",NonBugFix,0.87351674,NonBugFix,False
+8d4a8e794eeee92e12d514e688d77f3205107b43,"Added keyboard default to gamepad controls for when a gamepad isn't connected and made gamepad the primary control system.
+",NonBugFix,0.8707252,NonBugFix,False
+6fa9b88ce18403c2edce88512fa761b6f6996589,"Added new header for iterating generation for SlocusPop.
+",NonBugFix,0.98908204,NonBugFix,False
+e46d01b882e09b9784486fb4d0a55026b9174be4,"showoff a little using Dr. Nikola's Vendetta
+",BugFix,0.5043763,NonBugFix,False
+9fefa3e8238109aa3e0e37e6a6679e6071672c25,"New repos for Akanda
+
+Added 5 new repos for the akanda project.
+
+Change-Id: I558c7898151c5c659e737666ad79066d374e4a00
+",NonBugFix,0.9896895,NonBugFix,False
+f0f53d00f2b84c518f444684d97ff57ebcd60e0e,"[#1940] added irods user account in federated unit test
+",NonBugFix,0.9954245,NonBugFix,False
+4928744f1cf9143658a464cef2d8a58f72aa85c2,"From Axel:
+This patch circumvents backward compatibility issues with the constness
+of a method vs. constness of its return type, by adding a new
+G__BIT_ISMETHCONSTANT. G__BIT_ISCONSTANT will still be set.
+
+
+git-svn-id: acec3fd5b7ea1eb9e79d6329d318e8118ee2e14f@14573 27541ba8-7e3a-0410-8455-c3a389f83636
+",NonBugFix,0.9506946,NonBugFix,False
+faa84f9eb73d6575165b13859107319b9c723a60,"adding optional to_string to json members
+",NonBugFix,0.86831367,NonBugFix,False
+295933ab9384f2733a5c947811198c86b2b094c5,"Adding -j$MAKE_JOBS to make commands were -jX is missing
+",NonBugFix,0.8719718,NonBugFix,False
+ea6d8cbe23761f51490b068e0599642ba3526bc5,"Adding kspace_modify diff option to select the PPPM differentiation method.
+
+git-svn-id: 53f22b28e73aa627d2a2069eeb1f23c43fecd57f@8040 f3b2605a-c512-4ea7-a41b-209d697bcdaa
+",NonBugFix,0.8766269,NonBugFix,False
+e2553992cb590a868d82d1b037efdce4fb334bed,"Adding more stuff that works
+",NonBugFix,0.8725184,NonBugFix,False
+2ddf6ab679ef12e3f67858757d636a0f9e68f417,"adding custom potion instead of relying on extending ItemPotion class
+",NonBugFix,0.8718728,NonBugFix,False
+c2286448b21cf78bc397195d98650663231e1554,"Addition constructor for Swap (using SwapLegs).
+
+git-svn-id: 67a55e656427d4d95711d9444b3d4488f7ae1ad4@1675 48fcbb9e-5639-0410-8b25-842128a4905d
+",NonBugFix,0.8806609,NonBugFix,False
+01c9923050e44c6b97607cff67f365deb01a8280,"Merge pull request #1514 from Citadel-Station-13/upstream-merge-28233
+
+[MIRROR] Adds /image/proc/copy_overlays",NonBugFix,0.8833806,NonBugFix,False
+e0ff4a33de23ec5285ad384e8c67503e10c176d5,"alineación de los checboxes en la cajita de capas del mapa
+",NonBugFix,0.5021516,NonBugFix,False
+1b40cc5e1a1bdb32e3bc1c1565a240e0663e7a84,"Allow .repo-metadata.json release level to be overridden
+",NonBugFix,0.8006312,NonBugFix,False
+3cafa05b5d5501f83b4d958acbbed3f249d0a7d5,"Allow the Grad Program Director to edit letter templates
+",NonBugFix,0.7884435,NonBugFix,False
+1e120270f1f77044b19c3dfd286f94acc6b4fdc5,"Base: Allow device scan on all devices/browsers
+",NonBugFix,0.7891838,NonBugFix,False
+5f6b24c52d402eafc643154b17931fcc65374539,"[SecurityBundle] [HttpFoundation] Allow for multiple IP address in security access_control rules
+
+",NonBugFix,0.7868604,NonBugFix,False
+1e0a95543f5456eb0ced666e26618880cf57d53f,"GLT-2603: Attach multiple files at once
+",NonBugFix,0.51105803,NonBugFix,False
+08dfd3679877d8915a5b69743844d317019ccb79,"Automated g4 rollback of changelist 58349390.
+
+*** Reason for rollback ***
+
+jscompiler doesn't like duplicate messages. MSG_DIALOG_CLOSE is used elsewhere, even though it's in another namespace.
+
+*** Original change description ***
+
+Makes the close button reachable via tab in the ""manage revisions"" overlay
+
+***
+-------------
+Created by MOE: http://code.google.com/p/moe-java
+MOE_MIGRATED_REVID=58351699
+",BugFix,0.95123416,NonBugFix,False
+22906eb900c9731dd57d2524852408298b652f5b,"Bind the UserManager class
+",NonBugFix,0.50002754,NonBugFix,False
+9328e8453760f51724ea1f718f1fe168c55cc5be,"Driver/FLARM: remove bogus SetProgressPosition() calls
+
+The SetProgressRange(10) call was using a random value, and
+SetProgressPosition() is being called with more random values.  This
+is bogus information, because the ""progress"" bar will indicate that
+the operation is finished, only to start from the beginning.  It's an
+abuse of the progress bar to generate an animation that doesn't say
+anything useful.
+",NonBugFix,0.79221034,NonBugFix,False
+b47a01ec21a2b67541ae272d62def84735dafdab,"Misc bugfixes
+
+
+git-svn-id: 44db261f917212c93f4ad79cd10271304a04d572@3184 72102866-910b-0410-8b05-ffd578937521
+",BugFix,0.91452795,NonBugFix,False
+61507ccd20466f5d14dccc663ea6724189c36c4a,"autotest: build docs on each autotest run
+",NonBugFix,0.87234014,NonBugFix,False
+703ae1ff70bba20293eaa9306020129ecc0f3db7,"Bump webmock from 3.1.1 to 3.2.1
+
+Bumps [webmock](https://github.com/bblimke/webmock) from 3.1.1 to 3.2.1.
+- [Changelog](https://github.com/bblimke/webmock/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/bblimke/webmock/compare/v3.1.1...v3.2.1)",NonBugFix,0.97059643,NonBugFix,False
+1baf1790a2080029c201c3b7210e28eb7b3d2592,"Merge pull request #6048 from quarkusio/dependabot/maven/org.assertj-assertj-core-3.14.0
+
+Bump assertj-core from 3.12.2 to 3.14.0",NonBugFix,0.9614456,NonBugFix,False
+e611e3a38cc13364afcf7565f18c0afb13c6bda4,"Merge pull request #884 from maxcom/dependabot/maven/com.fasterxml.jackson.core-jackson-databind-2.9.10.1
+
+Bump jackson-databind from 2.9.10 to 2.9.10.1",NonBugFix,0.9628345,NonBugFix,False
+6ed44a2db78ca5f4a7424b2aeb461f8a368d943a,"Merge pull request #1091 from neinteractiveliterature/dependabot/bundler/memory_profiler-0.9.11
+
+Bump memory_profiler from 0.9.10 to 0.9.11",NonBugFix,0.9608221,NonBugFix,False
+b6944f6872f95e01d465c9548e7b92f57b944a67,"Make use of OO design for the QuickHelp lua code.
+",BugFix,0.5024835,NonBugFix,False
+d708909f85aa3f3548fa914e9640b52771fcd52b,"Complete conditional instantiation meta rule
+",NonBugFix,0.8235425,NonBugFix,False
+c8637c55884b7164f84b1f2a7f27eab73030deaa,"leave order and limit to index each
+",NonBugFix,0.76202047,NonBugFix,False
+265691a555e96697b03a94ad315859cdbb5ef50d,"Sync
+bugid: 300
+
+",BugFix,0.51282185,NonBugFix,False
+6e041294ed60338c9f6dbc6ff894ab3ff16eb5b4,"changed pricing
+",NonBugFix,0.5011433,NonBugFix,False
+feea8f871b54d24d0b06e22d9eb6374ba0173038,"RestTemplateFactoryTest use inner test class
+",NonBugFix,0.8043459,NonBugFix,False
+bdd1d8e4a416b844da31be58f54ad5ee4b109b23,"zmirror: Configure zmirror server to not use neskaya.
+
+Per request from Camilla Fox.
+
+(imported from commit e9754236cf886ec09ce57dc0f125d6a70f24e3f3)
+",BugFix,0.5008772,NonBugFix,False
+31881357af992c59255faa1fef184f4b05a39fa4,"ar71xx: create profile and build image for the OpenMesh MR600 board
+
+Signed-off-by: Marek Lindner <lindner_marek@yahoo.de>
+Signed-off-by: Gabor Juhos <juhosg@openwrt.org>
+
+SVN-Revision: 34237
+",NonBugFix,0.505475,NonBugFix,False
+627182a6d76ccdab17c25010d840fe35ea17735e,"Create release branch 2.2.8
+",BugFix,0.5047367,NonBugFix,False
+0972540fa255c4e416f32e9bc12ea5ce0e2833af,"Create Meta class for java.sql._ types
+",BugFix,0.50215125,NonBugFix,False
+0792506244296ba88eced3b71290910a3507b1ab,"377 Create pattern maker to allow human readable construction of regex
+
+And use it to start building a sub section JSON presenter
+",NonBugFix,0.78779334,NonBugFix,False
+8aa9ed6f69f24e90fa245a639aa225ae99be5d49,"created babylon-job-runner role
+",NonBugFix,0.5004596,NonBugFix,False
+3249687c7c5b91e0d4c7cd8b38da6283b1bb65c4,"ZOOKEEPER-1046: Creating a new sequential node results in a ZNODEEXISTS error
+
+git-svn-id: d7c778eb01848c8314be709a01eafe85ba01f120@1138958 13f79535-47bb-0310-9956-ffa450edef68
+",BugFix,0.75921655,NonBugFix,False
+6232ea64cf88cbbea9490340c00ba683fab82bd9,"[minidriver] Custom strings for PIN dialog boxes 
+
+",BugFix,0.5017972,NonBugFix,False
+2e228e2bfad893b00b7d7dc04de57709ad983a46,Delete avlib.h,BugFix,0.50527525,NonBugFix,False
+a1e012d66640aa225167ed5e926048336569bdb0,"Merge pull request #5463 from alisman/noindex
+
+Disable bot indexing when sitemaps are not configured on",BugFix,0.7226118,NonBugFix,False
+f8db9a6f78b13700d92b372728e076d50eda9541,"Disable jsonld context again for now.
+",BugFix,0.7222557,NonBugFix,False
+2a5be64355c768a182dffb1e5ed83866d04bdddf,"bootserver_munin: display load summary values as percentiles
+",BugFix,0.5012337,NonBugFix,False
+8d3d825b7bd4cf700921c65d8ff712aba7f54a6f,"Enable rule
+",BugFix,0.50267625,NonBugFix,False
+f9f6480e1e32dfe97056846824a5251a72aadb51,"Enable evacuation/relocation for shared storage
+
+This patch toggles the final bit and enables nodeEvacInstance to work
+on shared storage instances. Diskless instances are handled the same
+(as in, None is the same everywhere :).
+
+Signed-off-by: Iustin Pop <acf83a5274f31a43af6b914614365999469c1a31@google.com>
+Reviewed-by: Guido Trotter <f62ca4d5358bdaeef0e50e57f9f7e231de63727e@google.com>
+",BugFix,0.75948566,NonBugFix,False
+2784e4bac5292de785a97a97a90151b134c9bf4c,"ESLint: Enable ""brace-style"" rule
+",BugFix,0.50294644,NonBugFix,False
+141f87b32754267cc02bae03477c4b109b828324,"ensure that fe server is always built with tool (#29768)
+
+",BugFix,0.9031162,NonBugFix,False
+8c01207b59cbf145967c445e263d68a04998fc77,"Merge pull request #1251 from livepeer/nv/faucet-check
+
+eth, server: faucet rate limit error message",BugFix,0.9444445,NonBugFix,False
+49a8481e07d35bdc459d59e33dde4cbb3804abd7,"Exclude the samples dir from Rubocop
+",NonBugFix,0.74378055,NonBugFix,False
+395d91ba16d3ae0d060d27275e3e96b8291c757b,"Export stakeholders
+",BugFix,0.50169647,NonBugFix,False
+f77c5fc086a5abdef2a3b170616c98ee312db696,"settings: Extend `DATA_UPLOAD_MAX_MEMORY_SIZE` from default value.
+
+- In django 1.10 was added `DATA_UPLOAD_MAX_MEMORY_SIZE` parameter,
+  which controls max size of uploading files. By default it is 2.5MB.
+",NonBugFix,0.8744108,NonBugFix,False
+3d73f22034a26d6ea32a261cfe4b133b23dda7ce,"Extract FileInfo object
+",NonBugFix,0.50691354,NonBugFix,False
+151b95721006cd81ac95c071ffd8f5199c9741ec,"feat(tests) res_status() helper prints err logs on HTTP 500
+",NonBugFix,0.9502972,NonBugFix,False
+c00679d6b316d00b2953b3b7de0926e98aadb485,"feat: Support for modifying the username
+",NonBugFix,0.9190908,NonBugFix,False
+23cf77a0bf754a53e1d5d25cd67548dcdade008f,"Merge remote-tracking branch 'origin/mouse-control-feature' into mouse-control-feature
+",NonBugFix,0.8026864,NonBugFix,False
+8b64b05b02462598a8168b84dfb3bb81178c337f,Merge branch 'develop' into feature/image-keyboard,NonBugFix,0.9720951,NonBugFix,False
+77bb1b0d0d93920dd1865db67122411562e8da27,"force chrome install
+",BugFix,0.5028411,NonBugFix,False
+986145ac234af6d5014d3c6045bb0797361a4a5f,"ROMFS: Free flash by being less verbose
+",NonBugFix,0.50358593,NonBugFix,False
+00cae809af81d89985915036cc8046006b35808c,"Get annotation class name from the fetched annotation object
+",NonBugFix,0.50540334,NonBugFix,False
+ebd193d4d5a98f7b53cc229f1c7287d05465b13e,"Handle eSky negative coords
+",BugFix,0.9030254,NonBugFix,False
+a2e42f26e5a4e7c96b15df51aa425554d1813f9a,"- handle multiple devices for btrfs subvolumes
+",BugFix,0.8935415,NonBugFix,False
+6eed458fba884ad3d2954b2cdbcededb11071119,"Hide hover line on no data
+",NonBugFix,0.50013155,NonBugFix,False
+5815f43914c77af6da0123dbfca66c70321ef784,"Ignore recordings for which AcoustID has no metadata
+",NonBugFix,0.5032215,NonBugFix,False
+d2d8e123aa7ee34c47f12b959592631c0538482b,"BUG 7799: Implement agent RPCs for singleton rapid un-registration testing
+
+Change-Id: I080a8af30c2a47e2046b0235ea75055e4c4a51cf
+Signed-off-by: Tomas Cere <0a8853d56a412aee48c4c5a5a6d548b976ff286c@cisco.com>
+",BugFix,0.95600444,NonBugFix,False
+ee158283258b599925d9981523a0478ac07797fe,"Implement custom regex for path
+",NonBugFix,0.87751794,NonBugFix,False
+7337cfa7a39e110ff9abac373fe2c8f0a8139eaf,"[NCL-4898] implement RSQLProducer DTO getComparator
+",NonBugFix,0.88038373,NonBugFix,False
+c91fabea702b6d133b748194c519770b76d6fb97,"fbcode_builder: implement automatic project detection from the current repo
+
+Summary:
+This updates fbcode_builder to try and automatically detect the current
+repository's project name by looking for a `.projectid` file in the repository
+root.  If the project name can be detected:
+- The current repository will automatically be used as the source directory
+  for this project (instead of fetching the sources into the scratch
+  directory).
+- If an explicit project name was not specified on the command line, the
+  current project will be built by default.
+
+This also changes the repository detection logic to use the current working
+directory, rather than the directory where the fbcode_builder code lives.
+This will allow this logic to work even if we move fbcode_builder into its own
+repository in the future, and have projects depend on it using git submodules.
+This does mean that callers need to invoke fbcode_builder.py from inside the
+repository.
+
+Reviewed By: wez
+
+Differential Revision: D17088938
+
+fbshipit-source-id: f14d28fdcfaa330ff837ea52b8bdd4e358b81c61
+",NonBugFix,0.99988604,NonBugFix,False
+950dc2c328ae364dcbefd8d15d24f0d70da3ecbb,"Imported Translations from Transifex
+
+Change-Id: I4b1734e7ed957f26dce8acdfa70de63016add275
+",NonBugFix,0.5020024,NonBugFix,False
+2c60d618ccc611e0a901fd5825a4b5f8f8cc9042,"Better branch-missed messages for lambdas.
+",NonBugFix,0.84751385,NonBugFix,False
+eaeb1672d62549bc6a710355b375ba807d49341c,"Improved kapt performance
+",NonBugFix,0.9437905,NonBugFix,False
+caa8190d6144819fe2fbfa0db57bf09a1a60f15c,"Merge pull request #1994 from cem/chem
+
+Increase Chem Dispenser window height",BugFix,0.5073347,NonBugFix,False
+99f9999587fa99eac0f2933a85a87eabea2bc1a2,Increase browser history limit,NonBugFix,0.667349,NonBugFix,False
+c5403dac2ed2c38f5f05e1948b437aa14bcc02b5,"An error is not an info message
+",BugFix,0.74373364,NonBugFix,False
+60f5b0c5a519128ba5e75b369c86a38356462185,"Zero init the null raster.
+",BugFix,0.5165488,NonBugFix,False
+053e73860870070196215d09770b9ef9f56633b1,"Initial DataLoaderInvalidDisconnectEvent spy event
+",BugFix,0.5057187,NonBugFix,False
+74b5c429dd8d3655d7a3bc1fd89cd271591a42d2,"Initial version
+",NonBugFix,0.95609426,NonBugFix,False
+9b4d772250e972b95e66c5064a9fb8ecb8fdf202,"CP-15404: Install readme files based on condition
+
+Signed-off-by: Cheng Zhang <f157832f2f1df5a7c962d3abb092f6b1ea020882@citrix.com>
+",NonBugFix,0.9994916,NonBugFix,False
+8cc53621857c05209314073560d8fef997e866bb,"Merge branch 'master' into issues/2283_integrate_co2_charts
+
+Conflicts:
+	db/schema.rb
+",NonBugFix,0.5119628,NonBugFix,False
+8b2db583893c149c55dd47cf0fcb59b38150fb70,"Introduce remoteNameStyle = basenameOnly
+
+In order to replicate repositories below a certain namespace (e.g. foo/bar/),
+the projects parameter allows to filter repositories (projects = foo/bar/*).
+
+With the current implementation, the path on the target server contains the full
+path to these repositories (foo/bar/myrepo), which can only be modified in terms
+of replacing slashes with dash or underscore using the remoteNameStyle option.
+
+This patch adds a new value ""basenameOnly"", which only takes the basename of the
+repository path (e.g. myrepo when applied to foo/bar/myrepo), which, for example
+enables Gerrit user to replicate whole namespaces to a special Github
+organization.
+
+Change-Id: Id12780948a4841c054eb76e359f02dae0816d576
+",NonBugFix,0.99994797,NonBugFix,False
+e728cd76b6cfb5f2a19206dd24808799203c68f5,"Introduce typed named functions to dialect.
+",BugFix,0.502399,NonBugFix,False
+98a99b0fe7c929cb97b68df1957a2f142f2f28e9,"ongoing layout tweaks
+",NonBugFix,0.914707,NonBugFix,False
+f8a9182e78389f32ff7cadae6eebd39859d98e2c,"Log the version
+",NonBugFix,0.99114174,NonBugFix,False
+54b45f20fa5acc21ea254544bc95ff80925b84a6,"Merge ""Make python3 jobs voting for murano-dashboard""",NonBugFix,0.5013712,NonBugFix,False
+69e2dec55bc119d95ef616e2f24a0597e2f43575,"Merge branch 'master' of github.com:sagemathinc/smc
+",BugFix,0.5008076,NonBugFix,False
+1629504ae0497889208c3e94875de89846b3fe52,"Merge branch 'master' of github.com:xwiki/xwiki-platform into feature-applicationWithinMinutes
+",NonBugFix,0.7947147,NonBugFix,False
+adb81209513da521d961a2f6edd89a1fe16eed64,"Merge branch 'lua' of github.com:ctrlo/GADS into lua
+",BugFix,0.5049311,NonBugFix,False
+979479f908a06fe592cd6818c42e2cd6ca064eef,"Merge pull request #1462 from alphagov/dependabot/bundler/govuk_app_config-1.12.0
+
+",NonBugFix,0.50088346,NonBugFix,False
+1033416042392d513f13cfc99319e73f5fdd4c49,Merge branch 'cand-redesign' into master,BugFix,0.5060218,NonBugFix,False
+b7af79b14df50b5b5eeb340c84de19d28d3acf3f,"Merge remote-tracking branch 'origin/latest' into latest
+",BugFix,0.5019175,NonBugFix,False
+c98e79def62a54d2eb2722830428be56c7a7e846,"Merge branch 'master' of https://github.com/Alluxio/alluxio
+",NonBugFix,0.50011444,NonBugFix,False
+62f3796e7ed38330fedef4e1c2e3a03de20f1b5e,"Merge branch 'master' into gem-sockets
+
+# Conflicts:
+#	UpdateDB/DataLoading/ItemImageLoader.cs
+#	WPFSKillTree/Controls/DraggedItem.cs
+#	WPFSKillTree/Controls/ItemTooltip.xaml
+#	WPFSKillTree/Model/Items/Item.cs
+#	WPFSKillTree/WPFSKillTree.csproj
+",BugFix,0.5002648,NonBugFix,False
+1602e69d21798722e7d4577b6064e3da56024c05,"Merge branch 'dev' of ssh://github.com/shardingjdbc/sharding-jdbc into dev
+",NonBugFix,0.5003816,NonBugFix,False
+8458c5017282557bb1cbcfa76b7b0bb199c6697f,Merge branch 'dev-Synthesis2018' of https://github.com/CCAFS/MARLO.git into dev-Synthesis2018,BugFix,0.50154275,NonBugFix,False
+401c3254ae2cff5e155d6c35d93d53918cb838b8,"TEST Wavelet test modification
+",NonBugFix,0.97267175,NonBugFix,False
+6d57bd66cab52219a539f9d19ba57c63a4b56a1e,"Modified the way to figure out if a JID belongs to an anonymous user.
+
+git-svn-id: 4206c2c2bb40b5782672a0d03c2c381094954de9@3499 b35dd754-fafc-0310-a699-88a17e54d16e
+",BugFix,0.5019493,NonBugFix,False
+801890333476e02cddb15bf8c1247573df619e21,"Modified login URL when not running in standalone mode.
+
+
+git-svn-id: 036f06d8526d2d198eab1b7c5596fd12295db076@1644 b35dd754-fafc-0310-a699-88a17e54d16e
+",NonBugFix,0.50069255,NonBugFix,False
+1c7cb84838b79364cb820f18c3d95a0bd488d31c,"more unit tests
+",NonBugFix,0.966738,NonBugFix,False
+90c91d724b44a4aff6ffddddee38376593d5769d,"More CLI tests
+",NonBugFix,0.80535614,NonBugFix,False
+dc60f6d081c4c34452ce2ea0afeea02e536d2d21,"Move modal close btn
+",BugFix,0.70759696,NonBugFix,False
+0b9b46194920b1c31871b02c9737d19be6f383bf,"New option ""Glider flight time"" in context menus",NonBugFix,0.931853,NonBugFix,False
+85e0e8d306041180090aea08d4238de9a189e06c,"Merge branch 'master' into pycdt
+
+# Conflicts:
+#	pymatgen/analysis/defects/point_defects.py
+#	pymatgen/analysis/defects/tests/test_point_defects.py
+",NonBugFix,0.81142384,NonBugFix,False
+26c1e40ad775297cc89b32794508f4d596615d5a,"configs/configupgrade: Normalize number literals to decimal
+
+The v0.12 language supports numeric constants only in decimal notation, as
+a simplification. For rare situations where a different base is more
+appropriate, such as unix-style file modes, we've found it better for
+providers to accept a string containing a representation in the
+appropriate base, since that way the interpretation can be validated and
+it will be displayed in the same way in the rendered plan diff, in
+outputs, etc.
+
+We use tv.Value() here to mimick how HCL 1 itself would have interpreted
+these, and then format them back out in the canonical form, which
+implicitly converts any non-decimal constants to decimal on the way
+through.
+",NonBugFix,0.99979645,NonBugFix,False
+d86add59a86eef7ad9ca0d32415c310e32bd49ce,"Conclude go_exit_all_WellScopedFloats
+
+with some mildly ugly proofs about `zap` and `pick`. I should define
+`zap` and `pick` on the top level and move the proofs there as separate
+lemmas.
+",NonBugFix,0.96877456,NonBugFix,False
+d6567c5166412f6acdde851e767c26f332d51d3d,"[asan] flatten the asan-rt build slightly
+
+git-svn-id: c199f293c43da69278bea8e88f92242bf3aa95f7@145631 91177308-0d34-0410-b5e6-96231b3b80d8
+",NonBugFix,0.5036672,NonBugFix,False
+f98c905cea88fce3e59695ef39d76868d66f1652,"Iterate entries major npe tracking
+",BugFix,0.5136584,NonBugFix,False
+50b0610f47335fe670bc142865f0f71f84726933,"pass poly ring into invariant factors domain
+",BugFix,0.5077967,NonBugFix,False
+d433c950f35fc136a375cadb3ee3eeed47b42f61,"make sure to pass aggred_to_receive_emails gdpr property
+",NonBugFix,0.5017143,NonBugFix,False
+26af79a09bf105f07b508f7868c0ece4bff43472,"apply pep8/pyflakes fixes
+",BugFix,0.91707104,NonBugFix,False
+284b487f89a8850f39548d7b54e08bd8ee6d5478,"Playing around with styling.
+",BugFix,0.50216836,NonBugFix,False
+93b876af876a38f18ef8f32259dfc6a59132c875,"Populated Home Page
+",NonBugFix,0.5040661,NonBugFix,False
+97e421072542f6d598561ac4a7abb7e596b0869a,"Merge pull request #298 from funkwit/master
+
+Ignore 17th byte of the message in the Excelvan scales; some variants…",NonBugFix,0.50187665,NonBugFix,False
+18366b0bc9d74a604dddf14b5706b1b445e5c327,"rebuild
+",NonBugFix,0.5052621,NonBugFix,False
+ffa87a2d88779f625a69ada6b237b2aad9ca511a,"[sextante] reintroduced Model->Python conversion
+",NonBugFix,0.50569,NonBugFix,False
+75dcf70a990d751f4bfe7844bcb7480fc1de3c84,"remove RAND_screen and friends
+
+Reviewed-by: Matt Caswell <1fa2ef4755a9226cb9a0a4840bd89b158ac71391@openssl.org>
+Reviewed-by: Tim Hudson <eb0be8e447f673b41b10eda09d63cd72526b0a42@openssl.org>
+Reviewed-by: Rich Salz <c04971a99e5a9ee80eaab4b1deb37e845b0bd697@openssl.org>
+(Merged from https://github.com/openssl/openssl/pull/1079)",NonBugFix,0.96688235,NonBugFix,False
+c1f5cf5032d560755bd5ccd25cbbac865d0af3b6,"main.view: Remove 'Apply Changes from Branch...'
+
+This feature adds a lot of complexity and it's rarely used
+so simplify, simplify, simplify.
+
+Similar functionality can be had by using git-dag's
+""Grab File"" feature and teasing apart the changes using
+normal index/worktree diff editor so there's less
+justification for this feature these days.
+
+Signed-off-by: David Aguilar <9de348c050f7cd1ca590883733c4e531ce610bf4@gmail.com>
+",NonBugFix,0.99994797,NonBugFix,False
+7f787c8a6f5823eaa0ce7431c519190fa6d1fec9,"Remove translate/rotate/scale handling from Surface
+
+This should be done in a scenegraph'ish kind of class. It's better to
+keep Surface simple and limit it to plain rectangular regions with
+textures. The 'flip' property can stay as it's a texture space
+operation.
+",NonBugFix,0.8366908,NonBugFix,False
+6f9c46842e0e8fc614c2883365a87429afdd7db6,"Remove upper bounds and close #114
+",BugFix,0.8370547,NonBugFix,False
+b54adb1f1eead43a186aa14d1354b1c9b22350f6,"remove blotter link for now
+",NonBugFix,0.805939,NonBugFix,False
+0218ab0b2a13784d25238761f5873460952889fe,"dom0/core: remove appmenus when removing NetVM (#627)
+",NonBugFix,0.806233,NonBugFix,False
+6a747c898cda7e1d1356850cbe168d7c52e2f197,"Remove lines containing std::cout used for debugging
+",NonBugFix,0.80137503,NonBugFix,False
+92c3939088f3002e4a92c0215bb5b0453256a9e4,"debugger: remove ambiguous shortcut
+",NonBugFix,0.81012046,NonBugFix,False
+5608378532517e14965794a2bcb1117b473b07c2,"Remove batachable module
+",NonBugFix,0.80168694,NonBugFix,False
+b747b3fd36a844b09f5a107e5eaaebc1170fdcd6,"Merge pull request #194 from donibehrami/feature/tags-updates
+
+Remove related UI elements when there are missing callbacks to the Ta…",NonBugFix,0.99603087,NonBugFix,False
+1bd17f6f1507a07b1a8896511642f72eac19843b,"removed all return values of runtime initialization functions
+",NonBugFix,0.80519265,NonBugFix,False
+00cc5fa41473721f6f34ff5fdb8d139598de2948,"removed transparency link
+",NonBugFix,0.80512667,NonBugFix,False
+4e407fa3db8911e7ce0da6632e35c3091051eaff,"Removed Console Logs
+",NonBugFix,0.9481698,NonBugFix,False
+57f00efbcd46f9cbda03a61de3b0260a97826111,"changed: removed recently added script by author request. will be replaced by a fork shortly
+
+
+git-svn-id: db833e0ee90ec991bef537dc011d070417d74c01@35355 568bbfeb-2a22-0410-94d2-cc84cf5bfa90
+",NonBugFix,0.99063754,NonBugFix,False
+7878ca15ea7b299620f9bad40e28b1bf0839f113,"repositioned vew-cube and sidenav #525
+",BugFix,0.505669,NonBugFix,False
+605be0555dff998df3e1c791265daeb1000ecafc,"- default values for nr1b nr2b nr3b set equal to 3,
+  this is required by the routine phfacs .
+  now the code should not complain when this values
+  are not specified in the input.
+  A way to warn users to use sensible values for US pseudo
+  is still missing.
+
+
+git-svn-id: 5d23e60e07e2295b11e715623d9852ba2611792f@2429 c92efa57-630b-4861-b058-cf58834340f0
+",BugFix,0.50919914,NonBugFix,False
+bd41a99fc8042047bd6156317ba364ac4596029b,"Scan for expression formatted strings where ModelNode.getType()==STRING in the test framework
+",NonBugFix,0.89656895,NonBugFix,False
+29ad8b52e9d56eca59167718a70ad828459d554e,"set min / max heap space size to 512 / 2048 MB in scripts and launch4j
+
+see also issue #145",NonBugFix,0.50311154,NonBugFix,False
+cd2a9b8c5ac90c2cc7f945c9fd9b1e7884b9ee91,"Set file-local value of outline-regexp for makefiles
+",BugFix,0.500703,NonBugFix,False
+d226b875c8d944fc6d5c86d72ce2c4265c221700,"set first WP in wait_waypoint to 0
+",BugFix,0.5035838,NonBugFix,False
+202f2203d5c50ba9f54a3980bc37d939f073e680,"Merge pull request #493 from cdmihai/cdmihai-table-build-status
+
+Show build status in a table",BugFix,0.50051403,NonBugFix,False
+b1af7496b1a37bdf10e4e940206ab1845bfd08cb,"unifying: Show the hardware version when the hardware provides this
+",NonBugFix,0.9945316,NonBugFix,False
+7b28d938bfadd2879a65c2a3eff16741a4094a5c,"show shape diff in wrong trt input shape errmsg, test=develop (#21451)
+
+",BugFix,0.74292815,NonBugFix,False
+d7179c116c8b74b5275e12d62b5ea8dee70803b5,"build(Fastlane): skip slack notifications on fastlane scan. (#129)
+
+",NonBugFix,0.5035603,NonBugFix,False
+7774101ad155dea1d45ff42225ba564e921bc359,"Skip paths that are routed to a .d.ts file (#11322)
+
+",BugFix,0.5095951,NonBugFix,False
+d9a4bfaaa2891c03e638d5d17dd33b545f199137,"Merge pull request #7256 from cakephp/master-tests-mcrypt
+
+Skip test if ext missing.",NonBugFix,0.7957855,NonBugFix,False
+7c5970f2f6ab4798d60d176c895c84754e72de43,"Merge pull request #5367 from rajbos/SonarQubeUpdateVersion
+
+Sonar qube update to support latest version (7.4)",NonBugFix,0.99947554,NonBugFix,False
+e5bfcb7e7d2aa48f7baceebfbec2be3feadd05ca,"recent changes stuffs
+",BugFix,0.50663877,NonBugFix,False
+47e508350835a553c01a6d5b8a01267813641de4,"Merge ""Manager support for project cascade update""",NonBugFix,0.99292696,NonBugFix,False
+7cdd98fe23f1782c5cdf8dc73be0620dae410325,"KYLIN-608 support HLL at ii storage
+",NonBugFix,0.9177381,NonBugFix,False
+132fea4e5e39fff8a755c53b7fa464266a432c0e,"Switch to releases for travis deps, update linux dependencies
+",NonBugFix,0.99168104,NonBugFix,False
+3f520166bef4d04577bba7bdb48be2d2985254c1,"testing converting modem_pyqt into an executable
+",NonBugFix,0.93487334,NonBugFix,False
+bb1bf0505e3820b4377acce91a5c2edb6da13a9d,"test fix for NSEC3 new algorithms.
+
+
+git-svn-id: e875384d7a5ebd9b2def38a8354dae1fda8e73bc@974 be551aaa-1e26-0410-a405-d3ace91eadb9
+",NonBugFix,0.8244581,NonBugFix,False
+ceec2393cfbe20b0993bd7cccb43e930438281fe,"Merge pull request #2965 from Sahnvour/zig-stack-traces
+
+Stage1 stack traces on windows",BugFix,0.50766253,NonBugFix,False
+c5bd47eb7e356e0372d5033dd4db6e310936d1ea,"[Ts] Unit tests for adding unix domain socket addresses to routing table
+",NonBugFix,0.994347,NonBugFix,False
+954ae64c775d92bbbce87ff451be1b9f615475b5,"tests: update check tests
+
+fbshipit-source-id: 7deb61c17bf461b7632a1d3f3d7f2ae8a8828ede
+",NonBugFix,0.9825769,NonBugFix,False
+bec1c396dee38ccdb8454769d1fdd8918061384c,"Update mime to 0.3.13
+
+https://github.com/hyperium/mime/pull/103
+",NonBugFix,0.9327035,NonBugFix,False
+823103a3930d9f7b349be832e857644bb6956b87,"Update com.fasterxml.jackson.core version
+",NonBugFix,0.9963938,NonBugFix,False
+ec1d9e594afc5b2c15a4b832abe9af43c31d4b99,"Update src/redux/reducers/currentPage.ts
+",NonBugFix,0.9878113,NonBugFix,False
+6a1f4f9aea75b829e9cd5685827dd3a51290f784,Update update.sh,NonBugFix,0.93916506,NonBugFix,False
+657b997619efd9fa374c2f6d1dcf59e9feaad8aa,"Pontoon: Update Upper Sorbian (hsb) localization of AMO
+
+Localization authors:
+- Michael Wolf <milupo@sorbzilla.de>
+",NonBugFix,0.93161494,NonBugFix,False
+bec08284357ea47cb332a82c95255f7ab472b5e4,"Update cookbook. Attributes and Attribute values
+",NonBugFix,0.93130934,NonBugFix,False
+fdef14c6d56a072767772807d156fa5c86cb1f54,"chore(package): update lockfile
+
+https://npm.im/greenkeeper-lockfile
+",NonBugFix,0.9297744,NonBugFix,False
+2b0f634bd488c587988d3653bda28535da235352,"pyqt5: Update to 5.9 and related changes (#2811)
+
+* sip: Update to 4.19.3
+
+needed by PyQt5 5.9
+
+* pyqt5: Update to 5.9
+
+this version works with both Qt 5.9.0 and 5.9.1
+",NonBugFix,0.99596703,NonBugFix,False
+ad3bfe5aae9cc65294fe354cd80f576efb13130f,"update by amanpreetalam@yahoo.com
+",NonBugFix,0.92977184,NonBugFix,False
+625addec56337b940dd72ac187f3e9f3f652178e,"Merge pull request #1479 from mwoodson/dyn_update
+
+lib_dyn: updates to lib_dyn role",NonBugFix,0.92865276,NonBugFix,False
+d20348cac78017910957af055bcd53f7d2edf8ab,"Update service provider info for mobile internet
+",NonBugFix,0.99776685,NonBugFix,False
+a3c1ec85a406952cc94b68a74eb8f02dce486c45,"Merge pull request #121 from Lsty/patch-11
+
+Update c67723438.lua",NonBugFix,0.8248804,NonBugFix,False
+6eebf3d73240d785374fa5c79f685c8d5441ccd7,"Update config
+",NonBugFix,0.92992467,NonBugFix,False
+77a8689a2fac9695e2988286717b2ed2060eeb0f,"update dependencies
+",NonBugFix,0.930742,NonBugFix,False
+6d90f98767db0025bf870044a99f4e1e0e279a95,"Update config files and log in specs (#1087)
+
+- From OSP 12, OpenStack is containerization. The log and config files are put in new location
+
+Signed-off-by: lichen <a7eeceea24a7634e43c61507f50c70af0e6a8bc6@redhat.com>",NonBugFix,0.9990977,NonBugFix,False
+eb8b866aa7352464dacdb05e04659fea15d23b0e,"Merge pull request #1585 from mongodb/port-pr-1560
+
+[Port] Update server domain for GSSAPI auth ",NonBugFix,0.9307481,NonBugFix,False
+8d715061eb319b00deeff52a4c8fbd311c229f44,Update CMakeLists.txt - disable tests on Windows,NonBugFix,0.9411278,NonBugFix,False
+0d00c681620a6ac0edc315535688b78c88a8a69e,"Merge pull request #4075 from psiinon/develop
+
+Updated mac icons",NonBugFix,0.9910438,NonBugFix,False
+5f599946860967970affa078ac310ca85765c00d,Updated MD5,NonBugFix,0.9312158,NonBugFix,False
+a4733fd430274da47bc2698343d97e7eede86bc6,"AP-36 - updated bungle
+",NonBugFix,0.9309463,NonBugFix,False
+1815edf47f76e8a8c1b8421cdec3725f7edde658,Update test.full.qrxml,NonBugFix,0.9838493,NonBugFix,False
+a2df7af51f87bdea0de283ed2536cd4d26e00a06,"updated version again...
+",NonBugFix,0.9961883,NonBugFix,False
+eb2251f050230bddf5a62fe4db122fb23b9484df,"Update metadata. Reset build number.
+",NonBugFix,0.9301864,NonBugFix,False
+e667a85c85587591f40580a16d6a4462c497cf03,"More updates to INSTALL.
+",NonBugFix,0.93068147,NonBugFix,False
+c0a5775a390a01a02095a0a0bfcd091c51e9d1e2,"TSK-26: deploy script now updating WARarchive dependency
+
+temporary until someone fixes the issue",NonBugFix,0.54542845,NonBugFix,False
+72aa3ec77b9792d89c09d8a0442fc4822a40b526,"updating venv dir
+",NonBugFix,0.9300222,NonBugFix,False
+09eb8ee3335604913d86ad7bbfb2ad978d9333a2,"edx-enterprise version bump to 0.61.2 from 0.60.0
+",NonBugFix,0.9985053,NonBugFix,False
+494a6a043f1021f50e94ecb1da4f897a19e926d2,dockerized test: upgrade node version to use proxy,NonBugFix,0.99736893,NonBugFix,False
+74b399f75fc76ebcd13b9db74b02f239ba917e99,"Merge pull request #1891 from amazeeio/hotfix/upgrade_mysql
+
+Run mysql_upgrade on existing databases after upgrade",BugFix,0.63433945,NonBugFix,False
+8a7a18a42c1f607af316a8a0292a19a5d538ebf3,"XCOMMONS-1081: Upgrade to Mockito 2.2.15
+",NonBugFix,0.8431319,NonBugFix,False
+9103cf71143d0571df624557129f9dc404013a6e,"Use PATH_MAX in getting the working directory.
+
+
+git-svn-id: f298e5bd0fb7dd56202a0647512068a43d54496a@4768 00db46b3-68df-0310-9c12-caf00c1e9a41
+",BugFix,0.506715,NonBugFix,False
+1787efaa006b73cd682f6c27f2b5d367495e7e02,"use ETYPE_DES3_CBC_SHA1 for the verify step in verify_mic_des3
+
+This allows a strict link between checksum types and key types to be
+enforced.
+
+Andrew Bartlett
+",NonBugFix,0.797149,NonBugFix,False
+9ec7a5afd18d0a292936143ab643b73a1db07bcf,Use methos to bind automatism,NonBugFix,0.5108065,NonBugFix,False
+d03006dac0a9803b40e94b7ee2404806bb496ec7,"view for admin to approve/reject user-suggested changes completed
+",NonBugFix,0.80900425,NonBugFix,False
+b0ce064987e2c34ba85ce30f871a56cd6ec17500,"catalog: Fix minor issue with failing test
+",BugFix,0.962,BugFix,False
+400a4ed31846327934b793a55c0e5eb5c8fc6511,"Merge commit '0c62d78cf8379a4bc81759e262fc80f7ace3c652' into HEAD
+",BugFix,0.5054257,BugFix,False
+edc27f307ce73d880c8cc83c963a1c4722419e6e,"Merge proposal for  #155 approved. Windows runner script is updated.
+
+Fixes #155.
+",NonBugFix,0.88888395,BugFix,False
+c25d998ef351d3932c0683d672a48be7fd6c78c2,"Recursive on cp
+",BugFix,0.5041763,BugFix,False
+64fb94222ae1bbe3758af5cf167f682b0d4cc354,"http://www.lino-framework.org/blog/2014/1016.html
+",BugFix,0.50455564,BugFix,False
+da14a167ae476d3ac0542d1782eaed433139e8a6,"feature: include ranged code lines (#3393)
+
+fix issue #3310",NonBugFix,0.6754992,BugFix,False
+b8fbcf1817b9775a479a149f6d8a5f374c837fa9,"need sudo to install arrow
+",NonBugFix,0.50067836,BugFix,False
+e7f2dd39ac83a51fec1d651d39236366c67753e8,"This closes #2040
+",BugFix,0.94792557,BugFix,False
+e481af005f3628f9072134d448a80ed293beb503,"fix NPE (IDEA-97162 NullpointerException when trying to build JAVA webapp)
+",BugFix,0.9997421,BugFix,False
+82686e46bc9e8810a6ce2efa9bfb6e0472246f49,"MessageState: fixed icon changing 
+
+git-svn-id: 4115c852ce6edf181d3c694a7293ab46e349b79a@15280 1316c22d-e87f-b044-9b9b-93d7a3e3ba9c
+",BugFix,0.915343,BugFix,False
+d48fd13d2703a4a6e0a7156cede6bc64c0daddf6,"Handle revs that don't have a name.
+
+* magit.el (magit-name-rev): Return original rev if name-rev returns
+""undefined"".  Shouldn't happen, but does.  Bug in git?
+",BugFix,0.9997153,BugFix,False
+3cf7c4bc98884a4c70ff978163295e8ba25129a2,"Fixed error handing
+",BugFix,0.99720985,BugFix,False
+9574dbd2282e1fcf7bb5836c85cfff536bf4a7cf,"Be more careful about overwriting errors
+
+When trying to parse again, we don't want to overwrite the exiting
+error.
+",BugFix,0.9730135,BugFix,False
+ed40542658ecafb270eb581d931cd772bc46fa42,"[fix] minor auto-select party type and add has_permission in whitelisted methods
+",BugFix,0.8570201,BugFix,False
+55ddc69255fd692484ad19d6001a90947404c883,"jormungandr: add properties in disruption fields
+",NonBugFix,0.86390585,BugFix,False
+ddcea4897ac24c0f71469cc5ed4846dcfe23585f,"Added missing iterator
+",NonBugFix,0.86901104,BugFix,False
+e4ffc7659a91661194447d15faad373d44d04bc9,"[PLAT-1960] Add missing properties used to construct JRE registration strings.
+",NonBugFix,0.88162017,BugFix,False
+0e1ca351252c2d8502706985d411d853f4446bba,"Add missing 0.10.x compatibility in schema data.
+",NonBugFix,0.8822101,BugFix,False
+b6a64697a5d0f9297ea98338b5b6f1a9dc686c75,"Add missing override annotation
+",NonBugFix,0.8858648,BugFix,False
+0016fefcb6359d1db001ff1d6fade5bf2c485084,"Force update of approxHinv in Preconditioner Directive. Add missing dmisfit.W in getJtJdiag call
+",NonBugFix,0.9893325,BugFix,False
+c9315f310e557ef6a1ae49948406d893ca63f289,"- Change FormRedux submit button position strategy from absolute to fixed;
+- Fix FormWidget fields page move up, move down and delete buttons focus layout;
+- Fix FormWidget Menu component alignment layout;
+- Fix FormWidget Fields page alignment layout;
+- Fix FormWidget Form page alignment layout and overflow auto layout;
+- Fix AutoFireFormPage overflow auto layout;
+- Fix FormWidget Report page alignment layout;
+- Add button no-focus layout into main.scss file.
+",NonBugFix,0.9139646,BugFix,False
+a1e228ba3a64fe343752fbacd0db5420b9f21ff8,"added new LayoutTests/fast tests, fixed issues 714,715
+
+git-svn-id: 38feb1729fd842af57e1a6ea8a5dccce4272ed9b@795 2ecb45c1-dfb3-dc95-330a-13f216d23a04
+",NonBugFix,0.9793063,BugFix,False
+f61b26619557d8a689f8cb1d49d9386b68e3d428,"Chroniques Oubliees v1.4
+
+* Niveau renseigné par défaut à 1 sur un nouveau personnage, pour éviter
+les erreurs de jet de dés
+* Quelques ajustements visuels
+* Hébergement des images sur Github plutôt que G+
+",BugFix,0.5003777,BugFix,False
+c3d49b7a3100df3ca8bf02b69c6322ab1fa6ccf1,"(autoloads, custom-deps): Warn that parts of commands enclosed in $(ARGQUOTE)s
+should not be split between two lines, as that will break with GNU Make >3.80,
+when sh.exe is used and arg quoting is with '..'.
+(autoloads): Don't break the quoted --eval expression between several lines.
+",BugFix,0.50085837,BugFix,False
+3adf94e5e8c862085e431874c756df8a6abd9efd,"breaking clients. comment our ssl cert stuff until its functional on cp
+",NonBugFix,0.8921554,BugFix,False
+dd5a996e72050178e5f4f3549e36a96fbc6f4804,"Fix twitter bug
+
+- Closes #347
+",BugFix,0.99995273,BugFix,False
+d2d8e974d95aeda97cbeed942b6d548e9805b8e5,"bug in 161
+",BugFix,0.99850243,BugFix,False
+fe4bfdae003df976982a83db39edb6cb2348f3ff,"bug--
+",BugFix,0.99755305,BugFix,False
+9b3b2ddeefbb196bfe376a984ccd5bde0e60b2ad,"Fix a bug in Import Collection which ignored parameter types in certain cases for the ClassInstanceCreation nodes.
+	Change on 2013/01/02 by shanbhag <shanbhag@google.com>
+-------------
+Created by MOE: http://code.google.com/p/moe-java
+MOE_MIGRATED_REVID=40652694
+",BugFix,0.9997631,BugFix,False
+e99bdfe8d2f737458d998a8e2c2461d8560e2ec6,"Fixed a small bug in getWidthsAndGenPos(). Test now passes.
+",BugFix,0.9990468,BugFix,False
+3214397065d20832703e72b9b9f1cf7885ccaee4,"[#172727619] Bug fix: Changing bin size does not stick when legend is added
+
+* Directly inform plots of a change to x or y attribute so that proper action can be taken.
+",BugFix,0.9985874,BugFix,False
+7055aef5c220fb2606226f58284de831cb8ee8e7,"minor bug fixes
+",BugFix,0.99992424,BugFix,False
+44c3cb53a7c05a8b5cf5dc6c3e9395b9ccfb56e6,"Merge pull request #4872 from willkg/1540680-mpc
+
+bug 1540680: nix MissingProcessedCrashes",BugFix,0.9983953,BugFix,False
+4587d898dc29c3677eafc250a752a190353d8609," Bug 15049: (Signed off) Hide currency but preserv alert
+
+This follow up hides currency, but the alert pops
+if no currency is active.
+
+To test:
+1) Apply the patch
+2) Unset any active currency
+3) Alert must show on Acquisitons home
+4) Set a currency active, no currency display on Acqui home
+5) Check that currency IS displayed on /cgi-bin/koha/admin/aqbudgets.pl
+or /cgi-bin/koha/admin/aqbudgetperiods.pl
+
+Amended for better translation
+
+Currency does / does not display as described in test plan.
+Signed-off-by: Marc Véron <veron@veron.ch>
+
+Signed-off-by: JM Broust <jean-manuel.broust@univ-lyon2.fr>
+
+Signed-off-by: Jonathan Druart <jonathan.druart@bugs.koha-community.org>
+
+Signed-off-by: Brendan A Gallagher <d88b10c6bc7c38a4ffb541994aef7d8a7f8e3819@bywatersolutions.com>
+",BugFix,0.98348266,BugFix,False
+c2aaab6b9e19e1b46b821774daf15810b85b9c57,"ble-edit.sh: \bugfix histexpand condition [[ -o histexpand ]] inverted.
+
+* \bugfix 履歴展開が効かなくなっていた。
+  条件判定の誤りだった: [[ -o histexpand ]] → [[ ! -o histexpand ]]
+* \bugfix 履歴展開に失敗した時に : が実行される。
+  履歴展開が失敗すると history -p は標準出力に何も出力しないためであった。
+  失敗した時は echo ""$BASH_COMMAND"" により手動で出力する。
+",BugFix,0.8745806,BugFix,False
+f01f349a8fcfb381978bb5905c04a7eae9ed757e,"bugfix for enabling debug code when compiling with GPU support
+",NonBugFix,0.52612144,BugFix,False
+5eda78214356288cd3dbe385f47912d073ec6288,"bugfixes, dont hide errors and ensure values are present before accessing
+
+svn path=/trunk/eXist/; revision=15122
+",BugFix,0.99972105,BugFix,False
+9154f97ff8220093f007096efe17bdb5f03b33b1,"more sync with sylpheed 0.6.2cvs12
+",BugFix,0.5080181,BugFix,False
+057e8c112f74f27afffa0e084ddecfdd2f201fe3,"Headers cannot contain new lines. Replace with spaces.
+",NonBugFix,0.9807661,BugFix,False
+692aaca75e86c5e5957c4c548d2fdd8532405ec0,"cannot mark guest as absent or present (fixed #1317)
+",BugFix,0.91511357,BugFix,False
+3b7801b5557ca5ac3451527d86f81af6c1e4a1bd,child_socket: check for mktemp() failure,BugFix,0.84210664,BugFix,False
+31aefe06c3887a8c0f17542d24508db6ea1f5ef5,"Fix MSVC compilation error C2065: 'thread_local' : undeclared identifier
+
+Cannot use the proper 'static __declspec(thread)' definition, since it gives the following errors:
+error C2483: 'includeName' : object with constructor or destructor cannot be declared 'thread'
+",BugFix,0.9971925,BugFix,False
+ec7f535c5fd535a4e716825abdbdc94ffdc832a4,"clarify/correct cache settings. Reported by Klaus Darilion.
+
+git-svn-id: 9656f0984f47d5c650935b65e785656835a2cd72@2271 d19b8d6e-7fed-0310-83ef-9ca221ded41b
+",BugFix,0.8992462,BugFix,False
+08fe8cadbfa987d61562bc89b72402212528a288,"- Different message when minimum and maximum values are the same
+- Corrected error when editing rule: minimum is greater that maximum
+
+",BugFix,0.9983901,BugFix,False
+a07362cb0e5b0b9d7c29d3ef239428b6a50705b6,"Korrigerat användning av @Transactional- annotering.
+",NonBugFix,0.50010777,BugFix,False
+63561f4badd5b867368c2642195e1e8c5c2ae151,"Fixes #123 and adds slight correction
+",BugFix,0.9285501,BugFix,False
+36c71637b829b035f6443503499b58feeb471929,"(GH-2275) Correctly reference runtime libraries from addins
+
+- Fixes #2275
+",BugFix,0.99226975,BugFix,False
+9a683bbc4aa793a9dc13cd1ef45d58ae7eba3df9,"formatter: field groups alignment: correctly process range (IDEA-98368; IDEA-98367)
+",NonBugFix,0.62801754,BugFix,False
+a2da1306b46f6649ba5c92cb285ec26be1bbe0f0,"Iidm util branchData. Delete structuralRatio in lines with different nominal voltage at the ends. (#1398)
+
+* Delete structuralRatio in lines with different nominal voltage at the ends
+* Fix tests
+
+Signed-off-by: José Antonio Marqués <f01731253c330b582462ef33c31a6811e51a91cb@aia.es>",BugFix,0.7286227,BugFix,False
+b2593f3e2ada7c4ee4b636d3f3a49f7078980837,"paralleldd: Do not output redundant time information
+
+Signed-off-by: Mel Gorman <39ea6a09710987173e32e37c86918024a0f441c1@techsingularity.net>
+",NonBugFix,0.50546473,BugFix,False
+aa1f7944b9b5eb59acf8d51474033729e8491e58,Don't include null memtable in getAllTupleStorages to prevent NPEs,BugFix,0.9985269,BugFix,False
+5f2da4afc8219091b3e191cfe5334aebb25a8437,"Don't use bitwise operations on this nmber.  It may be more than 32 bits.
+",BugFix,0.50159997,BugFix,False
+63651db44ddef10bc629312707ba6d2a349fbc10,"Merge ""Ensure valid service names are passed to stack_install_service""",BugFix,0.9059781,BugFix,False
+0a5c8cadbc115a5aed906859b0029b2a5d2b82d8,"http://code.google.com/p/lino/source/browse/docs/blog/2012/0919.rst
+",NonBugFix,0.85000485,BugFix,False
+04ea2e116ae712658ce8db63d5e621287f80bafb,"build-metadata: UnicodeDecodeError: 'utf8' codec can't decode byte 0xbf (#539)
+",BugFix,0.5063731,BugFix,False
+cbc7ef1f665423aabba3836b79017682ca1b0816,"erts: Improve NIF load incompatibility errors
+",BugFix,0.8774034,BugFix,False
+300886b9650b4425c43f1810f8b66b9351eae28f,"6921001: api/java_security/IdentityScope/IdentityScopeTests.html#getSystemScope fails starting from b78 JDK7
+Reviewed-by: mullan
+",NonBugFix,0.56874925,BugFix,False
+38a1e2bdd6033c118560e6452a6f9ece7d56a6f6,"Faster brushing in matrix view.
+Bug fix in scatterplot view.
+",BugFix,0.99972874,BugFix,False
+8a4b7b7037fdd8eda0317b4538100ffaf1d1d5aa,"fixed check for test modification on import
+",NonBugFix,0.77172565,BugFix,False
+52fb5d649f6f0d4ee19d15eec729cec98036b306,"Merge pull request #126 from aminmarashi/fix-connection-recovery-on-start
+
+Fix connection recovery on start",BugFix,0.9106069,BugFix,False
+b84f3a19cff5507460372d728f4937b5727325a9,"Merge branch 'master' into fix/metric_explosion_grafana
+",BugFix,0.9125492,BugFix,False
+33e39c5bc26c91a622bcfa76be8101e7f059612d,"Merge branch 'smartavionics-mb-fix-non-move-at-end-of-layer-that-breaks-spiralize' into 2.5
+",BugFix,0.6133616,BugFix,False
+47dcc129102b4ed8e76e2873855e1b9933eebe0a,"Fix Conflicts:
+	js/models/core/Wallet.js
+",BugFix,0.9073109,BugFix,False
+4ee78988899a3f545602cb49b17d81e14de55954,"base-files: fix unkillable processes after restart
+
+When restart is run on an init script, the script traps SIGTERM. This is
+done as a workaround for scripts named the same name as the program they
+start. In that case, the init script process will have the same name as
+the program process, and so when the init script runs killall, it will
+kill itself. So SIGTERM is trapped to make the init script unkillable.
+
+However, the trap is retained when the init script runs start, and thus
+processes started by restart will not respond to SIGTERM, and will thus
+be unkillable unless you use SIGKILL. This fixes that by removing the
+trap before running start.
+
+Signed-off-by: Linus Kardell <40840f60975de4010e490a8c0f97c3082d32e60c@telliq.com>
+",BugFix,0.7504813,BugFix,False
+9bffd8a6053e0162251ad2cb17e209856e8429b9,"Merge pull request #986 from oat-sa/fix/TAO-4925-zoom
+
+Fix/tao 4925 zoom",BugFix,0.91150266,BugFix,False
+f767cdc7b444e1389f16c49b56ed2f3fc864eb0e,"[epg] fix use of new epg database column iYear
+",NonBugFix,0.54917496,BugFix,False
+58bd563e96f73fe5e933ad23e6934a3029109cd1,"Minor fix
+",BugFix,0.97297287,BugFix,False
+ee8dcad7a59a3d62f58fe0b6654e2b46d2b47a08,"Fix build state display (#1179)
+
+The referenced property in the `buildState` computed property was incorrect.",BugFix,0.99980694,BugFix,False
+a9c2c25bce0fc435a207167b323411b3d3e7256d,"fix #52, pass transaction id through on read
+",BugFix,0.9153069,BugFix,False
+412d9d104e53f5ef4e711be02e8b9e6740cfc2e4,"Feature/vs2017 vcvars (#960)
+
+* trying to use vs2017 vcvars
+
+* proposed fix assuming vs150comntools is defined by user
+
+* fixing broken test for vs2017
+",BugFix,0.892785,BugFix,False
+fe8b93c289b203e2d7ba2285221cc251bcb8cbd6,"Fix -Wshadow warning
+",BugFix,0.9118894,BugFix,False
+6e1220a097d032da476a343cd13705b41c91722d,"fix pinning number chunks for in-proc JIT
+",BugFix,0.9134798,BugFix,False
+c57a812f7b8df99402bc9689fd88598591123adc,"Fix for issue #1 (uart 'garbage').
+",BugFix,0.92586184,BugFix,False
+31ee61f7875dba564a788bab8bba7f7388825084,fix smoner .com anti adb,BugFix,0.91294837,BugFix,False
+750995bf66355846c849386b0035a70eb5e36f49,"Fix <List/> onClick
+",BugFix,0.9101847,BugFix,False
+c7048c84291a023b7e225545bacb423d5db01958,"fix scsynth exit code for NRT
+
+git-svn-id: 862dfb0a87bde8384fe22bc4dc6968ec7c7ecd70@5849 a380766d-ff14-0410-b294-a243070f3f08
+",BugFix,0.91412884,BugFix,False
+31fab428c3dc516fc3088b63f839a3f5c88f6d8d,fix(package): update postman-request to version 2.88.1-postman.12,NonBugFix,0.96376574,BugFix,False
+ef554d896d55e3a2a86b3a9dd5cc78141441f2d5,"Fix tests for pinout
+",BugFix,0.7256093,BugFix,False
+d729ae82bc87e02913b8265b80924d4d66ac2bd1,"fix mixin (#1374)
+
+",BugFix,0.9135258,BugFix,False
+6c8ff2af8caa88a442ecbb1a81b5edc9e0f500d6,"Attempt to fix tests #5285
+",BugFix,0.7366823,BugFix,False
+42c1a699742cf198b6c39a5285ecc9a94fa250e5,"DRILL-6970 Fix issue with logregex format plugin where drillbuf was
+overflowing
+
+closes #1673
+",BugFix,0.92792475,BugFix,False
+62600fc7473ccc5917a2e08a53d37c2bb1ddd6fb,"fix(FormElement): input elements also trigger on change event as well as on input event
+",BugFix,0.9126906,BugFix,False
+491c8d2ae6c6a2f4a906b280deb7ee437cc7f0da,"Fix issues with `ShowOrderFormField`
+
+See #2509
+",BugFix,0.9120326,BugFix,False
+6deaca05c0c64947e33c95d5982e134ab01c947a,minor fix,BugFix,0.9717631,BugFix,False
+0edadcad22e695e29ec194eb519cd7f0eee3f077,"fix cs
+",BugFix,0.9133855,BugFix,False
+0a33beda4f83afb3f6fea25bea9a719eccdb241f,"fix: override viewEditorRenderMode on row level #1360
+",BugFix,0.911824,BugFix,False
+7339a1a67c149f8aa818e6b084b18280f108ea8b,"fix set_geometry() usage
+",BugFix,0.91221094,BugFix,False
+11e884bf1cca14a85dcc6886f2aee76adfbc877c,binutils: Update to fix #1780.,NonBugFix,0.54837763,BugFix,False
+adb2942e5c01cbb8631303012f6f527863425aa7,"Fix CXX_BUILD
+",BugFix,0.9118658,BugFix,False
+708887ef5e3b3eb6ad3b499395eab47c547330b9,"fix mac os
+",BugFix,0.9128889,BugFix,False
+853a9df48cc056a07e17511a2b65918af9605bbc,"Fix issue #459
+
+Patched sys.argv[0] before loading entry point
+",BugFix,0.969238,BugFix,False
+05bf10d0ff39eef1a7ac7d295286a29e521a7c42,"Fix compilation errors introduced by host Pipe abstraction
+on Windows.
+
+git-svn-id: 4c4cc70b1ef44ba2b7963015e681894188cea27e@212255 91177308-0d34-0410-b5e6-96231b3b80d8
+",BugFix,0.9971133,BugFix,False
+373b1823a6c9fe66a020e57a46ca94003d7a519f,"Fix spec
+",BugFix,0.91030985,BugFix,False
+a66c905ee5d4431c632de57b8b7200265a121341,"Fix OPML parsing
+",BugFix,0.9139615,BugFix,False
+ed0baa81420fbd06ccd09ddeba70cb106f2561f1,"Fix Maester Caleotte (#286)
+
+The match property should have been targeting a specific card.
+Because it was a matching function, it was searching only cards in the
+targetController - your own cards by default - and not matching on
+opponent cards.",BugFix,0.91324687,BugFix,False
+854f1b299137612382d245826bdd04f9cc4995a5,"Android : fix player restarting after flipping screen
+",BugFix,0.9124175,BugFix,False
+ccd9784283ce6add319ee37926e409559275952e,"fix i18n init
+
+
+git-svn-id: 9ce90cd0e496015a9cf9f0b5bb5246be88a1c9dd@1755 e7d03fd6-7b0d-0410-9947-9c21f3af8025
+",BugFix,0.91468275,BugFix,False
+ae1994cbc1692133cc5f4ac30e8060a2b0d9dda8,"erasure coding: fix cases where there are no .ecj files
+",BugFix,0.91447425,BugFix,False
+56d4ad8ffdf814198b088b582fd2c4571ed32b96,"Fix jumping login inputs
+",BugFix,0.91524804,BugFix,False
+d2535c003c6188fcc362028e01ef9f7fb3356727,"ir: Fix regression with self-referencing containers
+",BugFix,0.9135728,BugFix,False
+83123636d6b4ca49b91d95345f98a37e6fde85b2,"usage CLI shift fix
+",BugFix,0.91567457,BugFix,False
+b15bba253bf4cd8ea78d1262cf5d1369a099ae19,"Fix setting anchor point.
+",BugFix,0.91263616,BugFix,False
+7f1b0f55b251d29a812fe98f170a6061a827e1c7,"Fix insights store test
+",BugFix,0.7455716,BugFix,False
+720eb5f08e0f04a879a62db1d2509039b71915fe,"Fix for zombie child processes after using rlangpipe
+",BugFix,0.91526055,BugFix,False
+19adc9e4837c134ed6b7b6f6322a0442d5c5ba4b,"fix perf in IE9
+",BugFix,0.9105124,BugFix,False
+52f95c94d0356ca335d1f7a0fd834791a5faa404,"fix(plugin-credentials): handle additional initial credentials shapes
+",BugFix,0.57081616,BugFix,False
+ae730cc8e5be921b92fe45652c35f2031dccfb4a,"fix #2360
+",BugFix,0.9137247,BugFix,False
+28b73859208316a19cab18161b89aab19cf8396c,"examples/default: fix schedstatistics example usage
+",BugFix,0.52554667,BugFix,False
+88fc0bf28d591c17227c862ca2858a6a2bccfd2e,"Merge pull request #698 from lgpage/fix-tests
+
+Force phantomjs service to terminate in Linux",BugFix,0.7405696,BugFix,False
+2d518e2134bae6e8d7a6889a0f109e6460121f42,"Performance fix
+",BugFix,0.75404996,BugFix,False
+d9648887b8b50e54083f47704b5b01323f73ec8b,"fix(metadata): Do not attach module names to metadata.
+
+The filename contains the module name as resolved by users, so the top-level module name is uneeded.
+Module names on references are replaced by capturing the import syntax from the module.
+This allows readers of the metadata to do the module resolution themselves.
+
+Fixes #8225
+Fixes #8082
+
+Closes #8256
+",BugFix,0.98829573,BugFix,False
+b65eae9cf224d091ae16107a0607369ff19e4914,"Fix - Directon Change not moving - unticking the preference had no effect.
+",BugFix,0.61140597,BugFix,False
+19441df411c5be1ddd9ffad030b4bff080c3fa80,"Fix oom error message with corrupt name because name is not yet set
+
+Need to format name before passing it as a parameter, else we just
+print garbage from the stack
+
+Signed-off-by: Colin Ian King <d100aa70785e45ee8deab668147d941941915c21@canonical.com>
+",BugFix,0.99995226,BugFix,False
+ebca07d43bf526ab8953d36869a88c854c2fcf91,"fix(provisioner,localpv,cmd): add klog flags to flag set
+
+klog flags for levelled verbose logging is added to the flagset.
+
+Signed-off-by: Akhil Mohan <01c7dbd4d8b172ac138309ffb6ac1c568244084c@mayadata.io>
+",NonBugFix,0.9587444,BugFix,False
+57b8fd4661ff024f1274d14807bb1cb869e7ae1f,"fixed memory allocation bug
+",BugFix,0.9997301,BugFix,False
+c393969a2013fc64f1e1c65157164dfdfbafb08a,"std: fix bug in fifo.unget if rewinding doesn't wrap around
+",BugFix,0.99975306,BugFix,False
+b3138145058ca4689d81a96e1efdf9671293e325,"[api] delayed job has no user set, so fix crash there
+",BugFix,0.9999495,BugFix,False
+71ddd73a000bba0daaa53e6ed9d7f38b7db3f354,"Merge pull request #1559 from sebgie/failing-tests
+
+Fix failing casper tests",BugFix,0.94018954,BugFix,False
+91cb09883bef924e9b24cfc193787637b5d2aaf1,"util img: Fix some numpy muliplication casting failures with numpy >= 1.10
+
+Numpy 1.10 changed the default casting from ""unsafe"" to ""same_kind"".
+Some places were relying on the unsafe casting to scale in place the RGB uint8 values.
+
+=> explicitely indicate the casting is unsafe.
+Should still work fine down to numpy 1.6.
+",BugFix,0.9836641,BugFix,False
+a468a07f0b81befacb9127586cf1a06bb7174411,"Fix missing instantiated template for PidHashNameLen which breaks on linux and MacOSX build
+",BugFix,0.9130288,BugFix,False
+1854b61003f552cd91e8f4107d0f6f7bb3b29352,Added Managing Responsible(s) as a Subreport to fix MySQL Problem,BugFix,0.9952095,BugFix,False
+00055cd8521235c98cd0c23d8f67a14e8768dd53,"Merge pull request #759 from BenV/fix-centos6-build
+
+Check for OPENSSL_NO_ECDH before using ECDH",BugFix,0.9129877,BugFix,False
+ba3700c5d0d3962b75e6bd1a5f4805c3d517424b,"fix(Crash-4e4c786bfb332e333efcea2da03de727): Crash on `[[NSString alloc] initWithFormat]` (#649)
+
+* use `[NSString stringWithFormat:]` instead of [[NSString alloc] initWithFormat:] as a better practice. initWithFormat was crashing for some reason
+
+* replace explicit nsstring initialization with a convenience
+",BugFix,0.999919,BugFix,False
+cd78b944d6dae9fb0e10b436e641ad2d63eaa789,"fix check total size error
+",BugFix,0.9971228,BugFix,False
+45b29d8627a8364b9a9bd06b9dbebfb905b4ed45,"handle errors other than ENOENT when we do lookups
+
+in this particular case we are getting an error because keys are
+supposed to be valid utf-8
+
+fixes #156
+",BugFix,0.99970824,BugFix,False
+ec75b0cf59bc9eddce1187fd7e2a669e3ffd58ce,"Fix crash when detaching devices from qemu domains.
+
+Make sure to *not* call qemuDomainPCIAddressReleaseAddr if
+QEMUD_CMD_FLAG_DEVICE is *not* set (for older qemu).  This
+prevents a crash when trying to do device detachment from
+a qemu guest.
+
+Signed-off-by: Chris Lalancette <60b62644009db6b194cc0445b64e9b27bb26433a@redhat.com>
+",BugFix,0.99995273,BugFix,False
+c0b01df77826286ea356d2c7752e4f2125ae3e60,"FileUtilities.GetCurrentDirectory reflection fix
+
+Fix for ""The path is not of a legal form"" exception when calling FileUtilities.GetCurrentDirectory using reflection
+
+This was caused by an empty string being passed to System.IO.Path.GetDirectoryName
+
+Fixes #3447
+
+Signed-off-by: Jim Evans <6d79d03c0573f3cb082d0037a63e1832cd69a278@gmail.com>
+",BugFix,0.9955297,BugFix,False
+8b10df32a49da995fbde8920a201cead517dd806,"Fix model face centred not working.
+",BugFix,0.9996772,BugFix,False
+7b35a29a5549a549ceb07abf32a68087220a711f,"Move the Desired Capacity label and spinner into its own row (#907883, #904999).
+
+All that text plus the spinner, plus the other widgets on the screen, makes the
+whole screen too wide to run at 800x600.  This seems like a reasonable fix to
+the problem.
+",BugFix,0.9941416,BugFix,False
+a6a91d3325f2ded4c548109312da992d0dd177a3,"fixed a small problem with the maltegolocal package
+",BugFix,0.9987338,BugFix,False
+ac4058abee34613d833ef2312ebaa4162f808347,"Merge pull request #214 from kuzzleio/fix-28-createIndexResponse
+
+ createIndex should only return response.result",BugFix,0.9139765,BugFix,False
+f46fd9e306c7a2717a477d9a47846a3cfa04f463,"Fix (some) vulnerabilities reported by `npm audit`
+
+This was done automatically, using the `npm audit fix` command.
+",BugFix,0.91422296,BugFix,False
+76b0eefaccf93293fb6914c223d5526dc9395c51,"Fix validation of the `name_prefix` parameter of the `aws_alb` resource (#13441)
+
+This parameter is being validated using the wrong validation function, which means that we are incorrectly disallowing a `name_prefix` value ending with a dash.",BugFix,0.9966066,BugFix,False
+949fa31ef695d99fc9f3ac977668acf8f6208979,"fix(bufferToggle): fix bugs in order to pass tests
+",BugFix,0.98968524,BugFix,False
+7360f964b188db15cfdcf744423eaff99237f24a,"Fixed 'w' motion at the last word
+",BugFix,0.9153037,BugFix,False
+ec2e02acc4489cb88071b510a4e35351e9cc6aa1,"Merge pull request #1261 from ty707/fix_once_scheduling
+
+Fixed scheduling for @once interval",BugFix,0.91421896,BugFix,False
+873177547a72ad2a9e0fe2579cef8fce1c9ca240,fixed designed,BugFix,0.9138715,BugFix,False
+09d20269e0a0bbc60a077b1fdff137c23564aadf,"asciinema: fixed sudo command
+",BugFix,0.9142744,BugFix,False
+2ca73f9d7ea08be031673ca4258a09328fe420bb,"merged branch pborreli/posix-fix (PR #5047)
+
+Commits
+-------
+
+1d6611b [Filesystem] Fixed tests on system without posix
+
+Discussion
+----------
+
+[Filesystem] Fixed tests on system without posix
+
+Bug fix: yes
+Feature addition: no
+Backwards compatibility break: no
+Symfony2 tests pass: master is broken
+Fixes the following tickets: None
+License of the code: MIT
+",BugFix,0.9628159,BugFix,False
+86e6d3decc9fde62ec3d2b18f0cf702ccb874196,"Fixed MyMoneyStorageAnon regarding payeeIdentifiers and onlineJobs
+
+Simply remove all payeeIdentifiers and onlineJobs. Only the plugin can
+remove sensitive data. Therefor a new API is needed but for the time
+being this is to complex and a clean sweep should be enough.
+
+Before this patch the anon.xml file could contain private data.
+
+(cherry picked from commit c79717e6b3c9e3191e48c39b78738105b052ea7b)
+",NonBugFix,0.9979927,BugFix,False
+be713debe727fcca5b138f6fedb14efcb9c7275e,"pr-edit-view: Fixed authorizations for annotations for reviewer
+",BugFix,0.63232243,BugFix,False
+0921b4e2a8b44d98ac05b8deef92160e21666edc,"Fixed docker image for GD
+",BugFix,0.91425145,BugFix,False
+db20e063d6e59739a0706eb81e1beab821dc9c20,"Fixed text hint for the 'Find/Replace' bar
+Added new option: Toggle Minimal View
+",NonBugFix,0.9871516,BugFix,False
+ec7ed1707820ac237b5de8a4d29f522e46e39b25,"Fixed parse of cmd string
+
+Before this fix, using cmd() with an erroneous string was triggering
+no error. Now this is fixed.
+
+Notice that this is an old bug (introduced in 0a46f15d).
+It should be harmless when using MD codes with proper interfaces.
+",BugFix,0.99995226,BugFix,False
+34edeac3911a39146e4afeca4b36112b4f47ec84,"Fixed: Updated check for hashed releases.
+",NonBugFix,0.56469035,BugFix,False
+2175a1ed74bd5a228c46c29588536b28931f63f6,"niner, fixed halve
+",BugFix,0.9126582,BugFix,False
+f3c24216ad6bffbcf85cc94ec9b1f70e4e750048,"Fixed tets data.
+",BugFix,0.9139488,BugFix,False
+e328e1d30040a47c3a6c30b2d9926105a1119634,"Fixed some things and ranted.
+",BugFix,0.9124583,BugFix,False
+868c3f7fbb545152e687d310ace832365c2ad8f0,"Fixed tests
+",BugFix,0.7363139,BugFix,False
+e4c22502ed1a498a60140c35120e91e60be616bd,"fixed bug....
+",BugFix,0.9997335,BugFix,False
+2e0e6fc6c44dcd2b4834de799d0b3a5874296752,"fixed memory leak
+",BugFix,0.99995226,BugFix,False
+1c19ae48bd8ede4626cab81430650573c87db501,"fixed #1143 -- also removed near-meaningless info messages saying that a Hook had been registered.
+",NonBugFix,0.86654115,BugFix,False
+87d31fcd899a9dc9c16f6c43c52e1da8883ed6eb,"minor email fixes
+",BugFix,0.9723713,BugFix,False
+13dafe05f7ffd6db29ff07ec011397755fdf335b,"YSCB - Fixes
+
+Beacon added, taxiways overlapped with runway, some spawns' type was
+added
+
+#102
+",BugFix,0.5612336,BugFix,False
+9ae6bf658a74ebbfd55a0a2de2185dd0cbf4daac,"Increment batchCount in regards to the Provider's billing # instead of
+the provider_no.  This fixes the issue of submission files
+overwriting one another when created for 2 providers that have the same
+Billing #. 
+
+
+Change-Id: Ia1c2a0ef916d1d04c4b0c8c43fcc55849228c95f
+",BugFix,0.59521335,BugFix,False
+3807442c5a269e3017f469a2b2a7fd1cbde989d6,"service/elastictranscoder: Fixes for tfproviderlint R002 (#11944)
+
+Reference: https://github.com/terraform-providers/terraform-provider-aws/issues/9952
+
+Remove pointer value dereferences, which can cause potential panics and are extraneous as `Set()` automatically handles pointer types including when `nil`.
+
+Previously:
+
+```
+aws/resource_aws_elastic_transcoder_pipeline.go:427:15: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_pipeline.go:430:28: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_pipeline.go:447:24: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_pipeline.go:448:16: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_pipeline.go:457:16: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_pipeline.go:474:26: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_preset.go:352:15: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_preset.go:491:15: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_preset.go:504:21: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_preset.go:505:16: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_preset.go:506:23: R002: ResourceData.Set() pointer value dereference is extraneous
+aws/resource_aws_elastic_transcoder_preset.go:515:16: R002: ResourceData.Set() pointer value dereference is extraneous
+```
+
+Output from acceptance testing:
+
+```
+--- PASS: TestAccAWSElasticTranscoderPipeline_withPermissions (31.86s)
+--- PASS: TestAccAWSElasticTranscoderPipeline_basic (34.73s)
+--- PASS: TestAccAWSElasticTranscoderPipeline_withContentConfig (51.48s)
+--- PASS: TestAccAWSElasticTranscoderPipeline_kmsKey (53.26s)
+--- PASS: TestAccAWSElasticTranscoderPipeline_notifications (74.85s)
+
+--- PASS: TestAccAWSElasticTranscoderPreset_basic (39.61s)
+```",NonBugFix,0.9291732,BugFix,True
+44090380ba83d221d01a34f49542457e001f6c1c,"Fixes #7867: Fixes findUniqueIndexes not to perform any processing on unique index on function for pgsql, Implemented findUniqueIndexes for oci and mssql
+",NonBugFix,0.53617835,BugFix,False
+f35d43286baff157f9b5de861492b646c0b3b9a1,"(netmap) fixes insert of empty model in collection if no view is in context.
+",BugFix,0.9126409,BugFix,False
+b5fb732b3c125e493a8943d59b944d922625c1ae,"Fix ListZonesInRegion() after client BasePath change
+
+This path fixes region Regex for listing zones.
+Compute client BasePath changed to compute.googleapis.com, but resource URI were left as www.googleapis.com
+
+Kubernetes-commit: a7c3c9f0d504ad2f2a74fdd380ef3ac63fd7d8fe
+",BugFix,0.9151754,BugFix,False
+cec1718629ace89227a3cde024a7afca4fab5232,"Merge pull request #1218 from Dunbaratu/fixes_1208_NaN_groundspeed
+
+Fixes #1208.",BugFix,0.9160327,BugFix,False
+1de3b40fc438011ccfd4e92e56e6bdc51c9b4c7a,"Ignore special files on deploy (#115)
+
+Fixes #112",BugFix,0.91282195,BugFix,False
+6c65c52af3725470238e330cfe9b010aee20a68b,"Fixes #416
+",BugFix,0.9148052,BugFix,False
+c366b7c7fca0a49c6b0620d89d2d8316a21a9057,"Fixes & Resources support
+",BugFix,0.5074759,BugFix,False
+42e7e38b4def9f86972346c87be3991830d282b3,"Fixing httphook
+",BugFix,0.9141971,BugFix,False
+93dcd6f37c06bb093ba7558667609dfd8e65f826,"JBRULES-2642: fixing negative number
+",BugFix,0.91488713,BugFix,False
+1f79fdd12cc4ea49a6dd9b8ba7574f49d19b933d,"Fixing - dropdown: scroll to marked item not working
+",BugFix,0.999702,BugFix,False
+5a33f1e823e51eec0fae376606353055fbe59627,"Fixing issues with image sharpness
+",BugFix,0.9145016,BugFix,False
+0a46fcdf3ec631668433380b88f4013f3802961f,"EranMes: Fixing issue 116, identifying a host name mismatch when the certificate contains wildcards and is actually valid.
+
+
+r8825
+",BugFix,0.91488636,BugFix,False
+0dcb9c03da4aa3c2518ddc647e2057711b530730,"Get IDL validation recursion right
+",BugFix,0.5313291,BugFix,False
+4f445a3db582c251f88d48866393947a57ae9bb7,"Handle describe-streams error when log events does not exist.
+",BugFix,0.9894246,BugFix,False
+8ba09eabca5054fb67b8da50d052e595c9ae8bfa,"Debugger: Handle per-instruction stepping with LLDB properly
+
+Change-Id: I0030b769e977c6ffced1a87715831386ef0d5319
+Reviewed-by: hjk <f81b91af79013637d070c18d38a75b90eaae8ba3@nokiamail.com>
+",BugFix,0.9901346,BugFix,False
+3987c359344a16e50e4eb02e7808be38e744d405,"Merge branch 'hotfix/2018-10-26_nginx_metrics_hostname' into production
+",BugFix,0.913574,BugFix,False
+ce64058f765c87f1c16489bbb89d41e9568454ed," * tools/tree-dist.C: standardize( ): remove an lstr() that I missed.
+
+",NonBugFix,0.80169016,BugFix,False
+e23f093e728f4fde7fb69a1fa92e05cd5b2d1a07,"Korrigerade ID för fitnesse.
+",BugFix,0.5096122,BugFix,False
+1fd9ba0cc48dcdfd7cd9f513dbed3d0dd54e420e,"Fixed #6988 (incorrect nullPointer error for string)
+",BugFix,0.99995273,BugFix,False
+1d43fe8bacd0d854af88c8dd283a191f83c3072c,"Make PSR-2 pass on travis build
+",NonBugFix,0.50379074,BugFix,False
+28c6fd345b973349e28543e14c2ca5b42978baa3,"Make sure to save edits to modified filters.
+
+BUG:268829
+
+svn path=/trunk/extragear/office/tellico/; revision=1225330
+",BugFix,0.9982522,BugFix,False
+1fd81ceca8c70cdb8297123d01dbcda157318c9e,"Configure scenario clients with region
+
+When configuring the clients make sure that the correct region is
+used.
+
+Change-Id: I2066180aaa85532e81dc37b3bd593e596234e0e1
+Closes-Bug: 1248829
+",BugFix,0.99995226,BugFix,False
+3f2c4adae4a952a55f89dcc8e13cf124c438773f,"Board::clear_caches() is not a const function
+
+May lead to move caches being non-mutable in future
+",NonBugFix,0.8872171,BugFix,False
+2f4c3d6df6d79fd49cb49cf3aa7f4610b78b21b4,"(ftfont_font_format) [! FC_FONTFORMAT]: Declare ""int len;"".
+",NonBugFix,0.64241546,BugFix,False
+66047db6d8d28d73942d224b46dabf6c464e23d4,"Be more paranoid about calling strncmp.
+",BugFix,0.50311524,BugFix,False
+24a2d04fa51cc4e941daa4e264027bdde6fe607c,"Default tail tracking strategy must always exist. The endpoint getter always must ensure that it is never null.
+",BugFix,0.9000821,BugFix,False
+6a08b9b3e90df30837cef5b6ece3a4341faa4d77,"DISPATCH-1200: system_tests_edge_router needs an import
+
+To satisfy python_checker self test
+",NonBugFix,0.788505,BugFix,False
+ec04ea8756abc2ac97b3e24e36df5cb476971324,"Merge pull request #1519 from lucas-clemente/no-crypto-stream-window-updates
+
+never increase the flow control limit for the crypto stream",NonBugFix,0.9729864,BugFix,False
+eff95e87b0aacc038f60d6f721fe510671052550,"Pass instance User_Options to Profile.
+",NonBugFix,0.5022812,BugFix,False
+6e203a280c5201203bd985481031fa48061c1536,"tests: silence test_detect_failed_configure
+
+The standard `nostdout` method doesn't work here because Formula#system
+does some redirection of its own; both stdout and stderr have to be of
+the same type, so just do it manually here.
+
+Signed-off-by: Jack Nagel <43386ce32af96f5c56f2a88e458cb94cebee3751@gmail.com>
+",BugFix,0.59762824,BugFix,False
+9df51348dc53881cc7d558628c82d35a61201054,"XWIKI-11077: Livetable sorting and filtering not working for columns from other classes
+",BugFix,0.99607694,BugFix,False
+4d8d030d949f8877b86fa8b35e72815130371b8a,"cmake: Perhaps the order is wrong?
+",BugFix,0.9633414,BugFix,False
+9cb566ed415a40df69a0c9f389f955b5d2590879,"Computes lua scripts deadlines in C to prevent missing scheduled activities
+",BugFix,0.87895644,BugFix,False
+391d612764b804b2f5c6b695fad847aeb56f3ffb,"Scratch that, the problem was elsewhere.
+
+
+git-svn-id: 4c4cc70b1ef44ba2b7963015e681894188cea27e@181582 91177308-0d34-0410-b5e6-96231b3b80d8
+",BugFix,0.99225295,BugFix,False
+a1639ae9de39d5ce47e6ddfd87e792db52b44bd6,"self: 'package-for-guile' really honors GUILE-VERSION.
+
+* guix/self.scm (package-for-guile): Pass GUILE-VERSION to
+'false-if-wrong-guile'.
+",NonBugFix,0.59588194,BugFix,False
+8815d61185f8fa76d5e55cee2674b27bdf01e4dd,"Rename to stop strange deps with x11 overlay
+
+Will file a bug soon
+",BugFix,0.9824912,BugFix,False
+5de828c43ead56ff3881769c1bdbb761f46af9f4,"Revert ""🏗 Wait an extra minute for sauce connect (#20560)"" (#20715)
+
+",BugFix,0.5045697,BugFix,False
+352d370010e7066b44bda081a11368a1c1288d23,"Revert to requirements.txt
+",BugFix,0.50446355,BugFix,False
+911e1f9559ef88ecf926ba15ab54d60569b3fda8,"Revert ""htdocs: move inline JS to a separate file.""
+
+This reverts commit 3a9740b11098cc14584c9d47757333d3b9cb3073.
+
+Conflicts:
+	htdocs/archive/index.php
+	htdocs/demo/index.php
+	htdocs/make.js
+	htdocs/run-tests.js
+	htdocs/site/js/cppcheck.js
+	htdocs/site/js/pack.js
+",NonBugFix,0.9665433,BugFix,False
+9837027e10ef80e3d76d9fd9cf504d6439039a7d,"Revert removal of className from StyledComponentProps (#8295)
+
+Fixes #8269",BugFix,0.7328717,BugFix,False
+7549bcc318c3142593c9113439e74e49f3aae223,"Reverted to 1.4
+",BugFix,0.5037459,BugFix,False
+3fdf4661c8573dd93cd2453e1461ecada9fca912,"reverted format
+",NonBugFix,0.7006398,BugFix,False
+f2a4ad8b7ca2407d3dd2b6f38b70f635bd6ad0ed,"Putting implicit arguments of Clenv.res_pf right.
+",BugFix,0.50621897,BugFix,False
+f77896a988e7cb65ef80dc969747ad76aedc5d07,Rolling back unreleased libraries to snapshot versions,NonBugFix,0.9530003,BugFix,False
+0f0cd063f1c166ef33c66b244e56e70e9739d70e,"#132  - Tooltips are shown as ""alternative text"" and not as ""pretty windows""
+- Downgrading Wicket / Wicket JQuery UI dependencies again...
+",NonBugFix,0.8159691,BugFix,False
+88a5c2c9f6aeb50493ffa523bee1baa591ab4cfd,"#85 - fix syntax error
+",BugFix,0.99736464,BugFix,False
+f5188e6e5b1152b3084db37f6ab1c5cba694242c,"Remove pcoq from check prerequisites
+
+It is already built by world, and this way, ""make -j3 check"" from
+clean sources work.
+
+
+git-svn-id: 44dc50bdcc0f5d1a212c497508dc9452e0b35e2b@11283 85f007b7-540e-0410-9357-904b9bb8a0f7
+",NonBugFix,0.9610572,BugFix,False
+8449364cfa1fe4c9f4a59ee6f169fc3e5092a2e4,"redirect MDL-20546 Set page type to embedded to avoid ever printing header/blocks/footer on redirects
+",NonBugFix,0.6606819,BugFix,False
+f70f778a5acfad703b5cdb23dabad4b8f659d029,"provider/aws: Randomize DB Option Group Name to avoid name conflicts in Travis CI
+",NonBugFix,0.91341347,BugFix,False
+975c336e5027013ac1ab57fac8a5594e40f4592f,"Export order XML with charset ISO-8859-1 to match what is specified in the document itself.
+",NonBugFix,0.83517843,BugFix,False
+25390bdf88f859e8cfed0c931cdb26ebac92d4a4,"Merge pull request #1197 from olafurpg/1182
+
+Unskip trailing commas tests, fixes #1174",BugFix,0.729408,BugFix,False
+7ce0a6ebdb69d1ddfdedb15091a323a8af8b07fd,"Update logger to increase precision and prevent timestamp collissions.
+",NonBugFix,0.64787215,BugFix,False
+d5b69d20701f98ddbec51557a69e16bdf0113e4e,"baseitem bool with subquery will not change position #417
+",BugFix,0.5038571,BugFix,False
+33e7c9fa44a75ebf4b9404ced59b6da127a849fe,"Improve the error message when no parameters are passed to `make_state_space_model`.
+
+Previously, the default `param_vals=None` would raise a downstream error on line 130 (`zip(self.parameters, param_vals)`).
+
+PiperOrigin-RevId: 323819651
+",BugFix,0.8962737,BugFix,False
+3f7661b07fea60f87cb79886f6bb60206863de1b,"Merge ""wrong argument order for assertEqual in test""",BugFix,0.8465253,BugFix,False
+60a752b9f791c45ba8c2170cd8d33ac991123e4e,"Merge branch 'develop' of https://github.com/frappe/frappe into feat-value-change-detection
+",NonBugFix,0.8810875,NonBugFix,False
+232f179f2475f282b9c524b16e0bdc74e182b698,"update
+",NonBugFix,0.9292215,NonBugFix,False
+35f6822f92ade23e83d2da1a0b589de260abdb3e,"PII annotations can be longer than 120 characters now
+
+PLAT-2424
+",NonBugFix,0.50753677,NonBugFix,False
+e58e2218b4b1b095f368270caf5d76305af273b7,"Merge branch 'ssr' of https://github.com/orange-alliance/the-orange-alliance into ssr
+",BugFix,0.50457454,NonBugFix,False
+56197d435351a035cf92583426aaf092e43d7e0d,"Merge commit '1e3a85fe73c032ac656d363a60ff5fc6800e9869' into HEAD
+",BugFix,0.50326824,NonBugFix,False
+9342c9a9b88eef5ae1477cabbd83cfb0d3fee9aa,"Merge branch 'feature/findPanel' into develop
+",NonBugFix,0.9720759,NonBugFix,False
+d86674dbf6284f079875b9fc815d46abf94e1eef,"Merge branch 'master' of github.com:datamade/la-metro-councilmatic
+",NonBugFix,0.50354546,NonBugFix,False
+20f0c2406d62ddbd0d005a2fb15f3f9bb95b3f20,"Merge pull request #352 from res0nance/remoting-workdir
+
+Add remoting workdir",NonBugFix,0.8853589,NonBugFix,False
+8186ea0b3e86b394bb14fcf8837a373e2a94b242,"Merge branch 'issue-63'
+",BugFix,0.50330585,NonBugFix,False
+4fb081914f5c59eacd3e306180fc5fbb6b4992ed,"Merge
+",NonBugFix,0.50075805,NonBugFix,False
+807f5a621637550642075cd0d030664d1ddc8f2e,"Merge branch 'dev_font'
+",BugFix,0.5032447,NonBugFix,False
+60f49f9fa10f47b0a896527660beb1fb7f16c5ed,"Merge branch 'master' of http://github.com/rtfd/readthedocs.org
+",NonBugFix,0.50247264,NonBugFix,False
+8af6e6ca79643a2b0d576883a8015a0a9540612a,"Merge branch 'master' of github.com:TrinityCore/TrinityCore
+",NonBugFix,0.5022839,NonBugFix,False
+92d2ad5d5201f41ad32c9b2f188a85e7e3f65c6f,"Merge branch 'master' into dev
+",BugFix,0.5018953,NonBugFix,False
+74886815a489022eec52094d0960dec582ac71e7,"Merge branch 'develop' of https://github.com/kbase/narrative into new-select2
+",NonBugFix,0.99224114,NonBugFix,False
+0447d76798717ec8dae33bc364429bef1358bfac,"Abort uploads that exceed a site's upload limit
+",NonBugFix,0.65046906,NonBugFix,False
+a66520759c26662d76e83b02cc72bf2426c56df5,"Merge pull request #20 from kaltura/IX-9.0.0-http-notifications-doc
+
+Ix 9.0.0 http notifications doc",NonBugFix,0.8457985,NonBugFix,False
+4bd944fd5cea146d779df38efdfdf7abcd2c06a6,"add kill method to Signal type
+",NonBugFix,0.88233674,NonBugFix,False
+8000ea333521c9f9e315e799d616683d3d805274,"Set query properties recursively
+",BugFix,0.50040454,NonBugFix,False
+250c72e0ff29b7e5f9e362661336e2e07e300a79,"fall back on nav bar's height for modals
+",BugFix,0.5018812,NonBugFix,False
+f182e3b200c9bdc4b604acf1c1877aaf638b32fa,"Merge remote-tracking branch 'origin/master'
+",BugFix,0.50130194,NonBugFix,False
+10e816fb4543b888a8899d049a737b3990eecf75,"Merge branch 'develop' of gitorious.org:bewelcome/rox into develop
+",NonBugFix,0.89661956,NonBugFix,False
+0e8d6df5330bc1aa15e99ac3e981de9c10f33764,"Merge branch 'master' of github.com:mikisvaz/rbbt-util
+",BugFix,0.50353557,NonBugFix,False
+1f8a41ead32230038930972e23448f3146216570,add easyconfig eudev-3.2-GCCcore-4.9.3.eb,NonBugFix,0.88548696,NonBugFix,False
+6e26986dcef81c90b6bedcda7538d2e8b50907f8,"gui/help : ask for all the logs (#1042)
+
+",NonBugFix,0.837228,NonBugFix,False
+49755efa41f2567c9e38a8734e55a43485959db7,"Changes docs to readthedocs theme
+",NonBugFix,0.8506286,NonBugFix,False
+14eb23a189894e2a42a874e27d81cfb461b15855,"hspec-expectations < 0.8.0 (#1971)
+",BugFix,0.5020417,NonBugFix,False
+55a95371d9d0c35834e5cfe919acf9b35ad06031,"OAK-6535 - Synchronous Lucene Property Indexes
+
+PropertyIndexUpdateCallback implements PropertyUpdateCallback and
+manages property index updates based on changes.
+
+- For simple property index it implements a bucket storage where current
+  writes always go to head bucket.
+- For unique indexes no bucketing is done
+
+HybridPropertyIndexLookup performs the query part taking into account
+for bucket storage
+
+git-svn-id: 67138be12999c61558c3dd34328380c8e4523e73@1810629 13f79535-47bb-0310-9956-ffa450edef68
+",NonBugFix,0.9921017,NonBugFix,False
+d1022a3d24ebdcff3cf7cd106f3f8d08e338673b,"lower.tri() and upper.tri() with .col() and .row() for all matrix-like obj.
+
+git-svn-id: f298e5bd0fb7dd56202a0647512068a43d54496a@73030 00db46b3-68df-0310-9c12-caf00c1e9a41
+",NonBugFix,0.50201887,NonBugFix,False
+ff3822bc6bdc0d801d7603c3f70207cd5e6d942b,"Build 30
+",BugFix,0.50272775,NonBugFix,False
+cc7cc8b7b5b072331b44a347053bb8fbb5cc298b,"Merge branch 'dev' of https://github.com/uclouvain/osis into OSIS-1509
+",BugFix,0.50171417,NonBugFix,False
+2dfab7bb3b6e810f18ff4830de36310b52e8084c,"mark-all-as-read.js: merge CSS files.
+
+git-svn-id: b503a97dd78f589f885ec9b28f2afaa6d34e6fa2@7007 1e3807c3-0949-0410-b78e-337b627472c1
+",BugFix,0.5034476,NonBugFix,False
+6dc02f780c476525ed410a0c0283cab9c78c23fc,"TypeParameters: Consider defaults
+",NonBugFix,0.50187653,NonBugFix,False
+55351af76f7a20e7e45d730f8d011e2def751092,"ENH prevent break backwards compat
+",BugFix,0.8791046,NonBugFix,False
+b3509550f07551274b4654b02f06fff9a42e056c,KMDH-Done from Scratch-Kilt McHaggis,NonBugFix,0.5061193,NonBugFix,False
+9ba323b48d5b84169e8f254259de826d8dd65c1b,nan,BugFix,0.5027863,NonBugFix,False
+f9d08aa0b4348b38911dab1f2eaed32287800eb9,"owen edits
+",BugFix,0.5019348,NonBugFix,False
+fffaeb868aca392a71e053d20c8cff2794ebc1aa,"Loop in atomese
+",BugFix,0.8271403,NonBugFix,False
+9638d67fb061dfd6195c8dffe9284dbab5f02ee8,"ping
+",NonBugFix,0.502035,NonBugFix,False
+4e074b1bfdeffa7b36d74f5b4c2bd67778d45e8c,"run_output function for gapi
+",NonBugFix,0.50035757,NonBugFix,False
+d4d833daeb143f1d333a64c28ae683021af7f154,"skydb: Query records with `IN` #286
+",NonBugFix,0.50026506,NonBugFix,False
+368522a47645161e81f735d6ea7112b83c45f2a6,"
+",NonBugFix,0.50092065,NonBugFix,False
+c6bce4e840ad27ff06ebe082939a5c9e51a4a64f,"swizzle() for RGB8 <-> BGR8
+",NonBugFix,0.50353384,NonBugFix,False
+8ca21f6b51b2102f01d1b725248c56c38ae7ba67,"-
+
+",NonBugFix,0.50122344,NonBugFix,False
+6a263e921db8bf0117f259a0f75a69b50b02d201,.,NonBugFix,0.51001364,NonBugFix,False
+8a7fc95959b4b004f74e235f5275c54d9bf77529,"asdf
+",BugFix,0.50453204,NonBugFix,False
+12c329c2d85bc427055c5837dbf1d59d555d12bb,"INTYG-7943: Rättat avstängda tester
+",BugFix,0.5037847,NonBugFix,False
+9ea6d4323ddea5f63b13fcf4a59a1bc04d9c74b2,"Add-on by F. Blanco: code to manage leading particle and cuts with respect to that
+
+",NonBugFix,0.8830212,NonBugFix,False
+7ad31ff7919d0e37d96827758e067819d154b880,"* Add pager field when import a user
+
+git-svn-id: 25a0ac75d3222d69293b2750b310215dcabd6451@12733 6bcd3966-0018-0410-8128-fd23d134de7e
+",NonBugFix,0.88139075,NonBugFix,False
+2177c7ef95c968c193bb6b12f4102a54bc432a59,"Add UserView.spec
+",NonBugFix,0.88618946,NonBugFix,False
+806ef8fcc2f4fc408cf71ee14a0678edf243b60e,"Add test for wait_closing() before start()
+",NonBugFix,0.6529369,NonBugFix,False
+5befc53b12c0b0beb2bbe712531b81711e4dc21e,"Added more MTC debug output
+",NonBugFix,0.87214774,NonBugFix,False
+88cf226caee50956ef47edd4d44cf7b80703a26c,"Get rid of bogus warnings when the second argument in va_start is either an implicit cast expr or a paren expr.
+
+git-svn-id: ffe668792ed300d6c2daa1f6eba2e0aa28d7ec6c@46950 91177308-0d34-0410-b5e6-96231b3b80d8
+",NonBugFix,0.91075504,NonBugFix,False
+2b286085a0c76d283e153ad7bd0de3144222cbf7,"History, Abos kleine URLs
+	geändert:   dist/MediathekView.jar
+	geändert:   src/mediathek/controller/io/starter/ListeStarts.java
+	geändert:   src/mediathek/controller/io/starter/StarterClass.java
+	geändert:   src/mediathek/daten/DatenDownload.java
+	geändert:   src/mediathek/daten/DatenFilm.java
+	geändert:   src/mediathek/daten/ListeFilme.java
+	geändert:   src/mediathek/gui/GuiDownloads.java
+	geändert:   src/mediathek/tool/CellRendererFilme.java
+	geändert:   src/version.properties
+",NonBugFix,0.95269454,NonBugFix,False
+cecc1c0d3cecc188a3be3758488546c4bc2977ad,"в миграции таблицы создаются через createTabe
+",NonBugFix,0.5016184,NonBugFix,False
+a7dfee3b02c70ca872c750fc60860d238623be69,"win: add disk read/write count to uv_getrusage
+
+Refs: https://github.com/libuv/libuv/issues/342
+PR-URL: https://github.com/libuv/libuv/pull/1023
+Reviewed-By: Saúl Ibarra Corretgé <8a7991f6950ea189abf159d6ec98d2fcc13dc5f6@gmail.com>
+",NonBugFix,0.9734915,NonBugFix,False
+c7d33f7342e13704c513dea31f6ca5f010bd668c,"add: unittest for BooleanAdapter.
+",NonBugFix,0.8823683,NonBugFix,False
+46ca0ef2c3e0bd6b208c1ea7398956fb0cab1fed,"Add aria label
+",NonBugFix,0.8804103,NonBugFix,False
+c4afb1d3bd82018e6b29f1018218c36c12f95a82,"selftest: Add a reverse variation to ReplicateMoveObject3
+
+Signed-off-by: Andrew Bartlett <9503ccf2b9baea7c4d590fbd562f8b0a297738eb@samba.org>
+Reviewed-by: Garming Samba <95d1856ad7e7e0b74b122929c1f1e47d287c99a8@catalyst.net.nz>
+",NonBugFix,0.97375613,NonBugFix,False
+f02b62120f74da9ed004293b85d0d2b3b9b6f218,"Add of many functions in module math
+",NonBugFix,0.8834042,NonBugFix,False
+5780ea6b7ef5f51806890d127ce42b3bea9b8332,"add test for async customization
+",NonBugFix,0.9677172,NonBugFix,False
+d252b63403b00eef4e3cb5b68996b2d49ea2318e,"Merge pull request #361 from VSCodeVim/nonblinking-cursor
+
+Add config option for nonblinking block cursor.",NonBugFix,0.8826208,NonBugFix,False
+0a0fe10436fd088f073016b84df68bea834ae027,"Add event's actor_id check
+",NonBugFix,0.88607645,NonBugFix,False
+27ff1de581ec986655b83b2be1b47ad6d7116c9b,"Add cfyuser user on status reporter install
+
+It's now used by the manager install.
+",NonBugFix,0.88509727,NonBugFix,False
+880d05caf1ff25bc3dbc327219a654633fea072b,"Add boolean is_tag on values to hide them in translate table
+",NonBugFix,0.8834863,NonBugFix,False
+c450cfeb264524083caa475936dd94fd321f6c3a,"add a deltaU plot
+",NonBugFix,0.88428485,NonBugFix,False
+6d3cad648737af00f88298d82d5e6c4dc657a7a7,"Add instapaper logic.
+",NonBugFix,0.88561946,NonBugFix,False
+5bf1556bc867401e664de67a0b2ccaa8e7c86ce4,"Add SCAP 1.3 source datastream schema
+
+Downloaded from
+https://csrc.nist.gov/schema/scap/1.3/scap-source-data-stream_1.3.xsd
+Converted the EOLs to Unix using `dos2unix` tool.
+",NonBugFix,0.96591896,NonBugFix,False
+486dbb8d51501dc11500b17d826a35aa7a01920e,"Add some debugging prints to CoreNLP worker to find out why it's so slow
+",NonBugFix,0.8796215,NonBugFix,False
+2057d3f3fa38202f54ff98741e2e88536dfda390,"ADD #788 bind scope of collection-hooks to the collection
+",NonBugFix,0.8788949,NonBugFix,False
+8a423c61db537ad8002a61fba1b7d8da575d21a2,"Merge pull request #4405 from pavelzag/test_ssl_providers
+
+Add Providers with SSL",NonBugFix,0.99819887,NonBugFix,False
+55818f9cb6f9592027018b8c9afef4de9e2622a1,"Add Ghost City tracker (#488)
+
+",NonBugFix,0.88065606,NonBugFix,False
+72256d5d550a93a76dbabe005963e1227f380bc9,"Add separative set theory language
+",NonBugFix,0.8852812,NonBugFix,False
+728d09736cf90dd0020c55c5f1c4a3b56e423eeb,"add demo
+",NonBugFix,0.8816118,NonBugFix,False
+5f03d0204403f4a6def0466994c96a018a6c229b,"add interval
+",NonBugFix,0.88351035,NonBugFix,False
+01ab0de20876cfd839430f78ba4d4a2c37b17542,"[functionals.elliptic-ipdg] add EllipticIpdgFaceVectorFunctional
+",NonBugFix,0.88334125,NonBugFix,False
+63b1cb172c1d3fa463bdc705d3222e5f33216b92,"Add new functions for extensions: nautilus_file_info_has_volume,
+
+2005-10-03  Alexander Larsson  <alexl@redhat.com>
+
+	* libnautilus-extension/nautilus-file-info.c:
+	* libnautilus-extension/nautilus-file-info.h:
+	* libnautilus-private/nautilus-file.c:
+	Add new functions for extensions:
+	nautilus_file_info_has_volume, nautilus_file_info_has_drive,
+	nautilus_file_info_get_volume, nautilus_file_info_get_drive
+
+	Patch from Trevor Davenport
+",NonBugFix,0.99944013,NonBugFix,False
+6d3624a878e6f738954027aecbca3108a05e8a67,"Add SQLOLEDB to the preconfigured list of providers
+",NonBugFix,0.9758531,NonBugFix,False
+84ea2e037490a9ad6c0a192cf237f88fd83cdd88,"logging vty: describe 'logging set-log-mask' command, add OSMO_STRINGIFY_VAL()
+
+Change-Id: I73ac5873ede858da44e1486d8a5c81da1ed5b19f
+",NonBugFix,0.98423547,NonBugFix,False
+d6b25c3f6af2efa614afb92b4fe4c7028173802c,"Add router http filter, and update .gitignore
+
+Change-Id: Ifd6fca348c14027efbc24d0952ccb4cb46610c4d
+",NonBugFix,0.99993473,NonBugFix,False
+3a1e008f60e462d3f910c230dd56f5f7e7b18862,"keymap: Add HP ProBook 640 G2
+
+Fixes #2997
+",BugFix,0.6021421,NonBugFix,False
+0bad2bc2f569f975d7d6829eda58c236806b2462,"govc: add vm.power doc
+
+Fixes #1656
+",NonBugFix,0.7983896,NonBugFix,False
+ed3af403fd0f0baa90481fe3fd80d3df8aa33121,"Add Metadata Snapshot Infrastructure
+
+This change adds the required infrastructure about metadata snapshot from MX
+codebase into Citus, mainly metadata_sync.c file and master_metadata_snapshot UDF.
+",NonBugFix,0.89979076,NonBugFix,False
+dea2e42621972a2ea4e05b0286be883e6efc47ed,"From R. Medrano Llamas:
+Patch to add support for worker autodiscovery in PROOF using the Avahi/Bonjour
+technology. The new functionality is supported on Mac (MacOsX >= 10.4; no need
+of additional installs) and linux (requires the Avahi framework, available
+by default on most of the distributions).
+To use this functionality (instead-of or in-addition-to the the static worker
+configuration via proof.conf or xpd.worker) the new directive 'xpd.bonjour'
+must be used (see description at 
+http://root.cern.ch/drupal/content/configuration-reference-guide#bonjour):
+- masters should use it in 'discover' mode
+
+       xpd.bonjour discover
+
+- workers in 'register' mode, specifying how many cores or processes they
+  accept for a session (default is the number of processors on the machine)
+
+       xpd.bonjour register cores=4
+
+
+git-svn-id: acec3fd5b7ea1eb9e79d6329d318e8118ee2e14f@36936 27541ba8-7e3a-0410-8455-c3a389f83636
+",NonBugFix,0.9999399,NonBugFix,False
+ac9906a2a2d26e06db17c5191503271caa6ea331,"Add plugins permissions
+
+Signed-off-by: HichamELBSI <89c0764379da71f693bb6b7c10b76731e7cadd4f@gmail.com>
+",NonBugFix,0.9846701,NonBugFix,False
+17dcc94c0d7f330a53772a440668ada28db9502b,"Add permissions for announce/declare
+",NonBugFix,0.88506156,NonBugFix,False
+f90ee6c0186b6a7849aba1a30ca175a25688ebad,"Add tests for stbt.match debug html
+
+These are simple characterization tests. Hopefully they won't cause too
+much maintenance burden but we do need something like this because there
+have been several unnoticed regressions in the stbt-debug output.
+
+We can't check the contents of the generated PNGs because they aren't
+byte-for-byte identical on Travis vs. my laptop -- due to different
+GStreamer versions? OpenCV? At least we can test that the expected
+filenames are created, and we do validate the contents of the index.html
+files.
+",NonBugFix,0.9978816,NonBugFix,False
+c10166dbb41a0b3fd37245817a52a1ab8859ff6e,"add in user abuse page (bug 775883)
+",BugFix,0.9859152,NonBugFix,False
+c5c995c9160929c3e8d9772e74b2592d6b63e3b0,"Added the option to disable auto rendering via the mermaid namespace as described in issue #91
+Added optional ; as statement separator equal to newline for sequence diagrams (help for tidy users)
+",NonBugFix,0.75527817,NonBugFix,False
+c1f50760ac77dd5a569504746c05a3d1c95a1378,"
+added the perc_id and score  to the align_blocks
+",NonBugFix,0.87556267,NonBugFix,False
+455fc30367eb7d3f1bfe43eb94f1993a350abadf,"Merge pull request #1 from nebgor/MDL-27440_chunkyfix
+
+MDL-27440 Backup - added database module 1.9 backup converter",NonBugFix,0.96168715,NonBugFix,False
+c42c4ce35e7d5be8b8d64e6fb848f61d69d808e6,"DesktopClient added that accepts messages from engine
+
+The DesktopClient recieves messages from the LEAN engine and uses an instance of the IMessageHandler to pass messages to the view.  The DesktopClient uses a NetMQ Pull socket to accept the messages over TCP.
+
+The desktop client should be run in another thread.
+",NonBugFix,0.8786887,NonBugFix,False
+6448169aaca4d4d79ee09d234408cb54df3a230e,"Merge pull request #1301 from ajordens/master
+
+Added r4 block device mappings (and re-ordered the list)",NonBugFix,0.87388676,NonBugFix,False
+b7dddc02eae27fb35d9a1f71e987cc246cd80980,"MCR-1150 #comment added RequestDebugFilter to mycore-base
+
+git-svn-id: 5c3a6088a260de08063aa573fa0e2db6520eb9b6@34285 7089d063-bc14-496d-ac90-53de1872eb6c
+",NonBugFix,0.98200494,NonBugFix,False
+1766a20ce7eadedb4695285b84e45dbdcb98d7da,"added ""concatenated"" option to translator.
+compiled code with new SP now kinda works
+",NonBugFix,0.98936075,NonBugFix,False
+3808d2770f079cf821caac9e34aa423372700d08,"Added Vito controller 2 interface
+
+Reviewed By: defHLT
+
+Differential Revision: D20119276
+
+fbshipit-source-id: 1375fadea3f92b18ee78b0df0223c2dac5c3bb51
+",NonBugFix,0.9757403,NonBugFix,False
+268d7286dfd6a696ca229b10a34cdcfc036ff037,"Added OSSP label wrapper
+",NonBugFix,0.86892986,NonBugFix,False
+a5cd6a618d83b0ccd0de07c3590ea53746892e44,"adding some directories and record for check ports
+
+git-svn-id: dcab1f60f8875908b03f8631d73cf2044708dbe2@9202 4f49b16c-3c57-40ef-8e22-7452baa6c33a
+",NonBugFix,0.8709717,NonBugFix,False
+b1328c801c199c346573dfc50f41ab7fba7763f8,"adding in cached avatars
+",NonBugFix,0.8733712,NonBugFix,False
+db0ee8daf6dc0c8ccab8086237255e8b9d40be53,"adding dependencies required for building the html doc to README.txt
+",NonBugFix,0.9999533,NonBugFix,False
+f3246b55a6a79d40d382c7cf60a45edd3bdf13f9,"adding latest jmx agent and message tracer code
+",NonBugFix,0.86918247,NonBugFix,False
+681fa27cfdf07d22c9058515780d84219d9246e0,"Adding new components to the linkdef file
+
+",NonBugFix,0.98796374,NonBugFix,False
+9b39f26068ac7dfbc1aabec699ee50b3db120393,"adding test coverage for create_admin
+",NonBugFix,0.9999509,NonBugFix,False
+403764efef0b9da27618d6245c13aa3b4ffecb70,"adds check for tor service to common
+",NonBugFix,0.88021153,NonBugFix,False
+26200b483e5791bb078b5ef2e0470e4a106206cf,"Open-source VerySimpleGroupSectionSpecTest
+
+Summary: This relies on several testing utils so it's vital to have this one out too.
+
+Reviewed By: mihaelao
+
+Differential Revision: D5901226
+
+fbshipit-source-id: 12e12cdb98d8f5f4113470046eeb6c581f13c37d
+",NonBugFix,0.96005815,NonBugFix,False
+499b236055eeaeb18a0ff1704633fe7503badce8,"Test adjustments
+",NonBugFix,0.7954908,NonBugFix,False
+3edd03c8ff883cbedd6d3560492749b591216a8a,"Allow adjustable range for clients with no service in outflow report
+",NonBugFix,0.7885225,NonBugFix,False
+5557ea21b131d947432a9d0406aa5b514193c78f,"[ignore] Allow query timeout and max output size to be configured via request attributes for XQueryServlet. Required to prevent users from doing nasty things on the demo server.
+
+svn path=/trunk/eXist/; revision=16699
+",BugFix,0.8127851,NonBugFix,False
+a4bc17a9d0f797b962c44277ecc931fe1f1f2f8f,"auto hide for controls
+",BugFix,0.50046647,NonBugFix,False
+e68cdd689df40964fb87dca1e8f039ec22e1a6fd,"errors: better message for wrong arity
+",BugFix,0.9948278,NonBugFix,False
+aca5dbdb4f71c82b3694eaf460bb9dcd7f65b106,"mrb: bind Bulk#domain
+",NonBugFix,0.50258636,NonBugFix,False
+6dde1c173978495bea2e68201f22f6956e7b5234,"Block the users trying to send the wrong file types
+",BugFix,0.965464,NonBugFix,False
+23a859bcf2ed4d4cfe5a7797a85ef9a3291a9b7f,"btm ponr
+
+should be when all radars are destroyed
+",BugFix,0.5108552,NonBugFix,False
+cecee7240e688c2b0e7276cdf372201fbefd24ab,"Bump rollup from 1.29.0 to 1.30.0
+
+Bumps [rollup](https://github.com/rollup/rollup) from 1.29.0 to 1.30.0.
+- [Release notes](https://github.com/rollup/rollup/releases)
+- [Changelog](https://github.com/rollup/rollup/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/rollup/rollup/compare/v1.29.0...v1.30.0)
+
+Signed-off-by: dependabot-preview[bot] <5bdcd3c0d4d24ae3e71b3b452a024c6324c7e4bb@dependabot.com>",NonBugFix,0.9962617,NonBugFix,False
+11877498b62fba4622fc420f384af0818630e5b7,"chore(deps): bump handlebars in /algorithms/linked-list/implements
+
+Bumps [handlebars](https://github.com/wycats/handlebars.js) from 4.1.2 to 4.5.3.
+- [Release notes](https://github.com/wycats/handlebars.js/releases)
+- [Changelog](https://github.com/wycats/handlebars.js/blob/master/release-notes.md)
+- [Commits](https://github.com/wycats/handlebars.js/compare/v4.1.2...v4.5.3)
+
+Signed-off-by: dependabot[bot] <5bdcd3c0d4d24ae3e71b3b452a024c6324c7e4bb@github.com>",NonBugFix,0.99976015,NonBugFix,False
+81d7ac39a83de0b21649c020c66f226b6adf306d,"Bump kaminari from 1.0.1 to 1.1.0
+
+Bumps [kaminari](https://github.com/kaminari/kaminari) from 1.0.1 to 1.1.0.
+- [Changelog](https://github.com/kaminari/kaminari/blob/master/CHANGELOG.md)
+- [Commits](https://github.com/kaminari/kaminari/compare/v1.0.1...v1.1.0)",NonBugFix,0.96979964,NonBugFix,False
+14001dab0af2c6015804e485db565f8b579195ba,"Merge pull request #1060 from NuGetPackageExplorer/dependabot/nuget/NuGetDependencyVersion-5.7.0-rtm.6686bd482514a87a0085f8eb8603842ee1cb3ca5f277
+
+Bump NuGetDependencyVersion from 5.7.0-rtm.6683 to 5.7.0-rtm.6686+bd482514a87a0085f8eb8603842ee1cb3ca5f277",NonBugFix,0.9679596,NonBugFix,False
+6500b2aa6926d4503b70b51e903b5cf0a84a2011,"Bump acorn from 6.0.0 to 6.4.1 (#10570)
+
+Bumps [acorn](https://github.com/acornjs/acorn) from 6.0.0 to 6.4.1.
+- [Release notes](https://github.com/acornjs/acorn/releases)
+- [Commits](https://github.com/acornjs/acorn/compare/6.0.0...6.4.1)
+
+Signed-off-by: dependabot[bot] <5bdcd3c0d4d24ae3e71b3b452a024c6324c7e4bb@github.com>
+
+Co-authored-by: dependabot[bot] <1c358da00a777d4e9898c1280ab801e2df165188@users.noreply.github.com>",NonBugFix,0.9967683,NonBugFix,False
+17d5f5550644e7fa25dbc348d9d118be3963e0df,"Build(deps-dev): bump react-error-overlay from 6.0.3 to 6.0.4 (#4399)
+
+Bumps [react-error-overlay](https://github.com/facebook/create-react-app/tree/HEAD/packages/react-error-overlay) from 6.0.3 to 6.0.4.
+- [Release notes](https://github.com/facebook/create-react-app/releases)
+- [Changelog](https://github.com/facebook/create-react-app/blob/master/CHANGELOG-1.x.md)
+- [Commits](https://github.com/facebook/create-react-app/commits/react-error-overlay@6.0.4/packages/react-error-overlay)
+
+Signed-off-by: dependabot-preview[bot] <5bdcd3c0d4d24ae3e71b3b452a024c6324c7e4bb@dependabot.com>",NonBugFix,0.8513591,NonBugFix,False
+4beb27b9f541f8169f3a74e864e127dd15342e3b,"chore(deps-dev): bump snyk from 1.348.2 to 1.349.0
+
+Bumps [snyk](https://github.com/snyk/snyk) from 1.348.2 to 1.349.0.
+- [Release notes](https://github.com/snyk/snyk/releases)
+- [Changelog](https://github.com/snyk/snyk/blob/master/.releaserc)
+- [Commits](https://github.com/snyk/snyk/compare/v1.348.2...v1.349.0)
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+Co-authored-by: dependabot-preview[bot] <6a4c1c4838f800d1998274cd5234e1f65c55e90c@users.noreply.github.com>",NonBugFix,0.99634975,NonBugFix,False
+e94817d7cd4406765f6a2728ddbaf16ed7e0dac4,"* make-dist: When breaking links, remove the link before moving
+	the copy onto it, to avoid interactive behavior.
+",NonBugFix,0.979817,NonBugFix,False
+0090728722a50ca15f2f10cf9423aeb8054620d0,"Internal change
+
+PiperOrigin-RevId: 263206179
+",BugFix,0.50951636,NonBugFix,False
+0fce1460d8c760206c032ea8a2c8fd1e9385977c,"change in my tools page - Browse by
+",BugFix,0.5017614,NonBugFix,False
+3bfd6ababdad7f460cc29dbbefb15e7dfe26a31e,"Merge pull request #10261 from valadaa48/odroidgo2_conf_extra
+
+Change some defaults for odroidgo2",BugFix,0.50439924,NonBugFix,False
+618d08eb751e5c7c97324f546b451fa837629bdb,changed formatting of result comments and added plh functions,NonBugFix,0.990246,NonBugFix,False
+cc6eefd3bd2f3ca95b8b08ec79cb17262eb3ca65,"Changes to compile on 64bit linux and 64bit lion.
+",BugFix,0.5028666,NonBugFix,False
+21f044fca1f7a88f2175952965f6fce61052e341,"ProjectTracker changes: make it use common NuGet repository, connection string corrections, all projects build. ProjectTracker.Library.Sl code must be ported to Csla 4.5
+bugid: 1018
+
+",BugFix,0.90508896,NonBugFix,False
+696f1bc59294195f29cde0a1f266f200fc4f8fe0,"changes to support configurations per hostname
+",NonBugFix,0.9141967,NonBugFix,False
+85e1b3665261a545541e21b972856369fdb82be3,"Check for 0x0 access
+",NonBugFix,0.50230515,NonBugFix,False
+15d6613f8cf95df94d28b5dc1ae63b820014376f,"[All] Check for mariadb driver.
+[Spigot] Updated and make regions be on center.
+",NonBugFix,0.930662,NonBugFix,False
+527e64eadd9b47e8e5e56331ef7f402429edc262,"chore(tooling): force string comparisons
+",NonBugFix,0.5055378,NonBugFix,False
+c656f61b8374319fbc37505139544248b5c420d1,"Merge pull request #54 from teamleadercrm/crossbrowser/sections
+
+Sections: converted to crossbrowser supported css",NonBugFix,0.9704865,NonBugFix,False
+525b3a81b08c58fd244acae007af8755159a979d,Create uberall.json,NonBugFix,0.50075513,NonBugFix,False
+85f740060e11841d6eeedfd0af4cb105d4ac3a7e,"6c8b0f131 ci: disable ngcc async
+",BugFix,0.74254775,NonBugFix,False
+9d9bea76c3cd84dd1ccdb6c34105be3080fceca2,"Merge pull request #53 from densh/topic/tok-offset
+
+Embed offset in new-style tokens",NonBugFix,0.9251529,NonBugFix,False
+91e851a9917691c868bf5abb67e14f4a21af0f8f,"CMakeLists: Enable /W4 on MSVC
+",BugFix,0.5040529,NonBugFix,False
+e219c3ac3aea7cb16a25babaef2214378ca33f4b,"enable OHCI/EHCI glue on Rt305x, so it is available for Rt3352F.
+
+Hope that this works, didn't have a chance to actually test it...
+
+Signed-off-by: Daniel Golle <dgolle@allnet.de>
+
+SVN-Revision: 32815
+",NonBugFix,0.78635323,NonBugFix,False
+3a3ef36c044005103bfdd5580d1c2d9e05f7c945,"exclude velocity logs from VCS
+
+git-svn-id: 5a74b5304d8e7e474561603514f78b697e5d94c4@1051721 13f79535-47bb-0310-9956-ffa450edef68
+",NonBugFix,0.9440028,NonBugFix,False
+0037b31b2f312586230c6631f647e5ad5fcbb994,"packaging(RHEL-CTDB): extend makespec.sh to extract VENDOR_PATCH from version.h
+
+Michael
+(cherry picked from commit fc122aa276bce379b492e5bdf52ab3e03bc3737f)
+",NonBugFix,0.9548826,NonBugFix,False
+6d1fbe92734c29bfd8ebdc778978a9dc30097d21,"Extending CappArtifactsListProvider for Mediator Project
+",NonBugFix,0.526087,NonBugFix,False
+23fc42b8a01892a159be41883de644a790753df3,"feat(es6-promises) added `import/require` support + tests
+",NonBugFix,0.99694264,NonBugFix,False
+7211dde7b973adcd9d4c033d0328c2b4e378d4b6,"feat: #7358
+",BugFix,0.5000092,NonBugFix,False
+1622f98ff5b0dba9f26cc360fb4cb3752205c7b0,"Merge pull request #321 from UH-StudentServices/feature/HUB-413-alphabetical-ordering-sql
+
+Feature/hub 413 alphabetical ordering sql",NonBugFix,0.77788603,NonBugFix,False
+3e456a20cd0151d4f3837af375451eed99553885,"SONAR-1707 feed the column SNAPSHOTS.BUILD_DATE on files and directories
+",NonBugFix,0.5103772,NonBugFix,False
+54a5cc8a26281758aa7a23f4ce8fdd747373f7aa,"Merge pull request #1601 from loomio/group-metrics
+
+first iteration of group metrics for admins",BugFix,0.5001588,NonBugFix,False
+5c9834785261c605db3b87f3867b8b251620f624,"#720: fixed code review comments
+",NonBugFix,0.8525137,NonBugFix,False
+a202fe405728758f1d51519c5feb76fc335a3529,"freerdp: fix several type related warnings
+",BugFix,0.91445816,NonBugFix,False
+2864bb0db0726c8d914c95300c1cd286281e8209,"test reference folder is excluded
+",NonBugFix,0.9238909,NonBugFix,False
+59ddd7e1ea921745f3c897439ad4bbcec1a7f8f8,"Get and broadcast to all broadcast address
+",BugFix,0.5021726,NonBugFix,False
+a8a8cd88a040b26bd4f49ff7b46542b53601e034,"Implement lf_queue<>, lf_value<>
+
+lf_queue<>: unbound FIFO queue with dynamic linked-list
+lf_value<>: concurrently-assignable value readable without locking at the cost of memory (using dynamic linked list)
+
+Add atomic_t<>::compare_exchange
+",NonBugFix,0.9794118,NonBugFix,False
+594dd7d122d12cf4472cf9802725de91419ee754,"499667 - Implemented option 2 presented in the BZ: allow comparision of any channel to *any* channel, ignore arch all together.
+",NonBugFix,0.96660507,NonBugFix,False
+3ad5a4553a92e32151f25338d759174507269653,"Implements Rf_asChar()
+",NonBugFix,0.8737909,NonBugFix,False
+20248f4a575b26869fbd9e04e0d2fa5bc431cdf2,"improved new protocol resolving framework
+",NonBugFix,0.9536898,NonBugFix,False
+f967bb70df79c268670f42e7884401f0a416ab95,"Copy all of live filesystem to target (#746844)
+
+Instead of depending on currentSize to be correct just copy the whole
+live filesystem over to the target.
+",BugFix,0.89537567,NonBugFix,False
+a04c127bbd6f9c9df5b3d1e565cdd6b332b0b957,"Content-Type for JSON documents is now ""application/json; charset=utf-8""
+",NonBugFix,0.8368415,NonBugFix,False
+f3a32d65297d0bb8ae64ec339a903439a45f5bc8,"Made Adaguc component working
+",BugFix,0.50513804,NonBugFix,False
+02e6d14e2330be710c91294166cf38a87d00f799,"make no-zero-line be the default for wave views (still shown for normal audio region views
+",BugFix,0.5045245,NonBugFix,False
+55c359e8e448831e5c307f8f058d1e982ddf78dd,"Make Array use List.is-lazy
+
+No reason to special case Array
+",BugFix,0.5067976,NonBugFix,False
+064343d056ecdb86ec024bd2c5e91311f1d1a0f6,"Make JUnit a compile-time dependency, since static mock functionality depends on its annotations.
+",NonBugFix,0.50247765,NonBugFix,False
+c2f34a360750f66883d2551eb53459ce4e042c50,"Make freetype use cmake
+
+git-svn-id: 33c7faf6a34aa01402e7b90ccf725d9810c2fb8b@5531 b52b6941-3400-464c-9f42-43200397181c
+",BugFix,0.5008052,NonBugFix,False
+1a7bf7da84f45c2f6e100c0573953c8b654b8334,"Merge pull request #824 from gds/52225601-puppet_agent_package
+
+[#52225601] Manage puppet agents with Deb packages",BugFix,0.5018362,NonBugFix,False
+7ea749cfdf4f18c8dd39af27323874b9650f3f52,"Mark some settings as advanced
+",BugFix,0.5019117,NonBugFix,False
+5ec387aa829d0f9bef9b1e2871491c4c30fcf188,"Mark reload-and-profile attach as configurable
+",NonBugFix,0.5125733,NonBugFix,False
+fb6cf4ea4858e3e502e722b12b6c96062bbac360,"modify paths to vars.cofnig and ejabberd.cfg template
+",BugFix,0.5065953,NonBugFix,False
+92bde8e24817764304afebfd41cbc41a9422430e,"[HUE-6486] Move Hue Krb ticket cache out of /tmp
+
+We are frequently having customers self inflict issues because they
+accidentally change permissions or remove files from /tmp.
+Currently the Hue ticket cache is in ""/tmp"": /tmp/hue_krb5_ccache
+
+In this change, I have set the location to ""/var/run/hue"" and in Hue server
+same ccache_path directory path will be reflected.
+
+Testing Done:
+- Manual testing
+- Tested on cluster
+  - checked correct parameter value is shown.
+
+[[kerberos]]
+ccache_path=/var/run/hue/hue_krb5_ccache
+",NonBugFix,0.95709777,NonBugFix,False
+60a40aaa31db8c1ac07f5e16c2ab03335cec2932,"moved aa gun from W.USA to Hawaii islands
+
+
+git-svn-id: c1ba500aeec1d6140676cb07156a1e31a23423bf@860 a4c711aa-641f-0410-879d-9b464e52b682
+",NonBugFix,0.87926924,NonBugFix,False
+e136a606462bda33fcd884d2ce49cf93aab4948a,"UserData Dialog SizeHint
+
+.. coding through a letterbox is never fun, so made it a bit bigger
+",BugFix,0.50305223,NonBugFix,False
+94e9c286caafb61fc8edf1e086b8a90eee7ca18b,"New file.
+",NonBugFix,0.92812324,NonBugFix,False
+861bd2cef4f91dab5e7f835a185136120376d7ac,"new clang-tidy config
+",NonBugFix,0.9268924,NonBugFix,False
+9283bee867ce788465f3e48ed889cd324e098e64,"new header file for audio-based time types
+",NonBugFix,0.9292491,NonBugFix,False
+9f655c1ea553f69ed1f37db4ee4a861918066186,"New function to see whether an image has a well-known screen size. Sizes
+
+2000-07-24  Federico Mena Quintero  <federico@helixcode.com>
+
+	* zoom.c (zoom_image_has_standard_size): New function to see
+	whether an image has a well-known screen size.  Sizes stolen from
+	the standard resolutions listed in XF86Config.
+
+	* commands.c (cmd_cb_full_screen): Set the image on the image view
+	directly.  Also, if the image has a standard size and the
+	corresponding option is set, fit the image to the screen.
+
+	* full-screen.c (sb_policy_changed_cb): Set the policy directly.
+	(bevel_changed_cb): Set the bevel directly.
+	(full_screen_set_full_screen_sb_policy): Removed.
+	(full_screen_get_full_screen_sb_policy): Removed.
+	(full_screen_set_bevel): Removed.
+	(full_screen_get_bevel): Removed.
+	(full_screen_set_image): Removed.
+
+	* window.c (sb_policy_changed_cb): Set the policy directly here.
+	(window_set_window_sb_policy): Removed; this is a property of the
+	UIImage (which is a GtkScrollFrame), not of the Window.
+	(window_get_window_sb_policy): Removed.
+	(window_set_auto_size): Removed.
+	(window_get_auto_size): Removed.
+	(window_open_image): Get the auto_size preference directly here.
+",NonBugFix,0.99871093,NonBugFix,False
+734fa58c28c047773d840f23686b42c073f31ddc,"Merge pull request #509 from kuhlkrein/master
+
+new Configuration options",NonBugFix,0.9306848,NonBugFix,False
+cc1d8d90cc35a93a377dd4aeeb2063861cf42e31,"New Fresnel parameters for StandardMaterial
+",NonBugFix,0.92791253,NonBugFix,False
+34d2446383f109ae16eaa850defa8f0b643be1f5,"Polished the UX of the Login pages again.
+",NonBugFix,0.93722576,NonBugFix,False
+093d65f0f1262102d8e6a58d9745c899f6e13842,"[refs #118784] ENI SEIS: prepare for 20.6.6-9.19.
+",NonBugFix,0.9670928,NonBugFix,False
+089334db150cdc6eabef2e76d10eef0ceaff5f95,"Prepare for built-in Snake game
+",NonBugFix,0.9616533,NonBugFix,False
+7036a5f85611ece2ba279e2617ee3db3044b7d95,"printing info about HEI index
+",NonBugFix,0.93646395,NonBugFix,False
+44130293164c677b76480adec99bdd0f2c631feb,"re-add system call with PEN_SYSTEM, and disable on ios
+",NonBugFix,0.75610626,NonBugFix,False
+c22fce159319da38fc62e95a3c1e55e770b2c168,"Create the AliMCAnalysisUtils only once for all sub-tasks
+",NonBugFix,0.50400126,NonBugFix,False
+6639c357092246377646c9f607f50c31a15a5569,Releasing BEAGLE memory at end of simulation instead of waiting for Java GC or manually calling GC in test example.,NonBugFix,0.96226466,NonBugFix,False
+06a0d3ff71325ec268add21f1c378c0a8cd0ed3a,"Merge pull request #22453 from edx/robrap/ARCH-1253-remove-UPDATE_LOGIN_USER_ERROR_STATUS_CODE
+
+remove UPDATE_LOGIN_USER_ERROR_STATUS_CODE toggle",NonBugFix,0.57055366,NonBugFix,False
+a9f340bfb1d72824c5b277c7b546934dc91e9119,"build: remove nohoist settings (#1296)
+
+",NonBugFix,0.80178845,NonBugFix,False
+c802008015e320d014146a31f43a8a7cd1693a00,"remove AlphaReign
+",NonBugFix,0.80741036,NonBugFix,False
+6f9b4842193805bc84ae2186fa39cb263aa79761,"Remove db restrictions on user model because of waterline-ldap-auth, set default value active & synchronized user model
+",NonBugFix,0.81465477,NonBugFix,False
+b7c10e003e8ea98d532f350adee3bc5c87bcfc0b,"removed create investigation pop-up link in study form.
+",NonBugFix,0.8091184,NonBugFix,False
+1d2abf931cd49d811041630bce0497926eb8dac4,"Remove one pad clusters only for the track refit
+
+",NonBugFix,0.8037635,NonBugFix,False
+60a527ac570c5c710171cb72b52d62c8752ab37b,"Remove debug print
+",NonBugFix,0.80412734,NonBugFix,False
+b8558e308c501b414d63de1a69657af1cf281136,"Remove trace at debug
+",NonBugFix,0.8080237,NonBugFix,False
+37a581a9bd08c7a956c6044a15d288482aa07d36,"remove the duplicated step of uploading artifacts
+",NonBugFix,0.8062207,NonBugFix,False
+c1137fa5f99374d58778aa2d9cb6c3f364782674,"Merge pull request #1138 from cherrylzhao/dev-new
+
+remove set local transaction type for jdbc, for having default value.",NonBugFix,0.9791689,NonBugFix,False
+407b9d177724a8465bba9714f8507439e1dd9f7c,"Remove subtle link style
+",NonBugFix,0.8037838,NonBugFix,False
+badecf821073d2ba42ba2592b0a0bce26e3f35b6,"Interop, backend: remove code avoiding zero-length C arrays
+",NonBugFix,0.8500465,NonBugFix,False
+8a7763c87b6eb6811b048a0e34c4b489bea18cce,"[Gradle] Configuration cache support (#2813)
+
+* Remove property usage in custom report extensions
+
+They are created on demand when needed at configuration time. Wherefore a property is just an unnecessary wrapper.
+
+* Support Gradle configuration cache - Closes #2811
+
+* Do not use the project property at execution time - #2811
+
+* Deprecate report destination property wrappers
+
+In the future they shall be internal and can get simplified to @Nested project.provider { customReports }",NonBugFix,0.9997797,NonBugFix,False
+a61a6c918a2118a99184c925a3fc9867e4654d3c,"Submit Button removed for QTI items.
+
+git-svn-id: f59f457545ec18fc0283a04e9bdca3d662964e5c@19810 62dfeb86-a93f-4914-9d13-15c0a160985d
+",NonBugFix,0.7987732,NonBugFix,False
+ac3e06f0b6a5ac54cb60910e7e3d95a2b94522ab,"Removed ""Created by"" tag
+",NonBugFix,0.8066215,NonBugFix,False
+211f09db8384173047ebe616772037f5d9086003,"removed cosmetics_sdi.py
+",NonBugFix,0.80844206,NonBugFix,False
+6ec895bbb7699db91615cca7914bcdab2757d669,"Removed LoadLibrary hack on windows
+",NonBugFix,0.8062226,NonBugFix,False
+7970b52d13ab4670d029c9ce1a5d6ac63123a5e3,"Render all the diffs
+",BugFix,0.50505173,NonBugFix,False
+1ed28c3114a35577e2353b81ff656c5f398099c7,"TTPLAT-1221 rerun data migration to set user orgs/filters
+",NonBugFix,0.84812266,NonBugFix,False
+301c6bcc4407cb6cf0b7783146f936df647c8228,"set cudaMemAdviseSetReadMostly on particle group index arrays
+",BugFix,0.5103929,NonBugFix,False
+d4d4b9e7c01288d7cbdfff6df3a8492ca0e6e6b0,"Set ""Place of Birth"" facet to accept multiple values
+",BugFix,0.500182,NonBugFix,False
+718465313732529515d7ff77346516943eb81016,"Merge pull request #250 from bbraybrook/master
+
+Show real folder names in selector on compose screen (#1490153)",BugFix,0.50058526,NonBugFix,False
+0d941e8766c604b447acf8da02c4212818fc826f,"show package status when repository configuration is broken
+
+it was just dropped before due to lack of status element for the package
+",BugFix,0.8554719,NonBugFix,False
+f5688801b29cf7f442b62de5cf53bdbf5afe186b,"emacs: info: Show a message after copying button label.
+
+* emacs/guix-info.el (guix-info-button-copy-label): Use
+  'guix-copy-as-kill' to display a message with what was killed.
+",NonBugFix,0.96392643,NonBugFix,False
+c15c5d408d696928862ca2848a359231e373556c,"(Ffset, Ffmakunbound): Signal an error if SYM is nil or t.
+",BugFix,0.9732473,NonBugFix,False
+c771c6900e2e66c4a5e6a80cd2a769efbba7c764,"Skip impossible reference states in testing
+",NonBugFix,0.7849013,NonBugFix,False
+2165d6439f6b96bccd178720e9f275a9d7fbf48d,"theme: style vertical-border/window-divider
+",BugFix,0.50293535,NonBugFix,False
+6e314c90ecd8a984de1a5fd4eae52b20651fb1c7,"stereo_gui: Support for vwip files and --nodata-value to wipe a noisy background
+",NonBugFix,0.9117789,NonBugFix,False
+a5c8f23ba447c9bc0c7e0d6a83d4cc2846df0a9b,"Support for variable observed region of ValueObservation based on actual selection
+",NonBugFix,0.91553456,NonBugFix,False
+7701a52b63799027a546fd1f0cdc6e5c589fae45,"Support silly ""function foo(x)=..."" syntax.
+",NonBugFix,0.9126244,NonBugFix,False
+be034c8d8d870f5e969b4b2d74c866dc163f7a01,"HUE-3702 [editor] Suppress conf error if Impala is not enabled
+",BugFix,0.96800745,NonBugFix,False
+50c4c6ab4f685bf9ab9dd8f759b10120c9736622,"Switch this over to only match actual iPhone-ish things.
+",NonBugFix,0.86667,NonBugFix,False
+e7cdf7db479819878d0f6bef475511f9f1204688,"sync mksquashfs4 with the CVS code to generate LZMA images
+
+git-svn-id: c673a1a018ba15e3442847f58d2337db82164816@18268 3c298f89-4303-0410-b956-a3cf2f4a3e73
+",BugFix,0.50490063,NonBugFix,False
+806162e6b11657e1ae8f2888dcd3534cc29b4629,"Merge pull request #1103 from kumar303/upload-timing
+
+Track time from upload to version creation",NonBugFix,0.94152784,NonBugFix,False
+f1777e93781fb2a632394a3f3eebf8ac7a365693,"Update integration test configuration
+",NonBugFix,0.98164845,NonBugFix,False
+3ab216d1a0765d9bd49dbbb01238fed83c8881f8,"Update Discord4J
+",NonBugFix,0.9298139,NonBugFix,False
+44a768a10eb378ffe51dff7f28f80649e0b8dc93,"langpacks: update according to commit [7038]
+
+git-svn-id: 4115c852ce6edf181d3c694a7293ab46e349b79a@7136 1316c22d-e87f-b044-9b9b-93d7a3e3ba9c
+",NonBugFix,0.92988783,NonBugFix,False
+ce47164837fd2b06819861e493add62353e3d7b6,"Update traces
+",NonBugFix,0.9308972,NonBugFix,False
+ff40197525ddb4e908bbd64ec6fb9540fbbeb14d,"Update WallETH to 0.43.1 (431)
+",NonBugFix,0.9298935,NonBugFix,False
+b6a54712afb0539e4e8bbaec46a1b1547d80d203,"[src] update keepalive.
+",NonBugFix,0.9299942,NonBugFix,False
+d6f82e984d6868693b9c443646cb5f66d0f54d0e,"update ms2 for X11 video rendering optimisation
+",NonBugFix,0.98360866,NonBugFix,False
+91dbea5411043b4d1a43602528ba36e0227783ed,"Update candidates from Democracy Club
+",NonBugFix,0.9323289,NonBugFix,False
+de018fb38fbfc8a978a46cdad0363a48234eb74c,"Update TestCaseInputManager
+",NonBugFix,0.9291511,NonBugFix,False
+6cdd9843a2d9a1567c83e268b80637548a1629e5,"Update SwiftCLI
+",NonBugFix,0.9321139,NonBugFix,False
+39aae699650e300f694b4bec3b85b4edb56aa0ea,Update master.cfg,NonBugFix,0.9293784,NonBugFix,False
+99cb147800a17ba2cf642f006e7282a116de9927,"Update plugin min Openfire version requirement to 4.0.0
+
+Previously, we had a quasi-hack of `3.11.0-alpha` as the min requirement
+on these, but this release never happened.  This update moves all these
+plugins to 4.0.0, which hopefully provokes less confusion.
+",NonBugFix,0.9999495,NonBugFix,False
+ea2497c2972df2b1f7e5d79ff86a20f426646953,"Merge pull request #134 from atom/ku-update-consumeServices-api
+
+Update consumeServices API",NonBugFix,0.9289351,NonBugFix,False
+6a98231dbae9e6b0d76bd7bf4c1d330b52e7b730,"update npm libraries
+",NonBugFix,0.92776173,NonBugFix,False
+bd041b75f6ab4e40578e6bc881b3300680f2303f,"Update user management styling to match UI refresh
+",NonBugFix,0.9306907,NonBugFix,False
+696bb4dddd3be44d66eaf6c18addeeef3a191f8d,"output stylish
+add tslint-eslint-rules
+",NonBugFix,0.89033425,NonBugFix,False
+3a370c6f4b808540327b97cca01afef78bd9da75,"IIDX-106 update ruby version
+",NonBugFix,0.99585295,NonBugFix,False
+1a4d244f55c76e4c0cb78b2db87f96a54ec106b6,update cpu,NonBugFix,0.9291685,NonBugFix,False
+70ede9d9808eb123192133201883b7aa750e999e,"Hearthfire Extended - Update cleaning info
+",NonBugFix,0.9994971,NonBugFix,False
+e850d153c90a560267c45e7e7ebfcd9e0a3fa73e,"update Makefile to reactivate make-libraries.sh and fixed naming scheme from makefile to Makefile
+
+",NonBugFix,0.55260897,NonBugFix,False
+81fdf679d5a7f8a0ba049359370a5e4da0d94154,"- Update Xen patches to 2.6.39-rc5.
+- Delete patches.xen/xen3-seccomp-disable-tsc-option.
+- Delete patches.xen/xen3-x86-mark_rodata_rw.patch.
+",NonBugFix,0.660697,NonBugFix,False
+ea42182b7a9dc5394488cab4cc4ee751f9923d11,"updated test
+",NonBugFix,0.98240864,NonBugFix,False
+0f45cd61a5424a98a27c497dc8af2531a3d0f06a,"Merge pull request #196 from akohlmey/charmm-cmap-updates
+
+Some more cmap-related updates for ch2lmp",NonBugFix,0.9306302,NonBugFix,False
+7615cdd4e59c8df96be198919ee0d87225f4cf50,"Updating to latest protocol.json
+",NonBugFix,0.9305415,NonBugFix,False
+e8d1b0a627288c9b4f04095fec869f5cce420fc4,"Merge pull request #363 from the-it/190706_021215_updating_registers
+
+Updating the register at 190706_021215",NonBugFix,0.9339022,NonBugFix,False
+7d1a6bf42391432cd55814594ee8f7528a11a33d,"Upgrade build server to unity 2018.3.3f1
+",NonBugFix,0.8435945,NonBugFix,False
+0056199b7d27cfa18e2b474388bd52ffd03c5e56,"Upgrade testcontainers-java to v1.8.2
+",NonBugFix,0.8509485,NonBugFix,False
+4f39481d91f08b6bc7ad1243e349da113c5abfc8,"XCOMMONS-845: Upgrade to httpcore 4.4.2
+",NonBugFix,0.84608394,NonBugFix,False
+1b99d8fbb591bedb375c1251d5d29a5674e1b74a,"Use common util_file code.
+",NonBugFix,0.50278616,NonBugFix,False
+0fd819189920c3227a73450c91d9deaf46640ca2,"Use unionfs for /
+",BugFix,0.502921,NonBugFix,False
+ec4eb85cb9ae9ca4166fb6ec6d556a599e205abd,OSX use xjadeo directly (no IPC indirection),BugFix,0.5026783,NonBugFix,False
+4f76103740fd8895839175b6ad4d3a3f7216ffe0,"gltfpack: Use ktx2 extension for KTX2 files
+
+This is more correct than ktx that usually refers to KTX1.
+",BugFix,0.89684045,NonBugFix,False
+800ecdc3c6cd9d8625c1135ed14e369b77011d43,"Widen modifier name fields
+",BugFix,0.5008935,NonBugFix,False
+1c67a7dc14b8b046d1b5c05e21cd7dc63a3aba32,"style: Ensure the flusher is completely consumed before getting dropped.
+
+This will be necessary for future patches.
+
+MozReview-Commit-ID: FgWaoRCMdw2
+Signed-off-by: Emilio Cobos Álvarez <86fa523305b8ad6a8a853c04cfef24a0445908d3@crisal.io>
+",BugFix,0.6570892,NonBugFix,False
+84e8b99bdc06dc60bc6d02ecdbabbfe139cca0d4,"Work on inheritance of attributes during initialization
+",NonBugFix,0.50226915,NonBugFix,False
+e6fc316064523c678f697178e07982e1e67f5fb2,"Merge branch 'pipeline-launch-layout' into 'development'
+
+Pipeline launch page wrapping
+
+See merge request irida/irida!1230",NonBugFix,0.8862759,NonBugFix,False
+2ff0458dd09c436468f68e8dbf02b29560704d59,"(gdb-insert-field, gdb-array-format1)
+(gdb-info-breakpoints-custom, gdb-info-frames-custom)
+(gdb-info-threads-custom): Add help-echo text.
+(gdb-display-back): Don't use purecopy.
+(gdb-info-breakpoints-custom, gdb-reset)
+(gdb-assembler-custom): Use display-images-p to test if breakpoint
+icons can be displayed.
+",NonBugFix,0.99802077,BugFix,False
+b4af9197ba433f4379e1e229f3402725390b18ea,"newdevice: Added basic detection for  hanwha techwin devices (#7397)
+
+* Basic hanwha techwin support
+
+* Changed os type to iPolis
+
+* Changed file names to ipolis rather than the vendor name
+
+* oid fixes
+",NonBugFix,0.88175625,BugFix,False
+f62bb9acc09d40ccca5539777737b6999ac8dcb7,"Added block breaking particles for painted blocks
+
+and fixed particle speed for conduits",BugFix,0.61936337,BugFix,False
+859e3a473a3e63e0060c49be70b80f9289253da2,"working on dereplicate=t issue in chimera.slayer and chimera.perseus, added appendFilesWithoutHeaders to mothurOut. fixed bug in make.contigs with headers. fixed name file overwrite in unique.seqs. fixed seq name mismatch in get.seqs if dups=f. added count file to seq. error command.
+",BugFix,0.99995273,BugFix,False
+352c3a3f03e313412fa21308f64bd8a8dd09e359,"1) bump rdgen version
+2) Wire should not have several protocols, 1 to 1 mapping
+",NonBugFix,0.9982223,BugFix,False
+578b4c73d2b74c4f6cb0bfa7f2e63ab4e89343ae,"getjson module: support basic auth via username/password fix #1875 (#1876)
+
+",BugFix,0.5040265,BugFix,False
+cf538b51025f9e2b77367391d65fd8073c6a72ab,"Merge pull request #800 from zas/fix_tab_stops
+
+Re-define or set tabstops to improve keyboard navigation through options",BugFix,0.6812805,BugFix,False
+cda92121c3f7c00ea46959a6c74f1226667927e7,"Revert further typing information
+",NonBugFix,0.5026009,BugFix,False
+f8e644438e1de4527c197c068cf454fc0b9daa62,"Update CV of LeafPic to v0.3.1 (5)
+",NonBugFix,0.93018806,NonBugFix,False
+1fa57143e2c650ee6ee86e01b3b005fdfcfbc25f,"Merge branch 'master' of github.com:flamingo-mc/flamingo
+",NonBugFix,0.5020218,NonBugFix,False
+ee7ff7f335c66e3fc29924d2daf24989c3bfae45,Update Readme.md,NonBugFix,0.9999461,NonBugFix,False
+25f01375540129388139e25163c2cdd6f4b20f48,"*** empty log message ***
+",NonBugFix,0.8442448,NonBugFix,False
+c545ef06cdf7c4fea3619fd9a0c814fdc5d05b1e,Update nuclearbomb.dm,NonBugFix,0.93014294,NonBugFix,False
+26113c8aac2805f42b11f9a3bf82dd112a6653d1,"Update .gitignore
+
+Added C/C++ specific files to .gitignore file.",NonBugFix,0.9999361,NonBugFix,False
+36b68ec0b35621634a2405abb8792aa463c320bc,"removed Doxygen/web from .gitignore. Directory for HTML documentation is now Doxygen/doc
+",NonBugFix,0.9998302,NonBugFix,False
+4a1aa75974d5e8927a23d4732bfa2685c273fb21,"Added doc on installing graphviz without QT.
+",NonBugFix,0.9752083,NonBugFix,False
+77462e63a02e21fc8ec08a10bab076e3c3dc36b5,"Update CV of Avare to 5.8.9 (209)
+",NonBugFix,0.93129337,NonBugFix,False
+aac39f1b6f5cceecb59de3fdd5ae0b845e6e0a0a,"Pontoon: Update Georgian (ka) localization of AMO
+Co-authored-by: G12r <440f9315b603b34400d0b43b489d71dad6156682@outlook.com>
+",NonBugFix,0.92947584,NonBugFix,False
+f9e4b8ee64b6bad63cbf8dc97cb4344d8d79c62f,"Added German translation
+",NonBugFix,0.87158924,NonBugFix,False
+7aafaf8e8646f8892861a693c2cbcd8ca3c71aa0,"Update of slovak language
+",NonBugFix,0.9307068,NonBugFix,False
+0b831a06888abdbb224543af2d85cc53809cb5b8,"Pontoon: Update Thai (th) localization of AMO
+
+Localization authors:
+- aefgh39622 <aefgh39622@gmail.com>
+",NonBugFix,0.92942125,NonBugFix,False
+2d6f288db32cf7269d475cdbe55de1578a1a8824,"Merge pull request #6581 from a3020/add_instructions_to_run_one_test
+
+Add instructions to run a single test",NonBugFix,0.96471566,NonBugFix,False
+bc00bfe43eb26414891787b21e9058f133cf5436,"add JmxBuilder to ""Existing Builders"" section and link from there to the ""Working with Jmx"" JmxBuilder section
+",NonBugFix,0.8900817,NonBugFix,False
+b0c1b7037681ded5b3409fdbb9f18902684e92d9,"[pylicense] add .tpl to config bump copyright year
+",NonBugFix,0.995411,NonBugFix,False
+e82c49153eb13fb6db821d396e309cb0cb28bee2,"Add bug fixed
+
+Closes: #913008
+",BugFix,0.99993795,NonBugFix,False
+34c1cfc5f1a4ae4066ec8118f263b489eb1c8135,"Trivia annotation for annotated grammars
+",NonBugFix,0.500382,NonBugFix,False
+3e4f8b8a862934d6f142fbca65fd9f4901211504,DiffusionRateStatistic modification now with appropriate comment...,NonBugFix,0.9800544,NonBugFix,False
+9bf68dfdee0a2d86e6a2991862e08cca4548731c,"Added Installation article.
+",NonBugFix,0.87297344,NonBugFix,False
+0f8e293e694c9cf133d2bf1fa7e8dacc6e6ae3f9,"Blog: Distributed test execution with Go + TLB. update - 9
+",NonBugFix,0.9842934,NonBugFix,False
+a3a2c80125c58e0c2d78636fd9ad3862c393fbb3,"Bump berkshelf to address http -> https redirects
+",NonBugFix,0.961057,NonBugFix,False
+31ff5b2da5020831956aed89d84d34405aacfdbf,"Bump VERSION to 0.16.0-dev
+
+Signed-off-by: Fletcher Nichol <77a0fd9e8048bbacd11af4e957bc6ff03b549f49@nichol.ca>
+",NonBugFix,0.9980941,NonBugFix,False
+b7468413cf0584d481845746c77d53919372332b,"Bump to version 36 (3.0-beta3)
+
+Signed-off-by: Daniele Ricci <08360db1a9d16422a67edfa3456e0fbc2c91e6e3@gmail.com>
+",NonBugFix,0.9981631,NonBugFix,False
+385f50c840065e3c689bd62f08403ad3af5de41c,"Bump to 2.7.0
+",NonBugFix,0.9613967,NonBugFix,False
+efb7c516a1ef4660afdfa1bd2ed9dd073e5e9341,"Bump version to 2.27.0.rc1
+
+r18239
+",NonBugFix,0.99821794,NonBugFix,False
+02482f89d26c839b32100968e4f56896df41792f,"Merge pull request #1121 from JackDanger/version-1.1.3
+
+bumping version to 1.1.3",NonBugFix,0.99753183,NonBugFix,False
+7c54ad67eb8f28aa74de6ba40600acb8755f5fd6,"PyOpenSSL capitalization
+",BugFix,0.50091374,NonBugFix,False
+6dd45dee7f29818d65505ad1504b5e572cc6f610,Automatic changelog generation for PR #547 [ci skip],BugFix,0.5019351,NonBugFix,False
+36d8e3f4030ffe6a44191b0c6b11e711112dc0ea,Update CHANGELOG.md,NonBugFix,0.93175966,NonBugFix,False
+a0ad7b4db2a78bfa4a79c89b2646b623c2e728cb,"Fixed language in changelog
+",BugFix,0.9143904,NonBugFix,False
+8945528eeedaafb79ebb744b063f0499f974a5a6,"Update changelog
+",NonBugFix,0.9291461,NonBugFix,False
+35218f8b51cb4fcd3c6655a043a46b5b0d886a0f,"Update IDEA codestyle for AS 3.3
+",NonBugFix,0.9932705,NonBugFix,False
+8851c553869bbe88631875fb7cfb149a8c0e0613,"Updated the comments
+",NonBugFix,0.99162275,NonBugFix,False
+99a27ecbe3a01c0495a33071e2ef9885decc884a,"comments
+",NonBugFix,0.8835616,NonBugFix,False
+88319310065e64d3a01e820bd942dc15b530b3c2,"Merge pull request #907 from jbousquie/doc.SPS
+
+added comments for the API doc",NonBugFix,0.99659735,NonBugFix,False
+9df06376b9f23af998e329efbd7ed8826551ca53,"Adjust copyright in NOTICE
+",BugFix,0.5030544,NonBugFix,False
+089e089d4bcc791add54b160c1a36fd91bd95ba4,"Describe the version-specific site-list directory.
+",NonBugFix,0.95261806,NonBugFix,False
+88482256166f351b8e24fb84a59ce323db117b0a,"Added architecture details to DLL's descriptions
+
+Bug 18999966
+
+Change-Id: If5efde5dfb6ae30f43b63358cf4f2e0ebfda38cc
+Reviewed-on: https://swiftshader-review.googlesource.com/1703
+Tested-by: Maxime Grégoire <7157ca3d4be4d4a13c17174568e571df181b14c5@google.com>
+Reviewed-by: Nicolas Capens <0612353e1fcebbfd4b302d9337447ca0cdfa9122@google.com>
+",BugFix,0.6924054,NonBugFix,False
+b7b09f8514a9426d5f3cffa4f3d33e07b47793aa,"Better description of new cloud location
+",NonBugFix,0.9811411,NonBugFix,False
+e0db03cf9f9644cd1cc60dcd875e4d0920cedc52,"delete s3 storage doc
+",NonBugFix,0.8597406,NonBugFix,False
+2db9c29b0e897fea5858ba1ab91e68a370191461,"docs: update for 2.0.0-alpha.44
+",NonBugFix,0.98798823,NonBugFix,False
+221dc3ec8beb1acf3201e43eef866bd22db1acb5,"docs: User docs/guides updates for multiple storage type support
+
+Signed-off-by: travisn <a8b474fdb3f77f44446f0ab9ddca8147b09b3a9e@redhat.com>
+",NonBugFix,0.9993391,NonBugFix,False
+2b13be8e0b13e0183307b1445cccbd1d22ded59d,"fix docs
+",BugFix,0.6590661,NonBugFix,False
+87a61fa93e5e3523ec8bb46298a7935ed838c416,"Merge branch 'docs'
+",NonBugFix,0.85049444,NonBugFix,False
+25c8d85a40e03575ea053de555d407934561cae3,"update 'specs' docstring
+",NonBugFix,0.93123376,NonBugFix,False
+d9920c657067a08f36be3ed18ed69c884b7769ad,"Update docstrings in ""ATD95"" color appearance model.
+",NonBugFix,0.93005496,NonBugFix,False
+bff436c70dca31d5a8b921414863bbd57405d348,"Document using JupyterHub with SSL
+",NonBugFix,0.8577959,NonBugFix,False
+6cb0b33962e1f4d596727598c950d91c3ff61abd,"documentation tweaks to reflect deployment improvements.
+",NonBugFix,0.99779725,NonBugFix,False
+06a0ec1a9ffd40cac180de7e48bfd7936aabc422,"SEC-2285: Polish Security Headers Documentation
+
+Explain why (passivity) XML Namespace doesn't enable security headers by
+default.
+",NonBugFix,0.8370693,NonBugFix,False
+dec258e56f55a4b70691325b629d75078d7a8060,"[documentation] increase png density
+",NonBugFix,0.8487245,NonBugFix,False
+3d7ad14d531e3ea59ffd4043806b5ee3132f7c42,Update ScriptedNode_documentation.md,NonBugFix,0.98864967,NonBugFix,False
+6b779b7482969c75996222179d7fcbe2e59b821e,"ISSUE_TEMPLATE: also ask for a log file
+
+Exactly like we do for yuzu too, we should also mention for Citra that we need a log.
+",NonBugFix,0.876906,NonBugFix,False
+f64407f6383c63096f6c8dcc43e4efe3733c8557,Ajout Leratiomyces riparius,BugFix,0.50434875,NonBugFix,False
+7ae4f811e809fc90ea05b5f35684d02a9c8b036f,"import matplotlib for fitting model example
+
+[docs only]
+",NonBugFix,0.97307163,NonBugFix,False
+6013ce4724488c9ec585a4464ced7d1081c5b735,"Tramp 2.0.36 released.
+
+(Remote shell setup): Explain about problems with
+non-Bourne commands in ~/.profile and ~/.shrc.
+",BugFix,0.9699265,NonBugFix,False
+faf36e397d15a7ebe69f430b2187e315cbbf373d,"Merge pull request #818 from onfido/feature/fix-readme-indentation-cx-4204
+
+Fix readme indentation for callbacks",NonBugFix,0.9980238,NonBugFix,False
+0af3e8d60314becfe8673035b4347591d7c709e2,"fixed examples activity
+",BugFix,0.6030279,NonBugFix,False
+13469be9f523aeba7325421e9de1be0195d7d402,"Update README.md
+
+Fixed up an incorrect command in the README.
+
+README used run-test.py. Changed to run-tests.py",NonBugFix,0.9835892,NonBugFix,False
+215f90111a38a4239bfdc37dfc00331d182d36cc,formatting of defaults,NonBugFix,0.68598044,NonBugFix,False
+10352d1d3ebab1d8e3580f986613d2a494339090,"AG-2185 - added a guide for the SSRM + node.js + MySQL.
+",NonBugFix,0.8767852,NonBugFix,False
+f640f665dfa155e70c43a24e3b3b13d3171f7e1f,"Add section to the config guide on lock_path
+
+This commit adds a section to the tempest configuration guide on
+configuring the lock_path for running tempest and explains why it
+is needed.
+
+Change-Id: I73913797d96f9f833e02e5b37be9c0c85b3ae959
+",NonBugFix,0.891723,NonBugFix,False
+9a6de2a5620e043f8497ab2377c4da3ff6b4400d,"Update migration-guide-beta.20-to-3.0.0.md (#6750)
+
+I did everything but noticed that the documentation isn't clear about hooks. I literally moved contents of the hook.json file to a new file hook.js without the settings key and nothing worked until I moved into settings key as specified in the hooks section.",NonBugFix,0.99994564,NonBugFix,False
+7fab98d174633ee9d550fc4853b58f953e6871ae,"More help
+",BugFix,0.5028076,NonBugFix,False
+cfaf14ea982f812fb448983a99418b0060738e02,"help: a few minor corrections.
+",BugFix,0.9630197,NonBugFix,False
+0c7e66419a9de9cef030de89a52c9529e9b07375,"Improve position_stack
+",NonBugFix,0.83753765,NonBugFix,False
+04385e3cac75b1d264989723fed4f22f9e5efa5b,"Merge pull request #298 from wbowlin/patch-1
+
+Update index.md",NonBugFix,0.82582206,NonBugFix,False
+d6f035326d9974603669c22c7f8a1342aaa5db5f,Update index.md,NonBugFix,0.9300294,NonBugFix,False
+b3fcc3119ac2e5b11999891c099b235e9a90d82b,"add more info for contributors
+",NonBugFix,0.9887328,NonBugFix,False
+f753b087158d3b0f5bda8b5788ef2ab4f3d54581,"Add javadocs about O(1) support for Iterables.getLast() on RandomAccess lists.
+-------------
+Created by MOE: https://github.com/google/moe
+MOE_MIGRATED_REVID=119188139
+",NonBugFix,0.99885607,NonBugFix,False
+fabaa493efa0cefeeaf1f8f593be669130215814,"jsdoc work
+",BugFix,0.5028569,NonBugFix,False
+ecc7304b9f6996fb507ccf2d928cb35f06f10c2f,"Localisation updates from https://translatewiki.net.
+
+Change-Id: I717d35a4acd288d8c7c9b37429d7a811a5a9c6a5
+",NonBugFix,0.9303679,NonBugFix,False
+26f0ec7e6ff146924631e64d59a90538b011cefa,"Localisation updates from https://translatewiki.net.
+
+Change-Id: Iab5fb4a166fb100464b5c10ce176fc4adf34b9c3
+",NonBugFix,0.9301785,NonBugFix,False
+74a13ced0cda4498beac353a5ecb719d92e4d694,"fix missing documentation regarding bnc#776631
+",BugFix,0.65849507,NonBugFix,False
+2b6290c48a6f28ec290ea0b16ad07467983817a1,"Straw man for search for free slots restful version. #266
+",NonBugFix,0.9577766,NonBugFix,False
+1fec2d4abbc4666ab67b3192e168df0f5890cfc4,.,NonBugFix,0.51001364,NonBugFix,False
+38b0d8dfe31be0ee0c29ff8b1ad8f565e8534cd4,"[Gradle Release Plugin] - new version commit:  '0.9-SNAPSHOT'.
+",NonBugFix,0.9996472,NonBugFix,False
+0fd57f58411bd82e48fd6a9be1de74ace6d74106,"README: Add unstable warning
+",NonBugFix,0.999929,NonBugFix,False
+6c9ec72f5a96199e2ab9bb24d14044986eb21b28,"Update to README
+",NonBugFix,0.9999471,NonBugFix,False
+b3be06cbec29d44fdac9c89d95620b7a8fc1a0f9,Update README.md,NonBugFix,0.99994564,NonBugFix,False
+450b101ab6195c0b47c022daba6e0b5737cc9536,Update readme,NonBugFix,0.99994904,NonBugFix,False
+a670dd9e29d2979004611b3a449fa51f95474b8d,Update README.md,NonBugFix,0.99994564,NonBugFix,False
+17b456d522499bacde633e16755350ff02ba871e,Update README.md,NonBugFix,0.99994564,NonBugFix,False
+17cc39a099132e57fc4aad378475c37c4381f38c,Update README.md,NonBugFix,0.99994564,NonBugFix,False
+6a19deb7f9f79f7e099f6b73343d98e6dabe892c,"Update v2.1/reference/sql/statements/split-region.md
+
+Co-Authored-By: bb7133 <19b8d4b5d148789c6e8e5bcf13a90d72d8af5f6c@gmail.com>",NonBugFix,0.93234354,NonBugFix,False
+bae168494294b48b3fc9d6722a711246a8543034,"Release v1.19.2
+",BugFix,0.5024419,NonBugFix,False
+47f789abff376f6a268ce4620815401eca5aca33,"remove blank lines
+",NonBugFix,0.80432606,NonBugFix,False
+1c3e48bc7fb6f4a3873468cf1d68516eb877c624,"Zero-K Russification
+- Crasher
+- Licho
+- Vulture
+- Gunship Plant
+- Blastwing
+Typo:
+- Wolverine
+- Impaler
+
+svn path=/trunk/mods/zk/; revision=11601
+",NonBugFix,0.511606,NonBugFix,False
+b6e40d6576d6aa3164cf6ef54378d2f3d4c6bbce,"Setting version to 0.12.6
+",NonBugFix,0.95235175,NonBugFix,False
+05dfdeedb4e037eb76fec8f1535599e3d9326504,"Standardize hex codes to long form
+hex-length
+",NonBugFix,0.5015018,NonBugFix,False
+eeaa36e1c79373546c3b48cbfc3c9f1133b53a94,"Fix a stupid typo in the disk shopping cart (#864842).
+",BugFix,0.91266924,NonBugFix,False
+3ca53c0a2282cd39b0ec67ab71d8b39865d6ac28,"translated some.
+",BugFix,0.50480765,NonBugFix,False
+aa29b64e67b45eeece888fd5607e9a9c6667090a,"Translated using Weblate.
+",BugFix,0.50987077,NonBugFix,False
+e2a507f8aa62523c15cc023fd55d40d1bfccaefe,"Merge pull request #313 from flash62au/master
+
+Additional German Translations by Daniel Sieber",NonBugFix,0.87689173,NonBugFix,False
+80bce5875c73a0bea2c53e2145876888adc84d4a,"Update Persian translation based on Sharif Linux translation of anaconda
+",NonBugFix,0.9306916,NonBugFix,False
+9cb4046279a5f091ab3fdfdfaa83cc438eed42a9,"Translation updated by Ivar Smolin.
+
+2005-08-11  Priit Laes  <plaes@cvs.gnome.org>
+
+	* et.po: Translation updated by Ivar Smolin.
+",NonBugFix,0.9269519,NonBugFix,False
+40f5054b302776c4695968189a06d4abede47735,"po: update es.po (from translationproject.org)
+",NonBugFix,0.93065387,NonBugFix,False
+e6a29491c10ce157eb80e03e82e08a3883148ae1,"Merge pull request #4168 from nakashu/fix/cart-item-translation
+
+[cart] - added missing translation for quantity on cart item form type",BugFix,0.60533345,NonBugFix,False
+1d9f5f8441c057b7d2fa3c75ac3ea9768b18e1cf,"Translation for error messages
+",BugFix,0.9736351,NonBugFix,False
+8ee6cd6c41433d6655c5cc36adcadee214723579,New translations,NonBugFix,0.93468523,NonBugFix,False
+6b232d8195b150ff642b883808712e3d20b7961a,"Improve compaction tutorial to demonstrate compaction with keepSegmentGranularity = true (#7079)
+
+* Improve compaction tutorial to demonstrate compaction with keepSegmentGranularity = true
+
+* typo
+
+* add a warning
+",NonBugFix,0.97788924,NonBugFix,False
+2c4f5117e18da3729365d31b518b27f8879059b0,"[ci skip] tweak comments
+",NonBugFix,0.98797923,NonBugFix,False
+13530f42dc32d3f4587cdc21947d6c6013e834c9,"""Correcting typo""
+
+git-svn-id: 5860920b332e8b1c20d5ac1ddb0cfb1512ef151a@6106 3807eeeb-6ff5-0310-8944-8be069107fe0
+",BugFix,0.88975257,NonBugFix,False
+42308d81c5b1052ca27b160fc8121134748e79a1,"fix typo
+
+git-svn-id: 88d40fef3c8568824a603fa0846ce1d6fe5582e9@3482 37b2a8de-5219-0410-9f54-a31bc463ab9c
+",BugFix,0.9136563,NonBugFix,False
+d827b8ef6e7029c9f0421ec98ec666bf731929c8,"fix typo, see #49590
+",BugFix,0.9137834,NonBugFix,False
+9cccbeed2709bfabb9e6ef4f3dfde8aad2653598,"fix typo in comment
+",BugFix,0.60609317,NonBugFix,False
+54ba057244e65dc33c4346d2c672d8d684dc3972,"fixed typo in interval printers
+
+Change-Id: I3d02e697624865b955e5f1991e7ea509d1dc0d21
+Reviewed-on: https://asterix-gerrit.ics.uci.edu/762
+Tested-by: Jenkins <d95b56ce41a2e1ac4cecdd398defd7414407cc08@fulliautomatix.ics.uci.edu>
+Reviewed-by: Yingyi Bu <9f9b34f9fbbf2f961c2363e64b04fcfd445c4695@gmail.com>
+",NonBugFix,0.6943394,NonBugFix,False
+70a61ae319591543aa19906972cb4dcb408f97f2,Another typo,BugFix,0.5093335,NonBugFix,False
+470edc55cb6c6afa052a81a28afa4f9cc3fd8b7a,"Fix typo and remake the library
+",BugFix,0.9129145,NonBugFix,False
+741d59b772ea53497a065b2eeccb608ccd1fb227,"Where did this typo come from?
+
+
+",NonBugFix,0.5017495,NonBugFix,False
+69b3de1547f66b0ff25d2e3e58e80cac8a077352,"Release MD: Fixes typos/errors in readme doc
+",NonBugFix,0.95633256,NonBugFix,False
+8ef12c7d6e8acd2190469b0cacc2527b81d2b587,"bash_completion: untabify
+",NonBugFix,0.78488076,NonBugFix,False
+262a42d971f02e903d1a0ac6864bcbb08bf68eb3,"Merge pull request #105 from EQuirogaR/master
+
+Updated Loch locale languages with missing messages - spanish 2 ",NonBugFix,0.9330321,NonBugFix,False
+2323e576487355001fbe498e783cd9777034c637,"Updated run self install steps
+",NonBugFix,0.9310656,NonBugFix,False
+eb08aeab7d7b46686ab8d1a92e1d5f13c6a6c915,"Update Italian language (#14782)
+
+",NonBugFix,0.9307565,NonBugFix,False
+e0333cbb2f7d7f690fa1da117a22176436bef0b8,"Changed version number to 3.0.0 dev
+
+git-svn-id: 01653c09f76512ebba8fd589b05a699d8510a51f@8786 c4b6b30b-aa2e-2d43-bbcb-ca4b014f7261
+",NonBugFix,0.9545045,NonBugFix,False
+99909a3a5a3dd4363f414161f340b582bb2e4161,"version update to 1.1.0
+",NonBugFix,0.996673,NonBugFix,False
+5489ec71031202fee771b13c942c25e86038603a,version updated.,NonBugFix,0.9966687,NonBugFix,False
+815426b0a138bd02c0a84aa127d50c41234511d1,"Merge pull request #6051 from OlegHahm/fix_test_mutex_order_readme
+
+tests: mutex_order: updated test and fixed README",NonBugFix,0.99989605,BugFix,False
+097cc0286875af2045d474d8885f855b86fefdb1,"Merge pull request #265 from mackerelio/bump-version-0.39.6
+
+Release version 0.39.6",NonBugFix,0.997544,NonBugFix,False
+d433d45b45c6d6c2beb38f5003454da6fa09fca3,"+ User @ url path
+~ Wood help improvements
+",NonBugFix,0.8562819,NonBugFix,False
+346e1c14d93c2f20f8429e90375c51080dfa6358,"build: update setup-rbe.sh script and documentation to remove http-remote-cache config (#33907)
+
+We have determined that the upload time cost of remote caching via http is too costly
+to be effective for our distributed usage scenario.  However this cost is still worth
+it for us for Windows CI runs on a full cache hit move from a ~60 minute task to ~10
+minutes.
+
+It is worth noting that this remote http-caching is entirely separate from RBE caching
+mechanisms.
+
+PR Close #33907
+",NonBugFix,0.99473274,NonBugFix,False
+cddb4a327a3216f1161af857c82c6945ee75ccc2,"Update CHANGELOG-1.11.md for v1.11.7.
+",NonBugFix,0.93127155,NonBugFix,False
+fe85314bb531661e8662c8a85cfaa4fffba12e69,"Update localization.
+",NonBugFix,0.930408,NonBugFix,False
+8f61bf56d0908adead949e27bbe4d0b5bef30694,"move preinstall to install?
+
+",NonBugFix,0.8819306,NonBugFix,False
+249be93a1507226f0e94a4b7827d208b308fbf26,"Remove Meta.db_name effectively renaming all tables
+
+the new names will use Django's default naming scheme
+
+Migrations for 'linkreference':
+  tcms/core/contrib/linkreference/migrations/0005
+    - Rename table for linkreference to (default)
+Migrations for 'logs':
+  tcms/core/logs/migrations/0002
+    - Rename table for tcmslogmodel to (default)
+Migrations for 'management':
+  tcms/management/migrations/0011
+    - Rename table for build to (default)
+    - Rename table for classification to (default)
+    - Rename table for component to (default)
+    - Rename table for envgroup to (default)
+    - Rename table for envgrouppropertymap to (default)
+    - Rename table for envproperty to (default)
+    - Rename table for envvalue to (default)
+    - Rename table for priority to (default)
+    - Rename table for product to (default)
+    - Rename table for tag to (default)
+    - Rename table for version to (default)
+Migrations for 'profiles':
+  tcms/profiles/migrations/0003
+    - Rename table for bookmark to (default)
+    - Rename table for bookmarkcategory to (default)
+    - Rename table for userprofile to (default)
+Migrations for 'testcases':
+  tcms/testcases/migrations/0019
+    - Change Meta options on testcasestatus
+    - Rename table for bug to (default)
+    - Rename table for bugsystem to (default)
+    - Rename table for category to (default)
+    - Rename table for contact to (default)
+    - Rename table for testcase to (default)
+    - Rename table for testcasecomponent to (default)
+    - Rename table for testcaseplan to (default)
+    - Rename table for testcasestatus to (default)
+    - Rename table for testcasetag to (default)
+    - Rename table for testcasetext to (default)
+Migrations for 'testplans':
+  tcms/testplans/migrations/0015
+    - Rename table for envplanmap to (default)
+    - Rename table for plantype to (default)
+    - Rename table for testplan to (default)
+    - Rename table for testplantag to (default)
+    - Rename table for testplantext to (default)
+Migrations for 'testruns':
+  tcms/testruns/migrations/0013
+    - Rename table for envrunvaluemap to (default)
+    - Rename table for testcaserun to (default)
+    - Rename table for testcaserunstatus to (default)
+    - Rename table for testrun to (default)
+    - Rename table for testruncc to (default)
+    - Rename table for testruntag to (default)
+",NonBugFix,0.9999304,NonBugFix,True
+e196dc0d9c6971e6771ebfc06d1cc005ff8437ac,"unnecessary dependencies
+",NonBugFix,0.9182839,NonBugFix,False
+3af5838096872039ac201385763f1e4c0fafb034,"r21090: Add some helper routines
+(This used to be commit 985dde8ed0a7e6da5adf9c55654a4fd362b22acb)
+",NonBugFix,0.87917966,NonBugFix,False
+504e408fa28f05929f2a3a799ef558d39b177c31,"refactor: pass targets through to decoders
+",NonBugFix,0.91522616,NonBugFix,False
+2e26c9427d78a5addc5e0ff7da26adbc1fba7ea5,"Merge pull request #9414 from imtayadeway/refactor/api-user-token-service
+
+Use the token service that we initialize with",NonBugFix,0.88548803,NonBugFix,False
+c6bfc7e49bf740e6a8432df3cf8874bd06c0e8b6,"mpris: Make app attribute internal
+",BugFix,0.5012485,NonBugFix,False
+3ea4385e8a6da12c8d004c1c11bab42f30b3619f,"updated text nodes
+",NonBugFix,0.93134534,NonBugFix,False
+fdea4d918b795116639e918ab4e0adea5156220f,"OAK-9022: use SystemPropertySupplier in ClusterNodeInfo
+
+git-svn-id: 67138be12999c61558c3dd34328380c8e4523e73@1876753 13f79535-47bb-0310-9956-ffa450edef68
+",BugFix,0.5049645,NonBugFix,False
+1cdbbc5ad4ef15c26c9d041c14d0aa7cd875f5aa,"debug-start polish
+
+fixes #16657
+",NonBugFix,0.54112023,NonBugFix,False
+e19ad904837ac6bdb7529806f73f98e9ca1d8085,"Revamped user feed
+",NonBugFix,0.50011057,NonBugFix,False
+2f53c4d146076adadeb17ccc3782dbec067e8813,"[refactor] FullTextQuery and FullTextQueryBuilders
+",NonBugFix,0.895955,NonBugFix,False
+2212ec5124a950104e9eab1266528c61ac067508,"Merge pull request #226 from gwicke/master
+
+Add utility script to generate a WMF restbase domain config",NonBugFix,0.88578755,NonBugFix,False
+851b3f51e1fc53fdfb0f9564566eac37efb7038c,"Koa-static: add support for the extensions option (#16411)
+
+* Koa static supports an extensions option
+
+* Fix original package lint errors
+",BugFix,0.8298284,NonBugFix,False
+cc39fe8f9df4086eeb8e7e797edcb0b8e1a3f00b,"Apply auto-formatting rules
+",NonBugFix,0.67650306,NonBugFix,False
+7e3781a5235efac778a893167ff629b3206614ad,"Better NBT compare check
+",NonBugFix,0.84207875,NonBugFix,False
+84a2f9c851b7b8b723d5c7682f5b6c8dcfaa3986,"changed name of high pass filter class
+",NonBugFix,0.50490683,NonBugFix,False
+9f5f93e635ff45582663f0cd13498931bf770331,"Changed FtpFileSystemObjectList to implement IEenumerable and changed
+all places were list was enumerated to use .ToArray() method of the
+object list. FtpDirectory File and Directory lists no longer return
+an array. Please update your code accordingly, in most cases this
+should be as simple as using Directories.ToArray() or Files.ToArray()
+instead of enumerating the list directly.
+
+Added new exception type FtpCommandException that will is used for
+all command failure exceptions instead of FtpException. The new exception
+object includes the completion code, the message and a property for
+easily determining if it's a temporary (4xx) or permanent (5xx) failure.
+
+All custom exception types inherit from FtpException.
+
+--HG--
+extra : convert_revision : svn%3A7523448a-a8a0-4aac-83b0-0615d70583c7%408589
+",NonBugFix,0.9972581,NonBugFix,False
+872412f6451b965dc57ecff2a95a3d02bd558634,"[Tests] Cleans up DocWriteResponse parsing tests (#23233)
+
+This commit cleans up some parsing tests added from the High Level Rest Client: IndexResponseTests, DeleteResponseTests, UpdateResponseTests, BulkItemResponseTests.
+
+These tests are now more uniform with the others test-from-to-XContent tests we have, they now shuffle the XContent fields before parsing, the asserting method for parsed objects does not used a Map<String, Object> anymore, and buggy equals/hasCode methods in ShardInfo and ShardInfo.Failure have been removed.",NonBugFix,0.9986581,NonBugFix,False
+a6bafd5b3ff2860cf27e3dbfce500b28155ad251,"Code clean up
+",NonBugFix,0.87397385,NonBugFix,False
+e20e1c1d02d38467ed62c3064c365ed3c731ae87,"Clean up build output
+",NonBugFix,0.8647979,NonBugFix,False
+53e76790eb8e2263abf567ba716d3043f67f0367,[NGRINDER-42]UI element cleanup.,NonBugFix,0.87401754,NonBugFix,False
+5c6bf0856c68a42935daba4f9a6f82b9e46843a3,"Clean up a couple more assertions
+",NonBugFix,0.85654104,NonBugFix,False
+de52de22c6decd5a16b6fae7344f1c47605b7866,"chore: clean-up everything within ServiceLifeCycler
+",NonBugFix,0.879694,NonBugFix,False
+be35ee4f304efb2ce8f2c9262d2714e355e4bdcb,"A little cleanup
+",NonBugFix,0.87719935,NonBugFix,False
+ee81b0b15eb17bd55a5be0c37f6a03480e863cba,"Minor adjustments to the dist and pandora build (cleanup and Xmx issue)
+",NonBugFix,0.67502576,NonBugFix,False
+c186046fae173466e1b848c2fb14b0e8b4075f34,"cleanup
+",NonBugFix,0.8703619,NonBugFix,False
+1cdff95e9eed1922266a67385b68e042b91b494d,"Cleanup network usage in NBitcoin #5 (#1623)
+
+",NonBugFix,0.86894417,NonBugFix,False
+9249f876a9823e4aaf8c2d1f0c6c971f250de366,"xtensa: cleanup fatal error handling
+
+1) Fatal errors now all go through _SysFatalErrorHandler. When the
+simulator is used, only the death of 'essential' threads will result
+in the simulator exiting; some test cases that test exceptions may
+actually expect a thread to terminate abnormally.
+
+2) The human readability of the exception errors is improved.
+
+Change-Id: I77f57ea0eae15b0c55237681b959cd21e3fe8c1c
+Signed-off-by: Andrew Boie <aab045b28152628be6af0e556050d0381fd0a34d@intel.com>
+",BugFix,0.9718682,NonBugFix,False
+e9def78cda82935cb3a9caf07bd20ad9facade62,"misc cleanup
+
+
+git-svn-id: fc35eccb03ccef1c432fd0fcf5295fcceaca86a6@28191 bcba8976-2d24-0410-9c9c-aab3bd5fdfd6
+",NonBugFix,0.86322963,NonBugFix,False
+0645c42c113284383fc19d084fcf055b97e4df1f,"Merge pull request #178 from CZagrobelny/latazzajones-search-cleanup
+
+Latazzajones search cleanup",NonBugFix,0.88700306,NonBugFix,False
+106b340e166a727ffecafe370c1e917e03d2a705,"Merge pull request #1479 from stan-dev/feature/flatten-prim-meta-tests-cleanup
+
+Cleanup redundant tests in meta after test flatten",NonBugFix,0.997325,NonBugFix,False
+77ac71fedf8d57a846bbe9d0c68f87bdf1cf9bea,"Cleanup to use C#7 features.
+",NonBugFix,0.97302496,NonBugFix,False
+610cb69b9c7099265d067f64e9c74b5f38a6c6a1,"builtin packet dump code cleanup (moving to continuous recording)
+",NonBugFix,0.9805644,NonBugFix,False
+8f88e81e41c47311611093852caeed579092236f,"Merge pull request #1156 from ketan/cleanup-jruby-and-build-scripts
+
+Some build script cleanups",NonBugFix,0.9176187,NonBugFix,False
+b4ed23e3ccb037a5bcf12abc8de3b2b4b220b0e4,"some minor cleanups
+",NonBugFix,0.65820843,NonBugFix,False
+4bb8f5ea10510f36b49fdcc4f1ab5e2fc19268cf,"non-IEEE fixes
+
+
+git-svn-id: f298e5bd0fb7dd56202a0647512068a43d54496a@1404 00db46b3-68df-0310-9c12-caf00c1e9a41
+",BugFix,0.9141579,NonBugFix,False
+ffd64c4fa03b03b4c1314ff83c7e7c10e325db71,"Adherence to coding standards. Changing of logging to jorphan.
+
+
+git-svn-id: https://svn.apache.org/repos/asf/jakarta/jmeter/trunk@325236 13f79535-47bb-0310-9956-ffa450edef68
+
+Former-commit-id: e9a9590d552c826aaacdb731c18cc7ae39d93919",NonBugFix,0.9027681,NonBugFix,False
+869525c221122e7635dd3c582101981880b331f2,"Consolidated RAnalMetaItem serialization into meta_serialize() (#8726)
+
+",NonBugFix,0.9435827,NonBugFix,False
+b2fc212573e442988ea08fe6f8ce5b96f9a8ada6,"K0s code coverity fix
+
+",BugFix,0.91400295,NonBugFix,False
+b88da6da1dd70f120f4731f822f42c501811b894,"Decompose getResultsFromLink method from fetchQueryObservable.
+",NonBugFix,0.5026728,NonBugFix,False
+540e9c3089fa928480485801866dcd8423462c10,"success BNF class killing
+
+git-svn-id: ba81b6bd3dd9830eeafada3de57364a31f808d18@21385 59f64563-22e8-0310-8d2c-98a15e1539f2
+",NonBugFix,0.50143284,NonBugFix,False
+7033856042e1bf613ba64d1152e32146ea9e59d9,"Usages of deprecated API removed
+",NonBugFix,0.9759858,NonBugFix,False
+747e760b132af464bb46b3c574096d47f0908bcc,"Only module-level globals should be uppercase
+",NonBugFix,0.5026089,NonBugFix,False
+71f702f631645dce3acfbf470abe974fbea271e4,"Fixed unnecessary warning when reading map entries
+",NonBugFix,0.5338083,NonBugFix,False
+edf83994636f4a3359546c82a0db4366d5144dbd,"Fix checkstyle warning: Remove unused import
+",BugFix,0.7415967,NonBugFix,False
+8f71c6b20bccf31fba044d458b5b9a0da808288f,"
+Fixing PHP 5 warning.
+",BugFix,0.91423935,NonBugFix,False
+3ddc58aa060b498e8eb3742acb8a55bb9ed2fc81,"
+  Generalize RooArgSet to RooAbsCollection and introduce RooArgList
+  and corresponding proxy. Introduce RooArgList where appropriate
+  as replacement of a TList of proxies, eliminate all use of TList
+  inherited functions in RooArgSet/List.
+
+  Some optimizations implemented following profiling studies
+
+  Various fixes for compilation with Solaris CC 5.0
+
+  o RooAbsArg
+
+    - Change signature of server management function to use RooAbsCollection
+      instead of RooArgSet
+    - Add proxy management support for new RooListProxy class
+
+  o RooAbsPdf
+
+    - Disable use of RooNameSets as optimization attempt. It appears
+      to cost more time than it saves
+
+  o RooAbsProxy, RooArgProxy, RooAbsReal, RooAcceptReject,
+    RooDataHist, RooFormula, RooFormulaVar, RooGenCategory,
+    RooGenContext, RooGenericPdf, RooPlot, RooRealIntegral,
+    RooResolutionModel, RooSetProxy, RooSuperCategory, RooTreeData
+
+    - Follow RooAbsArg member function signature changes
+
+  o RooAddPdf, RooConvolutedPdf, RooFitContext, RooSimFitContext,
+    RooFitResult, RooPdfCustomizer, RooProdPdf,
+
+    - Change implementation from using TList to using RooArgList
+
+  o RooAbsCollection
+
+    - New abstract base class for collections of RooAbsArgs. This
+      class contains mostly code from the former RooArgSet implementation
+
+  o RooArgSet
+
+    - Re-implement as derived class of RooAbsCollection. A RooArgSet
+      cannot contain duplicates (as before), but also doesn't give
+      random access (by index) to its member elements
+
+  o RooArgList
+
+    - New implementation of RooAbsCollection that allows duplicates
+      in the list, allows sorting and lookup by index.
+
+  o RooListProxy
+
+    - Proxy version of RooArgList, similar to RooSetProxy. To be used
+      as data member of RooAbsArg implementation to hold external
+      RooAbsArg references.
+
+
+git-svn-id: acec3fd5b7ea1eb9e79d6329d318e8118ee2e14f@2798 27541ba8-7e3a-0410-8455-c3a389f83636
+",NonBugFix,0.9999538,NonBugFix,True
+a45e47e9e83bcabf05355ca647fe61ef8c318061,"Get rid of EMPTY_LIST and EMPTY_SET in favor to emptyList() and emptySet()
+",NonBugFix,0.9095703,NonBugFix,False
+d2cd93fee28637859dfbd8e0b56c3e009ecc54dd,"(svn r20451) -Codechange: Add helper function Window::GetScrollbar() to get the Scrollbar belonging to a scrollbar widget.
+",NonBugFix,0.87875485,NonBugFix,False
+57efc59a75f24eed14cd0cc009b342dfdb3a45fd,"Improve transfer between text/binary, encoding options
+
+git-svn-id: e7e30609c7025851bf126c9c8e4063d5bbb6af0e@763 5519e62b-7011-5a40-965f-37cedbea8841
+",NonBugFix,0.84331864,NonBugFix,False
+7b26cacc7e00328caec984ba0dd72e58057c42c9,"Improve cppcheck.sh
+",NonBugFix,0.8411478,NonBugFix,False
+486d1dcac3b0b919ae90c80b2d09d704d750d062,"Improve ::specifyUser() function.
+
+svn path=/trunk/playground/network/smb4k/; revision=1093344
+",NonBugFix,0.8450859,NonBugFix,False
+945ee39a8974452b8130eef6c56c1ec052e98006,"Improve the issue template for dependency problems (#51657)
+
+So many reports of missing modules could be solved
+more quickly with the info from `python_requirements_facts`
+
+Replace the legacy issue template with a link to the
+new interface",NonBugFix,0.8569304,NonBugFix,False
+2a216e8fdc98ff39ccfe9ceaf5a0137c0bdd3116,"improve integration of xdrop algorithm in the mapper
+",NonBugFix,0.848067,NonBugFix,False
+18461ba453fda653bc2709fc24262a424f6201dd,"Improve variable naming
+",NonBugFix,0.8385362,NonBugFix,False
+02da432eaa686803999ff82d6ac152fa21ab662f,"Improve schema for legacy choice validators with ignore_case
+",NonBugFix,0.83907795,NonBugFix,False
+cd307cdb7d4dfbdaf7c9e7a81f9c39e477909621,"Improve quicknanobrowser example with new public API features
+
+Promote WebEngineDownloadItem and WebEngine singleton to
+public API and add DownloadView to the browser example.
+This patch also adds profile support and webengine settings
+to quicknanobrowser.
+
+Change-Id: Ie81fb330e640fad7feec667a8af3afe67050693f
+Reviewed-by: Michael Brüning <6ed2188a469847f04326c35751af3c3b73548103@theqtcompany.com>
+",NonBugFix,0.9999533,NonBugFix,False
+518f6ffde92f045ab38799afc6da70dbf86623f5,"Improve and simplify attach cli command
+
+
+
+pr-link: Alluxio/alluxio#10218
+change-id: cid-bd70a9907fd2ec05ce28e872b66cb9e1ff3bc5dc",NonBugFix,0.98707706,NonBugFix,False
+d6b4dd66fd1557b8ffe4c304e7c6b5bd5b7c3ba9,"improved integration testing
+",NonBugFix,0.952289,NonBugFix,False
+c68368ed5d6ff253787fa3dce0b91d996343be71,"Merge pull request #1221 from akvo/1206_markup_improvement
+
+[#1206] Improvement attempt",NonBugFix,0.8899814,NonBugFix,False
+dcd5ca1bb305f473e6d82ae79cb1263c9a3cfb54,"JS: inline an InputAgent method only called from test code
+
+Signed-off-by: Harvey Harrison <eadbd6b462bf3c97df0300a934c12bc2e5d1fe51@ausenco.com>
+",NonBugFix,0.78033286,NonBugFix,False
+fd5b6e001467389f3031109f4b2eacca9269db6f,"keep original triangle id in bvh
+",BugFix,0.5041726,NonBugFix,False
+5b7c7d63263aa021dad2881af9887b222924539f,"bin/job.sh: kick off an outdated warnign about gcc-7 on astbale
+
+Signed-off-by: Toralf Förster <24e9a7e86225fc01f236a81fc86e902a74542aa1@gmx.de>
+",BugFix,0.5038069,NonBugFix,False
+286e75bef0cf0db9103dfeb2dacb47249499d5d8,"Scrutinizer complains that these functions aren't defined, yet they really are.
+",BugFix,0.50385684,NonBugFix,False
+26dd752ee492e3906fcb7ff9d89040347fea1c6e,Make  check_interval and retry_interval a string,BugFix,0.5043252,NonBugFix,False
+69bd7789d4505864c45f0572565fc600d1950187,"Merge pull request #3191 from lexmag/iex-b-module
+
+Make IEx `b` helper to accept single module argument",BugFix,0.50075173,NonBugFix,False
+dd2d5879fa1fa5758cfb909289bd4c5e1331b749,"trying to make Evaluate name calling a little more consistent
+",BugFix,0.5019517,NonBugFix,False
+1253cba0070a4484ba2ae2269871ab6894bdd195,"Make separate 'tag' tag processing
+",NonBugFix,0.5024101,NonBugFix,False
+0d91f0ed30c9cec680802cdd92b9d656190c7705,"Code review
+",NonBugFix,0.87911606,NonBugFix,False
+68f13422042d086b6210a66282169a2dd0974ea3,"Move the cert files to the data directory
+",NonBugFix,0.881234,NonBugFix,False
+eb3a02daa5fc0b5726ee2a2432f7f2abd198f2fd,"moved some debugging aid functions into Utils module
+",NonBugFix,0.8806502,NonBugFix,False
+3bebe188e0e3fc05f7c440664c6a49fccbe2db4a,"move system related tests in a separate class
+",NonBugFix,0.9680236,NonBugFix,False
+d4484c072e9ad90b014637992e7aff36dcabef16,"Move the text widget into it's own class, extracting it from fancy-repl.
+",NonBugFix,0.8854096,NonBugFix,False
+4d0350f5080ca8ce56ac4aab0a0f76dcb84a9de9,"🚚  Move prismjs to vendor folder
+",NonBugFix,0.88037837,NonBugFix,False
+f8b90149db152cee8998745cb77d445584840c32,"Move the meta API actions to their files.
+",NonBugFix,0.88283795,NonBugFix,False
+577bf5d26e8835144005a0505e2ecc611369f92f,"(compilation-start): Move let-binding of
+`process-environment' into `with-current-buffer' body.
+Reported by Matt Hodges <MPHodges@member.fsf.org>.
+",NonBugFix,0.8802945,NonBugFix,False
+69db7b040a282b040173c3f37906f5e53db36e44,"GCS_MAVLink: move try_send_message handling of EKF_STATUS_REPORT up
+",BugFix,0.54719657,NonBugFix,False
+50178e2d1cd9ebdb38d3174b9456880e6150f3a3,"Remove expression with no effect. Fixes CID #289974
+",BugFix,0.74771816,NonBugFix,False
+fa4a96e29a6a0d59830b20c4de70ab045756d9a6,"Optimized VAO
+",NonBugFix,0.81314176,NonBugFix,False
+1e6627c0b210949dba17623b2a6ee06d94b851a8,"plotter.table: rebuilt methods for plotting LIGO_LW tables
+
+    - EventTablePlot: standard figure wrapper
+    - EventTableAxes: minimal subclass of Axes that can unwrap table columns
+",NonBugFix,0.9316944,NonBugFix,False
+3a72eceb6bdff8bba1a4c648c60d0de9215fe765,"refactor: signature became Photo
+",NonBugFix,0.90021366,NonBugFix,False
+dc28d64513d26480d5edf2ea0591d4586366d455,"refactor: Replace tinylog with logback
+",NonBugFix,0.98661,NonBugFix,False
+42d3d595e9bdfc1454a1aba990dbe4a905ad5b7c,"Merge pull request #514 from buildkite/refactor-bootstrap-known-hosts
+
+Refactor bootstrap into knownhosts.go and locks.go",NonBugFix,0.91720694,NonBugFix,False
+39c1261e049b971d8aedd9922ea1d95898fe4de5,"Refactor: Extract function oval_probe_query_criterion
+
+This commit only moves a block of code to a new separate static function.
+",NonBugFix,0.9991623,NonBugFix,False
+d1fd042c85d13700978b9d8f532f6818f53e98dc,"Refactored Speak to use variable_name_with_underscores.
+",NonBugFix,0.8989153,NonBugFix,False
+cf0bf0d5eccdbd00f449e132395bacb8f164381b,"Refactored and renamed 'base/baseAnnotationToolHelpers.js' to 'util/findAndMoveHelpers.js' and 'store/getToolsWithMoveableHandles.js', as the functionality is used by more than just the baseAnnotationTool.
+",NonBugFix,0.9867524,NonBugFix,False
+a644824bacbdf0fbe668e8cc90672a6d017005c5,"Large refactoring.
+",NonBugFix,0.8953575,NonBugFix,False
+d2a06617ebf6881da32ce0f63d06b1bfe55e08d0,"Refactoring:
+Wiped out the historical partial Java naming conventions, replaced by C#
+removed unused fields/parameters
+removed many unused usings
+...
+(Thanks to ReSharper :-))
+",NonBugFix,0.9950133,NonBugFix,False
+572f58ef4f10a10e6784b33b69f218c567428e4b,"refactoring API/RSS to use server-side router
+",NonBugFix,0.8939576,NonBugFix,False
+befea28fc33f4e69f2745098470e7d5809faf42c,"start refactoring datagroups
+",NonBugFix,0.8873267,NonBugFix,False
+53f4db9352b58a6d59968fd98951d761a644f4a6,"Code refactoring [SCI-1869]
+",NonBugFix,0.89306575,NonBugFix,False
+a65fabebce00b6fafca73a347858c337b87efc7d,"GUI: refactoring librarydialog
+",NonBugFix,0.8895043,NonBugFix,False
+de8f5cb1fbbd6d4cd0e41abb7720324b4021ba88,"Merge branch 'master' into SapRefactoring
+",NonBugFix,0.53486,NonBugFix,False
+71d5d70760bc0c4bf692803f48bbecba68c2ab3b,"some attempts at refactor
+",NonBugFix,0.8859051,NonBugFix,False
+727d93c86ad9588994ad04ecc63339f6df892876,"AbstractElasticIndexer: Specify charset for InputStreamReader
+
+ErrorProne reports a warning [1] about implicit use of the platform
+default charset.
+
+[1] http://errorprone.info/bugpattern/DefaultCharset
+
+Change-Id: I57a4d5ff4ef533312c3282a80df57e07e10a92e1
+",NonBugFix,0.9304595,NonBugFix,False
+a6cabf4c0215f752cac026c31b91a6d27fe0af15,"Remove C# 6.0 syntax
+",NonBugFix,0.8051413,NonBugFix,False
+ede05ecbe0ec83176f5757040e998c75c9b4f3ab,"Merge pull request #59 from Metaswitch/issue36
+
+Remove unneeded dropping of DHCP packets.",NonBugFix,0.86364526,NonBugFix,False
+695e30d44e7456f0542d4489e87a2c01664fb283,"Remove unneeded type parameter E on AttributeResultExt
+",NonBugFix,0.8053246,NonBugFix,False
+48a85aab1bd1765523ea3798de5e75141bf8bb15,"remove unused files
+
+These were ported to SignalMessaging
+",NonBugFix,0.8220091,NonBugFix,False
+12f0fe03aa730e1b3bd9411818d750c1fde6e4c9,"udev: remove unused bbappend
+
+Signed-off-by: Jacob Stiffler <0ec61db87821c27ca8ee6f3e24c6f93fdbb785d4@ti.com>
+",NonBugFix,0.7937782,NonBugFix,False
+d11c5b56a61784dade3d1ded11f8dd420d0e295d,"Removed deprecation warning from h5py
+",NonBugFix,0.9802411,NonBugFix,False
+27d046589156eb9989930560ba12e3afaca035fa,"Remove workarounds for querying the PlayerActor in Created
+",NonBugFix,0.8084798,NonBugFix,False
+3ffb8160cd805ca4768ba6db99d83153d9451c9b,"Removed collabsabletree.js, we don't need it anymore
+",NonBugFix,0.80895436,NonBugFix,False
+315a0b787c2b1409365226842751face7ab0974c,"Remove deprecated function usage (get_table_name)
+",NonBugFix,0.9796804,NonBugFix,False
+b89acc24548a1f8f835261d3bc841cc6cf6fb14d,"[videodb] remove unused CVideoInfoTag::m_strShowPath
+",NonBugFix,0.80094844,NonBugFix,False
+a87829225db44025e4e6f315fbb9a2bf6e9be4ef,"Removed unused method Pool::defunct()
+",NonBugFix,0.79952145,NonBugFix,False
+d9a97b9cd0980430e4cf1f89cad1ae03008e03c7,"removed useless and potentially dangerous strncpy
+
+[bug #672866]
+",BugFix,0.9943879,NonBugFix,False
+dde67cff52c98529be78871344a6a250ea81017c,Chanegd method names,BugFix,0.5030544,NonBugFix,False
+26ff2938e51957b95433b29a8c80c78eb4dae62e,rename colors,NonBugFix,0.91566634,NonBugFix,False
+aba2f0e4030b1f5a3e732b72010fc1ab7eb6c26e,"rename stats variables
+",NonBugFix,0.9826776,NonBugFix,False
+06abd3b59dd0076916c4adb4b237fdf96ce433dc,"Renaming Qml wizards
+
+Unify names to QmlProjectApplicationWizard & QmlProjectImportWizard
+",NonBugFix,0.9266006,NonBugFix,False
+a1188d1cf7ee08029a0d2bef0b543915f1eed896,"svnimporter generated comment: Renamed $templates to $examples. Changed path: [/Version 4.7/resources/examples/]
+
+git-svn-id: 0cdf8356e41b2d8ccbb41bb76c82068fe80b2514@5366 0d6f1817-ed0e-0410-87c9-987e46238f29
+",NonBugFix,0.9977651,NonBugFix,False
+d18ca7216457e46cdc592b022aa534eec473b9c4,"Micro-optimize _tokenize()
+
+ - A small modification to _initial_token_re_match makes it reject
+   comments too, saving some manual code (and probably lots of string
+   copying).
+
+ - Reorganize things to handle 'previous' in a nicer way.
+
+ - Use tuples instead instead of lists in the no-tokens and _T_HELP
+   cases. Could preallocate and return an empty _Feed too, but it seems
+   like overkilling it.
+
+Profiling done with cProfile and line_profiler.
+",NonBugFix,0.99724764,NonBugFix,False
+36c669d45a791ea35d7d9de1df3f6a075010b6ca,"Replace get_property(""sensitive"") with get_sensitive
+",NonBugFix,0.84566224,NonBugFix,False
+abec6d99c5b712413426cb5cbc7701c6d2b10158,"replaced by m_EditActivity.jsp
+",NonBugFix,0.8335893,NonBugFix,False
+dcb6c0c8a656fda6902f3006391a5345488ddca5,"First working version of the YODA replacement for compare-histos. It doesn't
+have all the functionality of the old script yet, but it should be much
+cleaner and easier to maintain.
+",NonBugFix,0.9926114,NonBugFix,False
+d7d5e9d60e6152d100aeb48e043cebd20b25801f,"review feedback code and readme changes complete. Need to address comments
+",NonBugFix,0.99995273,NonBugFix,False
+70dba37c8faa32c331010aa07e4a7eabd31bcf6f,"revise lenet, alexnet, vgg
+",BugFix,0.5060555,NonBugFix,False
+d5ac8a7abcae46575f1a65771f72adc5848ddf4b,"Rework Transitions API. Remove Transition.Factory. (#216)
+
+* Rework Transitions API. Remove Transition.Factory.
+
+* Documentation.
+",NonBugFix,0.9610532,NonBugFix,False
+f96a19672775cc67940c99e5a0a3043b97a1ee29,"Merge pull request #988 from tuff-ghost/issue_3380
+
+3380 & 2928: rewrite ibox (modal dialogs) plugin",NonBugFix,0.98711926,NonBugFix,False
+9f301ba5c27c60dc74686a138c930f2629aad2e4,"Rewrite unwieldy EditorUpdate tests to String tests
+",NonBugFix,0.9655524,NonBugFix,False
+5c93b1b864601a9f40efa049dafdab1e1bbd7e4f,"split up MCRServlet.getSession() in a getter and a setter
+added MCRSessionMgr.hasCurrentSession() to determine if a session is bound to the current thread
+
+git-svn-id: 5c3a6088a260de08063aa573fa0e2db6520eb9b6@19694 7089d063-bc14-496d-ac90-53de1872eb6c
+",NonBugFix,0.87818563,NonBugFix,False
+e9d86a874df47eb9a2a18b581e147df9121ecbc8,"switched to antlr 4.4, made lexer and parser output for debug information for errors
+",BugFix,0.8714403,NonBugFix,False
+17c762ab68ded9b307e645e9d666a7bf851f9559,"tidying up plotting script
+",NonBugFix,0.5021612,NonBugFix,False
+a1c2927316bb8dab1a8572609689a10c8f2fea87,"MMRDS-584 MMRDS-585 tweaks to export-queue.
+",NonBugFix,0.91888994,NonBugFix,False
+6ccdc15f71113b687a6d48e1e4741ab3cfeededd,"Merge pull request #612 from alphagov/fix_error_in_metrix
+
+Fix typo in record_taxons_per_level_metrics task",BugFix,0.99713665,NonBugFix,False
+fe0a7b436986d7c0dbe75ee617078efd510738c9,"Unified the way of tagging log messages on Deck.java and Stats.java
+",NonBugFix,0.9586089,NonBugFix,False
+eb8e00c990f197cadedb24c04cabdff1db1751c3,"Unused code deleted
+",BugFix,0.50239664,NonBugFix,False
+0292e62cff70bbb0accd33758b29182c2c858c92,"Removed unused imports.
+",NonBugFix,0.8085996,NonBugFix,False
+63d8137da2b9b63260b525fb999e28daa118f6bc,"Use EventEmitter public methods instead of _events.
+",BugFix,0.500367,NonBugFix,False
+03f2ec243a50522caa260b915b6aebd9021e80fa,":recycle: use rebass for heading variants
+
+instead of full-on custom components
+",BugFix,0.50020826,NonBugFix,False
+81bc63f8a82b652f377761f3ad32d105633621aa,"use %q instead of ""%s""
+",NonBugFix,0.5015941,NonBugFix,False
+42902eed6675cc8b4e7926163679727703363d03,"Wrap conditional in parentheses
+",BugFix,0.50921607,NonBugFix,False
+cd1e0c158d1d46e9a298f98f62ace60c6df135d0,"✅ [amp story player] Visual Tests for Back and Close Button (#29301)
+
+* add visual diff tests for button
+
+* fix linter errors
+
+* update shadow root condition
+
+* fix linter errors
+
+* add todo statement
+
+* add delay to visual tests
+
+* increase delay
+
+* change urls
+
+* remove commas
+
+* revert links
+
+* add delay
+
+* add shadow dom back
+
+* remove css url
+
+* remove loading complete selector
+
+* add interactive component
+
+* fix async condition
+
+* move script tag to end of body
+
+* remove css selectors
+
+* set background color for button to be blue
+
+* add debugger statements
+
+* remove async
+
+* add back selectors
+
+* update visual test json
+
+* update interactive js
+
+* update srcdoc
+
+* remove unnecessary edits
+
+* fix lint error
+
+* fix visual tests
+
+* test amp story player exit control
+
+* fix spacing
+
+* fix spacing
+
+* update to local story",NonBugFix,0.9996724,BugFix,False
+96d570e7604c76af14e6c4f90e54aff85c9c9b1f,"Gets most of the configurable list view working, need to add some validation to the pre-value editor, some styling for the sorting of a field, add another system field for 'published date' (if possible), fix up the localized text for return to list view, fix up the persisting of the last page viewed in a list view
+",NonBugFix,0.916234,BugFix,False
+d059dbabf0eefdb25f0e028ea2c83eeddc3dd6d0,"[WIP] Onnx1.0 (#294)
+
+* add more op for onnx 1.0
+
+* fix syntax
+
+* fix lint
+
+* fix
+
+* update 1.0
+
+* fix
+
+* update model
+",NonBugFix,0.8950598,BugFix,False
+3ba1808e9c8afa3533ab5b3363b45f614801058b,"EST-1576: fixes unit tests, improves comparator for Party
+",NonBugFix,0.9145436,BugFix,False
+1423ddf04a709ae3a0fecf2119bd6e06ed078a5e,"PDI-2228 : Repository improvements, unit test fix, code hardening.
+
+git-svn-id: 51b39fcfd0d3a6ea7caa15377cad4af13b9d2664@10836 5fb7f6ec-07c1-534a-b4ca-9155e429e800
+",NonBugFix,0.93690574,BugFix,False
+89b2bf617fa0619d57e8875d6d15aa765d765482,"Have commit-msg report commit failure
+
+* build-aux/git-hooks/commit-msg: If the commit is aborted,
+say so.  Simplify by doing this at the end.  Problem reported
+by Eli Zaretskii in:
+http://lists.gnu.org/archive/html/emacs-devel/2015-04/msg00566.html
+",BugFix,0.965369,BugFix,False
+ef32edcaf2be0c281212f321df86bd56f2757be6,"Add service title, clean up program page tile
+",NonBugFix,0.9801414,NonBugFix,False
+e582b9e5f9a112fb06691d1a0794630ce4357240,"Clean up backup/YUM/default/500_make_backup.sh and add detection of SELinux-related tar options
+",NonBugFix,0.98001856,NonBugFix,False
+1415ec629aa5e2ea165e66ae533b567cfe28c357,"SemVer, ModuleId: JavaDoc, unit tests, code review OKAPI-781 (#862)
+
+Ensure transitive sorting property
+",NonBugFix,0.9894169,NonBugFix,False
+c0aeb69c29d45cd60641545e3716e8433e83dd1a,"moved web stuff to yamcs-core
+update to protoc 2.5
+",NonBugFix,0.99556345,NonBugFix,False
+bed15003d448ba336da0cbd3beda320b2dd3486b,"Move cell height calculation to certificate cell
+
+- Create typealias for certificate tuple
+",NonBugFix,0.88181597,NonBugFix,False
+b0437f6ae33d2f10f06ab06e4638560dea845529,"- RW2 reader optimized (40->55 MP/s)
+- Print help information when camera with mode cannot be found.
+",NonBugFix,0.8172172,NonBugFix,False
+4ee3543ea43db0fce63bbaa8baca8953362dcb5f,"feat: tweak intersection code, add tests
+",NonBugFix,0.99708337,NonBugFix,False
+ca8a43b60ef059fe7b636f883a78ee0514463a2a,"Update submodules
+
+Most notablu, ImGui code was largly removed from renderers
+and instead, the recommended approach of using the included _impl
+files. I modified the _impl files slightly to work with swapping
+renderers at runtime, and also splitting up
+ImGui_ImplGlfwVulkan_Render into two functions which can
+be called before and after other draw calls.
+
+Rename instances of ""i32nalFormat"" to ""internalFormat"" (that's
+why you don't replace-all...)
+",NonBugFix,0.9997373,NonBugFix,False
+0da97d03589b7520d17a9daa9fdf25205758e795,"Made point hint matching stricter and avoid problems for short street names (#1406)
+
+* made point hint stricter and avoid problems for short street names
+
+* some more additions and fixes
+
+* reduce memory usage of filter
+
+* further reduce memory usage via making a few more things static
+
+* try to see what is wrong with travis for openjdk8
+
+* Revert ""try to see what is wrong with travis for openjdk8""
+
+This reverts commit c36aad76ef95944bbfcb3380598bda3f92449fef.
+
+* added more removal words
+
+* some more
+",BugFix,0.95114857,BugFix,False
+bd44a85d4db537028f977584be50a6b2df914266,raFlds moved to MbrContacts,NonBugFix,0.880577,NonBugFix,False
+2a9199d020dd00eacac3c56d8eb28fa8a0172f00,"Refactor has*Tag selectors as registry selectors.
+",NonBugFix,0.8877916,NonBugFix,False
