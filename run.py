@@ -26,6 +26,15 @@ from scipy.special import softmax
 
 from artifactexplorer import load_dataset
 
+COMMITS_200K_FILES_NO_MERGES = "commits_200k_files_no_merges"
+
+ALL_HEURISTICS_TRAINED_ON_200K_FILES = "all_keywords_transformer_filemetrics/0_1"
+ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES = "message_keywords_file_metrics_transformer/0_1"
+ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES = "only_message_keywords/0_1"
+
+COMMITS_200K_FILES_DATASET = "commits_200k_files"
+BUGGINESS_MAP = {"BugFix": 1, "NonBugFix": 0}
+
 os.environ["WANDB_DISABLED"] = "true"
 
 import numpy as np
@@ -73,10 +82,9 @@ class LabelSource:
             return self.ids_to_labels[id]
 
 
-
-class LabelModelSource(LabelSource):
+class LMLabelSource(LabelSource):
     def __init__(self, label_map, label_model_name, soft_labels: bool = False):
-        super(LabelModelSource, self).__init__(label_map)
+        super(LMLabelSource, self).__init__(label_map)
         self.label_model_name = label_model_name
         self.soft_labels = soft_labels
 
@@ -85,7 +93,7 @@ class LabelModelSource(LabelSource):
         return [1-dp, dp] if self.soft_labels else round(dp)
 
 
-LabelSourceType = TypeVar('LabelSourceType', bound=LabelSource)
+LabelSourceType = TypeVar('LabelSourceType', LabelSource, LMLabelSource)
 
 
 @dataclass
@@ -475,21 +483,111 @@ def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
 
 tasks = {
     # 'task0': Task("bohr_model", datasets["conventional"], ChangeDataset, LabelSource({"build": 0, "chore": 1, "ci": 2, "docs": 3, "feat": 4, "fix": 5, "perf": 6, "refactor": 7, "style": 8, "test": 9}), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task1': Task("only_message_keywords_message_and_change", "commits_200k_files", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task2': Task("all_heuristics_without_issues_message_and_change", "commits_200k_files", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task3': Task("all_heuristics_with_issues_message_and_change", "commits_200k_files", MessageChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task4': Task("all_heuristics_with_issues_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task5': Task("all_heuristics_with_issues_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "all_keywords_transformer_filemetrics/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task7': Task("only_message_keywords_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task8': Task("all_heuristics_without_issues_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task9': Task("only_message_keywords_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task10': Task("gitcproc_only_message", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task11': Task("gitcproc_only_change", "commits_200k_files", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "gitcproc/0_1"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task12': Task("only_message_keywords_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_2"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task13': Task("only_message_keywords_no_merge_only_change", "commits_200k_files_no_merges", ChangeDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keyword/0_3"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task14': Task("all_heuristics_without_issues_no_merge_only_message", "commits_200k_files_no_merges", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_3"), LabelSource({"BugFix": 1, "NonBugFix": 0})),
-    'task15': Task("all_heuristics_without_issues_only_message_soft", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "message_keywords_file_metrics_transformer/0_1", soft_labels=True), LabelSource({"BugFix": 1, "NonBugFix": 0}, soft_labels=True)),
-    'task16': Task("only_message_keywords_only_message_soft", "commits_200k_files", MessageDataset, LabelModelSource({"BugFix": 1, "NonBugFix": 0}, "only_message_keywords/0_1", soft_labels=True), LabelSource({"BugFix": 1, "NonBugFix": 0}, soft_labels=True)),
+    'task1': Task(
+        "only_message_keywords_message_and_change",
+        COMMITS_200K_FILES_DATASET,
+        MessageChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task2': Task(
+        "all_heuristics_without_issues_message_and_change",
+        COMMITS_200K_FILES_DATASET,
+        MessageChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task3': Task(
+        "all_heuristics_with_issues_message_and_change",
+        COMMITS_200K_FILES_DATASET,
+        MessageChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task4': Task(
+        "all_heuristics_with_issues_only_message",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task5': Task(
+        "all_heuristics_with_issues_only_change",
+        COMMITS_200K_FILES_DATASET,
+        ChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task7': Task(
+        "only_message_keywords_only_message",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task8': Task(
+        "all_heuristics_without_issues_only_message",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task9': Task(
+        "only_message_keywords_only_change",
+        COMMITS_200K_FILES_DATASET,
+        ChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task10': Task(
+        "gitcproc_only_message",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, "gitcproc/0_1"),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task11': Task(
+        "gitcproc_only_change",
+        COMMITS_200K_FILES_DATASET,
+        ChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, "gitcproc/0_1"),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task12': Task(
+        "only_message_keywords_no_merge_only_message",
+        COMMITS_200K_FILES_NO_MERGES,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, "only_message_keyword/0_2"),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task13': Task(
+        "only_message_keywords_no_merge_only_change",
+        COMMITS_200K_FILES_NO_MERGES,
+        ChangeDataset,
+        LMLabelSource(BUGGINESS_MAP, "only_message_keyword/0_3"),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task14': Task(
+        "all_heuristics_without_issues_no_merge_only_message",
+        COMMITS_200K_FILES_NO_MERGES,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, "message_keywords_file_metrics_transformer/0_3"),
+        LabelSource(BUGGINESS_MAP)
+    ),
+    'task15': Task(
+        "all_heuristics_without_issues_only_message_soft",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES, soft_labels=True),
+        LabelSource(BUGGINESS_MAP, soft_labels=True)
+    ),
+    'task16': Task(
+        "only_message_keywords_only_message_soft",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES, soft_labels=True),
+        LabelSource(BUGGINESS_MAP, soft_labels=True)
+    ),
 }
 
 
