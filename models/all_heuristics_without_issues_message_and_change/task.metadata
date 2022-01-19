@@ -1,0 +1,1 @@
+{"name": "all_heuristics_without_issues_message_and_change", "model": "transformer", "label_source": "all heuristics", "issues": "without issues", "trained_on": "message and change", "train_dataset": "commits_200k_files", "soft_labels": false}

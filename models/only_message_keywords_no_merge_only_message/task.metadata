@@ -1,0 +1,1 @@
+{"name": "only_message_keywords_no_merge_only_message", "model": "transformer", "label_source": "keywords", "issues": "without issues", "trained_on": "only message", "train_dataset": "commits_200k_files_no_merges", "soft_labels": false}

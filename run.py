@@ -15,12 +15,13 @@
 # limitations under the License.
 """ Finetuning the library models for sequence classification on GLUE (Bert, XLM, XLNet, RoBERTa, Albert, XLM-RoBERTa)."""
 import csv
+import json
 import logging
 import os
 import sys
 from abc import abstractmethod
 from dataclasses import dataclass, field
-from typing import Dict, Optional, Tuple, List, Type, TypeVar, Callable, Union
+from typing import Dict, Optional, Tuple, List, Type, TypeVar, Union
 
 from scipy.special import softmax
 
@@ -29,8 +30,50 @@ from artifactexplorer import load_dataset
 COMMITS_200K_FILES_NO_MERGES = "commits_200k_files_no_merges"
 
 ALL_HEURISTICS_TRAINED_ON_200K_FILES = "all_keywords_transformer_filemetrics/0_1"
-ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES = "message_keywords_file_metrics_transformer/0_1"
+ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES = "message_keywords_file_metrics_transformer/0_1"
 ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES = "only_message_keywords/0_1"
+GITCPROC = "gitcproc/0_1"
+ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES_NO_FILES = "message_keywords_file_metrics_transformer/0_3"
+ONLY_MESSAGE_KEYWORD_0_3 = "only_message_keyword/0_3"
+ONLY_MESSAGE_KEYWORD_0_2 = "only_message_keyword/0_2"
+
+ALL_HEURISTICS = 'all heuristics'
+KEYWORDS = 'keywords'
+
+WITH_ISSUES = 'with issues'
+WITHOUT_ISSUES = 'without issues'
+
+
+labels_to_training_mode_map = {
+    ALL_HEURISTICS_TRAINED_ON_200K_FILES: {
+        'label_source': ALL_HEURISTICS,
+        'issues': WITH_ISSUES,
+    },
+    ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES: {
+        'label_source': ALL_HEURISTICS,
+        'issues': WITHOUT_ISSUES,
+    },
+    ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES: {
+        'label_source': KEYWORDS,
+        'issues': WITHOUT_ISSUES,
+    },
+    GITCPROC: {
+        'label_source': 'gitcproc',
+        'issues': WITHOUT_ISSUES,
+    },
+    ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES_NO_FILES: {
+        'label_source': ALL_HEURISTICS,
+        'issues': WITHOUT_ISSUES,
+    },
+    ONLY_MESSAGE_KEYWORD_0_3: {
+        'label_source': KEYWORDS,
+        'issues': WITHOUT_ISSUES,
+    },
+    ONLY_MESSAGE_KEYWORD_0_2: {
+        'label_source': KEYWORDS,
+        'issues': WITHOUT_ISSUES,
+    }
+}
 
 COMMITS_200K_FILES_DATASET = "commits_200k_files"
 BUGGINESS_MAP = {"BugFix": 1, "NonBugFix": 0}
@@ -243,14 +286,30 @@ class Task:
     test_label_source: LabelSourceType
 
     def get_pretrained_checkpoint(self) -> str:
+        return self.pretrained_checkpoint
+
+    def __post_init__(self) -> None:
         if self.dataset_class.__name__ == 'ChangeDataset':
-            return "huggingface/CodeBERTa-small-v1"
+            self.pretrained_checkpoint = "huggingface/CodeBERTa-small-v1"
+            self.trained_on = "only change"
         elif self.dataset_class.__name__ == 'MessageDataset':
-            return "giganticode/StackOBERTflow-comments-small-v1"
+            self.pretrained_checkpoint = "giganticode/StackOBERTflow-comments-small-v1"
+            self.trained_on = "only message"
         elif self.dataset_class.__name__ == 'MessageChangeDataset':
-            return "microsoft/codebert-base"
+            self.pretrained_checkpoint = "microsoft/codebert-base"
+            self.trained_on = "message and change"
         else:
-            raise AssertionError()
+            raise ValueError(f'Unknown dataset type: {self.dataset_class.__name__}')
+
+    def get_metadata(self) -> Dict[str, str]:
+        return {
+            'name': self.name,
+            'model': 'transformer',
+            **labels_to_training_mode_map[self.label_source.label_model_name],
+            'trained_on': self.trained_on,
+            'train_dataset': self.dataset,
+            'soft_labels': self.label_source.soft_labels,
+        }
 
 
 def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
@@ -494,7 +553,7 @@ tasks = {
         "all_heuristics_without_issues_message_and_change",
         COMMITS_200K_FILES_DATASET,
         MessageChangeDataset,
-        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES),
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES),
         LabelSource(BUGGINESS_MAP)
     ),
     'task3': Task(
@@ -529,7 +588,7 @@ tasks = {
         "all_heuristics_without_issues_only_message",
         COMMITS_200K_FILES_DATASET,
         MessageDataset,
-        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES),
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES),
         LabelSource(BUGGINESS_MAP)
     ),
     'task9': Task(
@@ -543,42 +602,42 @@ tasks = {
         "gitcproc_only_message",
         COMMITS_200K_FILES_DATASET,
         MessageDataset,
-        LMLabelSource(BUGGINESS_MAP, "gitcproc/0_1"),
+        LMLabelSource(BUGGINESS_MAP, GITCPROC),
         LabelSource(BUGGINESS_MAP)
     ),
     'task11': Task(
         "gitcproc_only_change",
         COMMITS_200K_FILES_DATASET,
         ChangeDataset,
-        LMLabelSource(BUGGINESS_MAP, "gitcproc/0_1"),
+        LMLabelSource(BUGGINESS_MAP, GITCPROC),
         LabelSource(BUGGINESS_MAP)
     ),
     'task12': Task(
         "only_message_keywords_no_merge_only_message",
         COMMITS_200K_FILES_NO_MERGES,
         MessageDataset,
-        LMLabelSource(BUGGINESS_MAP, "only_message_keyword/0_2"),
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORD_0_2),
         LabelSource(BUGGINESS_MAP)
     ),
     'task13': Task(
         "only_message_keywords_no_merge_only_change",
         COMMITS_200K_FILES_NO_MERGES,
         ChangeDataset,
-        LMLabelSource(BUGGINESS_MAP, "only_message_keyword/0_3"),
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORD_0_3),
         LabelSource(BUGGINESS_MAP)
     ),
     'task14': Task(
         "all_heuristics_without_issues_no_merge_only_message",
         COMMITS_200K_FILES_NO_MERGES,
         MessageDataset,
-        LMLabelSource(BUGGINESS_MAP, "message_keywords_file_metrics_transformer/0_3"),
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES_NO_FILES),
         LabelSource(BUGGINESS_MAP)
     ),
     'task15': Task(
         "all_heuristics_without_issues_only_message_soft",
         COMMITS_200K_FILES_DATASET,
         MessageDataset,
-        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRIANED_ON_200K_FILES, soft_labels=True),
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES, soft_labels=True),
         LabelSource(BUGGINESS_MAP, soft_labels=True)
     ),
     'task16': Task(
@@ -617,8 +676,16 @@ def evaluation_config(task: Task) -> None:
     sys.argv.extend(['--model_name_or_path', f'models/{task.name}'])
 
 
+def write_metadata(task: Task) -> None:
+    path = f'models/{task.name}/task.metadata'
+    metadata = task.get_metadata()
+    with open(path, 'w') as f:
+        json.dump(metadata, f)
+
+
 if __name__ == "__main__":
     import os
     task = tasks[os.environ['task']]
     evaluation_config(task)
     main(task)
+    write_metadata(task)
