@@ -391,7 +391,7 @@ class LazyDataset(IterableDataset):
             add_special_tokens=True,
             return_attention_mask=True,
             truncation=True,
-            padding=True,
+            padding="max_length",
             max_length=MAX_LENGTH,
             return_tensors="pt",
         )
