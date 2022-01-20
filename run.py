@@ -18,6 +18,7 @@ import csv
 import json
 import logging
 import os
+import re
 import sys
 from abc import abstractmethod
 from dataclasses import dataclass, field
@@ -171,8 +172,174 @@ class ModelArguments:
     eval_test: bool = field(default=False)
 
 
+buggy_keywords=[
+             "bad",
+             "broken",
+             ["bug", "bugg"],
+             "close",
+             "concurr",
+             ["correct", "correctli"],
+             "corrupt",
+             "crash",
+             ["deadlock", "dead lock"],
+             "defect",
+             "disabl",
+             "endless",
+             "ensur",
+             "error",
+             "except",
+             ["fail", "failur", "fault"],
+             ["bugfix", "fix", "hotfix", "quickfix", "small fix"],
+             "garbag",
+             "handl",
+             "incomplet",
+             "inconsist",
+             "incorrect",
+             "infinit",
+             "invalid",
+             "issue",
+             "leak",
+             "loop",
+             "minor",
+             "mistak",
+             ["nullpointer", "npe", "null pointer"],
+             "not work",
+             "not return",
+             ["outofbound", "of bound"],
+             "patch",
+             "prevent",
+             "problem",
+             "properli",
+             "race condit",
+             "repair",
+             ["resolv", "solv"],
+             ["threw", "throw"],
+             "timeout",
+             "unabl",
+             "unclos",
+             "unexpect",
+             "unknown",
+             "unsynchron",
+             "wrong",
+         ]
+
+buggless_keywords=[
+             "abil",
+             "ad",
+             "add",
+             "addit",
+             "allow",
+             "analysi",
+             "avoid",
+             "baselin",
+             "beautification",
+             "benchmark",
+             "better",
+             "bump",
+             "chang log",
+             ["clean", "cleanup"],
+             "comment",
+             "complet",
+             "configur chang",
+             "consolid",
+             "convert",
+             "coverag",
+             "create",
+             "deprec",
+             "develop",
+             ["doc", "document", "javadoc"],
+             "drop",
+             "enhanc",
+             "exampl",
+             "exclud",
+             "expand",
+             "extendgener",
+             "featur",
+             "forget",
+             "format",
+             "gitignor",
+             "idea",
+             "implement",
+             "improv",
+             "includ",
+             "info",
+             "intorduc",
+             "limit",
+             "log",
+             "migrat",
+             "minim",
+             "modif",
+             "move",
+             "new",
+             "note",
+             "opinion",
+             ["optim", "optimis"],
+             "pass test",
+             "perf test",
+             "perfom test",
+             "perform",
+             "plugin",
+             "polish",
+             "possibl",
+             "prepar",
+             "propos",
+             "provid",
+             "publish",
+             "readm",
+             "reduc",
+             "refactor",
+             "refin",
+             "reformat",
+             "regress test",
+             "reimplement",
+             "release",
+             "remov",
+             "renam",
+             "reorgan",
+             "replac",
+             "restrict",
+             "restructur",
+             "review",
+             "rewrit",
+             "rid",
+             "set up",
+             "simplif",
+             "simplifi",
+             ["speedup", "speed up"],
+             "stage",
+             "stat",
+             "statist",
+             "support",
+             "switch",
+             "test",
+             "test coverag",
+             "test pass",
+             "todo",
+             "tweak",
+             "unit",
+             "unnecessari",
+             "updat",
+             "upgrad",
+             "version",
+         ]
+
+
+def augment(text: str) -> str:
+    """
+    >>> augment("fix everything")
+    ' everything'
+    >>> augment('I added this feature yesterday, and also updated the readme, lets see how it works')
+    'I  this  yesterday, and also  the , lets see how it works'
+    """
+    all_keywords = {k for gr in (buggy_keywords + buggless_keywords) for k in (gr if isinstance(gr, list) else [gr])}
+    tokens = re.split('(\W)', text)
+    from nltk import PorterStemmer
+    stemmer = PorterStemmer()
+    res = [t for t in tokens if stemmer.stem(t) not in all_keywords]
+    return "".join(res)
+
 class LazyDataset(IterableDataset):
-    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool, bimodal: bool = False):
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool, bimodal: bool = False, augmentation: bool = False):
         worker_info = torch.utils.data.get_worker_info()
         if worker_info is not None:
             raise AssertionError()
@@ -182,6 +349,7 @@ class LazyDataset(IterableDataset):
         self.label_source: LabelSourceType = label_source
         self.no_ground_truth: bool = no_ground_truth
         self.bimodal = bimodal
+        self.augmentation = augmentation
 
     def __len__(self):
         return len(self.ds)
@@ -208,9 +376,14 @@ class LazyDataset(IterableDataset):
             else:
                 text = self.preprocess_input(datapoint)
 
+            if self.augmentation:
+                text_list.append(augment(text))
             text_list.append(text)
             if not self.no_ground_truth:
-                labels.append(self.label_source.get_label_id_from_datapoint(datapoint))
+                lab = self.label_source.get_label_id_from_datapoint(datapoint)
+                labels.append(lab)
+                if self.augmentation:
+                    labels.append(lab)
 
         encoding = self.tokenizer(
             text=text_list,
@@ -242,8 +415,8 @@ LazyDatasetType = TypeVar('LazyDatasetType', bound=LazyDataset)
 
 
 class ChangeDataset(LazyDataset):
-    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
-        super(ChangeDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth)
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool, augmentation: bool = False):
+        super(ChangeDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth, augmentation=augmentation)
 
     def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
         # very naive way
@@ -251,8 +424,8 @@ class ChangeDataset(LazyDataset):
 
 
 class MessageDataset(LazyDataset):
-    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
-        super(MessageDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth)
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool, augmentation: bool = False):
+        super(MessageDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth, augmentation=augmentation)
 
     def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
         message = datapoint['message']
@@ -263,8 +436,8 @@ class MessageDataset(LazyDataset):
 
 
 class MessageChangeDataset(LazyDataset):
-    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool):
-        super(MessageChangeDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth, True)
+    def __init__(self, ds: List[Dict], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool, augmentation: bool = False):
+        super(MessageChangeDataset, self).__init__(ds, tokenizer, label_source, no_ground_truth, bimodal=True, augmentation=augmentation)
 
     def preprocess_input(self, datapoint: Dict) -> Union[str, Tuple[str, str]]:
         message = datapoint['message']
@@ -284,6 +457,7 @@ class Task:
     dataset_class: Type[LazyDatasetType]
     label_source: LabelSourceType
     test_label_source: LabelSourceType
+    augmentation: bool = False
 
     def get_pretrained_checkpoint(self) -> str:
         return self.pretrained_checkpoint
@@ -322,9 +496,9 @@ def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
     return train, val
 
 
-def to_chain_of_simple_datasets(dataset: List[Dict], cls: Type[LazyDatasetType], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool=False) -> IterableDataset:
+def to_chain_of_simple_datasets(dataset: List[Dict], cls: Type[LazyDatasetType], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool=False, augmentation: bool = False) -> IterableDataset:
     chunk_len = 2000
-    simple_datasets = [cls(dataset[i * chunk_len:(i + 1) * chunk_len], tokenizer, label_source, no_ground_truth) for i in range((len(dataset) - 1) // chunk_len + 1)]
+    simple_datasets = [cls(dataset[i * chunk_len:(i + 1) * chunk_len], tokenizer, label_source, no_ground_truth, augmentation=augmentation) for i in range((len(dataset) - 1) // chunk_len + 1)]
     return ChainDataset(simple_datasets)
 
 
@@ -476,7 +650,7 @@ def main(task: Task):
     model, tokenizer = load_model(model_args, training_args, task.label_source.num_labels)
 
     print("**** TRAINING ******")
-    tokenized_train_set = to_chain_of_simple_datasets(train_set, task.dataset_class, tokenizer, task.label_source)
+    tokenized_train_set = to_chain_of_simple_datasets(train_set, task.dataset_class, tokenizer, task.label_source, augmentation=task.augmentation)
     tokenized_valid_set = to_chain_of_simple_datasets(valid_set, task.dataset_class, tokenizer, task.label_source)
     show_tokenization_example(tokenized_train_set, tokenizer)
 
@@ -528,7 +702,7 @@ TEST_DATASET_NAMES = [
 ]
 
 
-def assign_labels_to_all_datasets(trainer, tokenizer, task, output_dir) -> None:
+def assign_labels_to_all_datasets(trainer, tokenizer, task: Task, output_dir: str) -> None:
     for test_dataset_name in TEST_DATASET_NAMES:
         test_set = load_dataset(test_dataset_name, datasets[test_dataset_name])
         print(f'Test dataset ({test_dataset_name}) - {len(test_set)} datapoints')
@@ -647,6 +821,14 @@ tasks = {
         LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES, soft_labels=True),
         LabelSource(BUGGINESS_MAP, soft_labels=True)
     ),
+    'task17': Task(
+        "only_message_keywords_only_message_aug",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=True,
+    ),
 }
 
 
@@ -686,6 +868,6 @@ def write_metadata(task: Task) -> None:
 if __name__ == "__main__":
     import os
     task = tasks[os.environ['task']]
-    evaluation_config(task)
+    training_config(task)
     main(task)
     write_metadata(task)
