@@ -1,1 +1,1 @@
-{"name": "gitcproc_only_change", "model": "transformer", "label_source": "gitcproc", "issues": "without issues", "trained_on": "only change", "train_dataset": "commits_200k_files", "soft_labels": false}
+{"name": "gitcproc_only_change", "model": "transformer", "label_source": "gitcproc", "issues": "without issues", "trained_on": "only change", "train_dataset": "commits_200k_files", "soft_labels": false, "augmentation": "no"}

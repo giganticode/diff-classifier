@@ -1,1 +1,1 @@
-{"name": "all_heuristics_with_issues_only_message", "model": "transformer", "label_source": "all heuristics", "issues": "with issues", "trained_on": "only message", "train_dataset": "commits_200k_files", "soft_labels": false}
+{"name": "all_heuristics_with_issues_only_message", "model": "transformer", "label_source": "all heuristics", "issues": "with issues", "trained_on": "only message", "train_dataset": "commits_200k_files", "soft_labels": false, "augmentation": "no"}
