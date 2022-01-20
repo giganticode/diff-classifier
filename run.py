@@ -483,6 +483,7 @@ class Task:
             'trained_on': self.trained_on,
             'train_dataset': self.dataset,
             'soft_labels': self.label_source.soft_labels,
+            'augmentation': ('remove keywords' if self.augmentation else 'no'),
         }
 
 
