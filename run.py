@@ -122,7 +122,7 @@ class LabelSource:
     def get_label_from_id(self, id: int) -> str:
         try:
             return self.ids_to_labels[id[1]]
-        except IndexError:
+        except (IndexError, TypeError):
             return self.ids_to_labels[id]
 
 
@@ -498,7 +498,7 @@ def split_dataset(dataset: List[Dict]) -> Tuple[List, List]:
 
 
 def to_chain_of_simple_datasets(dataset: List[Dict], cls: Type[LazyDatasetType], tokenizer: PreTrainedTokenizer, label_source: LabelSourceType, no_ground_truth: bool=False, augmentation: bool = False) -> IterableDataset:
-    chunk_len = 2000
+    chunk_len = 200
     simple_datasets = [cls(dataset[i * chunk_len:(i + 1) * chunk_len], tokenizer, label_source, no_ground_truth, augmentation=augmentation) for i in range((len(dataset) - 1) // chunk_len + 1)]
     return ChainDataset(simple_datasets)
 
@@ -822,23 +822,23 @@ tasks = {
         LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES, soft_labels=True),
         LabelSource(BUGGINESS_MAP, soft_labels=True)
     ),
-    'task17': Task(
-        "only_message_keywords_only_message_aug",
-        COMMITS_200K_FILES_DATASET,
-        MessageDataset,
-        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
-        LabelSource(BUGGINESS_MAP),
-        augmentation=True,
-    ),
+     'task17': Task(
+         "only_message_keywords_only_message_aug",
+         COMMITS_200K_FILES_DATASET,
+         MessageDataset,
+         LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
+         LabelSource(BUGGINESS_MAP),
+         augmentation=True,
+     ),
 }
 
 
 def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', f'models/{task.name}'])
-    sys.argv.extend(['--per_device_eval_batch_size', '5'])
+    sys.argv.extend(['--per_device_eval_batch_size', '10'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
-    sys.argv.extend(['--per_device_train_batch_size', '5'])
+    sys.argv.extend(['--per_device_train_batch_size', '3'])
     sys.argv.extend(['--save_steps', '4000'])
     sys.argv.extend(['--num_train_epochs', '3'])
     sys.argv.extend(['--logging_steps', '400000'])
@@ -869,6 +869,6 @@ def write_metadata(task: Task) -> None:
 if __name__ == "__main__":
     import os
     task = tasks[os.environ['task']]
-    training_config(task)
+    evaluation_config(task)
     main(task)
     write_metadata(task)
