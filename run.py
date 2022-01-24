@@ -830,6 +830,14 @@ tasks = {
          LabelSource(BUGGINESS_MAP),
          augmentation=True,
      ),
+    'task18': Task(
+        "only_message_keywords_no_merge_only_message_aug",
+        COMMITS_200K_FILES_NO_MERGES,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=True,
+    ),
 }
 
 
