@@ -854,6 +854,14 @@ tasks = {
         LabelSource(BUGGINESS_MAP),
         augmentation=True,
     ),
+    'task21': Task(
+        "only_message_keywords_only_message_soft_aug",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES, soft_labels=True),
+        LabelSource(BUGGINESS_MAP, soft_labels=True),
+        augmentation=True,
+    ),
 }
 
 
