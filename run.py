@@ -846,6 +846,14 @@ tasks = {
         LabelSource(BUGGINESS_MAP),
         augmentation=True,
     ),
+    'task20': Task(
+        "all_heuristics_without_issues_no_merge_only_message_aug",
+        COMMITS_200K_FILES_NO_MERGES,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES_NO_FILES),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=True,
+    ),
 }
 
 
