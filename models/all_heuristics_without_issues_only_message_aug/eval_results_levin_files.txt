@@ -1,0 +1,7 @@
+eval_loss = 0.41950148344039917
+eval_acc = 0.8302900107411385
+eval_f1 = 0.8260710197981402
+eval_runtime = 6.2162
+eval_samples_per_second = 149.77
+eval_steps_per_second = 15.122
+epoch = 3.0
