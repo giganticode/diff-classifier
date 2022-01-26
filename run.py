@@ -24,6 +24,10 @@ from abc import abstractmethod
 from dataclasses import dataclass, field
 from typing import Dict, Optional, Tuple, List, Type, TypeVar, Union
 
+import torch.nn as nn
+import torch
+import torch.nn.functional as F
+
 from scipy.special import softmax
 
 from artifactexplorer import load_dataset
@@ -105,6 +109,44 @@ reload_from_commit_explorer = False
 MAX_LENGTH = 512
 
 NEXT_FILE_TOKEN = '<nextfile>'
+
+
+class SoftLabelCrossEntropyLoss(nn.Module):
+    def __init__(self, reduction='mean', **kwargs):
+        super().__init__()
+        self.reduction = reduction
+
+    def forward(self, input, target):
+        logprobs = F.log_softmax(input, dim=1)
+        loss = -torch.sum(target * logprobs, dim=1)
+        if self.reduction == 'none':
+            return loss
+        elif self.reduction == 'mean':
+            return torch.mean(loss)
+        elif self.reduction == 'sum':
+            return torch.sum(loss)
+        else:
+            raise NotImplementedError('Unsupported reduction mode.')
+
+
+class SoftLabelTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False):
+        labels = inputs.pop("labels")
+        outputs = model(**inputs)
+        
+        # Save past state if it exists
+        # TODO: this needs to be fixed and made cleaner later.
+        if self.args.past_index >= 0:
+            self._past = outputs[self.args.past_index]
+
+        if labels is not None:
+            if not hasattr(self, 'loss_func'): self.loss_func = SoftLabelCrossEntropyLoss()
+            loss = self.loss_func(outputs['logits'], labels)
+        else:
+            # We don't use .loss here since the model may return tuples instead of ModelOutput.
+            loss = outputs["loss"] if isinstance(outputs, dict) else outputs[0]
+
+        return (loss, outputs) if return_outputs else loss
 
 
 class LabelSource:
@@ -406,7 +448,7 @@ class LazyDataset(IterableDataset):
                 'is_truncated': 'True' if (not (attention_mask == 0).any() ) else 'False', #HACK has to be string so that its ignored by the model
             }
             if not self.no_ground_truth:
-                dct['label'] = labels[ind]
+                dct['labels'] = labels[ind]
             res.append(dct)
         return res
 
@@ -655,7 +697,12 @@ def main(task: Task):
     tokenized_valid_set = to_chain_of_simple_datasets(valid_set, task.dataset_class, tokenizer, task.label_source)
     show_tokenization_example(tokenized_train_set, tokenizer)
 
-    trainer = Trainer(
+    if task.label_source.soft_labels:
+        trainer_cls = SoftLabelTrainer
+    else:
+        trainer_cls = Trainer
+    
+    trainer = trainer_cls(
         model=model,
         args=training_args,
         train_dataset=tokenized_train_set,
