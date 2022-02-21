@@ -485,10 +485,14 @@ class Task:
             raise ValueError(f'Unknown dataset type: {self.dataset_class.__name__}')
 
     def get_metadata(self) -> Dict[str, str]:
+        if isinstance(self.label_source, ManualLabelSource):
+            a = {'label_source': 'manual labels', "issues": "without issues"}
+        else:
+            a = labels_to_training_mode_map[self.label_source.label_model_name]
         return {
             'name': self.name,
             'model': 'transformer',
-            **labels_to_training_mode_map[self.label_source.label_model_name],
+            **a,
             'trained_on': self.trained_on,
             'train_dataset': self.dataset,
             'soft_labels': self.label_source.soft_labels,
