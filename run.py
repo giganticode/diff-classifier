@@ -137,6 +137,15 @@ class LMLabelSource(LabelSource):
         return [1-dp, dp] if self.soft_labels else round(dp)
 
 
+class ManualLabelSource(LabelSource):
+    def __init__(self, label_map, soft_labels: bool = False):
+        super(ManualLabelSource, self).__init__(label_map)
+        self.soft_labels = soft_labels
+        self.map = map
+        if self.soft_labels:
+            raise NotImplementedError()
+
+
 LabelSourceType = TypeVar('LabelSourceType', LabelSource, LMLabelSource)
 
 
@@ -861,6 +870,22 @@ tasks = {
         LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES, soft_labels=True),
         LabelSource(BUGGINESS_MAP, soft_labels=True),
         augmentation=True,
+    ),
+    'task22': Task(
+        "only_message_keywords_only_message_soft_aug",
+        COMMITS_200K_FILES_DATASET,
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ONLY_MESSAGE_KEYWORDS_TRAINED_ON_200K_FILES, soft_labels=True),
+        LabelSource(BUGGINESS_MAP, soft_labels=True),
+        augmentation=True,
+    ),
+    'task23': Task(
+        "only_message_keywords_only_message_on_levin",
+        'levin_files',
+        MessageDataset,
+        ManualLabelSource(BUGGINESS_MAP),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=False,
     ),
 }
 
