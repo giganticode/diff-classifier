@@ -22,6 +22,7 @@ import re
 import sys
 from abc import abstractmethod
 from dataclasses import dataclass, field
+from random import random
 from typing import Dict, Optional, Tuple, List, Type, TypeVar, Union
 
 from scipy.special import softmax
@@ -144,6 +145,18 @@ class ManualLabelSource(LabelSource):
         self.map = map
         if self.soft_labels:
             raise NotImplementedError()
+
+
+class RandomLabelSource(LabelSource):
+    def __init__(self, label_map, soft_labels: bool = False):
+        super(RandomLabelSource, self).__init__(label_map)
+        self.soft_labels = soft_labels
+        self.map = map
+        if self.soft_labels:
+            raise NotImplementedError()
+
+    def get_label_id_from_datapoint(self, datapoint) -> Union[int, float]:
+        return round(random())
 
 
 LabelSourceType = TypeVar('LabelSourceType', LabelSource, LMLabelSource)
@@ -904,6 +917,14 @@ tasks = {
         'manual_labels.herzig',
         MessageDataset,
         ManualLabelSource(BUGGINESS_MAP),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=False,
+    ),
+    'task26': Task(
+        "only_message_keywords_only_message_on_random",
+        'manual_labels.herzig',
+        MessageDataset,
+        RandomLabelSource(BUGGINESS_MAP),
         LabelSource(BUGGINESS_MAP),
         augmentation=False,
     ),
