@@ -500,6 +500,8 @@ class Task:
     def get_metadata(self) -> Dict[str, str]:
         if isinstance(self.label_source, ManualLabelSource):
             a = {'label_source': 'manual labels', "issues": "without issues"}
+        elif isinstance(self.label_source, RandomLabelSource):
+            a = {'label_source': 'random labels', "issues": "without issues"}
         else:
             a = labels_to_training_mode_map[self.label_source.label_model_name]
         return {
