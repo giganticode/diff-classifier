@@ -891,6 +891,22 @@ tasks = {
         LabelSource(BUGGINESS_MAP),
         augmentation=False,
     ),
+    'task24': Task(
+        "only_message_keywords_only_message_on_berger",
+        'berger_files',
+        MessageDataset,
+        ManualLabelSource(BUGGINESS_MAP),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=False,
+    ),
+    'task25': Task(
+        "only_message_keywords_only_message_on_herzig",
+        'manual_labels.herzig',
+        MessageDataset,
+        ManualLabelSource(BUGGINESS_MAP),
+        LabelSource(BUGGINESS_MAP),
+        augmentation=False,
+    ),
 }
 
 
