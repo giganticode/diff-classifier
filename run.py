@@ -716,6 +716,7 @@ datasets = {
     'commits_200k_files': lambda c: c['bohr']['label_model'],
     'commits_200k_files_0': lambda c: c['bohr']['label_model'],
     'commits_200k_files_00': lambda c: c['bohr']['label_model'],
+    'commits_200k_files_000': lambda c: c['bohr']['label_model'],
     'commits_200k_files_no_merges': lambda c: c['bohr']['label_model'],
     # 'conventional': (lambda: load_dataset_by_query({'conventional_commit/0_1.conventional': True, 'files': {"$exists": True}}, 'datasets/conventional_commits_changes.jsonl', reload_from_commit_explorer, lambda c: c['conventional_commit/0_1']['type'].lower())),
     'levin_files': lambda c: ('BugFix' if c['manual_labels']['levin']['bug'] == 1 else 'NonBugFix'),
