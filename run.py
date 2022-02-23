@@ -946,6 +946,13 @@ tasks = {
         LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES),
         LabelSource(BUGGINESS_MAP)
     ),
+    'task29': Task(
+        "all_heuristics_without_issues_only_message_000",
+        'commits_200k_files_000',
+        MessageDataset,
+        LMLabelSource(BUGGINESS_MAP, ALL_HEURISTICS_WITHOUT_ISSUES_TRAINED_ON_200K_FILES),
+        LabelSource(BUGGINESS_MAP)
+    ),
 }
 
 
