@@ -23,7 +23,10 @@ def load_dataset(id, label_func) -> List[Dict]:
 
     dataset = []
     print(f"Loading dataset from file: {repo}/{path}")
-    full_path = f'{str(Path(__file__).parent)}/datasets/{id}.jsonl'
+    datasets_dir = Path(__file__).parent / 'datasets'
+    if not datasets_dir.exists():
+        datasets_dir.mkdir()
+    full_path = f'{str(datasets_dir)}/{id}.jsonl'
     if not os.path.exists(full_path):
         with dvc.api.open(path, repo=repo, mode='rb') as fd:
             with open(full_path, 'wb') as g:
