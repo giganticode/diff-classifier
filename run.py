@@ -959,15 +959,16 @@ tasks = {
 
 def add_common_config(task: Task) -> None:
     sys.argv.extend(['--output_dir', f'models/{task.name}'])
-    sys.argv.extend(['--per_device_eval_batch_size', '10'])
+    sys.argv.extend(['--per_device_eval_batch_size', '4'])
     sys.argv.extend(['--do_predict'])
     sys.argv.extend(['--overwrite_output_dir'])
-    sys.argv.extend(['--per_device_train_batch_size', '3'])
-    sys.argv.extend(['--save_steps', '4000'])
-    sys.argv.extend(['--num_train_epochs', '3'])
-    sys.argv.extend(['--logging_steps', '400000'])
-    sys.argv.extend(['--eval_steps', '4000'])
-    sys.argv.extend(['--evaluation_strategy', 'steps'])
+    sys.argv.extend(['--per_device_train_batch_size', '4'])
+    #sys.argv.extend(['--save_epochs', '1'])
+    sys.argv.extend(['--save_strategy', 'epoch'])
+    sys.argv.extend(['--num_train_epochs', '10'])
+    sys.argv.extend(['--logging_steps', '40000'])
+    #sys.argv.extend(['--eval_epochs', '1'])
+    sys.argv.extend(['--evaluation_strategy', 'epoch'])
     sys.argv.extend(['--load_best_model_at_end'])
 
 
